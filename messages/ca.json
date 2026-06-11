@@ -414,5 +414,33 @@
     "emptyTitle": "El teu cistell és buit",
     "emptyBody": "Encara no has afegit cap producte. Descobreix la nostra selecció de catifes a mida.",
     "emptyCta": "Veure les catifes"
+  },
+  "Filters": {
+    "title": "Filtrar",
+    "filter": "Filtrar",
+    "close": "Tancar",
+    "search": "Cerca",
+    "searchPlaceholder": "Cerca per nom…",
+    "family": "Família",
+    "priceLabel": "Preu",
+    "measures": "Mides",
+    "measuresMin": "≥ {count} mides disponibles",
+    "sort": "Ordenar:",
+    "sortNameAsc": "Nom (A–Z)",
+    "sortPriceAsc": "Preu (menor a major)",
+    "sortPriceDesc": "Preu (major a menor)",
+    "results": "{count, plural, =0 {Cap catifa} one {# catifa} other {# catifes}}",
+    "showResults": "{count, plural, =0 {Veure resultats} one {Veure # catifa} other {Veure # catifes}}",
+    "clear": "Netejar filtres",
+    "removeFilter": "Treure filtre",
+    "emptyTitle": "Cap catifa coincideix",
+    "emptyBody": "Prova de canviar o treure alguns filtres.",
+    "price": {
+      "lt50": "Menys de 50 €",
+      "50_100": "50 – 100 €",
+      "100_200": "100 – 200 €",
+      "200_400": "200 – 400 €",
+      "gt400": "Més de 400 €"
+    }
   }
 }

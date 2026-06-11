@@ -414,5 +414,33 @@
     "emptyTitle": "Your cart is empty",
     "emptyBody": "You haven't added any products yet. Discover our selection of made-to-measure rugs.",
     "emptyCta": "View the rugs"
+  },
+  "Filters": {
+    "title": "Filter",
+    "filter": "Filter",
+    "close": "Close",
+    "search": "Search",
+    "searchPlaceholder": "Search by name…",
+    "family": "Family",
+    "priceLabel": "Price",
+    "measures": "Sizes",
+    "measuresMin": "≥ {count} sizes available",
+    "sort": "Sort:",
+    "sortNameAsc": "Name (A–Z)",
+    "sortPriceAsc": "Price (low to high)",
+    "sortPriceDesc": "Price (high to low)",
+    "results": "{count, plural, =0 {No rugs} one {# rug} other {# rugs}}",
+    "showResults": "{count, plural, =0 {Show results} one {Show # rug} other {Show # rugs}}",
+    "clear": "Clear filters",
+    "removeFilter": "Remove filter",
+    "emptyTitle": "No rugs match",
+    "emptyBody": "Try changing or removing some filters.",
+    "price": {
+      "lt50": "Under €50",
+      "50_100": "€50 – 100",
+      "100_200": "€100 – 200",
+      "200_400": "€200 – 400",
+      "gt400": "Over €400"
+    }
   }
 }

@@ -414,5 +414,33 @@
     "emptyTitle": "Votre panier est vide",
     "emptyBody": "Vous n'avez encore ajouté aucun produit. Découvrez notre sélection de tapis sur mesure.",
     "emptyCta": "Voir les tapis"
+  },
+  "Filters": {
+    "title": "Filtrer",
+    "filter": "Filtrer",
+    "close": "Fermer",
+    "search": "Rechercher",
+    "searchPlaceholder": "Rechercher par nom…",
+    "family": "Famille",
+    "priceLabel": "Prix",
+    "measures": "Dimensions",
+    "measuresMin": "≥ {count} dimensions disponibles",
+    "sort": "Trier :",
+    "sortNameAsc": "Nom (A–Z)",
+    "sortPriceAsc": "Prix (croissant)",
+    "sortPriceDesc": "Prix (décroissant)",
+    "results": "{count, plural, =0 {Aucun tapis} one {# tapis} other {# tapis}}",
+    "showResults": "{count, plural, =0 {Voir les résultats} one {Voir # tapis} other {Voir # tapis}}",
+    "clear": "Effacer les filtres",
+    "removeFilter": "Retirer le filtre",
+    "emptyTitle": "Aucun tapis ne correspond",
+    "emptyBody": "Essayez de modifier ou de retirer certains filtres.",
+    "price": {
+      "lt50": "Moins de 50 €",
+      "50_100": "50 – 100 €",
+      "100_200": "100 – 200 €",
+      "200_400": "200 – 400 €",
+      "gt400": "Plus de 400 €"
+    }
   }
 }

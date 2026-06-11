@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import { getTranslations, getLocale } from "next-intl/server";
-import { CATIFES, catifaImage, type CatifaFamilia } from "@/lib/catifes";
+import { getTranslations } from "next-intl/server";
+import { CATIFES } from "@/lib/catifes";
 import { SITE_URL } from "@/lib/site";
+import CatifesCatalog from "@/components/CatifesCatalog";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -30,18 +29,8 @@ export default async function CatifesPage({ params }: Props) {
   const t = await getTranslations("Catifes");
   const prefix = locale === "ca" ? "" : `/${locale}`;
 
-  const familyLabel = (f: CatifaFamilia) =>
-    t(`families.${f}` as Parameters<typeof t>[0]);
-
-  const priceFmt = (pvp: number | null) =>
-    pvp === null
-      ? t("onDemand")
-      : `${t("fromPrice")} ${pvp.toLocaleString(locale, {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })} €`;
-
   // Dades estructurades: llista de productes (catifes) per a SEO local.
+  // Sempre el set complet (no el filtrat), per consistència del JSON-LD.
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -74,41 +63,9 @@ export default async function CatifesPage({ params }: Props) {
             <p className="font-sans text-body-lg text-ink-muted">{t("intro")}</p>
           </header>
 
-          {/* Graella de catifes */}
-          <ul
-            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6"
-            role="list"
-          >
-            {CATIFES.map((c, i) => (
-              <li key={c.slug}>
-                <Link
-                  href={`${prefix}/catifes/${c.slug}`}
-                  className="group block"
-                  aria-label={c.nom}
-                >
-                  <div className="relative aspect-square overflow-hidden bg-linen mb-3">
-                    <Image
-                      src={catifaImage(c.slug)}
-                      alt={c.nom}
-                      fill
-                      priority={i < 4}
-                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <span className="absolute top-3 left-3 bg-canvas/90 text-ink font-sans text-[10px] tracking-widest uppercase px-2 py-1">
-                      {familyLabel(c.familia)}
-                    </span>
-                  </div>
-                  <p className="font-serif text-body-lg text-ink group-hover:text-accent-deep transition-colors">
-                    {c.nom}
-                  </p>
-                  <p className="font-sans text-body-sm text-ink-muted">
-                    {priceFmt(c.pvpDesde)}
-                  </p>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          {/* Catàleg filtrable (client). Rep el set complet per props i gestiona
+              filtres, cerca i ordenació sense recarregar. */}
+          <CatifesCatalog catifes={CATIFES} prefix={prefix} locale={locale} />
         </div>
       </section>
     </article>
