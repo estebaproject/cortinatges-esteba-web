@@ -422,7 +422,10 @@
       "sofa": "Sofa",
       "llit": "Bed",
       "moble": "Cabinet"
-    }
+    },
+    "colorLabel": "Colour",
+    "colorsAvailable": "{count, plural, one {# colour available} other {# colours available}}",
+    "colorsCount": "{count, plural, one {# colour} other {# colours}}"
   },
   "Botiga": {
     "metaTitle": "ESTEBA store — Rugs and furniture | Cortinatges Esteba",
@@ -499,7 +502,8 @@
       "350_600": "€350 – 600",
       "600_1000": "€600 – 1,000",
       "gt1000": "Over €1,000"
-    }
+    },
+    "colorLabel": "Colour"
   },
   "Decoracio": {
     "metaTitle": "Decor — Throws | Cortinatges Esteba | Costa Brava",

@@ -9,7 +9,7 @@ import {
   type TipusMoble,
 } from "@/lib/mobiliari";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
-import AddToCartButton from "@/components/cart/AddToCartButton";
+import MobleGallery from "@/components/MobleGallery";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "Mobles" });
   const prefix = locale === "ca" ? "" : `/${locale}`;
   const url = `${SITE_URL}${prefix}/mobiliari/${slug}`;
-  const image = mobleImage(slug);
+  const image = mobleImage(slug, moble.colors[0].slug);
   const tipusLabel = t(`tipus.${moble.tipus}` as Parameters<typeof t>[0]);
   const description = `${moble.nom} — ${tipusLabel}. ${t("madeBy")} ${t("madeByBrand")}. ${t("fromPrice")} ${moble.pvpDesde} €.`;
   return {
@@ -58,7 +58,9 @@ export default async function MoblePage({ params }: Props) {
   const tipusLabel = (tp: TipusMoble) =>
     t(`tipus.${tp}` as Parameters<typeof t>[0]);
 
-  const image = mobleImage(slug);
+  // Imatge principal (primer color) per al schema/OG; la galeria gestiona la
+  // resta de colors al client.
+  const image = mobleImage(slug, moble.colors[0].slug);
   const priceLabel = `${t("fromPrice")} ${moble.pvpDesde.toLocaleString(locale, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
@@ -128,56 +130,13 @@ export default async function MoblePage({ params }: Props) {
             <span className="text-ink">{moble.nom}</span>
           </nav>
 
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-            {/* Foto gran */}
-            <div className="relative aspect-square overflow-hidden bg-linen">
-              <Image
-                src={image}
-                alt={moble.nom}
-                fill
-                priority
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover"
-              />
-            </div>
-
-            {/* Informació */}
-            <div className="lg:sticky lg:top-28 self-start">
-              <p className="font-sans text-eyebrow text-accent-deep uppercase mb-4">
-                {tipusLabel(moble.tipus)}
-              </p>
-              <h1 className="font-serif text-display-lg text-ink mb-4">{moble.nom}</h1>
-              <p className="font-serif text-display-md text-ink mb-8">{priceLabel}</p>
-
-              <dl className="border-t border-linen divide-y divide-linen mb-8">
-                <div className="flex justify-between py-4">
-                  <dt className="font-sans text-body-sm text-ink-muted uppercase tracking-widest">
-                    {t("typeLabel")}
-                  </dt>
-                  <dd className="font-sans text-body-md text-ink">
-                    {tipusLabel(moble.tipus)}
-                  </dd>
-                </div>
-                <div className="flex justify-between py-4">
-                  <dt className="font-sans text-body-sm text-ink-muted uppercase tracking-widest">
-                    {t("madeBy")}
-                  </dt>
-                  <dd className="font-serif text-body-md text-ink-faint italic">
-                    {moble.marca}
-                  </dd>
-                </div>
-              </dl>
-
-              {/* Compra directa. Botó client que afegeix al cistell. */}
-              <div className="mb-6">
-                <AddToCartButton
-                  slug={moble.slug}
-                  nom={moble.nom}
-                  pvp={moble.pvpDesde}
-                  image={image}
-                />
-              </div>
-
+          {/* Galeria interactiva per color (client). El bloc d'informació
+              estàtica s'injecta com a children i es manté al servidor; només la
+              foto, els swatches i l'afegir al cistell depenen del color actiu.
+              El botó de compra el renderitza MobleGallery amb el color actiu. */}
+          <MobleGallery
+            moble={moble}
+            footer={
               <div className="border border-linen p-8 bg-canvas-warm">
                 <p className="font-serif text-display-md text-ink mb-3">
                   {t("ctaBlockHeadline")}
@@ -192,8 +151,43 @@ export default async function MoblePage({ params }: Props) {
                   {t("requestBudget")}
                 </Link>
               </div>
-            </div>
-          </div>
+            }
+          >
+            <p className="font-sans text-eyebrow text-accent-deep uppercase mb-4">
+              {tipusLabel(moble.tipus)}
+            </p>
+            <h1 className="font-serif text-display-lg text-ink mb-4">{moble.nom}</h1>
+            <p className="font-serif text-display-md text-ink mb-8">{priceLabel}</p>
+
+            <dl className="border-t border-linen divide-y divide-linen mb-8">
+              <div className="flex justify-between py-4">
+                <dt className="font-sans text-body-sm text-ink-muted uppercase tracking-widest">
+                  {t("typeLabel")}
+                </dt>
+                <dd className="font-sans text-body-md text-ink">
+                  {tipusLabel(moble.tipus)}
+                </dd>
+              </div>
+              {moble.colors.length > 1 && (
+                <div className="flex justify-between py-4">
+                  <dt className="font-sans text-body-sm text-ink-muted uppercase tracking-widest">
+                    {t("colorLabel")}
+                  </dt>
+                  <dd className="font-sans text-body-md text-ink">
+                    {t("colorsAvailable", { count: moble.colors.length })}
+                  </dd>
+                </div>
+              )}
+              <div className="flex justify-between py-4">
+                <dt className="font-sans text-body-sm text-ink-muted uppercase tracking-widest">
+                  {t("madeBy")}
+                </dt>
+                <dd className="font-serif text-body-md text-ink-faint italic">
+                  {moble.marca}
+                </dd>
+              </div>
+            </dl>
+          </MobleGallery>
 
           {/* Mobles relacionats */}
           {related.length > 0 && (
@@ -216,7 +210,7 @@ export default async function MoblePage({ params }: Props) {
                     >
                       <div className="relative aspect-square overflow-hidden bg-linen mb-3">
                         <Image
-                          src={mobleImage(m.slug)}
+                          src={mobleImage(m.slug, m.colors[0].slug)}
                           alt={m.nom}
                           fill
                           sizes="(min-width: 1024px) 25vw, 50vw"

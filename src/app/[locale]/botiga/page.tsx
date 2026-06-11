@@ -32,6 +32,10 @@ export default async function BotigaPage({ params }: Props) {
   const t = await getTranslations("Botiga");
   const prefix = locale === "ca" ? "" : `/${locale}`;
 
+  // Foto representativa de mobles: primer color del model destacat ("toulouse").
+  const mobleHero = MOBLES.find((m) => m.slug === "toulouse") ?? MOBLES[0];
+  const mobleHeroImage = mobleImage(mobleHero.slug, mobleHero.colors[0].slug);
+
   // Tarjetes de categoria amb foto representativa i nombre de productes.
   const categories = [
     {
@@ -48,7 +52,7 @@ export default async function BotigaPage({ params }: Props) {
       title: t("moblesTitle"),
       description: t("moblesDescription"),
       count: MOBLES.length,
-      image: mobleImage("toulouse"),
+      image: mobleHeroImage,
     },
     {
       key: "decoracio" as const,

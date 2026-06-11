@@ -422,7 +422,10 @@
       "sofa": "Sofá",
       "llit": "Cama",
       "moble": "Mueble"
-    }
+    },
+    "colorLabel": "Color",
+    "colorsAvailable": "{count, plural, one {# color disponible} other {# colores disponibles}}",
+    "colorsCount": "{count, plural, one {# color} other {# colores}}"
   },
   "Botiga": {
     "metaTitle": "Tienda ESTEBA — Alfombras y muebles | Cortinatges Esteba",
@@ -499,7 +502,8 @@
       "350_600": "350 – 600 €",
       "600_1000": "600 – 1.000 €",
       "gt1000": "Más de 1.000 €"
-    }
+    },
+    "colorLabel": "Color"
   },
   "Decoracio": {
     "metaTitle": "Decoración — Mantas | Cortinatges Esteba | Costa Brava",

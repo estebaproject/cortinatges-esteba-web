@@ -73,6 +73,7 @@ export default function MoblesCatalog({ mobles, prefix, locale }: Props) {
   const [query, setQuery] = useState("");
   const [selectedTipus, setSelectedTipus] = useState<TipusMoble[]>([]);
   const [selectedBuckets, setSelectedBuckets] = useState<PriceBucketId[]>([]);
+  const [selectedColors, setSelectedColors] = useState<string[]>([]);
   const [sort, setSort] = useState<SortId>("name_asc");
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -81,6 +82,19 @@ export default function MoblesCatalog({ mobles, prefix, locale }: Props) {
     const present = new Set(mobles.map((m) => m.tipus));
     return TIPUS_ORDER.filter((tp) => present.has(tp));
   }, [mobles]);
+
+  // Tots els noms de color presents (només els que en tenen: multicolor i
+  // monocolor amb nom). Els models d'un sol color sense nom no aporten res.
+  // Ordre alfabètic estable segons el locale per a una UI consistent.
+  const availableColors = useMemo(() => {
+    const names = new Set<string>();
+    for (const m of mobles) {
+      for (const c of m.colors) {
+        if (c.nom) names.add(c.nom);
+      }
+    }
+    return [...names].sort((a, b) => a.localeCompare(b, locale));
+  }, [mobles, locale]);
 
   // --- Helpers d'etiquetes i format --------------------------------------
   const tipusLabel = (tp: TipusMoble) =>
@@ -106,6 +120,11 @@ export default function MoblesCatalog({ mobles, prefix, locale }: Props) {
       prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id],
     );
 
+  const toggleColor = (nom: string) =>
+    setSelectedColors((prev) =>
+      prev.includes(nom) ? prev.filter((x) => x !== nom) : [...prev, nom],
+    );
+
   const bucketMatches = (pvp: number, ids: PriceBucketId[]) =>
     ids.some((id) => {
       const b = PRICE_BUCKETS.find((x) => x.id === id);
@@ -129,6 +148,14 @@ export default function MoblesCatalog({ mobles, prefix, locale }: Props) {
       if (selectedBuckets.length > 0 && !bucketMatches(m.pvpDesde, selectedBuckets))
         return false;
 
+      // Color (multiselecció; buit = tots). Matcheja si ALGUN dels colors
+      // del moble coincideix amb algun dels seleccionats.
+      if (
+        selectedColors.length > 0 &&
+        !m.colors.some((c) => c.nom && selectedColors.includes(c.nom))
+      )
+        return false;
+
       return true;
     });
 
@@ -140,23 +167,26 @@ export default function MoblesCatalog({ mobles, prefix, locale }: Props) {
     });
 
     return sorted;
-  }, [mobles, query, selectedTipus, selectedBuckets, sort, locale]);
+  }, [mobles, query, selectedTipus, selectedBuckets, selectedColors, sort, locale]);
 
   // --- Estat de chips actius ---------------------------------------------
   const hasActiveFilters =
     query.trim() !== "" ||
     selectedTipus.length > 0 ||
-    selectedBuckets.length > 0;
+    selectedBuckets.length > 0 ||
+    selectedColors.length > 0;
 
   const clearAll = () => {
     setQuery("");
     setSelectedTipus([]);
     setSelectedBuckets([]);
+    setSelectedColors([]);
   };
 
   const activeFilterCount =
     selectedTipus.length +
     selectedBuckets.length +
+    selectedColors.length +
     (query.trim() ? 1 : 0);
 
   // --- Subcomponents reutilitzats ----------------------------------------
@@ -243,6 +273,26 @@ export default function MoblesCatalog({ mobles, prefix, locale }: Props) {
           ))}
         </div>
       </fieldset>
+
+      {/* Color (només si hi ha colors amb nom al catàleg) */}
+      {availableColors.length > 0 && (
+        <fieldset className="border-t border-sand-dark/40 pt-6">
+          <legend className="font-sans text-eyebrow text-accent-deep uppercase mb-3">
+            {tf("colorLabel")}
+          </legend>
+          <div>
+            {availableColors.map((nom) => (
+              <FilterCheck
+                key={nom}
+                name="color"
+                checked={selectedColors.includes(nom)}
+                onChange={() => toggleColor(nom)}
+                label={nom}
+              />
+            ))}
+          </div>
+        </fieldset>
+      )}
 
       {hasActiveFilters && (
         <button
@@ -370,6 +420,13 @@ export default function MoblesCatalog({ mobles, prefix, locale }: Props) {
                 onRemove={() => toggleBucket(id)}
               />
             ))}
+            {selectedColors.map((nom) => (
+              <Chip
+                key={`color-${nom}`}
+                label={nom}
+                onRemove={() => toggleColor(nom)}
+              />
+            ))}
             <button
               type="button"
               onClick={clearAll}
@@ -395,7 +452,7 @@ export default function MoblesCatalog({ mobles, prefix, locale }: Props) {
                 >
                   <div className="relative aspect-square overflow-hidden bg-linen mb-3">
                     <Image
-                      src={mobleImage(m.slug)}
+                      src={mobleImage(m.slug, m.colors[0].slug)}
                       alt={m.nom}
                       fill
                       priority={i < 4}
@@ -405,6 +462,12 @@ export default function MoblesCatalog({ mobles, prefix, locale }: Props) {
                     <span className="absolute top-3 left-3 bg-canvas/90 text-ink font-sans text-[10px] tracking-widest uppercase px-2 py-1">
                       {tipusLabel(m.tipus)}
                     </span>
+                    {/* Indicador de variants de color (només multicolor) */}
+                    {m.colors.length > 1 && (
+                      <span className="absolute top-3 right-3 bg-ink/90 text-canvas font-sans text-[10px] tracking-widest uppercase px-2 py-1">
+                        {t("colorsCount", { count: m.colors.length })}
+                      </span>
+                    )}
                   </div>
                   <p className="font-serif text-body-lg text-ink group-hover:text-accent-deep transition-colors">
                     {m.nom}
