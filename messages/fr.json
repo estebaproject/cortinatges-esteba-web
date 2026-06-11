@@ -1,0 +1,391 @@
+{
+  "Metadata": {
+    "title": "Cortinatges Esteba — Artisans textiles depuis 1961 | Costa Brava",
+    "description": "Trois générations à coudre la lumière et l'intimité des maisons de la Costa Brava. Rideaux sur mesure, stores, panneaux japonais, motorisation et tapisserie. Boutiques à Gérone, Blanes et Palamós."
+  },
+  "Navigation": {
+    "collections": "Produits",
+    "stores": "Boutiques",
+    "about": "À propos",
+    "services": "Services",
+    "contact": "Contact",
+    "cta": "Prendre rendez-vous",
+    "catifes": "Tapis"
+  },
+  "Footer": {
+    "tagline": "Trois générations à coudre la lumière et l'intimité des maisons de la Costa Brava.",
+    "rights": "Tous droits réservés.",
+    "privacy": "Politique de confidentialité",
+    "cookies": "Politique de cookies",
+    "legal": "Mentions légales",
+    "services": "Services",
+    "budget": "Demander un devis",
+    "jobs": "Travailler avec nous",
+    "linksHeading": "Liens"
+  },
+  "CookieBanner": {
+    "title": "Cookies",
+    "message": "Nous utilisons des cookies propres et de tiers pour améliorer votre expérience et analyser l'usage du site.",
+    "more": "Plus d'informations",
+    "accept": "J'accepte",
+    "reject": "Je refuse"
+  },
+  "Hero": {
+    "ariaLabel": "Section principale",
+    "headline": "Depuis 1961, nous cousons la lumière dans les maisons de la Costa Brava.",
+    "subheadline": "Trois générations d'artisans textiles. Rideaux sur mesure, stores, motorisation domotique et tapisserie avec les plus belles étoffes du monde.",
+    "ctaPrimary": "Prendre rendez-vous",
+    "ctaSecondary": "Découvrir les collections"
+  },
+  "SectionOfici": {
+    "ariaLabel": "Notre métier",
+    "eyebrow": "Notre métier",
+    "headline": "Trois générations. Un seul métier.",
+    "imageAlt": "Photographie de l'atelier de Cortinatges Esteba",
+    "paragraph1": "En 2021, cela faisait 60 ans que nous avions commencé, et depuis nous n'avons cessé de grandir !",
+    "paragraph2": "Nous misons sur une attention personnalisée, pour vous garantir le meilleur service et la meilleure installation.",
+    "paragraph3": "Nous collaborons actuellement avec des décorateurs d'intérieur qualifiés pour réaliser vos projets.",
+    "stat1": "ans d'expérience",
+    "stat2": "boutiques sur la Costa Brava",
+    "stat3": "générations de la famille Esteba"
+  },
+  "Collections": {
+    "ariaLabel": "Collections",
+    "eyebrow": "Collections",
+    "headline": "Chaque espace, sa solution. Chaque tissu, son histoire.",
+    "intro": "Cinq lignes de produits. Toutes sur mesure, toutes cousues dans notre atelier.",
+    "cta": "Voir la collection",
+    "brandsLabel": "Tissus par :",
+    "items": {
+      "cortines": {
+        "name": "Rideaux sur mesure",
+        "description": "Conçus à partir de l'espace, de la lumière et du goût du client. Tissus éditoriaux, finitions précises, tombé étudié."
+      },
+      "estors": {
+        "name": "Stores",
+        "description": "Enrouleurs, vénitiens PVC ou écran. Contrôle de la lumière sans sacrifier l'esthétique de l'espace."
+      },
+      "panells-japonesos": {
+        "name": "Panneaux japonais",
+        "description": "La solution linéaire pour les grandes ouvertures. Composition épurée, mouvement doux, tissus naturels ou techniques."
+      },
+      "venecianes": {
+        "name": "Vénitiens",
+        "description": "Bois, aluminium ou faux-bois. Pour ceux qui veulent une lumière ajustable avec un caractère propre et durable."
+      },
+      "motoritzacio": {
+        "name": "Motorisation domotique",
+        "description": "N'importe quel produit, motorisé. Intégré avec KNX, Somfy ou systèmes ouverts. Le confort sans gestes."
+      }
+    }
+  },
+  "Locations": {
+    "ariaLabel": "Nos boutiques",
+    "eyebrow": "Nos boutiques",
+    "headline": "Venez nous voir. Parlons de votre espace.",
+    "stores": {
+      "girona": {
+        "city": "Gérone",
+        "address": "C/ Rutlla, 11 · 17002 Girona",
+        "phone": "972 20 34 23",
+        "schedule": "Lun–Ven 9.30–13.30 et 16.30–20.00 · Sam 10.00–13.30"
+      },
+      "blanes": {
+        "city": "Blanes",
+        "address": "Rambla Joaquim Ruyra, 59 · 17300 Blanes",
+        "phone": "972 33 05 73",
+        "schedule": "Lun–Ven 9.30–13.30 et 16.30–20.00 · Sam 10.00–13.30"
+      },
+      "palamos": {
+        "city": "Palamós",
+        "address": "C/ Miguel de Cervantes, 35 · 17230 Palamós",
+        "phone": "972 31 62 19",
+        "schedule": "Lun–Ven 9.30–13.30 et 16.30–20.00 · Sam 10.00–13.30"
+      },
+      "matalasseria": {
+        "city": "Literie",
+        "address": "C/ Rutlla, 20 · 17002 Girona",
+        "phone": "972 20 34 23",
+        "schedule": "Lun–Ven 9.30–13.30 et 16.30–20.00 · Sam 10.00–13.30"
+      }
+    }
+  },
+  "CtaVisita": {
+    "ariaLabel": "Prendre rendez-vous",
+    "eyebrow": "Sans engagement",
+    "headline": "Demandez votre visite. Nous vous conseillons à domicile ou en boutique.",
+    "body": "Nous vous accueillons dans l'une de nos boutiques pour parler de votre projet, sans engagement. Et si vous préférez, nous venons chez vous avec les échantillons : un service de conseil à domicile payant, pour voir les tissus dans votre espace et votre lumière.",
+    "ctaPrimary": "Prendre rendez-vous",
+    "ctaSecondary": "Trouver la boutique la plus proche",
+    "disclaimer": "Sans engagement. Sans pression commerciale."
+  },
+  "Home": {
+    "metaTitle": "Artisans textiles depuis 1961 — Rideaux, stores et décoration sur mesure",
+    "metaDescription": "Trois générations à coudre la lumière et l'intimité des maisons de la Costa Brava. Rideaux sur mesure, stores, panneaux japonais, motorisation et tapisserie à Gérone, Blanes et Palamós."
+  },
+  "About": {
+    "metaTitle": "À propos — Trois générations d'artisans textiles sur la Costa Brava",
+    "metaDescription": "L'histoire de Cortinatges Esteba : depuis 1961, trois générations confectionnent des rideaux sur mesure avec des boutiques à Gérone, Blanes et Palamós.",
+    "eyebrow": "À propos",
+    "title": "Trois générations à habiller les maisons de la Costa Brava",
+    "lead": "Depuis 1961, nous faisons une seule chose et nous la faisons bien : habiller les foyers de textiles sur mesure, avec goût et savoir-faire.",
+    "story1": "Tout a commencé en 1961, lorsque le fondateur de la famille Esteba a ouvert la première boutique à Gérone. En 2021, nous avons célébré 60 ans et, depuis, nous n'avons cessé de grandir.",
+    "story2": "Aujourd'hui, nous perpétuons les mêmes valeurs : des textiles de qualité, un conseil de proximité et une confection maison. Chaque projet commence par une conversation et s'achève par une installation réalisée par notre équipe.",
+    "story3": "Nous collaborons avec des décorateurs d'intérieur qualifiés et avec les meilleures maisons d'édition textile pour donner vie à vos projets.",
+    "valuesTitle": "Ce qui nous rend différents",
+    "values": [
+      {
+        "title": "Confection maison",
+        "desc": "Nous cousons chaque pièce dans notre atelier, entièrement sur mesure."
+      },
+      {
+        "title": "Accompagnement personnalisé",
+        "desc": "Nous vous accompagnons de la première visite jusqu'à l'installation."
+      },
+      {
+        "title": "Installation maison",
+        "desc": "Notre équipe se charge du montage, avec soin."
+      },
+      {
+        "title": "60 ans d'expérience",
+        "desc": "Trois générations au service de la Costa Brava."
+      }
+    ]
+  },
+  "HomeGrid": {
+    "tagline": "Chez Cortinatges Esteba, vous trouverez bien plus que des rideaux ! Redécorez votre maison avec les tendances les plus actuelles.",
+    "serveis": "Services",
+    "tendals": "Stores bannes",
+    "pergoles": "Pergolas",
+    "tapisseria": "Tapisserie",
+    "badgeYears": "60",
+    "badgeAnys": "ans",
+    "badgeSince": "Depuis 1961",
+    "artisan1": "Nous confectionnons vos rideaux de manière artisanale depuis 1961",
+    "artisan2": "Nous misons sur une attention personnalisée, pour vous garantir le meilleur service et la meilleure installation",
+    "instagramHeading": "Suivez-nous sur Instagram",
+    "instagramCta": "Voir le profil",
+    "brandsHeading": "Nos principaux partenaires"
+  },
+  "HomeSections": {
+    "consulta": "Vous avez une question ?",
+    "tipusTitle": "Types de rideaux",
+    "tipusBody": "Nous savons que choisir des rideaux n'est pas aussi simple qu'il y paraît. Laissez-vous guider par notre grande expérience dans le secteur.",
+    "robaTitle": "Linge de maison",
+    "robaBody": "Découvrez les nouvelles collections de nos boutiques. Venez voir les dernières tendances en draps, couettes, couvre-lits et coussins. Tout un monde de possibilités.",
+    "descansTitle": "Repos",
+    "descansBody": "Nous garantissons la qualité de votre sommeil. Nous travaillons avec les meilleures marques pour vous offrir une option sur mesure : matelas, sommiers, oreillers et accessoires.",
+    "espaisTitle": "Espaces intelligents",
+    "espaisBody": "Des espaces plus efficaces. Les stores et rideaux motorisés sont le premier pas pour transformer vos espaces en lieux intelligents.",
+    "showcaseHeading": "De l'inspiration pour votre maison"
+  },
+  "Serveis": {
+    "metaTitle": "Nos services — Conseil, prise de mesures, confection et installation",
+    "metaDescription": "Un accompagnement personnalisé du début à la fin : conseil, design d'intérieur, prise de mesures, confection artisanale et installation par nos soins sur la Costa Brava.",
+    "eyebrow": "Services",
+    "title": "Nos services",
+    "intro": "Un accompagnement complet, de la première visite jusqu'à la dernière installation.",
+    "items": {
+      "assessorament": {
+        "name": "Conseil",
+        "desc": "Nous offrons un service client personnalisé, fondé sur notre vaste expérience dans le secteur de la décoration. Nous travaillons avec les meilleures marques actuelles pour offrir un conseil sur mesure."
+      },
+      "disseny": {
+        "name": "Design d'intérieur",
+        "desc": "Nous travaillons avec des marques de premier plan et nous nous adaptons au budget et aux besoins de chaque client. Nous comptons sur des décorateurs d'intérieur pour donner vie à vos projets."
+      },
+      "mides": {
+        "name": "Prise de mesures",
+        "desc": "Nous prenons toutes les mesures nécessaires pour la confection et le montage ultérieur."
+      },
+      "confeccio": {
+        "name": "Confection",
+        "desc": "Nous créons et confectionnons des produits sur mesure, entièrement personnalisés selon les besoins du client."
+      },
+      "installacio": {
+        "name": "Installation",
+        "desc": "Nous proposons un service d'installation et de montage de tous nos produits."
+      }
+    }
+  },
+  "FormBudget": {
+    "metaTitle": "Demander un devis",
+    "metaDescription": "Demandez un devis sans engagement pour des rideaux, stores et décoration sur mesure.",
+    "title": "Demander un devis",
+    "intro": "Expliquez-nous ce dont vous avez besoin et nous vous préparons un devis sans engagement.",
+    "nom": "Nom et prénom",
+    "telefon": "Téléphone portable",
+    "email": "Adresse e-mail",
+    "observacions": "Remarques",
+    "submit": "Envoyer",
+    "or": "Ou, si vous préférez, écrivez-nous directement :"
+  },
+  "FormJobs": {
+    "metaTitle": "Vous voulez travailler avec nous ?",
+    "metaDescription": "Rejoignez l'équipe de Cortinatges Esteba. Envoyez-nous votre CV.",
+    "title": "Vous voulez travailler avec nous ?",
+    "intro": "Si vous souhaitez faire partie de notre équipe, écrivez-nous et joignez votre CV.",
+    "nom": "Nom et prénom",
+    "telefon": "Téléphone",
+    "email": "Adresse e-mail",
+    "cv": "Joignez votre CV (PDF)",
+    "comentaris": "Commentaires",
+    "submit": "Envoyer"
+  },
+  "CollectionsIndex": {
+    "metaTitle": "Collections — Rideaux, stores et panneaux sur mesure",
+    "metaDescription": "Dix lignes de produits réalisées sur mesure et cousues dans notre atelier : rideau traditionnel, stores, panneaux japonais, vénitiens, motorisation et bien plus encore.",
+    "eyebrow": "Collections",
+    "headline": "Chaque espace, sa solution. Un seul métier.",
+    "intro": "Chaque espace demande une réponse différente. Voici les lignes que nous travaillons, toutes réalisées sur mesure et cousues dans notre atelier depuis 1961.",
+    "cta": "Voir la collection"
+  },
+  "ProductPage": {
+    "breadcrumbHome": "Accueil",
+    "breadcrumbCollections": "Collections",
+    "backToCollections": "Toutes les collections",
+    "requestBudget": "Demander un devis",
+    "contactCta": "Prendre rendez-vous",
+    "brandsLabel": "Nous travaillons avec :",
+    "galleryHeading": "Galerie",
+    "otherCollections": "Autres collections",
+    "featuresHeading": "Caractéristiques",
+    "ctaBlockHeadline": "Ce que vous voyez vous plaît ? Parlons-en.",
+    "ctaBlockBody": "Nous vous rendons visite, prenons les mesures et vous conseillons sans engagement. Une conversation vaut mieux que mille photos."
+  },
+  "Products": {
+    "tradicional": {
+      "name": "Rideau traditionnel",
+      "tagline": "Le classique qui ne déçoit jamais. Tissus éditoriaux, tombé étudié.",
+      "intro": "Les tissus, par leur diversité de couleurs, de textures et de transparences, offrent d'infinies possibilités décoratives.",
+      "paragraphs": [
+        "Ils permettent de créer des ambiances accueillantes, chaleureuses et pleines d'harmonie.",
+        "Il existe une grande variété de tissus pour mieux maîtriser la lumière, des plus transparents aux plus opaques, afin que chaque pièce bénéficie exactement de la lumière dont elle a besoin."
+      ]
+    },
+    "estor-paquet": {
+      "name": "Store bateau",
+      "tagline": "Plis naturels, confort tout en douceur. Notre produit phare.",
+      "intro": "Le store bateau est le produit phare pour habiller un espace : c'est le rideau idéal pour créer des ambiances accueillantes à l'allure confortable.",
+      "paragraphs": [
+        "Sa forme permet d'obtenir des plis bien plus naturels et élégants, car il recueille le tissu de manière légère et délicate."
+      ]
+    },
+    "estor-enrotllable": {
+      "name": "Store enrouleur",
+      "tagline": "Épuré, pratique et polyvalent. Écran ou occultant, selon la lumière souhaitée.",
+      "intro": "Le store enrouleur est la solution la plus pratique et la plus épurée pour maîtriser la lumière sans renoncer à l'esthétique de l'espace.",
+      "paragraphs": [
+        "Le tissu écran filtre la lumière et protège de la chaleur tout en préservant la vue vers l'extérieur ; l'occultant plonge la pièce dans l'obscurité totale quand vous en avez besoin.",
+        "Il occupe très peu de place une fois enroulé et s'adapte à pratiquement toutes les fenêtres. Disponible en commande manuelle ou motorisée."
+      ]
+    },
+    "panell-japones": {
+      "name": "Panneau japonais",
+      "tagline": "La solution linéaire pour les grandes baies vitrées et portes coulissantes.",
+      "intro": "C'est une solution magnifique pour couvrir les grandes baies vitrées et les portes coulissantes qui donnent accès à l'extérieur, car les panneaux se déplacent horizontalement sur des rails et peuvent se ranger entièrement hors de l'ouverture.",
+      "paragraphs": [
+        "Le mouvement est doux et net, et laisse un accès facile vers l'extérieur."
+      ],
+      "features": [
+        "Écran : lumière et protection contre la chaleur, avec un nettoyage facile à l'aide d'une éponge humide.",
+        "Translucides : des tissus qui offrent une lumière douce et diffuse tout en préservant l'intimité.",
+        "Opaques : ils se distinguent par leur obscurité, offrant intimité et isolation thermique."
+      ]
+    },
+    "veneciana-alumini": {
+      "name": "Store vénitien en aluminium",
+      "tagline": "Contrôle précis de la lumière avec des lames légères et résistantes.",
+      "intro": "Le store vénitien en aluminium est un classique polyvalent qui offre un contrôle très précis de la lumière et une excellente intimité.",
+      "paragraphs": [
+        "Il existe en différentes largeurs de lame : 25 mm, les plus populaires, ou 50 mm, mieux adaptées aux grandes fenêtres.",
+        "Léger, résistant et facile d'entretien, idéal pour les cuisines, salles de bains et espaces de travail."
+      ]
+    },
+    "veneciana-fusta": {
+      "name": "Store vénitien en bois",
+      "tagline": "La chaleur du bois naturel avec un caractère propre et durable.",
+      "intro": "Le store vénitien en bois apporte chaleur et élégance à toute pièce, avec des lames en bois naturel ou faux-bois.",
+      "paragraphs": [
+        "Les lames larges et les rubans décoratifs lui donnent un aspect chaleureux, parfait pour les salons et les chambres.",
+        "Pour ceux qui veulent un contrôle précis de la lumière sans renoncer à la chaleur des matériaux naturels."
+      ]
+    },
+    "prisada": {
+      "name": "Store plissé",
+      "tagline": "Esthétiquement séduisant et minimal en espace de rangement.",
+      "intro": "Les stores plissés sont esthétiquement très séduisants et offrent un contrôle précis de la lumière et de l'intimité avec le plus beau des styles.",
+      "paragraphs": [
+        "On les trouve translucides ou totalement opaques pour empêcher le passage de la lumière.",
+        "Ils peuvent s'installer dans des endroits où l'espace est réduit, car leur espace de rangement est minimal."
+      ]
+    },
+    "vertical": {
+      "name": "Store à bandes verticales",
+      "tagline": "Élégance et lames orientables pour les grandes baies vitrées.",
+      "intro": "Les stores à bandes verticales possèdent une élégance et un style très caractéristiques. C'est un type de store composé de lames orientables qui permettent de décider de l'intimité et de la lumière souhaitées.",
+      "paragraphs": [
+        "Si vous disposez d'une baie vitrée de grandes dimensions, c'est un type de store qui s'y adapte parfaitement.",
+        "Ils permettent de maîtriser avec précision la lumière et l'intimité grâce à leurs lames orientables, en commande manuelle ou motorisée."
+      ]
+    },
+    "nit-i-dia": {
+      "name": "Store jour-nuit",
+      "tagline": "Un jeu magique de lumières et d'ombres d'un seul geste.",
+      "intro": "Les stores jour-nuit sont modernes, élégants et d'un grand impact décoratif. Ils sont formés d'un tissu double qui alterne successivement des bandes de tissu translucide et transparent.",
+      "paragraphs": [
+        "À mesure que l'on remonte ou que l'on déploie le store, ces bandes glissent et se superposent les unes aux autres, produisant un magique effet de lumières et d'ombres."
+      ]
+    },
+    "motoritzacio": {
+      "name": "Motorisation et domotique",
+      "tagline": "N'importe quel rideau, motorisé. Le confort sans gestes.",
+      "intro": "Motoriser vos rideaux et stores vous permet de contrôler la lumière de toute la maison d'un seul geste, sans renoncer à l'élégance de chaque pièce.",
+      "paragraphs": [
+        "Nous travaillons avec des moteurs Somfy et des systèmes ouverts intégrables à votre domotique : commandez-les avec la télécommande, la voix ou votre smartphone, où que vous soyez.",
+        "Programmez-les pour qu'ils montent et descendent seuls, gagnez en intimité et en efficacité énergétique. C'est le premier pas pour transformer votre maison en maison connectée."
+      ],
+      "features": [
+        "Télécommande",
+        "Commande vocale (Alexa, Google Home)",
+        "Contrôle depuis le smartphone",
+        "Programmations horaires et scènes",
+        "Intégration domotique (KNX, Somfy TaHoma)"
+      ]
+    },
+    "mosquitera": {
+      "name": "Moustiquaires",
+      "tagline": "Protection efficace et élégante, sans renoncer à la ventilation.",
+      "intro": "Les moustiquaires de la marque EPID offrent une solution efficace et élégante pour protéger votre maison des moustiques et autres insectes.",
+      "paragraphs": [
+        "Elles sont fabriquées avec des matériaux de haute qualité et conçues pour s'adapter à tout type de fenêtre ou de porte, offrant une barrière efficace sans compromettre la ventilation ni l'entrée de lumière naturelle.",
+        "Avec une installation simple et rapide, elles sont une option pratique pour garder votre maison protégée toute l'année."
+      ]
+    }
+  },
+  "Catifes": {
+    "metaTitle": "Tapis sur mesure — Cortinatges Esteba | Costa Brava",
+    "metaDescription": "Tapis sur commande fabriqués par Salgueiro Home, sélectionnés à l’atelier de Cortinatges Esteba depuis 1961. Design, dimensions sur mesure et conseil dans nos boutiques de Girona, Blanes et Palamós.",
+    "eyebrow": "Tapis",
+    "headline": "Des tapis qui habillent le sol.",
+    "intro": "Une sélection de tapis fabriqués par Salgueiro Home : catalogue, intérieur-extérieur, collection enfant et bain. Tous sur commande et en plusieurs dimensions.",
+    "fromPrice": "à partir de",
+    "measuresAvailable": "Dimensions disponibles",
+    "measuresOne": "{count} dimension disponible",
+    "measuresOther": "{count} dimensions disponibles",
+    "madeBy": "Fabriqué par",
+    "madeByBrand": "Salgueiro Home",
+    "onDemand": "Sur commande",
+    "requestBudget": "Demander un devis",
+    "backToCatifes": "Tous les tapis",
+    "family": "Collection",
+    "families": {
+      "catalogo": "Catalogue",
+      "in_out": "Intérieur · Extérieur",
+      "kids_collection": "Collection enfant",
+      "bath_collection": "Bain"
+    },
+    "ctaBlockHeadline": "Vous voulez ce tapis chez vous ?",
+    "ctaBlockBody": "Demandez un devis sans engagement. Nous prendrons soin de la dimension, de la couleur et de la pose."
+  }
+}

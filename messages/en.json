@@ -1,0 +1,391 @@
+{
+  "Metadata": {
+    "title": "Cortinatges Esteba — Textile Artisans since 1961 | Costa Brava",
+    "description": "Three generations crafting light and intimacy in Costa Brava homes. Custom curtains, blinds, Japanese panels, motorisation and upholstery. Stores in Girona, Blanes and Palamós."
+  },
+  "Navigation": {
+    "collections": "Products",
+    "stores": "Stores",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact",
+    "cta": "Book a consultation",
+    "catifes": "Rugs"
+  },
+  "Footer": {
+    "tagline": "Three generations crafting light and intimacy in Costa Brava homes.",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy policy",
+    "cookies": "Cookie policy",
+    "legal": "Legal notice",
+    "services": "Services",
+    "budget": "Request a quote",
+    "jobs": "Work with us",
+    "linksHeading": "Links"
+  },
+  "CookieBanner": {
+    "title": "Cookies",
+    "message": "We use our own and third-party cookies to improve your experience and analyse site usage.",
+    "more": "More information",
+    "accept": "Accept",
+    "reject": "Reject"
+  },
+  "Hero": {
+    "ariaLabel": "Hero section",
+    "headline": "Since 1961, weaving light into the homes of the Costa Brava.",
+    "subheadline": "Three generations of textile artisans. Custom curtains, blinds, home automation and upholstery with the finest fabrics in the world.",
+    "ctaPrimary": "Book a consultation",
+    "ctaSecondary": "Explore our collections"
+  },
+  "SectionOfici": {
+    "ariaLabel": "Our craft",
+    "eyebrow": "Our craft",
+    "headline": "Three generations. One craft.",
+    "imageAlt": "Photograph of the Cortinatges Esteba workshop",
+    "paragraph1": "In 2021 we marked 60 years since we started, and since then we've only kept growing!",
+    "paragraph2": "We are committed to personalised attention, to guarantee you the best service and installation.",
+    "paragraph3": "We currently work with qualified interior decorators to bring your projects to life.",
+    "stat1": "years of experience",
+    "stat2": "stores on the Costa Brava",
+    "stat3": "generations of the Esteba family"
+  },
+  "Collections": {
+    "ariaLabel": "Collections",
+    "eyebrow": "Collections",
+    "headline": "Every space, its solution. Every fabric, its story.",
+    "intro": "Five product lines. All custom-made, all sewn in our workshop.",
+    "cta": "View collection",
+    "brandsLabel": "Fabrics by:",
+    "items": {
+      "cortines": {
+        "name": "Custom curtains",
+        "description": "Designed around the space, the light and the client's taste. Editorial fabrics, precise finishing, studied drape."
+      },
+      "estors": {
+        "name": "Blinds",
+        "description": "Roller, PVC venetian or screen. Light control without compromising the aesthetic of the room."
+      },
+      "panells-japonesos": {
+        "name": "Japanese panels",
+        "description": "The linear solution for large openings. Clean composition, smooth movement, natural or technical fabrics."
+      },
+      "venecianes": {
+        "name": "Venetian blinds",
+        "description": "Wood, aluminium or faux-bois. For those who want adjustable light with lasting character."
+      },
+      "motoritzacio": {
+        "name": "Home automation",
+        "description": "Any product, motorised. Integrated with KNX, Somfy or open systems. Comfort without effort."
+      }
+    }
+  },
+  "Locations": {
+    "ariaLabel": "Our stores",
+    "eyebrow": "Our stores",
+    "headline": "Come and visit us. Let's talk about your space.",
+    "stores": {
+      "girona": {
+        "city": "Girona",
+        "address": "C/ Rutlla, 11 · 17002 Girona",
+        "phone": "972 20 34 23",
+        "schedule": "Mon–Fri 9.30–13.30 & 16.30–20.00 · Sat 10.00–13.30"
+      },
+      "blanes": {
+        "city": "Blanes",
+        "address": "Rambla Joaquim Ruyra, 59 · 17300 Blanes",
+        "phone": "972 33 05 73",
+        "schedule": "Mon–Fri 9.30–13.30 & 16.30–20.00 · Sat 10.00–13.30"
+      },
+      "palamos": {
+        "city": "Palamós",
+        "address": "C/ Miguel de Cervantes, 35 · 17230 Palamós",
+        "phone": "972 31 62 19",
+        "schedule": "Mon–Fri 9.30–13.30 & 16.30–20.00 · Sat 10.00–13.30"
+      },
+      "matalasseria": {
+        "city": "Mattress store",
+        "address": "C/ Rutlla, 20 · 17002 Girona",
+        "phone": "972 20 34 23",
+        "schedule": "Mon–Fri 9.30–13.30 & 16.30–20.00 · Sat 10.00–13.30"
+      }
+    }
+  },
+  "CtaVisita": {
+    "ariaLabel": "Book a consultation",
+    "eyebrow": "No commitment",
+    "headline": "Book your visit. We advise you at home or in store.",
+    "body": "We'll welcome you at any of our stores to talk about your project, with no obligation. And if you prefer, we'll come to your home with the sample book — a home advisory service with a fee, to see the fabrics in your own space and light.",
+    "ctaPrimary": "Book a consultation",
+    "ctaSecondary": "Find your nearest store",
+    "disclaimer": "No commitment. No sales pressure."
+  },
+  "Home": {
+    "metaTitle": "Textile artisans since 1961 — Custom curtains, blinds and interiors",
+    "metaDescription": "Three generations crafting light and intimacy in Costa Brava homes. Custom curtains, blinds, Japanese panels, motorisation and upholstery in Girona, Blanes and Palamós."
+  },
+  "About": {
+    "metaTitle": "About Us — Three generations of textile artisans on the Costa Brava",
+    "metaDescription": "The story of Cortinatges Esteba: since 1961, three generations crafting custom curtains, with stores in Girona, Blanes and Palamós.",
+    "eyebrow": "About Us",
+    "title": "Three generations dressing the homes of the Costa Brava",
+    "lead": "Since 1961 we've done one thing and done it well: dressing homes with custom textiles, with taste and craft.",
+    "story1": "It all began in 1961, when the founder of the Esteba family opened the first store in Girona. In 2021 we celebrated 60 years and, ever since, we've done nothing but grow.",
+    "story2": "Today we carry on with the same values: quality textiles, attentive advice and in-house craftsmanship. Every project starts with a conversation and ends with an installation carried out by our own team.",
+    "story3": "We collaborate with qualified interior decorators and with the finest textile houses to bring your projects to life.",
+    "valuesTitle": "What sets us apart",
+    "values": [
+      {
+        "title": "In-house craftsmanship",
+        "desc": "We sew every piece in our own workshop, fully made to measure."
+      },
+      {
+        "title": "Personalised attention",
+        "desc": "We're with you from the first visit through to installation."
+      },
+      {
+        "title": "In-house installation",
+        "desc": "Our own team handles the fitting, with care."
+      },
+      {
+        "title": "60 years of experience",
+        "desc": "Three generations at the service of the Costa Brava."
+      }
+    ]
+  },
+  "HomeGrid": {
+    "tagline": "At Cortinatges Esteba you'll find much more than curtains! Redecorate your home with the latest trends.",
+    "serveis": "Services",
+    "tendals": "Awnings",
+    "pergoles": "Pergolas",
+    "tapisseria": "Upholstery",
+    "badgeYears": "60",
+    "badgeAnys": "years",
+    "badgeSince": "Since 1961",
+    "artisan1": "We have been handcrafting your curtains since 1961",
+    "artisan2": "We are committed to personalised attention, to guarantee you the best service and installation",
+    "instagramHeading": "Follow us on Instagram",
+    "instagramCta": "View profile",
+    "brandsHeading": "Our main partners"
+  },
+  "HomeSections": {
+    "consulta": "Want to ask us something?",
+    "tipusTitle": "Types of curtains",
+    "tipusBody": "We know choosing curtains isn't as easy as it seems. Let our broad experience in the sector guide you.",
+    "robaTitle": "Home textiles",
+    "robaBody": "Discover the new collections in our stores. Come and see the latest trends in sheets, duvets, bedspreads and cushions. A whole world of possibilities.",
+    "descansTitle": "Rest",
+    "descansBody": "We guarantee the quality of your sleep. We partner with the best brands to offer you a tailored option: mattresses, bed bases, pillows and accessories.",
+    "espaisTitle": "Smart spaces",
+    "espaisBody": "More efficient spaces. Motorised blinds and curtains are the first step towards turning your spaces into smart places.",
+    "showcaseHeading": "Inspiration for your home"
+  },
+  "Serveis": {
+    "metaTitle": "Our services — Advice, measuring, making and installation",
+    "metaDescription": "Personalised attention from start to finish: advice, interior design, measuring, handcrafted making and our own installation on the Costa Brava.",
+    "eyebrow": "Services",
+    "title": "Our services",
+    "intro": "Complete support, from the first visit to the final installation.",
+    "items": {
+      "assessorament": {
+        "name": "Advice",
+        "desc": "We offer personalised customer service, drawing on our broad experience in the decoration sector. We work with the finest current brands to provide tailored advice."
+      },
+      "disseny": {
+        "name": "Interior design",
+        "desc": "We work with leading brands and adapt to each client's budget and needs. We have interior designers to bring your projects to life."
+      },
+      "mides": {
+        "name": "Measuring",
+        "desc": "We take all the measurements needed for making and the subsequent fitting."
+      },
+      "confeccio": {
+        "name": "Making",
+        "desc": "We create and make custom products, fully tailored to the client's needs."
+      },
+      "installacio": {
+        "name": "Installation",
+        "desc": "We offer an installation and fitting service for all our products."
+      }
+    }
+  },
+  "FormBudget": {
+    "metaTitle": "Request a quote",
+    "metaDescription": "Request a no-obligation quote for custom curtains, blinds and interiors.",
+    "title": "Request a quote",
+    "intro": "Tell us what you need and we'll prepare a no-obligation quote for you.",
+    "nom": "Full name",
+    "telefon": "Mobile phone",
+    "email": "Email address",
+    "observacions": "Notes",
+    "submit": "Send",
+    "or": "Or, if you prefer, write to us directly:"
+  },
+  "FormJobs": {
+    "metaTitle": "Want to work with us?",
+    "metaDescription": "Join the Cortinatges Esteba team. Send us your CV.",
+    "title": "Want to work with us?",
+    "intro": "If you'd like to be part of our team, write to us and attach your CV.",
+    "nom": "Full name",
+    "telefon": "Phone",
+    "email": "Email address",
+    "cv": "Attach your CV (PDF)",
+    "comentaris": "Comments",
+    "submit": "Send"
+  },
+  "CollectionsIndex": {
+    "metaTitle": "Collections — Custom curtains, blinds and panels",
+    "metaDescription": "Ten product lines made to measure and sewn in our workshop: traditional curtains, blinds, Japanese panels, venetian blinds, motorisation and much more.",
+    "eyebrow": "Collections",
+    "headline": "Every space, its solution. One craft.",
+    "intro": "Every space calls for a different answer. These are the lines we work with, all made to measure and sewn in our workshop since 1961.",
+    "cta": "View collection"
+  },
+  "ProductPage": {
+    "breadcrumbHome": "Home",
+    "breadcrumbCollections": "Collections",
+    "backToCollections": "All collections",
+    "requestBudget": "Request a quote",
+    "contactCta": "Book a consultation",
+    "brandsLabel": "We work with:",
+    "galleryHeading": "Gallery",
+    "otherCollections": "Other collections",
+    "featuresHeading": "Features",
+    "ctaBlockHeadline": "Like what you see? Let's talk.",
+    "ctaBlockBody": "We come to you, take measurements and advise you with no obligation. One conversation is worth more than a thousand photos."
+  },
+  "Products": {
+    "tradicional": {
+      "name": "Traditional curtain",
+      "tagline": "The classic that never fails. Editorial fabrics, studied drape.",
+      "intro": "Fabrics, with their diversity of colours, textures and transparencies, offer endless decorative possibilities.",
+      "paragraphs": [
+        "They create welcoming, warm spaces full of harmony.",
+        "There is a wide variety of weaves to fine-tune light control, from sheer to opaque, so every room gets exactly the light it needs."
+      ]
+    },
+    "estor-paquet": {
+      "name": "Roman blind",
+      "tagline": "Natural folds, effortless comfort. Our flagship product.",
+      "intro": "The Roman blind is the flagship product for dressing a space: it is the perfect curtain for creating welcoming rooms with a comfortable feel.",
+      "paragraphs": [
+        "Its construction lets the folds fall far more naturally and beautifully, gathering the fabric in a light, simple way."
+      ]
+    },
+    "estor-enrotllable": {
+      "name": "Roller blind",
+      "tagline": "Clean, practical and versatile. Screen or blackout, depending on the light you want.",
+      "intro": "The roller blind is the most practical and uncluttered way to control light without compromising the aesthetic of the room.",
+      "paragraphs": [
+        "Screen fabric filters the light and shields you from the heat while keeping the view outside; blackout darkens the room completely whenever you need it.",
+        "It takes up very little space when rolled up and fits almost any window. Available with manual or motorised operation."
+      ]
+    },
+    "panell-japones": {
+      "name": "Japanese panel",
+      "tagline": "The linear solution for large windows and sliding doors.",
+      "intro": "They are a superb solution for covering large windows and sliding doors that open onto the outside, since they glide horizontally along tracks and can be stacked completely clear of the opening.",
+      "paragraphs": [
+        "The movement is smooth and clean, leaving easy access to the outside."
+      ],
+      "features": [
+        "Screen: light and protection from the heat, with easy cleaning using a damp sponge.",
+        "Translucent: weaves that offer a soft, diffused light while preserving privacy.",
+        "Opaque: stand out for their darkness, offering privacy and thermal insulation."
+      ]
+    },
+    "veneciana-alumini": {
+      "name": "Aluminium venetian blind",
+      "tagline": "Precise light control with light, durable slats.",
+      "intro": "The aluminium venetian blind is a versatile classic offering very precise light control and excellent privacy.",
+      "paragraphs": [
+        "It comes in different slat widths: 25 mm, the most popular, or 50 mm, better suited to large windows.",
+        "Light, durable and easy to maintain — ideal for kitchens, bathrooms and workspaces."
+      ]
+    },
+    "veneciana-fusta": {
+      "name": "Wooden venetian blind",
+      "tagline": "The warmth of natural wood with lasting character.",
+      "intro": "The wooden venetian blind brings warmth and elegance to any room, with natural wood or faux-wood slats.",
+      "paragraphs": [
+        "Wide slats and decorative tapes give it a warm, welcoming look, perfect for living rooms and bedrooms.",
+        "For those who want precise light control without giving up the warmth of natural materials."
+      ]
+    },
+    "prisada": {
+      "name": "Pleated blind",
+      "tagline": "Aesthetically striking and minimal in stack space.",
+      "intro": "Pleated blinds are aesthetically very striking and offer precise control of light and privacy with the finest style.",
+      "paragraphs": [
+        "They come translucent or fully opaque to block out the light.",
+        "They can be fitted in tight spaces, since their stack space is minimal."
+      ]
+    },
+    "vertical": {
+      "name": "Vertical blind",
+      "tagline": "Elegance and adjustable slats for large windows.",
+      "intro": "Vertical blinds have a very distinctive elegance and style. They are a type of blind made up of adjustable slats that let you decide the privacy and the light you want.",
+      "paragraphs": [
+        "If you have a generously sized window, this is a type of blind that fits it perfectly.",
+        "They let you control light and privacy precisely thanks to their adjustable slats, with manual or motorised operation."
+      ]
+    },
+    "nit-i-dia": {
+      "name": "Day and night blind",
+      "tagline": "A magical play of light and shadow with a single gesture.",
+      "intro": "Day and night blinds are modern, elegant and decoratively striking. They are made of a double fabric that alternates in succession, forming bands of translucent and transparent weave.",
+      "paragraphs": [
+        "As you raise or lower the blind, these bands slide and overlap one another, producing a magical effect of light and shadow."
+      ]
+    },
+    "motoritzacio": {
+      "name": "Motorisation and home automation",
+      "tagline": "Any curtain, motorised. Comfort without effort.",
+      "intro": "Motorising your curtains and blinds lets you control the light of your whole home with a single gesture, without giving up the elegance of each piece.",
+      "paragraphs": [
+        "We work with Somfy motors and open systems that integrate with your home automation: operate them with the remote, your voice or your smartphone, wherever you are.",
+        "Schedule them to raise and lower on their own, gain privacy and energy efficiency. It's the first step to turning your home into a smart home."
+      ],
+      "features": [
+        "Remote control",
+        "Voice control (Alexa, Google Home)",
+        "Smartphone control",
+        "Schedules and scenes",
+        "Home automation integration (KNX, Somfy TaHoma)"
+      ]
+    },
+    "mosquitera": {
+      "name": "Insect screens",
+      "tagline": "Effective, elegant protection without giving up ventilation.",
+      "intro": "EPID insect screens offer an effective and elegant solution to protect your home from mosquitoes and other insects.",
+      "paragraphs": [
+        "They are made from high-quality materials and designed to fit any type of window or door, providing an effective barrier without compromising ventilation or the entry of natural light.",
+        "Easy and quick to install, they are a practical choice for keeping your home protected all year round."
+      ]
+    }
+  },
+  "Catifes": {
+    "metaTitle": "Made-to-measure rugs — Cortinatges Esteba | Costa Brava",
+    "metaDescription": "Made-to-order rugs manufactured by Salgueiro Home, curated at the Cortinatges Esteba workshop since 1961. Design, custom sizes and advice at our stores in Girona, Blanes and Palamós.",
+    "eyebrow": "Rugs",
+    "headline": "Rugs that dress the floor.",
+    "intro": "A selection of rugs manufactured by Salgueiro Home: catalogue, indoor-outdoor, kids collection and bath. All made to order and in several sizes.",
+    "fromPrice": "from",
+    "measuresAvailable": "Available sizes",
+    "measuresOne": "{count} size available",
+    "measuresOther": "{count} sizes available",
+    "madeBy": "Made by",
+    "madeByBrand": "Salgueiro Home",
+    "onDemand": "Made to order",
+    "requestBudget": "Request a quote",
+    "backToCatifes": "All rugs",
+    "family": "Collection",
+    "families": {
+      "catalogo": "Catalogue",
+      "in_out": "Indoor · Outdoor",
+      "kids_collection": "Kids collection",
+      "bath_collection": "Bath"
+    },
+    "ctaBlockHeadline": "Want this rug at home?",
+    "ctaBlockBody": "Request a quote with no commitment. We will take care of the size, the colour and the placement."
+  }
+}

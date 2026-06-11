@@ -1,0 +1,391 @@
+{
+  "Metadata": {
+    "title": "Cortinatges Esteba — Artesans tèxtils des de 1961 | Costa Brava",
+    "description": "Tres generacions cosint la llum i la intimitat de les cases de la Costa Brava. Cortines a mida, estors, panells japonesos, motorització i tapisseria. Botigues a Girona, Blanes i Palamós."
+  },
+  "Navigation": {
+    "collections": "Productes",
+    "stores": "Botigues",
+    "about": "Nosaltres",
+    "services": "Serveis",
+    "contact": "Contacte",
+    "cta": "Concerta una cita",
+    "catifes": "Catifes"
+  },
+  "Footer": {
+    "tagline": "Tres generacions cosint la llum i la intimitat de les cases de la Costa Brava.",
+    "rights": "Tots els drets reservats.",
+    "privacy": "Política de privacitat",
+    "cookies": "Política de cookies",
+    "legal": "Avís legal",
+    "services": "Serveis",
+    "budget": "Demana pressupost",
+    "jobs": "Treballa amb nosaltres",
+    "linksHeading": "Enllaços"
+  },
+  "CookieBanner": {
+    "title": "Cookies",
+    "message": "Utilitzem cookies pròpies i de tercers per millorar la teva experiència i analitzar l'ús del web.",
+    "more": "Més informació",
+    "accept": "Accepto",
+    "reject": "Rebutjo"
+  },
+  "Hero": {
+    "ariaLabel": "Secció principal",
+    "headline": "Cortines a mida instal·lades a casa teva. Des de 1961.",
+    "subheadline": "Tres generacions d'artesans tèxtils a la Costa Brava. Cortines, estors, matalassos i tèxtil llar. Demana pressupost sense compromís.",
+    "ctaPrimary": "Demana pressupost",
+    "ctaSecondary": "Contacta'ns"
+  },
+  "SectionOfici": {
+    "ariaLabel": "El nostre ofici",
+    "eyebrow": "El nostre ofici",
+    "headline": "Tres generacions. Un sol ofici.",
+    "imageAlt": "Fotografia del taller de Cortinatges Esteba",
+    "paragraph1": "El 2021 va fer 60 anys que vàrem començar a treballar i des de llavors només hem fet que créixer!",
+    "paragraph2": "Apostem per una atenció personalitzada, per garantir-te el millor servei i instal·lació.",
+    "paragraph3": "Actualment, col·laborem amb decoradors d'interiors qualificats per fer realitat els teus projectes.",
+    "stat1": "anys d'experiència",
+    "stat2": "botigues a la Costa Brava",
+    "stat3": "generacions de la família Esteba"
+  },
+  "Collections": {
+    "ariaLabel": "Col·leccions",
+    "eyebrow": "Col·leccions",
+    "headline": "Cada espai, la seva solució. Cada tela, la seva història.",
+    "intro": "Cinc línies de producte. Totes fetes a mida, totes cosides al nostre taller.",
+    "cta": "Veure col·lecció",
+    "brandsLabel": "Teles de:",
+    "items": {
+      "cortines": {
+        "name": "Cortines a mida",
+        "description": "Dissenyades a partir de l'espai, la llum i el gust del client. Teles editorials, acabats precisos, caiguda estudiada."
+      },
+      "estors": {
+        "name": "Estors",
+        "description": "Enrotllables, venecians de PVC o screen. Control de la llum sense renunciar a l'estètica de l'ambient."
+      },
+      "panells-japonesos": {
+        "name": "Panells japonesos",
+        "description": "La solució lineal per a obertures grans. Composició neta, moviment suau, teles naturals o tècniques."
+      },
+      "venecianes": {
+        "name": "Venecianes",
+        "description": "Fusta, alumini o faux-bois. Per a qui vol llum ajustable amb un caràcter propi i perdurable."
+      },
+      "motoritzacio": {
+        "name": "Motorització domòtica",
+        "description": "Qualsevol producte, motoritzat. Integrat amb KNX, Somfy o sistemes oberts. El confort sense gestos."
+      }
+    }
+  },
+  "Locations": {
+    "ariaLabel": "Les nostres botigues",
+    "eyebrow": "Les nostres botigues",
+    "headline": "Vine a veure'ns. Parlem del teu espai.",
+    "stores": {
+      "girona": {
+        "city": "Girona",
+        "address": "C/ Rutlla, 11 · 17002 Girona",
+        "phone": "972 20 34 23",
+        "schedule": "Dilluns a divendres 9.30–13.30 i 16.30–20.00 · Dissabte 10.00–13.30"
+      },
+      "blanes": {
+        "city": "Blanes",
+        "address": "Rambla Joaquim Ruyra, 59 · 17300 Blanes",
+        "phone": "972 33 05 73",
+        "schedule": "Dilluns a divendres 9.30–13.30 i 16.30–20.00 · Dissabte 10.00–13.30"
+      },
+      "palamos": {
+        "city": "Palamós",
+        "address": "C/ Miguel de Cervantes, 35 · 17230 Palamós",
+        "phone": "972 31 62 19",
+        "schedule": "Dilluns a divendres 9.30–13.30 i 16.30–20.00 · Dissabte 10.00–13.30"
+      },
+      "matalasseria": {
+        "city": "Matalasseria",
+        "address": "C/ Rutlla, 20 · 17002 Girona",
+        "phone": "972 20 34 23",
+        "schedule": "Dilluns a divendres 9.30–13.30 i 16.30–20.00 · Dissabte 10.00–13.30"
+      }
+    }
+  },
+  "CtaVisita": {
+    "ariaLabel": "Concerta una cita",
+    "eyebrow": "Sense compromís",
+    "headline": "Demana la teva visita. T'assessorem a casa o a la botiga.",
+    "body": "T'esperem a qualsevol de les nostres botigues per parlar del teu projecte sense compromís. I si ho prefereixes, anem a casa teva amb el mostrari: un servei d'assessorament a domicili amb cost, per veure els teixits al teu espai i amb la teva llum.",
+    "ctaPrimary": "Concerta una cita",
+    "ctaSecondary": "Troba la botiga més propera",
+    "disclaimer": "Sense compromís. Sense pressió de venda."
+  },
+  "Home": {
+    "metaTitle": "Artesans tèxtils des de 1961 — Cortines, estors i decoració a mida",
+    "metaDescription": "Tres generacions cosint la llum i la intimitat de les cases de la Costa Brava. Cortines a mida, estors, panells japonesos, motorització i tapisseria a Girona, Blanes i Palamós."
+  },
+  "About": {
+    "metaTitle": "Nosaltres — Tres generacions d'artesans tèxtils a la Costa Brava",
+    "metaDescription": "La història de Cortinatges Esteba: des de 1961, tres generacions confeccionant cortines a mida amb botigues a Girona, Blanes i Palamós.",
+    "eyebrow": "Nosaltres",
+    "title": "Tres generacions vestint les cases de la Costa Brava",
+    "lead": "Des de 1961 fem una sola cosa i la fem bé: vestir les llars amb tèxtils a mida, amb criteri i ofici.",
+    "story1": "Tot va començar el 1961, quan el fundador de la família Esteba va obrir la primera botiga a Girona. El 2021 vam celebrar 60 anys i, des de llavors, no hem fet més que créixer.",
+    "story2": "Avui continuem amb els mateixos valors: tèxtils de qualitat, assessorament proper i confecció pròpia. Cada projecte comença amb una conversa i acaba amb una instal·lació feta pel nostre equip.",
+    "story3": "Col·laborem amb decoradors d'interiors qualificats i amb les millors cases editorials del tèxtil per fer realitat els teus projectes.",
+    "valuesTitle": "El que ens fa diferents",
+    "values": [
+      {
+        "title": "Confecció pròpia",
+        "desc": "Cosim cada peça al nostre taller, totalment a mida."
+      },
+      {
+        "title": "Atenció personalitzada",
+        "desc": "T'acompanyem des de la primera visita fins a la instal·lació."
+      },
+      {
+        "title": "Instal·lació pròpia",
+        "desc": "El nostre equip s'encarrega del muntatge, amb cura."
+      },
+      {
+        "title": "60 anys d'experiència",
+        "desc": "Tres generacions al servei de la Costa Brava."
+      }
+    ]
+  },
+  "HomeGrid": {
+    "tagline": "A Cortinatges Esteba trobaràs molt més que cortines! Redecora casa teva amb les tendències més actuals.",
+    "serveis": "Serveis",
+    "tendals": "Tendals",
+    "pergoles": "Pèrgoles",
+    "tapisseria": "Tapisseria",
+    "badgeYears": "60",
+    "badgeAnys": "anys",
+    "badgeSince": "Des de 1961",
+    "artisan1": "Confeccionem les teves cortines de manera artesanal des de 1961",
+    "artisan2": "Apostem per una atenció personalitzada, per garantir-te el millor servei i instal·lació",
+    "instagramHeading": "Segueix-nos a Instagram",
+    "instagramCta": "Veure el perfil",
+    "brandsHeading": "Principals col·laboradors"
+  },
+  "HomeSections": {
+    "consulta": "Vols fer-nos una consulta?",
+    "tipusTitle": "Tipus de cortines",
+    "tipusBody": "Sabem que escollir cortines no és tan fàcil com sembla. Deixa't portar per la nostra àmplia experiència en el sector.",
+    "robaTitle": "Roba de casa",
+    "robaBody": "Descobreix les noves col·leccions que tenim a les botigues. Vine a veure les noves tendències amb llençols, nòrdics, vànoves i coixins. Tot un món de possibilitats.",
+    "descansTitle": "Descans",
+    "descansBody": "Garantim la qualitat dels teus somnis. Estem fidelitzats amb les millors marques per oferir-te una opció a mida: matalassos, bases somiers, coixins de dormir i complements.",
+    "espaisTitle": "Espais intel·ligents",
+    "espaisBody": "Espais més eficients. Estors i cortines motoritzades són el primer pas per convertir els teus espais en llocs intel·ligents.",
+    "showcaseHeading": "Inspiració per a casa teva"
+  },
+  "Serveis": {
+    "metaTitle": "Els nostres serveis — Assessorament, presa de mides, confecció i instal·lació",
+    "metaDescription": "Atenció personalitzada de principi a fi: assessorament, disseny interior, presa de mides, confecció artesanal i instal·lació pròpia a la Costa Brava.",
+    "eyebrow": "Serveis",
+    "title": "Els nostres serveis",
+    "intro": "Un acompanyament complet, de la primera visita fins a l'última instal·lació.",
+    "items": {
+      "assessorament": {
+        "name": "Assessorament",
+        "desc": "Oferim una atenció al client personalitzada, basada en la nostra àmplia experiència dins el sector de la decoració. Treballem amb les millors marques actuals per oferir un assessorament a mida."
+      },
+      "disseny": {
+        "name": "Disseny interior",
+        "desc": "Treballem amb primeres marques i ens adaptem al pressupost i les necessitats de cada client. Comptem amb decoradors d'interiors per fer realitat els teus projectes."
+      },
+      "mides": {
+        "name": "Presa de mides",
+        "desc": "Prenem totes les mesures necessàries per a la confecció i el posterior muntatge."
+      },
+      "confeccio": {
+        "name": "Confecció",
+        "desc": "Creem i confeccionem productes a mida, totalment personalitzats a les necessitats del client."
+      },
+      "installacio": {
+        "name": "Instal·lació",
+        "desc": "Oferim servei d'instal·lació i muntatge de tots els nostres productes."
+      }
+    }
+  },
+  "FormBudget": {
+    "metaTitle": "Demana pressupost",
+    "metaDescription": "Demana pressupost sense compromís per a cortines, estors i decoració a mida.",
+    "title": "Demana pressupost",
+    "intro": "Explica'ns què necessites i et preparem un pressupost sense compromís.",
+    "nom": "Nom i cognoms",
+    "telefon": "Telèfon mòbil",
+    "email": "Correu electrònic",
+    "observacions": "Observacions",
+    "submit": "Enviar",
+    "or": "O si ho prefereixes, escriu-nos directament:"
+  },
+  "FormJobs": {
+    "metaTitle": "Vols treballar amb nosaltres?",
+    "metaDescription": "Uneix-te a l'equip de Cortinatges Esteba. Envia'ns el teu currículum.",
+    "title": "Vols treballar amb nosaltres?",
+    "intro": "Si vols formar part del nostre equip, escriu-nos i adjunta el teu currículum.",
+    "nom": "Nom i cognoms",
+    "telefon": "Telèfon",
+    "email": "Correu electrònic",
+    "cv": "Adjunta el teu currículum (PDF)",
+    "comentaris": "Comentaris",
+    "submit": "Enviar"
+  },
+  "CollectionsIndex": {
+    "metaTitle": "Col·leccions — Cortines, estors i panells a mida",
+    "metaDescription": "Deu línies de producte fetes a mida i cosides al nostre taller: cortina tradicional, estors, panells japonesos, venecianes, motorització i molt més.",
+    "eyebrow": "Col·leccions",
+    "headline": "Cada espai, la seva solució. Un sol ofici.",
+    "intro": "Cada espai demana una resposta diferent. Aquestes són les línies que treballem, totes fetes a mida i cosides al nostre taller des de 1961.",
+    "cta": "Veure col·lecció"
+  },
+  "ProductPage": {
+    "breadcrumbHome": "Inici",
+    "breadcrumbCollections": "Col·leccions",
+    "backToCollections": "Totes les col·leccions",
+    "requestBudget": "Demana pressupost",
+    "contactCta": "Concerta una cita",
+    "brandsLabel": "Treballem amb:",
+    "galleryHeading": "Galeria",
+    "otherCollections": "Altres col·leccions",
+    "featuresHeading": "Característiques",
+    "ctaBlockHeadline": "T'agrada el que veus? Parlem-ne.",
+    "ctaBlockBody": "Et fem una visita, prenem mides i t'assessorem sense compromís. Una conversa val més que mil fotos."
+  },
+  "Products": {
+    "tradicional": {
+      "name": "Cortina tradicional",
+      "tagline": "El clàssic que mai falla. Teles editorials, caiguda estudiada.",
+      "intro": "Les teles, amb la diversitat de colors, textures i transparències, ofereixen infinites possibilitats decoratives.",
+      "paragraphs": [
+        "Permeten crear ambients acollidors, càlids i plens d'harmonia.",
+        "Hi ha una gran varietat de teixits per millorar el control de la llum, des de transparents fins a opacs, perquè cada estança tingui exactament la llum que necessita."
+      ]
+    },
+    "estor-paquet": {
+      "name": "Estor paquet",
+      "tagline": "Plecs naturals, aire confortable. El nostre producte estrella.",
+      "intro": "L'estor paquet és el producte estrella per vestir un espai: és la cortina perfecta per crear ambients acollidors d'aparença confortable.",
+      "paragraphs": [
+        "La seva forma permet que els plecs que realitza la cortina siguin molt més naturals i bonics, ja que recull la tela de manera lleugera i senzilla."
+      ]
+    },
+    "estor-enrotllable": {
+      "name": "Estor enrotllable",
+      "tagline": "Net, pràctic i versàtil. Screen o blackout, segons la llum que vulguis.",
+      "intro": "L'estor enrotllable és la solució més pràctica i neta per controlar la llum sense renunciar a l'estètica de l'ambient.",
+      "paragraphs": [
+        "El teixit screen filtra la llum i protegeix de la calor mantenint la visió cap a l'exterior; el blackout enfosqueix completament l'estança quan ho necessites.",
+        "Ocupa molt poc espai en recollir-se i s'adapta a pràcticament qualsevol finestra. Disponible amb accionament manual o motoritzat."
+      ]
+    },
+    "panell-japones": {
+      "name": "Panell japonès",
+      "tagline": "La solució lineal per a grans finestrals i portes corredisses.",
+      "intro": "Són una solució magnífica per cobrir grans finestrals i portes corredisses que donen accés a l'exterior, ja que es desplacen horitzontalment mitjançant uns riells i poden quedar recollits completament fora de l'obertura.",
+      "paragraphs": [
+        "El moviment és suau i net, i deixa un accés fàcil a l'exterior."
+      ],
+      "features": [
+        "Screen: llum i protecció davant la calor, amb una neteja fàcil amb una esponja humida.",
+        "Translúcids: teixits que ofereixen una llum suau i difuminada tot facilitant la privacitat.",
+        "Opacs: destaquen per la foscor, oferint privacitat i aïllament tèrmic."
+      ]
+    },
+    "veneciana-alumini": {
+      "name": "Veneciana d'alumini",
+      "tagline": "Control precís de la llum amb lames lleugeres i resistents.",
+      "intro": "La veneciana d'alumini és un clàssic versàtil que ofereix un control molt precís de la llum i una excel·lent privadesa.",
+      "paragraphs": [
+        "Es regeix segons l'amplada de la lama: les de 25 mm, les més populars, o les de 50 mm, més apropiades per a finestres de gran dimensió.",
+        "Lleugera, resistent i fàcil de mantenir, ideal per a cuines, banys i espais de treball."
+      ]
+    },
+    "veneciana-fusta": {
+      "name": "Veneciana de fusta",
+      "tagline": "La calidesa de la fusta natural amb un caràcter propi i perdurable.",
+      "intro": "La veneciana de fusta aporta calidesa i elegància a qualsevol estança, amb lames de fusta natural o faux-bois.",
+      "paragraphs": [
+        "Les lames amples i les cintes decoratives li donen un aspecte càlid i acollidor, perfecte per a sales i dormitoris.",
+        "Per a qui busca un control precís de la llum sense renunciar a la calidesa dels materials naturals."
+      ]
+    },
+    "prisada": {
+      "name": "Cortina prisada",
+      "tagline": "Estèticament atractiva i mínima en espai de recollida.",
+      "intro": "Les cortines prisades resulten estèticament molt atractives i ofereixen un control precís de la llum i la privadesa amb el millor estil.",
+      "paragraphs": [
+        "Podem trobar-les translúcides o totalment opaques per evitar el pas de la llum.",
+        "Es poden instal·lar en llocs on hi ha poc espai, ja que el seu espai de recollida és mínim."
+      ]
+    },
+    "vertical": {
+      "name": "Cortina vertical",
+      "tagline": "Elegància i lames orientables per a grans finestrals.",
+      "intro": "Les cortines verticals tenen una elegància i un estil molt característics. És un tipus de cortina compost de lames orientables que permeten decidir la privadesa i la llum que desitgem.",
+      "paragraphs": [
+        "Si disposeu d'un finestral de dimensions àmplies, aquest és un tipus de cortina que s'hi adapta perfectament.",
+        "Permeten controlar amb precisió la llum i la privadesa gràcies a les seves lames orientables, amb accionament manual o motoritzat."
+      ]
+    },
+    "nit-i-dia": {
+      "name": "Cortina nit i dia",
+      "tagline": "Un joc màgic de llums i ombres amb un sol gest.",
+      "intro": "Els estors nit i dia són moderns, elegants i de gran impacte decoratiu. Estan formats per un teixit doble que s'alterna successivament formant franges de teixit translúcid i transparent.",
+      "paragraphs": [
+        "A mesura que recollim o estenem l'estor, aquestes bandes llisquen i se superposen les unes a les altres, produint un màgic efecte de llums i ombres."
+      ]
+    },
+    "motoritzacio": {
+      "name": "Motorització i domòtica",
+      "tagline": "Qualsevol cortina, motoritzada. El confort sense gestos.",
+      "intro": "Motoritzar les teves cortines i estors et permet controlar la llum de tota la casa amb un sol gest, sense renunciar a l'elegància de cada peça.",
+      "paragraphs": [
+        "Treballem amb motors Somfy i sistemes oberts integrables amb la teva domòtica: acciona-les amb el comandament, amb la veu o des del teu smartphone, esticis on esticis.",
+        "Programa horaris perquè pugin i baixin soles, guanya privacitat i eficiència energètica. És el primer pas per convertir casa teva en una llar intel·ligent."
+      ],
+      "features": [
+        "Comandament a distància",
+        "Control per veu (Alexa, Google Home)",
+        "Control des de l'smartphone",
+        "Programacions horàries i escenes",
+        "Integració amb domòtica (KNX, Somfy TaHoma)"
+      ]
+    },
+    "mosquitera": {
+      "name": "Mosquiteres",
+      "tagline": "Protecció efectiva i elegant, sense renunciar a la ventilació.",
+      "intro": "Les mosquiteres de la marca EPID ofereixen una solució efectiva i elegant per protegir la teva llar dels mosquits i altres insectes.",
+      "paragraphs": [
+        "Estan fabricades amb materials d'alta qualitat i dissenyades per adaptar-se a qualsevol tipus de finestra o porta, proporcionant una barrera efectiva sense comprometre la ventilació ni l'entrada de llum natural.",
+        "Amb una instal·lació fàcil i ràpida, són una opció pràctica per mantenir la teva llar protegida durant tot l'any."
+      ]
+    }
+  },
+  "Catifes": {
+    "metaTitle": "Catifes a mida — Cortinatges Esteba | Costa Brava",
+    "metaDescription": "Catifes per encàrrec fabricades per Salgueiro Home, escollides al taller de Cortinatges Esteba des de 1961. Disseny, mesures a mida i assessorament a les botigues de Girona, Blanes i Palamós.",
+    "eyebrow": "Catifes",
+    "headline": "Catifes que vesteixen el terra.",
+    "intro": "Una selecció de catifes fabricades per Salgueiro Home: catàleg, interior-exterior, col·lecció infantil i bany. Totes per encàrrec i en diverses mesures.",
+    "fromPrice": "des de",
+    "measuresAvailable": "Mesures disponibles",
+    "measuresOne": "{count} mesura disponible",
+    "measuresOther": "{count} mesures disponibles",
+    "madeBy": "Fabricat per",
+    "madeByBrand": "Salgueiro Home",
+    "onDemand": "Per encàrrec",
+    "requestBudget": "Demana pressupost",
+    "backToCatifes": "Totes les catifes",
+    "family": "Família",
+    "families": {
+      "catalogo": "Catàleg",
+      "in_out": "Interior · Exterior",
+      "kids_collection": "Col·lecció infantil",
+      "bath_collection": "Bany"
+    },
+    "ctaBlockHeadline": "Vols aquesta catifa a casa?",
+    "ctaBlockBody": "Demana pressupost sense compromís. Tindrem cura de la mesura, el color i la col·locació."
+  }
+}

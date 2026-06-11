@@ -1,0 +1,391 @@
+{
+  "Metadata": {
+    "title": "Cortinatges Esteba — Artesanos textiles desde 1961 | Costa Brava",
+    "description": "Tres generaciones cosiendo la luz y la intimidad de las casas de la Costa Brava. Cortinas a medida, estores, paneles japoneses, motorización y tapicería. Tiendas en Girona, Blanes y Palamós."
+  },
+  "Navigation": {
+    "collections": "Productos",
+    "stores": "Tiendas",
+    "about": "Nosotros",
+    "services": "Servicios",
+    "contact": "Contacto",
+    "cta": "Concertar una cita",
+    "catifes": "Alfombras"
+  },
+  "Footer": {
+    "tagline": "Tres generaciones cosiendo la luz y la intimidad de las casas de la Costa Brava.",
+    "rights": "Todos los derechos reservados.",
+    "privacy": "Política de privacidad",
+    "cookies": "Política de cookies",
+    "legal": "Aviso legal",
+    "services": "Servicios",
+    "budget": "Pide presupuesto",
+    "jobs": "Trabaja con nosotros",
+    "linksHeading": "Enlaces"
+  },
+  "CookieBanner": {
+    "title": "Cookies",
+    "message": "Utilizamos cookies propias y de terceros para mejorar tu experiencia y analizar el uso de la web.",
+    "more": "Más información",
+    "accept": "Acepto",
+    "reject": "Rechazo"
+  },
+  "Hero": {
+    "ariaLabel": "Sección principal",
+    "headline": "Cortinas a medida instaladas en tu casa. Desde 1961.",
+    "subheadline": "Tres generaciones de artesanos textiles en la Costa Brava. Cortinas, estores, colchones y textil hogar. Pide presupuesto sin compromiso.",
+    "ctaPrimary": "Concertar una cita",
+    "ctaSecondary": "Descubre las colecciones"
+  },
+  "SectionOfici": {
+    "ariaLabel": "Nuestro oficio",
+    "eyebrow": "Nuestro oficio",
+    "headline": "Tres generaciones. Un solo oficio.",
+    "imageAlt": "Fotografía del taller de Cortinatges Esteba",
+    "paragraph1": "En 2021 cumplimos 60 años desde que empezamos a trabajar, ¡y desde entonces no hemos parado de crecer!",
+    "paragraph2": "Apostamos por una atención personalizada, para garantizarte el mejor servicio e instalación.",
+    "paragraph3": "Actualmente colaboramos con decoradores de interiores cualificados para hacer realidad tus proyectos.",
+    "stat1": "años de experiencia",
+    "stat2": "tiendas en la Costa Brava",
+    "stat3": "generaciones de la familia Esteba"
+  },
+  "Collections": {
+    "ariaLabel": "Colecciones",
+    "eyebrow": "Colecciones",
+    "headline": "Cada espacio, su solución. Cada tela, su historia.",
+    "intro": "Cinco líneas de producto. Todas a medida, todas cosidas en nuestro taller.",
+    "cta": "Ver colección",
+    "brandsLabel": "Telas de:",
+    "items": {
+      "cortines": {
+        "name": "Cortinas a medida",
+        "description": "Diseñadas a partir del espacio, la luz y el gusto del cliente. Telas editoriales, acabados precisos, caída estudiada."
+      },
+      "estors": {
+        "name": "Estores",
+        "description": "Enrollables, venecianas de PVC o screen. Control de la luz sin renunciar a la estética del ambiente."
+      },
+      "panells-japonesos": {
+        "name": "Paneles japoneses",
+        "description": "La solución lineal para aperturas grandes. Composición limpia, movimiento suave, telas naturales o técnicas."
+      },
+      "venecianes": {
+        "name": "Venecianas",
+        "description": "Madera, aluminio o faux-bois. Para quien quiere luz ajustable con un carácter propio y duradero."
+      },
+      "motoritzacio": {
+        "name": "Motorización domótica",
+        "description": "Cualquier producto, motorizado. Integrado con KNX, Somfy o sistemas abiertos. El confort sin gestos."
+      }
+    }
+  },
+  "Locations": {
+    "ariaLabel": "Nuestras tiendas",
+    "eyebrow": "Nuestras tiendas",
+    "headline": "Ven a vernos. Hablamos de tu espacio.",
+    "stores": {
+      "girona": {
+        "city": "Girona",
+        "address": "C/ Rutlla, 11 · 17002 Girona",
+        "phone": "972 20 34 23",
+        "schedule": "Lunes a viernes 9.30–13.30 y 16.30–20.00 · Sábado 10.00–13.30"
+      },
+      "blanes": {
+        "city": "Blanes",
+        "address": "Rambla Joaquim Ruyra, 59 · 17300 Blanes",
+        "phone": "972 33 05 73",
+        "schedule": "Lunes a viernes 9.30–13.30 y 16.30–20.00 · Sábado 10.00–13.30"
+      },
+      "palamos": {
+        "city": "Palamós",
+        "address": "C/ Miguel de Cervantes, 35 · 17230 Palamós",
+        "phone": "972 31 62 19",
+        "schedule": "Lunes a viernes 9.30–13.30 y 16.30–20.00 · Sábado 10.00–13.30"
+      },
+      "matalasseria": {
+        "city": "Colchonería",
+        "address": "C/ Rutlla, 20 · 17002 Girona",
+        "phone": "972 20 34 23",
+        "schedule": "Lunes a viernes 9.30–13.30 y 16.30–20.00 · Sábado 10.00–13.30"
+      }
+    }
+  },
+  "CtaVisita": {
+    "ariaLabel": "Concertar una cita",
+    "eyebrow": "Sin compromiso",
+    "headline": "Pide tu visita. Te asesoramos en casa o en la tienda.",
+    "body": "Te esperamos en cualquiera de nuestras tiendas para hablar de tu proyecto sin compromiso. Y si lo prefieres, vamos a tu casa con el muestrario: un servicio de asesoramiento a domicilio con coste, para ver los tejidos en tu espacio y con tu luz.",
+    "ctaPrimary": "Concertar una cita",
+    "ctaSecondary": "Encuentra la tienda más cercana",
+    "disclaimer": "Sin compromiso. Sin presión de venta."
+  },
+  "Home": {
+    "metaTitle": "Artesanos textiles desde 1961 — Cortinas, estores y decoración a medida",
+    "metaDescription": "Tres generaciones cosiendo la luz y la intimidad de las casas de la Costa Brava. Cortinas a medida, estores, paneles japoneses, motorización y tapicería en Girona, Blanes y Palamós."
+  },
+  "About": {
+    "metaTitle": "Nosotros — Tres generaciones de artesanos textiles en la Costa Brava",
+    "metaDescription": "La historia de Cortinatges Esteba: desde 1961, tres generaciones confeccionando cortinas a medida con tiendas en Girona, Blanes y Palamós.",
+    "eyebrow": "Nosotros",
+    "title": "Tres generaciones vistiendo las casas de la Costa Brava",
+    "lead": "Desde 1961 hacemos una sola cosa y la hacemos bien: vestir los hogares con textiles a medida, con criterio y oficio.",
+    "story1": "Todo empezó en 1961, cuando el fundador de la familia Esteba abrió la primera tienda en Girona. En 2021 celebramos 60 años y, desde entonces, no hemos hecho más que crecer.",
+    "story2": "Hoy continuamos con los mismos valores: textiles de calidad, asesoramiento cercano y confección propia. Cada proyecto comienza con una conversación y termina con una instalación realizada por nuestro equipo.",
+    "story3": "Colaboramos con decoradores de interiores cualificados y con las mejores casas editoriales del textil para hacer realidad tus proyectos.",
+    "valuesTitle": "Lo que nos hace diferentes",
+    "values": [
+      {
+        "title": "Confección propia",
+        "desc": "Cosemos cada pieza en nuestro taller, totalmente a medida."
+      },
+      {
+        "title": "Atención personalizada",
+        "desc": "Te acompañamos desde la primera visita hasta la instalación."
+      },
+      {
+        "title": "Instalación propia",
+        "desc": "Nuestro equipo se encarga del montaje, con esmero."
+      },
+      {
+        "title": "60 años de experiencia",
+        "desc": "Tres generaciones al servicio de la Costa Brava."
+      }
+    ]
+  },
+  "HomeGrid": {
+    "tagline": "¡En Cortinatges Esteba encontrarás mucho más que cortinas! Redecora tu casa con las tendencias más actuales.",
+    "serveis": "Servicios",
+    "tendals": "Toldos",
+    "pergoles": "Pérgolas",
+    "tapisseria": "Tapicería",
+    "badgeYears": "60",
+    "badgeAnys": "años",
+    "badgeSince": "Desde 1961",
+    "artisan1": "Confeccionamos tus cortinas de manera artesanal desde 1961",
+    "artisan2": "Apostamos por una atención personalizada, para garantizarte el mejor servicio e instalación",
+    "instagramHeading": "Síguenos en Instagram",
+    "instagramCta": "Ver el perfil",
+    "brandsHeading": "Principales colaboradores"
+  },
+  "HomeSections": {
+    "consulta": "¿Quieres hacernos una consulta?",
+    "tipusTitle": "Tipos de cortinas",
+    "tipusBody": "Sabemos que elegir cortinas no es tan fácil como parece. Déjate llevar por nuestra amplia experiencia en el sector.",
+    "robaTitle": "Ropa de casa",
+    "robaBody": "Descubre las nuevas colecciones que tenemos en las tiendas. Ven a ver las nuevas tendencias en sábanas, nórdicos, colchas y cojines. Todo un mundo de posibilidades.",
+    "descansTitle": "Descanso",
+    "descansBody": "Garantizamos la calidad de tus sueños. Estamos fidelizados con las mejores marcas para ofrecerte una opción a medida: colchones, bases somieres, almohadas y complementos.",
+    "espaisTitle": "Espacios inteligentes",
+    "espaisBody": "Espacios más eficientes. Estores y cortinas motorizadas son el primer paso para convertir tus espacios en lugares inteligentes.",
+    "showcaseHeading": "Inspiración para tu casa"
+  },
+  "Serveis": {
+    "metaTitle": "Nuestros servicios — Asesoramiento, toma de medidas, confección e instalación",
+    "metaDescription": "Atención personalizada de principio a fin: asesoramiento, diseño interior, toma de medidas, confección artesanal e instalación propia en la Costa Brava.",
+    "eyebrow": "Servicios",
+    "title": "Nuestros servicios",
+    "intro": "Un acompañamiento completo, desde la primera visita hasta la última instalación.",
+    "items": {
+      "assessorament": {
+        "name": "Asesoramiento",
+        "desc": "Ofrecemos una atención al cliente personalizada, basada en nuestra amplia experiencia dentro del sector de la decoración. Trabajamos con las mejores marcas actuales para ofrecer un asesoramiento a medida."
+      },
+      "disseny": {
+        "name": "Diseño interior",
+        "desc": "Trabajamos con primeras marcas y nos adaptamos al presupuesto y las necesidades de cada cliente. Contamos con decoradores de interiores para hacer realidad tus proyectos."
+      },
+      "mides": {
+        "name": "Toma de medidas",
+        "desc": "Tomamos todas las medidas necesarias para la confección y el posterior montaje."
+      },
+      "confeccio": {
+        "name": "Confección",
+        "desc": "Creamos y confeccionamos productos a medida, totalmente personalizados a las necesidades del cliente."
+      },
+      "installacio": {
+        "name": "Instalación",
+        "desc": "Ofrecemos servicio de instalación y montaje de todos nuestros productos."
+      }
+    }
+  },
+  "FormBudget": {
+    "metaTitle": "Pide presupuesto",
+    "metaDescription": "Pide presupuesto sin compromiso para cortinas, estores y decoración a medida.",
+    "title": "Pide presupuesto",
+    "intro": "Cuéntanos qué necesitas y te preparamos un presupuesto sin compromiso.",
+    "nom": "Nombre y apellidos",
+    "telefon": "Teléfono móvil",
+    "email": "Correo electrónico",
+    "observacions": "Observaciones",
+    "submit": "Enviar",
+    "or": "O si lo prefieres, escríbenos directamente:"
+  },
+  "FormJobs": {
+    "metaTitle": "¿Quieres trabajar con nosotros?",
+    "metaDescription": "Únete al equipo de Cortinatges Esteba. Envíanos tu currículum.",
+    "title": "¿Quieres trabajar con nosotros?",
+    "intro": "Si quieres formar parte de nuestro equipo, escríbenos y adjunta tu currículum.",
+    "nom": "Nombre y apellidos",
+    "telefon": "Teléfono",
+    "email": "Correo electrónico",
+    "cv": "Adjunta tu currículum (PDF)",
+    "comentaris": "Comentarios",
+    "submit": "Enviar"
+  },
+  "CollectionsIndex": {
+    "metaTitle": "Colecciones — Cortinas, estores y paneles a medida",
+    "metaDescription": "Diez líneas de producto hechas a medida y cosidas en nuestro taller: cortina tradicional, estores, paneles japoneses, venecianas, motorización y mucho más.",
+    "eyebrow": "Colecciones",
+    "headline": "Cada espacio, su solución. Un solo oficio.",
+    "intro": "Cada espacio pide una respuesta diferente. Estas son las líneas que trabajamos, todas hechas a medida y cosidas en nuestro taller desde 1961.",
+    "cta": "Ver colección"
+  },
+  "ProductPage": {
+    "breadcrumbHome": "Inicio",
+    "breadcrumbCollections": "Colecciones",
+    "backToCollections": "Todas las colecciones",
+    "requestBudget": "Pide presupuesto",
+    "contactCta": "Concertar una cita",
+    "brandsLabel": "Trabajamos con:",
+    "galleryHeading": "Galería",
+    "otherCollections": "Otras colecciones",
+    "featuresHeading": "Características",
+    "ctaBlockHeadline": "¿Te gusta lo que ves? Hablemos.",
+    "ctaBlockBody": "Te hacemos una visita, tomamos medidas y te asesoramos sin compromiso. Una conversación vale más que mil fotos."
+  },
+  "Products": {
+    "tradicional": {
+      "name": "Cortina tradicional",
+      "tagline": "El clásico que nunca falla. Telas editoriales, caída estudiada.",
+      "intro": "Las telas, con su diversidad de colores, texturas y transparencias, ofrecen infinitas posibilidades decorativas.",
+      "paragraphs": [
+        "Permiten crear ambientes acogedores, cálidos y llenos de armonía.",
+        "Existe una gran variedad de tejidos para mejorar el control de la luz, desde transparentes hasta opacos, para que cada estancia tenga exactamente la luz que necesita."
+      ]
+    },
+    "estor-paquet": {
+      "name": "Estor paquete",
+      "tagline": "Pliegues naturales, aire confortable. Nuestro producto estrella.",
+      "intro": "El estor paquete es el producto estrella para vestir un espacio: es la cortina perfecta para crear ambientes acogedores de apariencia confortable.",
+      "paragraphs": [
+        "Su forma permite que los pliegues que realiza la cortina sean mucho más naturales y bonitos, ya que recoge la tela de manera ligera y sencilla."
+      ]
+    },
+    "estor-enrotllable": {
+      "name": "Estor enrollable",
+      "tagline": "Limpio, práctico y versátil. Screen o blackout, según la luz que busques.",
+      "intro": "El estor enrollable es la solución más práctica y limpia para controlar la luz sin renunciar a la estética del ambiente.",
+      "paragraphs": [
+        "El tejido screen filtra la luz y protege del calor manteniendo la visión hacia el exterior; el blackout oscurece completamente la estancia cuando lo necesitas.",
+        "Ocupa muy poco espacio al recogerse y se adapta a prácticamente cualquier ventana. Disponible con accionamiento manual o motorizado."
+      ]
+    },
+    "panell-japones": {
+      "name": "Panel japonés",
+      "tagline": "La solución lineal para grandes ventanales y puertas correderas.",
+      "intro": "Son una solución magnífica para cubrir grandes ventanales y puertas correderas que dan acceso al exterior, ya que se desplazan horizontalmente mediante unos raíles y pueden quedar recogidos completamente fuera de la apertura.",
+      "paragraphs": [
+        "El movimiento es suave y limpio, y deja un acceso fácil al exterior."
+      ],
+      "features": [
+        "Screen: luz y protección frente al calor, con una limpieza fácil con una esponja húmeda.",
+        "Translúcidos: tejidos que ofrecen una luz suave y difuminada facilitando la privacidad.",
+        "Opacos: destacan por la oscuridad, ofreciendo privacidad y aislamiento térmico."
+      ]
+    },
+    "veneciana-alumini": {
+      "name": "Veneciana de aluminio",
+      "tagline": "Control preciso de la luz con lamas ligeras y resistentes.",
+      "intro": "La veneciana de aluminio es un clásico versátil que ofrece un control muy preciso de la luz y una excelente privacidad.",
+      "paragraphs": [
+        "Se rige según el ancho de la lama: las de 25 mm, las más populares, o las de 50 mm, más apropiadas para ventanas de gran dimensión.",
+        "Ligera, resistente y fácil de mantener, ideal para cocinas, baños y espacios de trabajo."
+      ]
+    },
+    "veneciana-fusta": {
+      "name": "Veneciana de madera",
+      "tagline": "La calidez de la madera natural con un carácter propio y duradero.",
+      "intro": "La veneciana de madera aporta calidez y elegancia a cualquier estancia, con lamas de madera natural o faux-bois.",
+      "paragraphs": [
+        "Las lamas anchas y las cintas decorativas le dan un aspecto cálido y acogedor, perfecto para salones y dormitorios.",
+        "Para quien busca un control preciso de la luz sin renunciar a la calidez de los materiales naturales."
+      ]
+    },
+    "prisada": {
+      "name": "Cortina plisada",
+      "tagline": "Estéticamente atractiva y mínima en espacio de recogida.",
+      "intro": "Las cortinas plisadas resultan estéticamente muy atractivas y ofrecen un control preciso de la luz y la privacidad con el mejor estilo.",
+      "paragraphs": [
+        "Podemos encontrarlas translúcidas o totalmente opacas para evitar el paso de la luz.",
+        "Se pueden instalar en lugares donde hay poco espacio, ya que su espacio de recogida es mínimo."
+      ]
+    },
+    "vertical": {
+      "name": "Cortina vertical",
+      "tagline": "Elegancia y lamas orientables para grandes ventanales.",
+      "intro": "Las cortinas verticales tienen una elegancia y un estilo muy característicos. Es un tipo de cortina compuesto de lamas orientables que permiten decidir la privacidad y la luz que deseamos.",
+      "paragraphs": [
+        "Si dispones de un ventanal de dimensiones amplias, este es un tipo de cortina que se adapta perfectamente.",
+        "Permiten controlar con precisión la luz y la privacidad gracias a sus lamas orientables, con accionamiento manual o motorizado."
+      ]
+    },
+    "nit-i-dia": {
+      "name": "Cortina noche y día",
+      "tagline": "Un juego mágico de luces y sombras con un solo gesto.",
+      "intro": "Los estores noche y día son modernos, elegantes y de gran impacto decorativo. Están formados por un tejido doble que se alterna sucesivamente formando franjas de tejido translúcido y transparente.",
+      "paragraphs": [
+        "A medida que recogemos o extendemos el estor, estas bandas se deslizan y se superponen unas a otras, produciendo un mágico efecto de luces y sombras."
+      ]
+    },
+    "motoritzacio": {
+      "name": "Motorización y domótica",
+      "tagline": "Cualquier cortina, motorizada. El confort sin gestos.",
+      "intro": "Motorizar tus cortinas y estores te permite controlar la luz de toda la casa con un solo gesto, sin renunciar a la elegancia de cada pieza.",
+      "paragraphs": [
+        "Trabajamos con motores Somfy y sistemas abiertos integrables con tu domótica: acciónalas con el mando, con la voz o desde tu smartphone, estés donde estés.",
+        "Programa horarios para que suban y bajen solas, gana privacidad y eficiencia energética. Es el primer paso para convertir tu casa en un hogar inteligente."
+      ],
+      "features": [
+        "Mando a distancia",
+        "Control por voz (Alexa, Google Home)",
+        "Control desde el smartphone",
+        "Programaciones horarias y escenas",
+        "Integración con domótica (KNX, Somfy TaHoma)"
+      ]
+    },
+    "mosquitera": {
+      "name": "Mosquiteras",
+      "tagline": "Protección efectiva y elegante, sin renunciar a la ventilación.",
+      "intro": "Las mosquiteras de la marca EPID ofrecen una solución efectiva y elegante para proteger tu hogar de los mosquitos y otros insectos.",
+      "paragraphs": [
+        "Están fabricadas con materiales de alta calidad y diseñadas para adaptarse a cualquier tipo de ventana o puerta, proporcionando una barrera efectiva sin comprometer la ventilación ni la entrada de luz natural.",
+        "Con una instalación fácil y rápida, son una opción práctica para mantener tu hogar protegido durante todo el año."
+      ]
+    }
+  },
+  "Catifes": {
+    "metaTitle": "Alfombras a medida — Cortinatges Esteba | Costa Brava",
+    "metaDescription": "Alfombras por encargo fabricadas por Salgueiro Home, seleccionadas en el taller de Cortinatges Esteba desde 1961. Diseño, medidas a medida y asesoramiento en las tiendas de Girona, Blanes y Palamós.",
+    "eyebrow": "Alfombras",
+    "headline": "Alfombras que visten el suelo.",
+    "intro": "Una selección de alfombras fabricadas por Salgueiro Home: catálogo, interior-exterior, colección infantil y baño. Todas por encargo y en varias medidas.",
+    "fromPrice": "desde",
+    "measuresAvailable": "Medidas disponibles",
+    "measuresOne": "{count} medida disponible",
+    "measuresOther": "{count} medidas disponibles",
+    "madeBy": "Fabricado por",
+    "madeByBrand": "Salgueiro Home",
+    "onDemand": "Por encargo",
+    "requestBudget": "Pedir presupuesto",
+    "backToCatifes": "Todas las alfombras",
+    "family": "Familia",
+    "families": {
+      "catalogo": "Catálogo",
+      "in_out": "Interior · Exterior",
+      "kids_collection": "Colección infantil",
+      "bath_collection": "Baño"
+    },
+    "ctaBlockHeadline": "¿Quieres esta alfombra en casa?",
+    "ctaBlockBody": "Pide presupuesto sin compromiso. Cuidaremos la medida, el color y la colocación."
+  }
+}
