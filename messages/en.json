@@ -11,7 +11,8 @@
     "contact": "Contact",
     "cta": "Book a consultation",
     "catifes": "Rugs",
-    "mobles": "Furniture"
+    "mobles": "Furniture",
+    "decoracio": "Decor"
   },
   "Footer": {
     "tagline": "Three generations crafting light and intimacy in Costa Brava homes.",
@@ -434,7 +435,9 @@
     "catifesTitle": "Rugs",
     "catifesDescription": "Made-to-order rugs in several sizes, manufactured by Salgueiro Home.",
     "moblesTitle": "Furniture",
-    "moblesDescription": "Chairs, armchairs, tables and sideboards made to order, with finishes to choose from."
+    "moblesDescription": "Chairs, armchairs, tables and sideboards made to order, with finishes to choose from.",
+    "decoracioTitle": "Decor",
+    "decoracioDescription": "Throws and home textiles manufactured by Salgueiro Home, to bring warmth to every room."
   },
   "Cart": {
     "metaTitle": "My cart — Cortinatges Esteba",
@@ -497,5 +500,21 @@
       "600_1000": "€600 – 1,000",
       "gt1000": "Over €1,000"
     }
+  },
+  "Decoracio": {
+    "metaTitle": "Decor — Throws | Cortinatges Esteba | Costa Brava",
+    "metaDescription": "Throws and decorative textiles manufactured by Salgueiro Home, curated at the Cortinatges Esteba workshop since 1961. They bring warmth to sofas and beds, with advice at our stores in Girona, Blanes and Palamós.",
+    "eyebrow": "Decor",
+    "headline": "Throws that bring warmth to the home.",
+    "intro": "A selection of throws manufactured by Salgueiro Home: soft textiles for the sofa and the bed, in several sizes.",
+    "fromPrice": "from",
+    "midaLabel": "Size",
+    "madeBy": "Made by",
+    "madeByBrand": "Salgueiro Home",
+    "requestBudget": "Request a quote",
+    "backToMantes": "All throws",
+    "ctaBlockHeadline": "Want this throw at home?",
+    "ctaBlockBody": "Request a quote with no commitment. We will advise you on the sizes and the delivery.",
+    "results": "{count, plural, =0 {No throws} one {# throw} other {# throws}}"
   }
 }

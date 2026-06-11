@@ -11,7 +11,8 @@
     "contact": "Contact",
     "cta": "Prendre rendez-vous",
     "catifes": "Tapis",
-    "mobles": "Meubles"
+    "mobles": "Meubles",
+    "decoracio": "Décoration"
   },
   "Footer": {
     "tagline": "Trois générations à coudre la lumière et l'intimité des maisons de la Costa Brava.",
@@ -434,7 +435,9 @@
     "catifesTitle": "Tapis",
     "catifesDescription": "Tapis sur commande en plusieurs dimensions, fabriqués par Salgueiro Home.",
     "moblesTitle": "Meubles",
-    "moblesDescription": "Chaises, fauteuils, tables et buffets sur commande, avec des finitions au choix."
+    "moblesDescription": "Chaises, fauteuils, tables et buffets sur commande, avec des finitions au choix.",
+    "decoracioTitle": "Décoration",
+    "decoracioDescription": "Plaids et textiles de maison fabriqués par Salgueiro Home, pour apporter de la chaleur à chaque pièce."
   },
   "Cart": {
     "metaTitle": "Mon panier — Cortinatges Esteba",
@@ -497,5 +500,21 @@
       "600_1000": "600 – 1 000 €",
       "gt1000": "Plus de 1 000 €"
     }
+  },
+  "Decoracio": {
+    "metaTitle": "Décoration — Plaids | Cortinatges Esteba | Costa Brava",
+    "metaDescription": "Plaids et textiles décoratifs fabriqués par Salgueiro Home, sélectionnés à l’atelier de Cortinatges Esteba depuis 1961. Ils apportent de la chaleur aux canapés et aux lits, avec conseil dans nos boutiques de Girona, Blanes et Palamós.",
+    "eyebrow": "Décoration",
+    "headline": "Des plaids qui apportent de la chaleur à la maison.",
+    "intro": "Une sélection de plaids fabriqués par Salgueiro Home : des textiles doux pour le canapé et le lit, en plusieurs dimensions.",
+    "fromPrice": "à partir de",
+    "midaLabel": "Dimension",
+    "madeBy": "Fabriqué par",
+    "madeByBrand": "Salgueiro Home",
+    "requestBudget": "Demander un devis",
+    "backToMantes": "Tous les plaids",
+    "ctaBlockHeadline": "Vous voulez ce plaid chez vous ?",
+    "ctaBlockBody": "Demandez un devis sans engagement. Nous vous conseillons sur les dimensions et la livraison.",
+    "results": "{count, plural, =0 {Aucun plaid} one {# plaid} other {# plaids}}"
   }
 }

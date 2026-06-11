@@ -17,6 +17,7 @@ export default function Header() {
     { href: `${prefix || "/"}#productes`, label: t("collections"), external: false },
     { href: `${prefix}/catifes`, label: t("catifes"), external: false },
     { href: `${prefix}/mobiliari`, label: t("mobles"), external: false },
+    { href: `${prefix}/decoracio`, label: t("decoracio"), external: false },
     { href: `${prefix}/serveis`, label: t("services"), external: false },
     { href: `${prefix}/botigues`, label: t("stores"), external: false },
     { href: `${prefix}/nosaltres`, label: t("about"), external: false },

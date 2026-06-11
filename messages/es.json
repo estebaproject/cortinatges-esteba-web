@@ -11,7 +11,8 @@
     "contact": "Contacto",
     "cta": "Concertar una cita",
     "catifes": "Alfombras",
-    "mobles": "Muebles"
+    "mobles": "Muebles",
+    "decoracio": "Decoración"
   },
   "Footer": {
     "tagline": "Tres generaciones cosiendo la luz y la intimidad de las casas de la Costa Brava.",
@@ -434,7 +435,9 @@
     "catifesTitle": "Alfombras",
     "catifesDescription": "Alfombras por encargo en varias medidas, fabricadas por Salgueiro Home.",
     "moblesTitle": "Muebles",
-    "moblesDescription": "Sillas, sillones, mesas y aparadores por encargo, con acabados a elegir."
+    "moblesDescription": "Sillas, sillones, mesas y aparadores por encargo, con acabados a elegir.",
+    "decoracioTitle": "Decoración",
+    "decoracioDescription": "Mantas y textil del hogar fabricados por Salgueiro Home, para dar calidez a cada estancia."
   },
   "Cart": {
     "metaTitle": "Mi cesta — Cortinatges Esteba",
@@ -497,5 +500,21 @@
       "600_1000": "600 – 1.000 €",
       "gt1000": "Más de 1.000 €"
     }
+  },
+  "Decoracio": {
+    "metaTitle": "Decoración — Mantas | Cortinatges Esteba | Costa Brava",
+    "metaDescription": "Mantas y textil decorativo fabricados por Salgueiro Home, seleccionados en el taller de Cortinatges Esteba desde 1961. Dan calidez a sofás y camas, con asesoramiento en las tiendas de Girona, Blanes y Palamós.",
+    "eyebrow": "Decoración",
+    "headline": "Mantas que dan calidez al hogar.",
+    "intro": "Una selección de mantas fabricadas por Salgueiro Home: textil suave para el sofá y la cama, en varias medidas.",
+    "fromPrice": "desde",
+    "midaLabel": "Medida",
+    "madeBy": "Fabricado por",
+    "madeByBrand": "Salgueiro Home",
+    "requestBudget": "Pedir presupuesto",
+    "backToMantes": "Todas las mantas",
+    "ctaBlockHeadline": "¿Quieres esta manta en casa?",
+    "ctaBlockBody": "Pide presupuesto sin compromiso. Te asesoramos con las medidas y la entrega.",
+    "results": "{count, plural, =0 {Ninguna manta} one {# manta} other {# mantas}}"
   }
 }

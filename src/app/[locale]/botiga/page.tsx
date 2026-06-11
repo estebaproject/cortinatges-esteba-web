@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { CATIFES, catifaImage } from "@/lib/catifes";
 import { MOBLES, mobleImage } from "@/lib/mobiliari";
+import { MANTES, mantaImage } from "@/lib/decoracio";
 import { SITE_URL } from "@/lib/site";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -48,6 +49,14 @@ export default async function BotigaPage({ params }: Props) {
       description: t("moblesDescription"),
       count: MOBLES.length,
       image: mobleImage("toulouse"),
+    },
+    {
+      key: "decoracio" as const,
+      href: `${prefix}/decoracio`,
+      title: t("decoracioTitle"),
+      description: t("decoracioDescription"),
+      count: MANTES.length,
+      image: mantaImage("varanasi"),
     },
   ];
 

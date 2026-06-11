@@ -11,7 +11,8 @@
     "contact": "Contacte",
     "cta": "Concerta una cita",
     "catifes": "Catifes",
-    "mobles": "Mobles"
+    "mobles": "Mobles",
+    "decoracio": "Decoració"
   },
   "Footer": {
     "tagline": "Tres generacions cosint la llum i la intimitat de les cases de la Costa Brava.",
@@ -434,7 +435,9 @@
     "catifesTitle": "Catifes",
     "catifesDescription": "Catifes per encàrrec en diverses mesures, fabricades per Salgueiro Home.",
     "moblesTitle": "Mobles",
-    "moblesDescription": "Cadires, butaques, taules i aparadors per encàrrec, amb acabats a escollir."
+    "moblesDescription": "Cadires, butaques, taules i aparadors per encàrrec, amb acabats a escollir.",
+    "decoracioTitle": "Decoració",
+    "decoracioDescription": "Mantes i tèxtil de la llar fabricats per Salgueiro Home, per donar caliu a cada estança."
   },
   "Cart": {
     "metaTitle": "El meu cistell — Cortinatges Esteba",
@@ -497,5 +500,21 @@
       "600_1000": "600 – 1.000 €",
       "gt1000": "Més de 1.000 €"
     }
+  },
+  "Decoracio": {
+    "metaTitle": "Decoració — Mantes | Cortinatges Esteba | Costa Brava",
+    "metaDescription": "Mantes i tèxtil decoratiu fabricats per Salgueiro Home, seleccionats al taller de Cortinatges Esteba des de 1961. Donen caliu a sofàs i llits, amb assessorament a les botigues de Girona, Blanes i Palamós.",
+    "eyebrow": "Decoració",
+    "headline": "Mantes que donen caliu a la casa.",
+    "intro": "Una selecció de mantes fabricades per Salgueiro Home: tèxtil suau per al sofà i el llit, en diverses mides.",
+    "fromPrice": "des de",
+    "midaLabel": "Mida",
+    "madeBy": "Fabricat per",
+    "madeByBrand": "Salgueiro Home",
+    "requestBudget": "Demana pressupost",
+    "backToMantes": "Totes les mantes",
+    "ctaBlockHeadline": "Vols aquesta manta a casa?",
+    "ctaBlockBody": "Demana pressupost sense compromís. T’assessorem amb les mides i el lliurament.",
+    "results": "{count, plural, =0 {Cap manta} one {# manta} other {# mantes}}"
   }
 }
