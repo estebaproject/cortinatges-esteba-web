@@ -126,6 +126,7 @@ export default function MobleGallery({ moble, children, footer }: Props) {
         <div className="mb-6">
           <AddToCartButton
             slug={cartSlug}
+            href={`/mobiliari/${moble.slug}`}
             nom={cartNom}
             pvp={moble.pvpDesde}
             image={bigImage}

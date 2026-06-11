@@ -57,32 +57,54 @@ export default function CartView() {
       <ul className="border-t border-linen divide-y divide-linen" role="list">
         {lines.map((line) => {
           const lineTotal = line.pvp * line.qty;
+          // Enllaç a la fitxa: ruta relativa (sense prefix) desada a la línia,
+          // amb prefix de locale. Si falta (cistells antics), degradem sense
+          // enllaç per no portar a una ruta trencada.
+          const productHref = line.href ? `${prefix}${line.href}` : null;
           return (
             <li
               key={line.slug}
               className="flex gap-4 sm:gap-6 py-6 items-start"
             >
-              <Link
-                href={`${prefix}/catifes/${line.slug}`}
-                className="relative w-20 h-20 sm:w-28 sm:h-28 shrink-0 overflow-hidden bg-linen"
-                aria-label={line.nom}
-              >
-                <Image
-                  src={line.image}
-                  alt={line.nom}
-                  fill
-                  sizes="112px"
-                  className="object-cover"
-                />
-              </Link>
+              {productHref ? (
+                <Link
+                  href={productHref}
+                  className="relative w-20 h-20 sm:w-28 sm:h-28 shrink-0 overflow-hidden bg-linen"
+                  aria-label={line.nom}
+                >
+                  <Image
+                    src={line.image}
+                    alt={line.nom}
+                    fill
+                    sizes="112px"
+                    className="object-cover"
+                  />
+                </Link>
+              ) : (
+                <div className="relative w-20 h-20 sm:w-28 sm:h-28 shrink-0 overflow-hidden bg-linen">
+                  <Image
+                    src={line.image}
+                    alt={line.nom}
+                    fill
+                    sizes="112px"
+                    className="object-cover"
+                  />
+                </div>
+              )}
 
               <div className="flex-1 min-w-0">
-                <Link
-                  href={`${prefix}/catifes/${line.slug}`}
-                  className="font-serif text-body-lg text-ink hover:text-accent-deep transition-colors"
-                >
-                  {line.nom}
-                </Link>
+                {productHref ? (
+                  <Link
+                    href={productHref}
+                    className="font-serif text-body-lg text-ink hover:text-accent-deep transition-colors"
+                  >
+                    {line.nom}
+                  </Link>
+                ) : (
+                  <span className="font-serif text-body-lg text-ink">
+                    {line.nom}
+                  </span>
+                )}
                 <p className="font-sans text-body-sm text-ink-muted mt-1">
                   {fmtPrice(line.pvp)}
                 </p>

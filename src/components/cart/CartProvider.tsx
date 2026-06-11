@@ -20,8 +20,15 @@ const STORAGE_KEY = "esteba-cart";
 
 /** Una línia del cistell. Només dades públiques del producte. */
 export type CartLine = {
-  /** Slug del producte (catifa). Identificador únic de la línia. */
+  /** Slug de la línia. Identificador únic (pot ser compost: "grenoble#verd"). */
   slug: string;
+  /**
+   * Ruta RELATIVA a la fitxa del producte, SENSE prefix de locale i SENSE
+   * sufix de color: "/catifes/adore", "/mobiliari/grenoble", "/decoracio/harbin".
+   * CartView l'enllaça com `${prefix}${href}`. Pot faltar en cistells antics
+   * desats abans d'introduir aquest camp (es degrada amb elegància).
+   */
+  href?: string;
   /** Nom propi del model (no es tradueix). */
   nom: string;
   /** Preu públic unitari, IVA inclòs (€). */
@@ -60,7 +67,9 @@ function isCartLine(value: unknown): value is CartLine {
     typeof v.nom === "string" &&
     typeof v.pvp === "number" &&
     typeof v.image === "string" &&
-    typeof v.qty === "number"
+    typeof v.qty === "number" &&
+    // href és opcional (cistells antics no el tenen): si hi és, ha de ser string.
+    (v.href === undefined || typeof v.href === "string")
   );
 }
 

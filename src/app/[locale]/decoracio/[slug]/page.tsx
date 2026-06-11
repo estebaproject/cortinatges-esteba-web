@@ -158,6 +158,7 @@ export default async function MantaPage({ params }: Props) {
               <div className="mb-6">
                 <AddToCartButton
                   slug={manta.slug}
+                  href={`/decoracio/${manta.slug}`}
                   nom={manta.nom}
                   pvp={manta.pvpDesde}
                   image={image}

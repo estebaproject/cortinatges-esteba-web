@@ -10,13 +10,19 @@ import { useCart } from "./CartProvider";
 
 type Props = {
   slug: string;
+  /**
+   * Ruta RELATIVA a la fitxa del producte, SENSE prefix de locale i SENSE
+   * sufix de color: "/catifes/adore", "/mobiliari/grenoble", "/decoracio/harbin".
+   * La passa la pàgina que coneix la categoria i el slug base del model.
+   */
+  href: string;
   nom: string;
   /** PVP unitari, IVA inclòs (€). */
   pvp: number;
   image: string;
 };
 
-export default function AddToCartButton({ slug, nom, pvp, image }: Props) {
+export default function AddToCartButton({ slug, href, nom, pvp, image }: Props) {
   const t = useTranslations("Cart");
   const { add } = useCart();
   const [added, setAdded] = useState(false);
@@ -29,7 +35,7 @@ export default function AddToCartButton({ slug, nom, pvp, image }: Props) {
   }, []);
 
   const handleAdd = () => {
-    add({ slug, nom, pvp, image });
+    add({ slug, href, nom, pvp, image });
     setAdded(true);
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     timeoutRef.current = setTimeout(() => setAdded(false), 2200);

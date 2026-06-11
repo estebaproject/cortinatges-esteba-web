@@ -193,6 +193,7 @@ export default async function CatifaPage({ params }: Props) {
                 <div className="mb-6">
                   <AddToCartButton
                     slug={catifa.slug}
+                    href={`/catifes/${catifa.slug}`}
                     nom={catifa.nom}
                     pvp={catifa.pvpDesde}
                     image={image}
