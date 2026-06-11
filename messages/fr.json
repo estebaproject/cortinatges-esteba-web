@@ -505,6 +505,13 @@
     },
     "colorLabel": "Couleur"
   },
+  "Gallery": {
+    "thumbsLabel": "Vignettes de la galerie",
+    "escena": "Scène",
+    "producte": "Produit",
+    "detall": "Détail",
+    "color": "Couleur"
+  },
   "Decoracio": {
     "metaTitle": "Décoration — Plaids | Cortinatges Esteba | Costa Brava",
     "metaDescription": "Plaids et textiles décoratifs fabriqués par Salgueiro Home, sélectionnés à l’atelier de Cortinatges Esteba depuis 1961. Ils apportent de la chaleur aux canapés et aux lits, avec conseil dans nos boutiques de Girona, Blanes et Palamós.",

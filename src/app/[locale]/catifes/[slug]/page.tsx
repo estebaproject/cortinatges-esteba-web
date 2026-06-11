@@ -8,10 +8,14 @@ import {
   CATIFA_SLUGS,
   getCatifa,
   catifaImage,
+  catifaEscena,
+  catifaProducto,
+  catifaSlides,
   type CatifaFamilia,
 } from "@/lib/catifes";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
 import AddToCartButton from "@/components/cart/AddToCartButton";
+import ProductGallery from "@/components/shop/ProductGallery";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -28,7 +32,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "Catifes" });
   const prefix = locale === "ca" ? "" : `/${locale}`;
   const url = `${SITE_URL}${prefix}/catifes/${slug}`;
-  const image = catifaImage(slug);
+  // ADR-7: OG usa imatge de producte quan existeix, fallback escena.
+  const ogImage = catifaProducto(slug) ?? catifaImage(slug);
   const familyLabel = t(`families.${catifa.familia}` as Parameters<typeof t>[0]);
   const description = `${catifa.nom} — ${familyLabel}. ${t("madeBy")} ${t("madeByBrand")}. ${
     catifa.pvpDesde !== null
@@ -44,7 +49,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url,
       title: `${catifa.nom} — ${t("eyebrow")}`,
       description,
-      images: [{ url: image, width: 1200, height: 1200, alt: catifa.nom }],
+      images: [{ url: ogImage, width: 1200, height: 1200, alt: catifa.nom }],
     },
   };
 }
@@ -61,7 +66,12 @@ export default async function CatifaPage({ params }: Props) {
   const familyLabel = (f: CatifaFamilia) =>
     t(`families.${f}` as Parameters<typeof t>[0]);
 
-  const image = catifaImage(slug);
+  // Imatge per al JSON-LD Product.image i add-to-cart: producte si existeix.
+  const productImage = catifaProducto(slug) ?? catifaEscena(slug);
+  // Slides per a la galeria: escena + producte + detall (omets inexistents).
+  const tGallery = await getTranslations("Gallery");
+  const slides = catifaSlides(slug, catifa.nom);
+
   const priceLabel =
     catifa.pvpDesde === null
       ? t("onDemand")
@@ -84,7 +94,7 @@ export default async function CatifaPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "Product",
     name: catifa.nom,
-    image: `${SITE_URL}${image}`,
+    image: `${SITE_URL}${productImage}`,
     category: "Catifes a mida",
     brand: { "@type": "Brand", name: catifa.marca },
     manufacturer: { "@type": "Organization", name: catifa.marca },
@@ -141,17 +151,11 @@ export default async function CatifaPage({ params }: Props) {
           </nav>
 
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-            {/* Foto gran */}
-            <div className="relative aspect-square overflow-hidden bg-linen">
-              <Image
-                src={image}
-                alt={catifa.nom}
-                fill
-                priority
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover"
-              />
-            </div>
+            {/* Galeria de producte: escena + producte + detall */}
+            <ProductGallery
+              slides={slides}
+              thumbsLabel={tGallery("thumbsLabel")}
+            />
 
             {/* Informació */}
             <div className="lg:sticky lg:top-28 self-start">
@@ -196,7 +200,7 @@ export default async function CatifaPage({ params }: Props) {
                     href={`/catifes/${catifa.slug}`}
                     nom={catifa.nom}
                     pvp={catifa.pvpDesde}
-                    image={image}
+                    image={productImage}
                   />
                 </div>
               )}

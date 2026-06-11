@@ -505,6 +505,13 @@
     },
     "colorLabel": "Color"
   },
+  "Gallery": {
+    "thumbsLabel": "Miniaturas de la galería",
+    "escena": "Escena",
+    "producte": "Producto",
+    "detall": "Detalle",
+    "color": "Color"
+  },
   "Decoracio": {
     "metaTitle": "Decoración — Mantas | Cortinatges Esteba | Costa Brava",
     "metaDescription": "Mantas y textil decorativo fabricados por Salgueiro Home, seleccionados en el taller de Cortinatges Esteba desde 1961. Dan calidez a sofás y camas, con asesoramiento en las tiendas de Girona, Blanes y Palamós.",

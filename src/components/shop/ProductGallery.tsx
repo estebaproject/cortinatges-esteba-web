@@ -28,6 +28,11 @@ export type ProductGalleryProps = {
   onColorChange?: (colorSlug: string) => void;
   /** Etiqueta i18n del grup de thumbnails (a11y, aria-label). */
   thumbsLabel: string;
+  /**
+   * Classes addicionals per al contenidor de la imatge gran.
+   * Permet sobreescriure aspect-ratio o max-height des del caller (ex. MobleFicha).
+   */
+  mainImageClassName?: string;
 };
 
 export default function ProductGallery({
@@ -35,6 +40,7 @@ export default function ProductGallery({
   initialIndex = 0,
   onColorChange,
   thumbsLabel,
+  mainImageClassName,
 }: ProductGalleryProps) {
   const [active, setActive] = useState(initialIndex);
 
@@ -59,9 +65,14 @@ export default function ProductGallery({
   }
 
   return (
-    <div>
+    // En lg: carril vertical de thumbnails a l'esquerra (sempre visibles sense
+    // scroll) + imatge gran amb alçada limitada al viewport. En mòbil: imatge
+    // dalt, thumbnails en horitzontal a sota.
+    <div className={hasThumbs ? "lg:grid lg:grid-cols-[4.5rem_1fr] lg:gap-4 lg:items-start" : undefined}>
       {/* Imatge gran */}
-      <div className={`relative aspect-[4/3] overflow-hidden ${imageBg}`}>
+      <div
+        className={`relative aspect-[4/3] max-h-[58vh] lg:max-h-[52vh] w-full overflow-hidden lg:col-start-2 ${imageBg}${mainImageClassName ? ` ${mainImageClassName}` : ""}`}
+      >
         {current && (
           <Image
             key={active}
@@ -81,8 +92,11 @@ export default function ProductGallery({
 
       {/* Thumbnails — només si hi ha més d'un slide */}
       {hasThumbs && (
-        <nav aria-label={thumbsLabel} className="mt-4">
-          <ul className="flex flex-wrap gap-3" role="list">
+        <nav
+          aria-label={thumbsLabel}
+          className="mt-4 lg:mt-0 lg:col-start-1 lg:row-start-1 lg:max-h-[52vh] lg:overflow-y-auto"
+        >
+          <ul className="flex flex-wrap gap-3 lg:flex-col lg:flex-nowrap" role="list">
             {slides.map((slide, i) => {
               const isActive = i === active;
               const thumbFit =

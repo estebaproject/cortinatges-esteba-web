@@ -505,6 +505,13 @@
     },
     "colorLabel": "Colour"
   },
+  "Gallery": {
+    "thumbsLabel": "Gallery thumbnails",
+    "escena": "Scene",
+    "producte": "Product",
+    "detall": "Detail",
+    "color": "Colour"
+  },
   "Decoracio": {
     "metaTitle": "Decor — Throws | Cortinatges Esteba | Costa Brava",
     "metaDescription": "Throws and decorative textiles manufactured by Salgueiro Home, curated at the Cortinatges Esteba workshop since 1961. They bring warmth to sofas and beds, with advice at our stores in Girona, Blanes and Palamós.",

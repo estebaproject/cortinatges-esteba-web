@@ -9,7 +9,7 @@ import {
   type TipusMoble,
 } from "@/lib/mobiliari";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
-import MobleGallery from "@/components/MobleGallery";
+import MobleFicha from "@/components/shop/MobleFicha";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -134,7 +134,7 @@ export default async function MoblePage({ params }: Props) {
               estàtica s'injecta com a children i es manté al servidor; només la
               foto, els swatches i l'afegir al cistell depenen del color actiu.
               El botó de compra el renderitza MobleGallery amb el color actiu. */}
-          <MobleGallery
+          <MobleFicha
             moble={moble}
             footer={
               <div className="border border-linen p-8 bg-canvas-warm">
@@ -187,7 +187,7 @@ export default async function MoblePage({ params }: Props) {
                 </dd>
               </div>
             </dl>
-          </MobleGallery>
+          </MobleFicha>
 
           {/* Mobles relacionats */}
           {related.length > 0 && (

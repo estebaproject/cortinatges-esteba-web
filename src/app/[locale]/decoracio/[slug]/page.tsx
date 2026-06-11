@@ -3,9 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTranslations, getLocale } from "next-intl/server";
-import { MANTES, mantaImage } from "@/lib/decoracio";
+import { MANTES, mantaImage, mantaSlides } from "@/lib/decoracio";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
 import AddToCartButton from "@/components/cart/AddToCartButton";
+import ProductGallery from "@/components/shop/ProductGallery";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -50,7 +51,12 @@ export default async function MantaPage({ params }: Props) {
   const locale = await getLocale();
   const prefix = locale === "ca" ? "" : `/${locale}`;
 
+  // ADR-7: imatge de producte (principal.png) per al JSON-LD i add-to-cart.
   const image = mantaImage(slug);
+  // Slides per a la galeria: escena (cover) + principal (contain).
+  const tGallery = await getTranslations("Gallery");
+  const slides = mantaSlides(slug, manta.nom);
+
   const priceLabel = `${t("fromPrice")} ${manta.pvpDesde.toLocaleString(locale, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
@@ -117,17 +123,11 @@ export default async function MantaPage({ params }: Props) {
           </nav>
 
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-            {/* Foto gran */}
-            <div className="relative aspect-square overflow-hidden bg-linen">
-              <Image
-                src={image}
-                alt={manta.nom}
-                fill
-                priority
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover"
-              />
-            </div>
+            {/* Galeria de producte: escena (cover) + principal (contain) */}
+            <ProductGallery
+              slides={slides}
+              thumbsLabel={tGallery("thumbsLabel")}
+            />
 
             {/* Informació */}
             <div className="lg:sticky lg:top-28 self-start">
