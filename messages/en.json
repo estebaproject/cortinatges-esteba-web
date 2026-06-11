@@ -387,5 +387,32 @@
     },
     "ctaBlockHeadline": "Want this rug at home?",
     "ctaBlockBody": "Request a quote with no commitment. We will take care of the size, the colour and the placement."
+  },
+  "Cart": {
+    "metaTitle": "My cart — Cortinatges Esteba",
+    "metaDescription": "Review the products in your cart before placing your order.",
+    "eyebrow": "ESTEBA store",
+    "title": "My cart",
+    "loading": "Loading the cart…",
+    "add": "Add to cart",
+    "addAria": "Add {nom} to the cart",
+    "added": "Added to cart",
+    "indicatorEmpty": "Empty cart",
+    "indicatorWithCount": "Cart, {count} items",
+    "summary": "Summary",
+    "subtotal": "Subtotal",
+    "taxNote": "VAT included. Shipping costs will be calculated later.",
+    "remove": "Remove",
+    "removeAria": "Remove {nom} from the cart",
+    "increase": "Increase the quantity of {nom}",
+    "decrease": "Decrease the quantity of {nom}",
+    "qtyAria": "Quantity of {nom}",
+    "checkout": "Place order",
+    "continueShopping": "Continue shopping",
+    "clear": "Empty cart",
+    "clearAria": "Empty the cart, {count} items",
+    "emptyTitle": "Your cart is empty",
+    "emptyBody": "You haven't added any products yet. Discover our selection of made-to-measure rugs.",
+    "emptyCta": "View the rugs"
   }
 }

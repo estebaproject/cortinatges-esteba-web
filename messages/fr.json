@@ -387,5 +387,32 @@
     },
     "ctaBlockHeadline": "Vous voulez ce tapis chez vous ?",
     "ctaBlockBody": "Demandez un devis sans engagement. Nous prendrons soin de la dimension, de la couleur et de la pose."
+  },
+  "Cart": {
+    "metaTitle": "Mon panier — Cortinatges Esteba",
+    "metaDescription": "Vérifiez les produits de votre panier avant de passer commande.",
+    "eyebrow": "Boutique ESTEBA",
+    "title": "Mon panier",
+    "loading": "Chargement du panier…",
+    "add": "Ajouter au panier",
+    "addAria": "Ajouter {nom} au panier",
+    "added": "Ajouté au panier",
+    "indicatorEmpty": "Panier vide",
+    "indicatorWithCount": "Panier, {count} articles",
+    "summary": "Récapitulatif",
+    "subtotal": "Sous-total",
+    "taxNote": "TVA incluse. Les frais de livraison seront calculés ultérieurement.",
+    "remove": "Supprimer",
+    "removeAria": "Supprimer {nom} du panier",
+    "increase": "Augmenter la quantité de {nom}",
+    "decrease": "Réduire la quantité de {nom}",
+    "qtyAria": "Quantité de {nom}",
+    "checkout": "Passer la commande",
+    "continueShopping": "Continuer mes achats",
+    "clear": "Vider le panier",
+    "clearAria": "Vider le panier, {count} articles",
+    "emptyTitle": "Votre panier est vide",
+    "emptyBody": "Vous n'avez encore ajouté aucun produit. Découvrez notre sélection de tapis sur mesure.",
+    "emptyCta": "Voir les tapis"
   }
 }

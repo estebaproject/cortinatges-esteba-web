@@ -9,6 +9,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import CookieBanner from "@/components/CookieBanner";
+import { CartProvider } from "@/components/cart/CartProvider";
 import "@/app/globals.css";
 
 const archivoNarrow = Archivo_Narrow({
@@ -135,11 +136,13 @@ export default async function LocaleLayout({ children, params }: Props) {
           Salta al contingut
         </a>
         <NextIntlClientProvider messages={messages}>
-          <Header />
-          <main id="main-content">{children}</main>
-          <Footer />
-          <WhatsAppFloat />
-          <CookieBanner />
+          <CartProvider>
+            <Header />
+            <main id="main-content">{children}</main>
+            <Footer />
+            <WhatsAppFloat />
+            <CookieBanner />
+          </CartProvider>
         </NextIntlClientProvider>
       </body>
     </html>

@@ -387,5 +387,32 @@
     },
     "ctaBlockHeadline": "Vols aquesta catifa a casa?",
     "ctaBlockBody": "Demana pressupost sense compromís. Tindrem cura de la mesura, el color i la col·locació."
+  },
+  "Cart": {
+    "metaTitle": "El meu cistell — Cortinatges Esteba",
+    "metaDescription": "Revisa els productes del teu cistell abans de tramitar la comanda.",
+    "eyebrow": "Botiga ESTEBA",
+    "title": "El meu cistell",
+    "loading": "Carregant el cistell…",
+    "add": "Afegir al cistell",
+    "addAria": "Afegir {nom} al cistell",
+    "added": "Afegit al cistell",
+    "indicatorEmpty": "Cistell buit",
+    "indicatorWithCount": "Cistell, {count} articles",
+    "summary": "Resum",
+    "subtotal": "Subtotal",
+    "taxNote": "IVA inclòs. Les despeses d'enviament es calcularan més endavant.",
+    "remove": "Eliminar",
+    "removeAria": "Eliminar {nom} del cistell",
+    "increase": "Augmentar la quantitat de {nom}",
+    "decrease": "Reduir la quantitat de {nom}",
+    "qtyAria": "Quantitat de {nom}",
+    "checkout": "Tramitar la comanda",
+    "continueShopping": "Continuar comprant",
+    "clear": "Buidar el cistell",
+    "clearAria": "Buidar el cistell, {count} articles",
+    "emptyTitle": "El teu cistell és buit",
+    "emptyBody": "Encara no has afegit cap producte. Descobreix la nostra selecció de catifes a mida.",
+    "emptyCta": "Veure les catifes"
   }
 }

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import LocaleSwitcher from "./LocaleSwitcher";
+import CartIndicator from "./cart/CartIndicator";
 
 export default function Header() {
   const t = useTranslations("Navigation");
@@ -81,7 +82,8 @@ export default function Header() {
             </Link>
 
             {/* Accions dreta */}
-            <div className="flex items-center justify-end gap-4">
+            <div className="flex items-center justify-end gap-3 md:gap-4">
+              <CartIndicator />
               <Link
                 href={`${prefix}/catifes`}
                 className="hidden md:inline-flex items-center gap-2 px-6 py-2.5 bg-ink text-canvas font-sans text-xs font-semibold tracking-[0.2em] uppercase hover:bg-ink/90 transition-colors"

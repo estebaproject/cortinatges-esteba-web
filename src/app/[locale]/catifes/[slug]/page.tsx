@@ -11,6 +11,7 @@ import {
   type CatifaFamilia,
 } from "@/lib/catifes";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
+import AddToCartButton from "@/components/cart/AddToCartButton";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -186,6 +187,18 @@ export default async function CatifaPage({ params }: Props) {
                   </dd>
                 </div>
               </dl>
+
+              {/* Compra directa (només si té PVP). Botó client que afegeix al cistell. */}
+              {catifa.pvpDesde !== null && (
+                <div className="mb-6">
+                  <AddToCartButton
+                    slug={catifa.slug}
+                    nom={catifa.nom}
+                    pvp={catifa.pvpDesde}
+                    image={image}
+                  />
+                </div>
+              )}
 
               <div className="border border-linen p-8 bg-canvas-warm">
                 <p className="font-serif text-display-md text-ink mb-3">
