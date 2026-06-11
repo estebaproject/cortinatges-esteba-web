@@ -440,7 +440,17 @@
     "moblesTitle": "Meubles",
     "moblesDescription": "Chaises, fauteuils, tables et buffets sur commande, avec des finitions au choix.",
     "decoracioTitle": "Décoration",
-    "decoracioDescription": "Plaids et textiles de maison fabriqués par Salgueiro Home, pour apporter de la chaleur à chaque pièce."
+    "decoracioDescription": "Plaids et textiles de maison fabriqués par Salgueiro Home, pour apporter de la chaleur à chaque pièce.",
+    "verTot": "Voir tout",
+    "productCountShort": "produits",
+    "tipusMobles": {
+      "cadires": "Chaises",
+      "butaques": "Fauteuils",
+      "taules": "Tables",
+      "aparadors": "Buffets",
+      "llits": "Lits",
+      "sofas": "Canapés"
+    }
   },
   "Cart": {
     "metaTitle": "Mon panier — Cortinatges Esteba",

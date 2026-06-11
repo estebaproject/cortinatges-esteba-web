@@ -440,7 +440,17 @@
     "moblesTitle": "Muebles",
     "moblesDescription": "Sillas, sillones, mesas y aparadores por encargo, con acabados a elegir.",
     "decoracioTitle": "Decoración",
-    "decoracioDescription": "Mantas y textil del hogar fabricados por Salgueiro Home, para dar calidez a cada estancia."
+    "decoracioDescription": "Mantas y textil del hogar fabricados por Salgueiro Home, para dar calidez a cada estancia.",
+    "verTot": "Ver todo",
+    "productCountShort": "productos",
+    "tipusMobles": {
+      "cadires": "Sillas",
+      "butaques": "Sillones",
+      "taules": "Mesas",
+      "aparadors": "Aparadores",
+      "llits": "Camas",
+      "sofas": "Sofás"
+    }
   },
   "Cart": {
     "metaTitle": "Mi cesta — Cortinatges Esteba",

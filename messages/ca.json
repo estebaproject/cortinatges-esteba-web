@@ -440,7 +440,17 @@
     "moblesTitle": "Mobles",
     "moblesDescription": "Cadires, butaques, taules i aparadors per encàrrec, amb acabats a escollir.",
     "decoracioTitle": "Decoració",
-    "decoracioDescription": "Mantes i tèxtil de la llar fabricats per Salgueiro Home, per donar caliu a cada estança."
+    "decoracioDescription": "Mantes i tèxtil de la llar fabricats per Salgueiro Home, per donar caliu a cada estança.",
+    "verTot": "Veure tot",
+    "productCountShort": "productes",
+    "tipusMobles": {
+      "cadires": "Cadires",
+      "butaques": "Butaques",
+      "taules": "Taules",
+      "aparadors": "Aparadors",
+      "llits": "Llits",
+      "sofas": "Sofàs"
+    }
   },
   "Cart": {
     "metaTitle": "El meu cistell — Cortinatges Esteba",

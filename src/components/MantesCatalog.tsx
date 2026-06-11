@@ -88,14 +88,14 @@ export default function MantesCatalog({ mantes, prefix, locale }: Props) {
               className="group block"
               aria-label={m.nom}
             >
-              <div className="relative aspect-square overflow-hidden bg-linen mb-3">
+              <div className="relative aspect-[4/5] overflow-hidden bg-linen mb-3 p-2">
                 <Image
                   src={mantaImage(m.slug)}
                   alt={m.nom}
                   fill
                   priority={i < 4}
                   sizes="(min-width: 1280px) 20vw, (min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-contain transition-transform duration-500 group-hover:scale-105"
                 />
                 <span className="absolute top-3 left-3 bg-canvas/90 text-ink font-sans text-[10px] tracking-widest uppercase px-2 py-1">
                   {m.mida}

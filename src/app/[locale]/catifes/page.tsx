@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
 import { CATIFES } from "@/lib/catifes";
 import { SITE_URL } from "@/lib/site";
@@ -22,6 +23,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: t("metaDescription"),
     },
   };
+}
+
+function CatalogSkeleton() {
+  return (
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6 animate-pulse">
+      {Array.from({ length: 8 }).map((_, i) => (
+        <div key={i}>
+          <div className="aspect-[4/5] bg-linen mb-3" />
+          <div className="h-4 bg-linen rounded mb-2 w-3/4" />
+          <div className="h-3 bg-linen rounded w-1/2" />
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export default async function CatifesPage({ params }: Props) {
@@ -64,8 +79,11 @@ export default async function CatifesPage({ params }: Props) {
           </header>
 
           {/* Catàleg filtrable (client). Rep el set complet per props i gestiona
-              filtres, cerca i ordenació sense recarregar. */}
-          <CatifesCatalog catifes={CATIFES} prefix={prefix} locale={locale} />
+              filtres, cerca i ordenació sense recarregar.
+              Suspense obligatori perquè CatifesCatalog usa useSearchParams() (Next 15). */}
+          <Suspense fallback={<CatalogSkeleton />}>
+            <CatifesCatalog catifes={CATIFES} prefix={prefix} locale={locale} />
+          </Suspense>
         </div>
       </section>
     </article>

@@ -4,14 +4,18 @@
 // completa de catifes per props des del Server Component (page.tsx) i gestiona
 // l'estat de filtres, cerca i ordenació sense recarregar. Manté el disseny de
 // les cards original (foto + nom + badge família + "des de X €").
+// Batch 3: cards object-contain (foto producte) + pre-filtrat per URL (?familia=).
 
 import { useMemo, useState } from "react";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import clsx from "clsx";
 import {
   CATIFA_FAMILIES,
+  catifaProducto,
+  catifaEscena,
   type Catifa,
   type CatifaFamilia,
 } from "@/lib/catifes";
@@ -56,15 +60,45 @@ type Props = {
 export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
   const t = useTranslations("Catifes");
   const tf = useTranslations("Filters");
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  // --- Hidratació inicial des de searchParams ----------------------------
+  // Llegim ?familia=catalogo|in_out|kids_collection|bath_collection
+  const initialFamilies = useMemo((): CatifaFamilia[] => {
+    const raw = searchParams.get("familia");
+    if (!raw) return [];
+    const valid = raw
+      .split(",")
+      .map((s) => s.trim())
+      .filter((s): s is CatifaFamilia =>
+        (CATIFA_FAMILIES as readonly string[]).includes(s),
+      );
+    return valid;
+  }, [searchParams]);
 
   // --- Estat de filtres ---------------------------------------------------
   const [query, setQuery] = useState("");
-  const [selectedFamilies, setSelectedFamilies] = useState<CatifaFamilia[]>([]);
+  const [selectedFamilies, setSelectedFamilies] = useState<CatifaFamilia[]>(initialFamilies);
   const [selectedBuckets, setSelectedBuckets] = useState<PriceBucketId[]>([]);
   const [onlyOnDemand, setOnlyOnDemand] = useState(false);
   const [minMeasures, setMinMeasures] = useState(false);
   const [sort, setSort] = useState<SortId>("name_asc");
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  // Sincronitzar URL quan canvien les famílies seleccionades.
+  // Escriu ?familia=X o neteja el param si buit.
+  const syncFamiliesURL = (families: CatifaFamilia[]) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (families.length > 0) {
+      params.set("familia", families.join(","));
+    } else {
+      params.delete("familia");
+    }
+    const qs = params.toString();
+    router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+  };
 
   // --- Helpers d'etiquetes i format --------------------------------------
   const familyLabel = (f: CatifaFamilia) =>
@@ -82,10 +116,13 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
         })} €`;
 
   // --- Toggles ------------------------------------------------------------
-  const toggleFamily = (f: CatifaFamilia) =>
-    setSelectedFamilies((prev) =>
-      prev.includes(f) ? prev.filter((x) => x !== f) : [...prev, f],
-    );
+  const toggleFamily = (f: CatifaFamilia) => {
+    const next = selectedFamilies.includes(f)
+      ? selectedFamilies.filter((x) => x !== f)
+      : [...selectedFamilies, f];
+    setSelectedFamilies(next);
+    syncFamiliesURL(next);
+  };
 
   const toggleBucket = (id: PriceBucketId) =>
     setSelectedBuckets((prev) =>
@@ -166,6 +203,7 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
     setSelectedBuckets([]);
     setOnlyOnDemand(false);
     setMinMeasures(false);
+    syncFamiliesURL([]);
   };
 
   const activeFilterCount =
@@ -442,14 +480,14 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
                   className="group block"
                   aria-label={c.nom}
                 >
-                  <div className="relative aspect-square overflow-hidden bg-linen mb-3">
+                  <div className="relative aspect-[4/5] overflow-hidden bg-linen mb-3 p-2">
                     <Image
-                      src={`/images/catifes/${c.slug}/1.jpg`}
+                      src={catifaProducto(c.slug) ?? catifaEscena(c.slug)}
                       alt={c.nom}
                       fill
                       priority={i < 4}
                       sizes="(min-width: 1280px) 20vw, (min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-contain transition-transform duration-500 group-hover:scale-105"
                     />
                     <span className="absolute top-3 left-3 bg-canvas/90 text-ink font-sans text-[10px] tracking-widest uppercase px-2 py-1">
                       {familyLabel(c.familia)}

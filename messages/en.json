@@ -440,7 +440,17 @@
     "moblesTitle": "Furniture",
     "moblesDescription": "Chairs, armchairs, tables and sideboards made to order, with finishes to choose from.",
     "decoracioTitle": "Decor",
-    "decoracioDescription": "Throws and home textiles manufactured by Salgueiro Home, to bring warmth to every room."
+    "decoracioDescription": "Throws and home textiles manufactured by Salgueiro Home, to bring warmth to every room.",
+    "verTot": "View all",
+    "productCountShort": "products",
+    "tipusMobles": {
+      "cadires": "Chairs",
+      "butaques": "Armchairs",
+      "taules": "Tables",
+      "aparadors": "Sideboards",
+      "llits": "Beds",
+      "sofas": "Sofas"
+    }
   },
   "Cart": {
     "metaTitle": "My cart — Cortinatges Esteba",

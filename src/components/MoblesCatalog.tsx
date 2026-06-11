@@ -4,13 +4,15 @@
 // completa de mobles per props des del Server Component (page.tsx) i gestiona
 // l'estat de filtres, cerca i ordenació sense recarregar. Mateix patró i
 // disseny de cards que CatifesCatalog (foto + nom + badge tipus + "des de X €").
+// Batch 3: cards object-contain (escena) + pre-filtrat per URL (?tipus=).
 
 import { useMemo, useState } from "react";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import clsx from "clsx";
-import { type Moble, type TipusMoble, mobleImage } from "@/lib/mobiliari";
+import { type Moble, type TipusMoble, mobleEscena } from "@/lib/mobiliari";
 
 // --- Tipus i constants de filtratge -------------------------------------
 
@@ -68,14 +70,39 @@ type Props = {
 export default function MoblesCatalog({ mobles, prefix, locale }: Props) {
   const t = useTranslations("Mobles");
   const tf = useTranslations("Filters");
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  // --- Hidratació inicial des de searchParams ----------------------------
+  // Llegim ?tipus=cadira,butaca (coma-separat) o ?tipus=cadira&tipus=butaca (repetit)
+  const initialTipus = useMemo((): TipusMoble[] => {
+    // Suportem múltiples valors: ?tipus=cadira,butaca o ?tipus=cadira&tipus=butaca
+    const rawAll = searchParams.getAll("tipus");
+    const flattened = rawAll.flatMap((r) => r.split(",").map((s) => s.trim()));
+    return flattened.filter((s): s is TipusMoble =>
+      (TIPUS_ORDER as readonly string[]).includes(s),
+    );
+  }, [searchParams]);
 
   // --- Estat de filtres ---------------------------------------------------
   const [query, setQuery] = useState("");
-  const [selectedTipus, setSelectedTipus] = useState<TipusMoble[]>([]);
+  const [selectedTipus, setSelectedTipus] = useState<TipusMoble[]>(initialTipus);
   const [selectedBuckets, setSelectedBuckets] = useState<PriceBucketId[]>([]);
   const [selectedColors, setSelectedColors] = useState<string[]>([]);
   const [sort, setSort] = useState<SortId>("name_asc");
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  // Sincronitzar URL quan canvien els tipus seleccionats.
+  const syncTipusURL = (tipus: TipusMoble[]) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.delete("tipus");
+    if (tipus.length > 0) {
+      params.set("tipus", tipus.join(","));
+    }
+    const qs = params.toString();
+    router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+  };
 
   // Només els tipus realment presents al catàleg, en l'ordre estable.
   const availableTipus = useMemo(() => {
@@ -110,10 +137,13 @@ export default function MoblesCatalog({ mobles, prefix, locale }: Props) {
     })} €`;
 
   // --- Toggles ------------------------------------------------------------
-  const toggleTipus = (tp: TipusMoble) =>
-    setSelectedTipus((prev) =>
-      prev.includes(tp) ? prev.filter((x) => x !== tp) : [...prev, tp],
-    );
+  const toggleTipus = (tp: TipusMoble) => {
+    const next = selectedTipus.includes(tp)
+      ? selectedTipus.filter((x) => x !== tp)
+      : [...selectedTipus, tp];
+    setSelectedTipus(next);
+    syncTipusURL(next);
+  };
 
   const toggleBucket = (id: PriceBucketId) =>
     setSelectedBuckets((prev) =>
@@ -181,6 +211,7 @@ export default function MoblesCatalog({ mobles, prefix, locale }: Props) {
     setSelectedTipus([]);
     setSelectedBuckets([]);
     setSelectedColors([]);
+    syncTipusURL([]);
   };
 
   const activeFilterCount =
@@ -450,14 +481,14 @@ export default function MoblesCatalog({ mobles, prefix, locale }: Props) {
                   className="group block"
                   aria-label={m.nom}
                 >
-                  <div className="relative aspect-square overflow-hidden bg-linen mb-3">
+                  <div className="relative aspect-[4/5] overflow-hidden bg-linen mb-3 p-2">
                     <Image
-                      src={mobleImage(m.slug, m.colors[0].slug)}
+                      src={mobleEscena(m.slug)}
                       alt={m.nom}
                       fill
                       priority={i < 4}
                       sizes="(min-width: 1280px) 20vw, (min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-contain transition-transform duration-500 group-hover:scale-105"
                     />
                     <span className="absolute top-3 left-3 bg-canvas/90 text-ink font-sans text-[10px] tracking-widest uppercase px-2 py-1">
                       {tipusLabel(m.tipus)}
