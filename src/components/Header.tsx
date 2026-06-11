@@ -16,6 +16,7 @@ export default function Header() {
   const navLinks = [
     { href: `${prefix || "/"}#productes`, label: t("collections"), external: false },
     { href: `${prefix}/catifes`, label: t("catifes"), external: false },
+    { href: `${prefix}/mobiliari`, label: t("mobles"), external: false },
     { href: `${prefix}/serveis`, label: t("services"), external: false },
     { href: `${prefix}/botigues`, label: t("stores"), external: false },
     { href: `${prefix}/nosaltres`, label: t("about"), external: false },
@@ -85,7 +86,7 @@ export default function Header() {
             <div className="flex items-center justify-end gap-3 md:gap-4">
               <CartIndicator />
               <Link
-                href={`${prefix}/catifes`}
+                href={`${prefix}/botiga`}
                 className="hidden md:inline-flex items-center gap-2 px-6 py-2.5 bg-ink text-canvas font-sans text-xs font-semibold tracking-[0.2em] uppercase hover:bg-ink/90 transition-colors"
                 aria-label="ESTEBA — botiga online"
               >
@@ -176,7 +177,7 @@ export default function Header() {
               ),
             )}
             <Link
-              href={`${prefix}/catifes`}
+              href={`${prefix}/botiga`}
               onClick={() => setMenuOpen(false)}
               className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-ink text-canvas font-sans text-xs font-semibold tracking-[0.2em] uppercase"
             >

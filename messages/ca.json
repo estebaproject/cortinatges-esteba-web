@@ -10,7 +10,8 @@
     "services": "Serveis",
     "contact": "Contacte",
     "cta": "Concerta una cita",
-    "catifes": "Catifes"
+    "catifes": "Catifes",
+    "mobles": "Mobles"
   },
   "Footer": {
     "tagline": "Tres generacions cosint la llum i la intimitat de les cases de la Costa Brava.",
@@ -388,6 +389,53 @@
     "ctaBlockHeadline": "Vols aquesta catifa a casa?",
     "ctaBlockBody": "Demana pressupost sense compromís. Tindrem cura de la mesura, el color i la col·locació."
   },
+  "Mobles": {
+    "metaTitle": "Mobles — Cortinatges Esteba | Costa Brava",
+    "metaDescription": "Mobiliari per encàrrec fabricat per Salgueiro Home, seleccionat al taller de Cortinatges Esteba des de 1961. Cadires, butaques, taules, aparadors i molt més, amb assessorament a les botigues de Girona, Blanes i Palamós.",
+    "eyebrow": "Mobles",
+    "headline": "Mobles que componen la casa.",
+    "intro": "Una selecció de mobiliari fabricat per Salgueiro Home: cadires, butaques, taules, aparadors i peces de descans. Tot per encàrrec i amb acabats a escollir.",
+    "fromPrice": "des de",
+    "madeBy": "Fabricat per",
+    "madeByBrand": "Salgueiro Home",
+    "requestBudget": "Demana pressupost",
+    "backToMobles": "Tots els mobles",
+    "typeLabel": "Tipus",
+    "ctaBlockHeadline": "Vols aquest moble a casa?",
+    "ctaBlockBody": "Demana pressupost sense compromís. T'assessorem amb les mides, els acabats i el lliurament.",
+    "results": "{count, plural, =0 {Cap moble} one {# moble} other {# mobles}}",
+    "showResults": "{count, plural, =0 {Veure resultats} one {Veure # moble} other {Veure # mobles}}",
+    "emptyTitle": "Cap moble coincideix",
+    "tipus": {
+      "cadira": "Cadira",
+      "butaca": "Butaca",
+      "pouf": "Pouf",
+      "taula-menjador": "Taula de menjador",
+      "taula-cafe": "Taula de cafè",
+      "taula-centre": "Taula de centre",
+      "taula-auxiliar": "Taula auxiliar",
+      "tauleta-nit": "Tauleta de nit",
+      "aparador": "Aparador",
+      "consola": "Consola",
+      "prestatgeria": "Prestatgeria",
+      "sofa": "Sofà",
+      "llit": "Llit",
+      "moble": "Moble"
+    }
+  },
+  "Botiga": {
+    "metaTitle": "Botiga ESTEBA — Catifes i mobles | Cortinatges Esteba",
+    "metaDescription": "La botiga online de Cortinatges Esteba: catifes a mida i mobiliari per encàrrec fabricats per Salgueiro Home, des de 1961.",
+    "eyebrow": "Botiga ESTEBA",
+    "headline": "La botiga ESTEBA.",
+    "intro": "Catifes a mida i mobiliari per encàrrec, escollits al nostre taller. Tria una categoria per començar.",
+    "explore": "Explorar",
+    "productCount": "{count, plural, =0 {Cap producte} one {# producte} other {# productes}}",
+    "catifesTitle": "Catifes",
+    "catifesDescription": "Catifes per encàrrec en diverses mesures, fabricades per Salgueiro Home.",
+    "moblesTitle": "Mobles",
+    "moblesDescription": "Cadires, butaques, taules i aparadors per encàrrec, amb acabats a escollir."
+  },
   "Cart": {
     "metaTitle": "El meu cistell — Cortinatges Esteba",
     "metaDescription": "Revisa els productes del teu cistell abans de tramitar la comanda.",
@@ -441,6 +489,13 @@
       "100_200": "100 – 200 €",
       "200_400": "200 – 400 €",
       "gt400": "Més de 400 €"
+    },
+    "priceMobles": {
+      "lt150": "Menys de 150 €",
+      "150_350": "150 – 350 €",
+      "350_600": "350 – 600 €",
+      "600_1000": "600 – 1.000 €",
+      "gt1000": "Més de 1.000 €"
     }
   }
 }

@@ -10,7 +10,8 @@
     "services": "Services",
     "contact": "Contact",
     "cta": "Book a consultation",
-    "catifes": "Rugs"
+    "catifes": "Rugs",
+    "mobles": "Furniture"
   },
   "Footer": {
     "tagline": "Three generations crafting light and intimacy in Costa Brava homes.",
@@ -388,6 +389,53 @@
     "ctaBlockHeadline": "Want this rug at home?",
     "ctaBlockBody": "Request a quote with no commitment. We will take care of the size, the colour and the placement."
   },
+  "Mobles": {
+    "metaTitle": "Furniture — Cortinatges Esteba | Costa Brava",
+    "metaDescription": "Made-to-order furniture manufactured by Salgueiro Home, curated at the Cortinatges Esteba workshop since 1961. Chairs, armchairs, tables, sideboards and more, with advice at our stores in Girona, Blanes and Palamós.",
+    "eyebrow": "Furniture",
+    "headline": "Furniture that composes the home.",
+    "intro": "A selection of furniture manufactured by Salgueiro Home: chairs, armchairs, tables, sideboards and resting pieces. All made to order and with finishes to choose from.",
+    "fromPrice": "from",
+    "madeBy": "Made by",
+    "madeByBrand": "Salgueiro Home",
+    "requestBudget": "Request a quote",
+    "backToMobles": "All furniture",
+    "typeLabel": "Type",
+    "ctaBlockHeadline": "Want this piece at home?",
+    "ctaBlockBody": "Request a quote with no commitment. We will advise you on the sizes, the finishes and the delivery.",
+    "results": "{count, plural, =0 {No furniture} one {# piece} other {# pieces}}",
+    "showResults": "{count, plural, =0 {Show results} one {Show # piece} other {Show # pieces}}",
+    "emptyTitle": "No furniture matches",
+    "tipus": {
+      "cadira": "Chair",
+      "butaca": "Armchair",
+      "pouf": "Pouf",
+      "taula-menjador": "Dining table",
+      "taula-cafe": "Coffee table",
+      "taula-centre": "Centre table",
+      "taula-auxiliar": "Side table",
+      "tauleta-nit": "Nightstand",
+      "aparador": "Sideboard",
+      "consola": "Console",
+      "prestatgeria": "Shelving",
+      "sofa": "Sofa",
+      "llit": "Bed",
+      "moble": "Cabinet"
+    }
+  },
+  "Botiga": {
+    "metaTitle": "ESTEBA store — Rugs and furniture | Cortinatges Esteba",
+    "metaDescription": "The Cortinatges Esteba online store: made-to-measure rugs and made-to-order furniture manufactured by Salgueiro Home, since 1961.",
+    "eyebrow": "ESTEBA store",
+    "headline": "The ESTEBA store.",
+    "intro": "Made-to-measure rugs and made-to-order furniture, curated at our workshop. Choose a category to start.",
+    "explore": "Explore",
+    "productCount": "{count, plural, =0 {No products} one {# product} other {# products}}",
+    "catifesTitle": "Rugs",
+    "catifesDescription": "Made-to-order rugs in several sizes, manufactured by Salgueiro Home.",
+    "moblesTitle": "Furniture",
+    "moblesDescription": "Chairs, armchairs, tables and sideboards made to order, with finishes to choose from."
+  },
   "Cart": {
     "metaTitle": "My cart — Cortinatges Esteba",
     "metaDescription": "Review the products in your cart before placing your order.",
@@ -441,6 +489,13 @@
       "100_200": "€100 – 200",
       "200_400": "€200 – 400",
       "gt400": "Over €400"
+    },
+    "priceMobles": {
+      "lt150": "Under €150",
+      "150_350": "€150 – 350",
+      "350_600": "€350 – 600",
+      "600_1000": "€600 – 1,000",
+      "gt1000": "Over €1,000"
     }
   }
 }

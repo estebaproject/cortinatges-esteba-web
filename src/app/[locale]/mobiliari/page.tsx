@@ -1,0 +1,73 @@
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+import { MOBLES } from "@/lib/mobiliari";
+import { SITE_URL } from "@/lib/site";
+import MoblesCatalog from "@/components/MoblesCatalog";
+
+type Props = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Mobles" });
+  const prefix = locale === "ca" ? "" : `/${locale}`;
+  const url = `${SITE_URL}${prefix}/mobiliari`;
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+    alternates: { canonical: url },
+    openGraph: {
+      type: "website",
+      url,
+      title: t("metaTitle"),
+      description: t("metaDescription"),
+    },
+  };
+}
+
+export default async function MobiliariPage({ params }: Props) {
+  const { locale } = await params;
+  const t = await getTranslations("Mobles");
+  const prefix = locale === "ca" ? "" : `/${locale}`;
+
+  // Dades estructurades: llista de productes (mobles) per a SEO local.
+  // Sempre el set complet (no el filtrat), per consistència del JSON-LD.
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: t("metaTitle"),
+    itemListElement: MOBLES.map((m, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: m.nom,
+      url: `${SITE_URL}${prefix}/mobiliari/${m.slug}`,
+    })),
+  };
+
+  return (
+    <article>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+      />
+
+      {/* Capçalera */}
+      <section className="pt-40 md:pt-48 pb-section bg-canvas">
+        <div className="max-w-layout mx-auto px-6 lg:px-12">
+          <header className="mb-12 max-w-prose-editorial">
+            <p className="font-sans text-eyebrow text-accent-deep uppercase mb-4">
+              {t("eyebrow")}
+            </p>
+            <h1 className="font-serif text-display-lg text-ink mb-5 leading-snug">
+              {t("headline")}
+            </h1>
+            <p className="font-sans text-body-lg text-ink-muted">{t("intro")}</p>
+          </header>
+
+          {/* Catàleg filtrable (client). Rep el set complet per props i gestiona
+              filtres, cerca i ordenació sense recarregar. */}
+          <MoblesCatalog mobles={MOBLES} prefix={prefix} locale={locale} />
+        </div>
+      </section>
+    </article>
+  );
+}

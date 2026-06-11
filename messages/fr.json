@@ -10,7 +10,8 @@
     "services": "Services",
     "contact": "Contact",
     "cta": "Prendre rendez-vous",
-    "catifes": "Tapis"
+    "catifes": "Tapis",
+    "mobles": "Meubles"
   },
   "Footer": {
     "tagline": "Trois générations à coudre la lumière et l'intimité des maisons de la Costa Brava.",
@@ -388,6 +389,53 @@
     "ctaBlockHeadline": "Vous voulez ce tapis chez vous ?",
     "ctaBlockBody": "Demandez un devis sans engagement. Nous prendrons soin de la dimension, de la couleur et de la pose."
   },
+  "Mobles": {
+    "metaTitle": "Meubles — Cortinatges Esteba | Costa Brava",
+    "metaDescription": "Mobilier sur commande fabriqué par Salgueiro Home, sélectionné à l'atelier de Cortinatges Esteba depuis 1961. Chaises, fauteuils, tables, buffets et bien plus, avec conseil dans nos boutiques de Girona, Blanes et Palamós.",
+    "eyebrow": "Meubles",
+    "headline": "Des meubles qui composent la maison.",
+    "intro": "Une sélection de mobilier fabriqué par Salgueiro Home : chaises, fauteuils, tables, buffets et pièces de repos. Tout sur commande et avec des finitions au choix.",
+    "fromPrice": "à partir de",
+    "madeBy": "Fabriqué par",
+    "madeByBrand": "Salgueiro Home",
+    "requestBudget": "Demander un devis",
+    "backToMobles": "Tous les meubles",
+    "typeLabel": "Type",
+    "ctaBlockHeadline": "Vous voulez ce meuble chez vous ?",
+    "ctaBlockBody": "Demandez un devis sans engagement. Nous vous conseillons sur les dimensions, les finitions et la livraison.",
+    "results": "{count, plural, =0 {Aucun meuble} one {# meuble} other {# meubles}}",
+    "showResults": "{count, plural, =0 {Voir les résultats} one {Voir # meuble} other {Voir # meubles}}",
+    "emptyTitle": "Aucun meuble ne correspond",
+    "tipus": {
+      "cadira": "Chaise",
+      "butaca": "Fauteuil",
+      "pouf": "Pouf",
+      "taula-menjador": "Table à manger",
+      "taula-cafe": "Table basse",
+      "taula-centre": "Table de salon",
+      "taula-auxiliar": "Table d'appoint",
+      "tauleta-nit": "Table de chevet",
+      "aparador": "Buffet",
+      "consola": "Console",
+      "prestatgeria": "Étagère",
+      "sofa": "Canapé",
+      "llit": "Lit",
+      "moble": "Meuble"
+    }
+  },
+  "Botiga": {
+    "metaTitle": "Boutique ESTEBA — Tapis et meubles | Cortinatges Esteba",
+    "metaDescription": "La boutique en ligne de Cortinatges Esteba : tapis sur mesure et mobilier sur commande fabriqués par Salgueiro Home, depuis 1961.",
+    "eyebrow": "Boutique ESTEBA",
+    "headline": "La boutique ESTEBA.",
+    "intro": "Tapis sur mesure et mobilier sur commande, sélectionnés dans notre atelier. Choisissez une catégorie pour commencer.",
+    "explore": "Explorer",
+    "productCount": "{count, plural, =0 {Aucun produit} one {# produit} other {# produits}}",
+    "catifesTitle": "Tapis",
+    "catifesDescription": "Tapis sur commande en plusieurs dimensions, fabriqués par Salgueiro Home.",
+    "moblesTitle": "Meubles",
+    "moblesDescription": "Chaises, fauteuils, tables et buffets sur commande, avec des finitions au choix."
+  },
   "Cart": {
     "metaTitle": "Mon panier — Cortinatges Esteba",
     "metaDescription": "Vérifiez les produits de votre panier avant de passer commande.",
@@ -441,6 +489,13 @@
       "100_200": "100 – 200 €",
       "200_400": "200 – 400 €",
       "gt400": "Plus de 400 €"
+    },
+    "priceMobles": {
+      "lt150": "Moins de 150 €",
+      "150_350": "150 – 350 €",
+      "350_600": "350 – 600 €",
+      "600_1000": "600 – 1 000 €",
+      "gt1000": "Plus de 1 000 €"
     }
   }
 }
