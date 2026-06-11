@@ -5,8 +5,6 @@ import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import LocaleSwitcher from "./LocaleSwitcher";
 
-const CATALEG_URL = "https://online.cortinatgesesteba.com/";
-
 export default function Header() {
   const t = useTranslations("Navigation");
   const locale = useLocale();
@@ -20,7 +18,6 @@ export default function Header() {
     { href: `${prefix}/serveis`, label: t("services"), external: false },
     { href: `${prefix}/botigues`, label: t("stores"), external: false },
     { href: `${prefix}/nosaltres`, label: t("about"), external: false },
-    { href: CATALEG_URL, label: "Catàleg online", external: true },
   ];
 
   return (
@@ -85,6 +82,16 @@ export default function Header() {
 
             {/* Accions dreta */}
             <div className="flex items-center justify-end gap-4">
+              <Link
+                href={`${prefix}/catifes`}
+                className="hidden md:inline-flex items-center gap-2 px-6 py-2.5 bg-ink text-canvas font-sans text-xs font-semibold tracking-[0.2em] uppercase hover:bg-ink/90 transition-colors"
+                aria-label="ESTEBA — botiga online"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12A1.125 1.125 0 0 1 19.748 21H4.252a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 6.75h12.974c.576 0 1.059.435 1.119 1.007Z" />
+                </svg>
+                ESTEBA
+              </Link>
               <Link
                 href={`${prefix}/contacte`}
                 className="hidden md:inline-flex items-center px-6 py-2.5 bg-sand text-ink font-sans text-xs font-medium tracking-widest uppercase hover:bg-sand-dark transition-colors"
@@ -166,6 +173,16 @@ export default function Header() {
                 </Link>
               ),
             )}
+            <Link
+              href={`${prefix}/catifes`}
+              onClick={() => setMenuOpen(false)}
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-ink text-canvas font-sans text-xs font-semibold tracking-[0.2em] uppercase"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12A1.125 1.125 0 0 1 19.748 21H4.252a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 6.75h12.974c.576 0 1.059.435 1.119 1.007Z" />
+              </svg>
+              ESTEBA
+            </Link>
             <Link
               href={`${prefix}/contacte`}
               onClick={() => setMenuOpen(false)}
