@@ -11,4 +11,24 @@ const SEED: Omit<Manta,"marca">[] = [
   { slug: "varanasi", nom: "Varanasi", mida: "130x170", pvpDesde: 54.95 },
 ]
 export const MANTES: Manta[] = SEED.map((m) => ({ ...m, marca: "Salgueiro Home" }));
-export function mantaImage(slug: string): string { return `/images/decoracio/${slug}.png`; }
+
+/** Foto de producte principal (4/4 slugs). Era /decoracio/{slug}.png — CORREGIT. */
+export function mantaImage(slug: string): string {
+  return `/images/decoracio/${slug}/principal.png`;
+}
+
+/** Foto d'escena contextual (4/4 slugs). */
+export function mantaEscena(slug: string): string {
+  return `/images/decoracio/${slug}/escena.png`;
+}
+
+/**
+ * Llista de slides per a la galeria de la ficha d'una manta.
+ * Ordre: escena (cover) → principal (contain).
+ */
+export function mantaSlides(slug: string, nom: string): import("@/lib/catifes").GallerySlide[] {
+  return [
+    { src: mantaEscena(slug), alt: nom, kind: "escena", fit: "cover" },
+    { src: mantaImage(slug), alt: nom, kind: "producto", fit: "contain" },
+  ];
+}

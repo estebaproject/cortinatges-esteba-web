@@ -134,3 +134,94 @@ export function getCatifa(slug: string): Catifa | undefined {
 export function catifaImage(slug: string): string {
   return `/images/catifes/${slug}/1.jpg`;
 }
+
+// ---------------------------------------------------------------------------
+// Manifests estàtics d'assets (auditades manualment; NO detecció runtime).
+// Actualitzar si s'afegeixen fotos noves al repo.
+// ---------------------------------------------------------------------------
+
+/** Slugs que tenen foto de producte (2.jpg). 72 de 76. */
+export const CATIFA_HAS_PRODUCTO = new Set<string>([
+  "adore", "almeria", "almond-chenille", "ametist-chenille", "antik-canvas",
+  "antik-cloud", "antik-tebas", "batik", "belize", "bliss", "boheme",
+  "bohemian", "bosco", "bukhara", "burma", "caban-kilim", "camille",
+  "carrara-chenille", "cloud-chenille", "colorful", "corinto",
+  "cubist-chenille", "dallas", "denon", "edges-chenille", "fez",
+  "gallery-chenille", "garden-chenille", "glam-velvet", "gradient-chenille",
+  "gropius-chenille", "heritage-chenille", "himalaya", "jaspe", "junko",
+  "kira", "lace-chenille", "lake-chenille", "magritt", "marne", "miura",
+  "monetti", "moon-chenille", "mori", "nagano", "namur", "nassau",
+  "natural-dots", "natural-link", "ombre-chenille", "papua", "pinot", "polo",
+  "rainbow", "rustik-chenille", "sahara", "samba", "sandalo", "santiago",
+  "sisalana", "sultana", "tatami", "tatami-design", "tender", "touch",
+  "varadero", "vegas", "veneza", "viena", "vienciana", "zen",
+]);
+
+/** Slugs que tenen foto de detall (3.jpg). 53 de 76. */
+export const CATIFA_HAS_DETALL = new Set<string>([
+  "adore", "almeria", "almond-chenille", "ametist-chenille", "antik-tebas",
+  "batik", "belize", "bliss", "boheme", "bohemian", "bosco", "burma",
+  "caban-kilim", "camille", "carrara-chenille", "cloud-chenille", "colorful",
+  "cubist-chenille", "dallas", "denon", "edges-chenille", "gallery-chenille",
+  "garden-chenille", "gropius-chenille", "heritage-chenille", "himalaya",
+  "junko", "lace-chenille", "lake-chenille", "marne", "miura", "mori",
+  "namur", "nassau", "natural-dots", "ombre-chenille", "papua", "pinot",
+  "polo", "rainbow", "rustik-chenille", "sahara", "samba", "sandalo",
+  "santiago", "sisalana", "tatami-design", "tatami", "tender", "varadero",
+  "veneza", "viena", "vienciana", "zen",
+]);
+
+// ---------------------------------------------------------------------------
+// Helpers de ruta d'imatge (server-safe, client-safe)
+// ---------------------------------------------------------------------------
+
+/** Escena (1.jpg) — sempre existeix. */
+export function catifaEscena(slug: string): string {
+  return `/images/catifes/${slug}/1.jpg`;
+}
+
+/** Foto de producte (2.jpg) o null si no existeix per a aquest slug. */
+export function catifaProducto(slug: string): string | null {
+  return CATIFA_HAS_PRODUCTO.has(slug)
+    ? `/images/catifes/${slug}/2.jpg`
+    : null;
+}
+
+/** Foto de detall (3.jpg) o null si no existeix per a aquest slug. */
+export function catifaDetall(slug: string): string | null {
+  return CATIFA_HAS_DETALL.has(slug)
+    ? `/images/catifes/${slug}/3.jpg`
+    : null;
+}
+
+// ---------------------------------------------------------------------------
+// GallerySlide — importat aquí per evitar import circular amb ProductGallery.
+// ProductGallery importarà GallerySlide des d'aquí o des de shop-families.
+// ---------------------------------------------------------------------------
+export type GallerySlide = {
+  src: string;
+  alt: string;
+  kind: "escena" | "producto" | "detall" | "color";
+  colorSlug?: string;
+  fit?: "cover" | "contain";
+};
+
+/**
+ * Llista de slides per a la galeria de la ficha d'una catifa.
+ * Ordre: escena (cover) → producto (contain) → detall (contain).
+ * Omets els slides inexistents (mai thumbnails morts).
+ */
+export function catifaSlides(slug: string, nom: string): GallerySlide[] {
+  const slides: GallerySlide[] = [
+    { src: catifaEscena(slug), alt: nom, kind: "escena", fit: "cover" },
+  ];
+  const producto = catifaProducto(slug);
+  if (producto) {
+    slides.push({ src: producto, alt: nom, kind: "producto", fit: "contain" });
+  }
+  const detall = catifaDetall(slug);
+  if (detall) {
+    slides.push({ src: detall, alt: nom, kind: "detall", fit: "contain" });
+  }
+  return slides;
+}

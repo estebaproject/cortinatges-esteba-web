@@ -60,3 +60,33 @@ export const MOBLES: Moble[] = SEED.map((m) => ({ ...m, marca: "Salgueiro Home" 
 export function mobleImage(slug: string, colorSlug: string): string {
   return `/images/mobiliari/${slug}/${colorSlug}.png`;
 }
+
+/** Ruta de la foto d'escena d'un moble (sempre existeix: 41/41). */
+export function mobleEscena(slug: string): string {
+  return `/images/mobiliari/${slug}/escena.png`;
+}
+
+/**
+ * Llista de slides per a la galeria de la ficha d'un moble.
+ * Ordre: escena (cover) → 1 slide per cada color (contain).
+ */
+export function mobleSlides(moble: Moble): import("@/lib/catifes").GallerySlide[] {
+  const slides: import("@/lib/catifes").GallerySlide[] = [
+    {
+      src: mobleEscena(moble.slug),
+      alt: moble.nom,
+      kind: "escena",
+      fit: "cover",
+    },
+  ];
+  for (const color of moble.colors) {
+    slides.push({
+      src: mobleImage(moble.slug, color.slug),
+      alt: color.nom ? `${moble.nom} · ${color.nom}` : moble.nom,
+      kind: "color",
+      colorSlug: color.slug,
+      fit: "contain",
+    });
+  }
+  return slides;
+}
