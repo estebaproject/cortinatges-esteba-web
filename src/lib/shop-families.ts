@@ -9,7 +9,7 @@ import {
   catifaEscena,
   type CatifaFamilia,
 } from "@/lib/catifes";
-import { MOBLES, mobleEscena, type TipusMoble } from "@/lib/mobiliari";
+import { MOBLES, mobleEscena, mobleImage, type TipusMoble } from "@/lib/mobiliari";
 
 // Re-exportar per als consumidors del hub (evita imports multiples).
 export { CATIFA_FAMILIES };
@@ -61,4 +61,18 @@ export function firstCatifaImageForFamilia(familia: CatifaFamilia): string {
 export function mobleEscenaForTipus(tipus: TipusMoble): string {
   const moble = MOBLES.find((m) => m.tipus === tipus);
   return moble ? mobleEscena(moble.slug) : "/images/placeholder.png";
+}
+
+/**
+ * Foto de PRODUCTE representativa d'un tipus de moble per al hub.
+ * Les escenes són ambients (sovint mostren una taula encara que el tipus
+ * sigui cadira o aparador) i confonen; la foto de producte sobre fons blanc
+ * identifica el tipus a primera vista. Regla determinista: primer color del
+ * primer moble del tipus.
+ */
+export function moblePhotoForTipus(tipus: TipusMoble): string {
+  const moble = MOBLES.find((m) => m.tipus === tipus);
+  if (!moble) return "/images/placeholder.png";
+  const color = moble.colors[0]?.slug ?? "principal";
+  return mobleImage(moble.slug, color);
 }

@@ -10,7 +10,7 @@ import {
   countCatifaByFamilia,
   countMobleByTipus,
   firstCatifaImageForFamilia,
-  mobleEscenaForTipus,
+  moblePhotoForTipus,
 } from "@/lib/shop-families";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -54,13 +54,13 @@ const MOBLE_GROUPS = [
   },
   {
     key: "taules" as const,
-    tipusList: ["taula-menjador", "taula-cafe", "taula-centre", "taula-auxiliar", "tauleta-nit"] as const,
-    tipusParam: "taula-menjador,taula-cafe,taula-centre,taula-auxiliar,tauleta-nit",
+    tipusList: ["taula-menjador", "taula-cafe", "taula-centre", "taula-auxiliar", "tauleta-nit", "escriptori"] as const,
+    tipusParam: "taula-menjador,taula-cafe,taula-centre,taula-auxiliar,tauleta-nit,escriptori",
   },
   {
     key: "aparadors" as const,
-    tipusList: ["aparador", "consola", "moble"] as const,
-    tipusParam: "aparador,consola,moble",
+    tipusList: ["aparador", "comoda", "consola", "moble"] as const,
+    tipusParam: "aparador,comoda,consola,moble",
   },
   {
     key: "llits" as const,
@@ -92,13 +92,14 @@ export default async function BotigaPage({ params }: Props) {
 
   // --- Grups de mobles -----------------------------------------------------
   const mobleGroups = MOBLE_GROUPS.map((g) => {
-    // Foto representativa: escena del primer moble del primer tipus del grup
-    // que existeixi al catàleg (determinista per SSG).
+    // Foto representativa: PRODUCTE (fons blanc) del primer moble del primer
+    // tipus del grup — les escenes d'ambient confonien (mostraven una taula
+    // a la card de Cadires o d'Aparadors). Determinista per SSG.
     const count = g.tipusList.reduce(
       (acc, tp) => acc + countMobleByTipus(tp as Parameters<typeof countMobleByTipus>[0]),
       0,
     );
-    const image = mobleEscenaForTipus(g.tipusList[0] as Parameters<typeof mobleEscenaForTipus>[0]);
+    const image = moblePhotoForTipus(g.tipusList[0] as Parameters<typeof moblePhotoForTipus>[0]);
     return {
       key: g.key,
       label: t(`tipusMobles.${g.key}` as Parameters<typeof t>[0]),
