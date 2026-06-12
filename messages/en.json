@@ -421,7 +421,9 @@
       "prestatgeria": "Shelving",
       "sofa": "Sofa",
       "llit": "Bed",
-      "moble": "Cabinet"
+      "moble": "Cabinet",
+      "comoda": "Chest of drawers",
+      "escriptori": "Desk"
     },
     "colorLabel": "Colour",
     "colorsAvailable": "{count, plural, one {# colour available} other {# colours available}}",

@@ -421,7 +421,9 @@
       "prestatgeria": "Estantería",
       "sofa": "Sofá",
       "llit": "Cama",
-      "moble": "Mueble"
+      "moble": "Mueble",
+      "comoda": "Cómoda",
+      "escriptori": "Escritorio"
     },
     "colorLabel": "Color",
     "colorsAvailable": "{count, plural, one {# color disponible} other {# colores disponibles}}",
