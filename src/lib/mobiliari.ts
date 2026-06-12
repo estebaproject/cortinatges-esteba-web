@@ -20,7 +20,7 @@ const SEED: Omit<Moble,"marca">[] = [
   { slug: "cambrai", nom: "Cambrai", tipus: "cadira", pvpDesde: 273.95, colors: [{ slug: "creme", nom: "Creme" }, { slug: "bege", nom: "Beix" }, { slug: "laranja", nom: "Taronja" }, { slug: "cinza", nom: "Gris" }] },
   { slug: "dijon", nom: "Dijon", tipus: "cadira", pvpDesde: 287.95, colors: [{ slug: "bege", nom: "Beix" }, { slug: "cinzaclaro", nom: "Gris clar" }, { slug: "verde", nom: "Verd" }] },
   { slug: "grenoble", nom: "Grenoble", tipus: "cadira", pvpDesde: 65.95, colors: [{ slug: "bege", nom: "Beix" }, { slug: "taupe", nom: "Taupe" }, { slug: "castanho", nom: "Marró" }, { slug: "azul", nom: "Blau" }, { slug: "cinza", nom: "Gris" }, { slug: "cinzaescuro", nom: "Gris fosc" }, { slug: "ouro", nom: "Daurat" }] },
-  { slug: "havre", nom: "Havre", tipus: "butaca", pvpDesde: 244.95, colors: [{ slug: "bege", nom: "Beix" }, { slug: "cinza", nom: "Gris" }, { slug: "laranja", nom: "Taronja" }] },
+  { slug: "havre", nom: "Havre", tipus: "cadira", pvpDesde: 244.95, colors: [{ slug: "bege", nom: "Beix" }, { slug: "cinza", nom: "Gris" }, { slug: "laranja", nom: "Taronja" }] },
   { slug: "limoges", nom: "Limoges", tipus: "cadira", pvpDesde: 153.95, colors: [{ slug: "bege", nom: "Beix" }, { slug: "taupe", nom: "Taupe" }, { slug: "verde", nom: "Verd" }, { slug: "laranja", nom: "Taronja" }, { slug: "cinza", nom: "Gris" }, { slug: "cinzaescuro", nom: "Gris fosc" }] },
   { slug: "loriente", nom: "Loriente", tipus: "cadira", pvpDesde: 125.95, colors: [{ slug: "creme", nom: "Creme" }, { slug: "bege", nom: "Beix" }, { slug: "verde", nom: "Verd" }, { slug: "azul", nom: "Blau" }, { slug: "cinza", nom: "Gris" }] },
   { slug: "nice", nom: "Nice", tipus: "cadira", pvpDesde: 460.95, colors: [{ slug: "creme", nom: "Creme" }] },
@@ -57,7 +57,6 @@ const SEED: Omit<Moble,"marca">[] = [
   { slug: "tormes", nom: "Tormes", tipus: "llit", pvpDesde: 974.95, colors: [{ slug: "creme", nom: "Creme" }, { slug: "bege", nom: "Beix" }, { slug: "verde", nom: "Verd" }] },
   { slug: "aragon", nom: "Aragon", tipus: "llit", pvpDesde: 1337.95, colors: [{ slug: "creme", nom: "Creme" }, { slug: "bege", nom: "Beix" }, { slug: "verde", nom: "Verd" }] },
   { slug: "ara", nom: "Ara", tipus: "tauleta-nit", pvpDesde: 492.95, colors: [{ slug: "principal", nom: "" }] },
-  { slug: "pakra", nom: "Pakra", tipus: "taula-auxiliar", pvpDesde: 538.95, colors: [{ slug: "principal", nom: "" }] },
 ]
 export const MOBLES: Moble[] = SEED.map((m) => ({ ...m, marca: "Salgueiro Home" }));
 /** Imatge d'un color concret (o la principal = colors[0]). */
