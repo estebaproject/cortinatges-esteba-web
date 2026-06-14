@@ -1,0 +1,6 @@
+# No subir a Vercel material que no es del runtime del sitio
+DOCUMENTS/
+reference/
+*.mjs
+1.1.png
+auditoria-*.md

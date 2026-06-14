@@ -34,5 +34,13 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# python venv (extracción PDFs)
-DOCUMENTS/.pdfvenv/
+# datos internos / sensibles — NO versionar
+# (costes de proveedor, catálogos, márgenes, tarifas, extractos)
+DOCUMENTS/
+
+# scripts de scraping/captura ad-hoc (no son código de producción)
+/*.mjs
+/1.1.png
+
+# informes de auditoría (contienen márgenes; mantener solo en local)
+auditoria-*.md
