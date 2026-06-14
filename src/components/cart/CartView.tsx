@@ -1,13 +1,16 @@
 "use client";
 
 // Vista del cistell (client): llista de línies amb foto, nom, preu, selector
-// de quantitat (+/-), eliminar, subtotal i botó "Tramitar la comanda".
+// de quantitat (+/-), eliminar, subtotal i botó per demanar pressupost.
+// El cistell és Fase 1 (sense pagament): el CTA obre WhatsApp amb les línies
+// del cistell precarregades, com la resta de conversió del lloc.
 // Estat buit amb enllaç a /catifes. Tot el càlcul ve del CartProvider.
 
 import Image from "next/image";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { useCart } from "./CartProvider";
+import { whatsappUrl } from "@/lib/whatsapp";
 
 export default function CartView() {
   const t = useTranslations("Cart");
@@ -21,6 +24,16 @@ export default function CartView() {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
     })} €`;
+
+  // Converteix el cistell en un missatge de WhatsApp per demanar pressupost.
+  // Només dades públiques (nom, quantitat, PVP amb IVA). MAI cost intern.
+  const cartWhatsappUrl = () => {
+    const items = lines
+      .map((line) => `• ${line.nom} ×${line.qty} — ${fmtPrice(line.pvp * line.qty)}`)
+      .join("\n");
+    const message = `${t("waIntro")}\n\n${items}\n\n${t("subtotal")}: ${fmtPrice(subtotal)}`;
+    return whatsappUrl(message);
+  };
 
   // Mentre no s'ha hidratat des de localStorage, mostrem un estat neutre
   // per evitar un parpelleig "buit → ple".
@@ -181,12 +194,14 @@ export default function CartView() {
           {t("taxNote")}
         </p>
 
-        <Link
-          href={`${prefix}/checkout`}
+        <a
+          href={cartWhatsappUrl()}
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex items-center justify-center w-full px-6 py-4 bg-ink text-canvas font-sans text-body-md font-semibold hover:bg-accent-deep transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
         >
           {t("checkout")}
-        </Link>
+        </a>
 
         <div className="flex items-center justify-between mt-5">
           <Link
