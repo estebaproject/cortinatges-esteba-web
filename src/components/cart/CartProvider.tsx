@@ -24,7 +24,7 @@ export type CartLine = {
   slug: string;
   /**
    * Ruta RELATIVA a la fitxa del producte, SENSE prefix de locale i SENSE
-   * sufix de color: "/catifes/adore", "/mobiliari/grenoble", "/decoracio/harbin".
+   * sufix de color: "/catifes/adore", "/mobiliari/grenoble".
    * CartView l'enllaça com `${prefix}${href}`. Pot faltar en cistells antics
    * desats abans d'introduir aquest camp (es degrada amb elegància).
    */

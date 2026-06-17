@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import BrandsStrip from "@/components/BrandsStrip";
+import ReelsSection from "@/components/ReelsSection";
 import CtaVisita from "@/components/CtaVisita";
 
 type Props = {
@@ -76,6 +77,7 @@ export default async function AboutPage() {
       </section>
 
       <BrandsStrip />
+      <ReelsSection />
       <CtaVisita />
     </div>
   );

@@ -15,6 +15,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
+    // Secció oculta de moment (només Mobiliari publicat). No indexar.
+    robots: { index: false, follow: false },
     alternates: { canonical: url },
     openGraph: {
       type: "website",
@@ -27,12 +29,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 function CatalogSkeleton() {
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6 animate-pulse">
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 gap-y-8 animate-pulse">
       {Array.from({ length: 8 }).map((_, i) => (
         <div key={i}>
-          <div className="aspect-[4/5] bg-linen mb-3" />
-          <div className="h-4 bg-linen rounded mb-2 w-3/4" />
-          <div className="h-3 bg-linen rounded w-1/2" />
+          <div className="aspect-[4/5] bg-canvas-warm mb-3" />
+          <div className="h-4 bg-canvas-warm rounded mb-2 w-3/4" />
+          <div className="h-3 bg-canvas-warm rounded w-1/2" />
         </div>
       ))}
     </div>
@@ -68,14 +70,14 @@ export default async function CatifesPage({ params }: Props) {
       {/* Capçalera */}
       <section className="pt-40 md:pt-48 pb-section bg-canvas">
         <div className="max-w-layout mx-auto px-6 lg:px-12">
-          <header className="mb-12 max-w-prose-editorial">
-            <p className="font-sans text-eyebrow text-accent-deep uppercase mb-4">
+          <header className="mb-14 max-w-prose-editorial">
+            <p className="font-sans text-body-sm text-ink-muted mb-3">
               {t("eyebrow")}
             </p>
-            <h1 className="font-serif text-display-lg text-ink mb-5 leading-snug">
+            <h1 className="font-serif text-display-md text-ink mb-4 leading-tight">
               {t("headline")}
             </h1>
-            <p className="font-sans text-body-lg text-ink-muted">{t("intro")}</p>
+            <p className="font-sans text-body-md text-ink-muted">{t("intro")}</p>
           </header>
 
           {/* Catàleg filtrable (client). Rep el set complet per props i gestiona

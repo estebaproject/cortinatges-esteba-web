@@ -2,9 +2,9 @@
 
 // Catàleg de catifes filtrable i organitzable (client-side). Rep la llista
 // completa de catifes per props des del Server Component (page.tsx) i gestiona
-// l'estat de filtres, cerca i ordenació sense recarregar. Manté el disseny de
-// les cards original (foto + nom + badge família + "des de X €").
-// Batch 3: cards object-contain (foto producte) + pre-filtrat per URL (?familia=).
+// l'estat de filtres, cerca i ordenació sense recarregar.
+// Redisseny minimalista: cards uniformes amb escena (1.jpg) + object-cover en
+// aspect-[4/5], nom en sans, família com a línia subtil, "des de X €".
 
 import { useMemo, useState } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
@@ -14,7 +14,6 @@ import { useTranslations } from "next-intl";
 import clsx from "clsx";
 import {
   CATIFA_FAMILIES,
-  catifaProducto,
   catifaEscena,
   type Catifa,
   type CatifaFamilia,
@@ -248,7 +247,7 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
       <div>
         <label
           htmlFor="catifes-search"
-          className="block font-sans text-eyebrow text-accent-deep uppercase mb-3"
+          className="block font-sans text-body-sm font-medium text-ink mb-2.5"
         >
           {tf("search")}
         </label>
@@ -258,13 +257,13 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder={tf("searchPlaceholder")}
-          className="w-full px-3 py-2.5 bg-canvas border border-sand-dark font-sans text-body-sm text-ink placeholder:text-ink-faint focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-accent-deep"
+          className="w-full px-3 py-2.5 bg-canvas border-b border-sand-dark/40 font-sans text-body-sm text-ink placeholder:text-ink-faint focus-visible:outline-none focus-visible:border-ink transition-colors"
         />
       </div>
 
       {/* Família */}
-      <fieldset className="border-t border-sand-dark/40 pt-6">
-        <legend className="font-sans text-eyebrow text-accent-deep uppercase mb-3">
+      <fieldset className="border-t border-sand-dark/30 pt-6">
+        <legend className="font-sans text-body-sm font-medium text-ink mb-2.5">
           {tf("family")}
         </legend>
         <div>
@@ -281,8 +280,8 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
       </fieldset>
 
       {/* Preu */}
-      <fieldset className="border-t border-sand-dark/40 pt-6">
-        <legend className="font-sans text-eyebrow text-accent-deep uppercase mb-3">
+      <fieldset className="border-t border-sand-dark/30 pt-6">
+        <legend className="font-sans text-body-sm font-medium text-ink mb-2.5">
           {tf("priceLabel")}
         </legend>
         <div>
@@ -305,8 +304,8 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
       </fieldset>
 
       {/* Mides */}
-      <fieldset className="border-t border-sand-dark/40 pt-6">
-        <legend className="font-sans text-eyebrow text-accent-deep uppercase mb-3">
+      <fieldset className="border-t border-sand-dark/30 pt-6">
+        <legend className="font-sans text-body-sm font-medium text-ink mb-2.5">
           {tf("measures")}
         </legend>
         <div>
@@ -336,7 +335,7 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
     <button
       type="button"
       onClick={onRemove}
-      className="inline-flex items-center gap-1.5 bg-linen text-ink font-sans text-body-sm px-3 py-1.5 hover:bg-sand transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-deep"
+      className="inline-flex items-center gap-1.5 border border-sand-dark/40 text-ink font-sans text-body-sm px-3 py-1.5 hover:border-ink transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-deep"
     >
       <span>{label}</span>
       <span aria-hidden="true" className="text-ink-muted">
@@ -351,7 +350,7 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
       {/* --- Sidebar de filtres (desktop) --- */}
       <aside className="hidden lg:block">
         <div className="sticky top-32">
-          <h2 className="font-serif text-display-md text-ink mb-6">
+          <h2 className="font-sans text-body-md font-medium text-ink mb-6 pb-4 border-b border-sand-dark/30">
             {tf("title")}
           </h2>
           {FiltersBody}
@@ -366,7 +365,7 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
           <button
             type="button"
             onClick={() => setMobileOpen(true)}
-            className="lg:hidden inline-flex items-center gap-2 px-4 py-2.5 bg-ink text-canvas font-sans text-body-sm font-semibold tracking-wide focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+            className="lg:hidden inline-flex items-center gap-2 px-4 py-2.5 border border-ink text-ink font-sans text-body-sm font-medium hover:bg-ink hover:text-canvas transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
             aria-haspopup="dialog"
             aria-expanded={mobileOpen}
           >
@@ -386,7 +385,7 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
             </svg>
             {tf("filter")}
             {activeFilterCount > 0 && (
-              <span className="ml-1 inline-flex items-center justify-center min-w-5 h-5 px-1.5 bg-sand text-ink text-xs rounded-full">
+              <span className="ml-1 inline-flex items-center justify-center min-w-5 h-5 px-1.5 bg-ink text-canvas text-xs rounded-full group-hover:bg-canvas group-hover:text-ink transition-colors">
                 {activeFilterCount}
               </span>
             )}
@@ -413,7 +412,7 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
               id="catifes-sort"
               value={sort}
               onChange={(e) => setSort(e.target.value as SortId)}
-              className="px-3 py-2 bg-canvas border border-sand-dark font-sans text-body-sm text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-accent-deep"
+              className="px-3 py-2 bg-canvas border-b border-sand-dark/40 font-sans text-body-sm text-ink focus-visible:outline-none focus-visible:border-ink transition-colors"
             >
               <option value="name_asc">{tf("sortNameAsc")}</option>
               <option value="price_asc">{tf("sortPriceAsc")}</option>
@@ -467,10 +466,10 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
           </div>
         )}
 
-        {/* Graella de catifes (mateix disseny de cards) */}
+        {/* Graella de catifes — cards uniformes (escena + object-cover) */}
         {filtered.length > 0 ? (
           <ul
-            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 gap-y-10"
             role="list"
           >
             {filtered.map((c, i) => (
@@ -480,23 +479,23 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
                   className="group block"
                   aria-label={c.nom}
                 >
-                  <div className="relative aspect-[4/5] overflow-hidden bg-linen mb-3 p-2">
+                  <div className="relative aspect-[4/5] overflow-hidden bg-canvas-warm mb-3">
                     <Image
-                      src={catifaProducto(c.slug) ?? catifaEscena(c.slug)}
+                      src={catifaEscena(c.slug)}
                       alt={c.nom}
                       fill
                       priority={i < 4}
                       sizes="(min-width: 1280px) 20vw, (min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
-                      className="object-contain transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                     />
-                    <span className="absolute top-3 left-3 bg-canvas/90 text-ink font-sans text-[10px] tracking-widest uppercase px-2 py-1">
-                      {familyLabel(c.familia)}
-                    </span>
                   </div>
-                  <p className="font-serif text-body-lg text-ink group-hover:text-accent-deep transition-colors">
+                  <p className="font-sans text-body-md font-medium text-ink group-hover:text-accent-deep transition-colors">
                     {c.nom}
                   </p>
-                  <p className="font-sans text-body-sm text-ink-muted">
+                  <p className="font-sans text-body-sm text-ink-faint mt-0.5">
+                    {familyLabel(c.familia)}
+                  </p>
+                  <p className="font-sans text-body-sm text-ink-muted mt-1">
                     {priceFmt(c.pvpDesde)}
                   </p>
                 </Link>
@@ -539,8 +538,8 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
           />
           {/* Calaix */}
           <div className="absolute inset-y-0 left-0 w-[88%] max-w-sm bg-canvas overflow-y-auto p-6 shadow-xl">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="font-serif text-display-md text-ink">
+            <div className="flex items-center justify-between mb-6 pb-4 border-b border-sand-dark/30">
+              <h2 className="font-sans text-body-md font-medium text-ink">
                 {tf("title")}
               </h2>
               <button
@@ -568,7 +567,7 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
 
             {FiltersBody}
 
-            <div className="mt-8 pt-6 border-t border-sand-dark/40">
+            <div className="mt-8 pt-6 border-t border-sand-dark/30">
               <button
                 type="button"
                 onClick={() => setMobileOpen(false)}

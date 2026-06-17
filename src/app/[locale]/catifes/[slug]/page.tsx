@@ -14,7 +14,11 @@ import {
   type CatifaFamilia,
 } from "@/lib/catifes";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
-import AddToCartButton from "@/components/cart/AddToCartButton";
+import {
+  getCatifaDetall,
+  catifaPriceRange,
+} from "@/lib/catifes-detall";
+import CatifaPurchasePanel from "@/components/catifes/CatifaPurchasePanel";
 import ProductGallery from "@/components/shop/ProductGallery";
 
 type Props = {
@@ -72,10 +76,18 @@ export default async function CatifaPage({ params }: Props) {
   const tGallery = await getTranslations("Gallery");
   const slides = catifaSlides(slug, catifa.nom);
 
+  // Detall comercial (mesures + PVP per mesura + termini). Font de la fitxa
+  // vendible. Si no hi ha detall (no hauria de passar per a les live), caiem
+  // amb elegancia al "des de" antic.
+  const detall = getCatifaDetall(slug);
+  const range = detall ? catifaPriceRange(detall) : null;
+
+  // El preu "des de" ara surt del rang real de mesures (no del pvpDesde antic).
+  const fromPriceValue = range?.min ?? catifa.pvpDesde;
   const priceLabel =
-    catifa.pvpDesde === null
+    fromPriceValue === null
       ? t("onDemand")
-      : `${t("fromPrice")} ${catifa.pvpDesde.toLocaleString(locale, {
+      : `${t("fromPrice")} ${fromPriceValue.toLocaleString(locale, {
           minimumFractionDigits: 2,
           maximumFractionDigits: 2,
         })} €`;
@@ -98,18 +110,35 @@ export default async function CatifaPage({ params }: Props) {
     category: "Catifes a mida",
     brand: { "@type": "Brand", name: catifa.marca },
     manufacturer: { "@type": "Organization", name: catifa.marca },
-    ...(catifa.pvpDesde !== null
+    // offers: rang real de preus de totes les mesures (AggregateOffer) quan
+    // tenim detall; fallback a Offer simple amb pvpDesde si no.
+    ...(range
       ? {
           offers: {
-            "@type": "Offer",
+            "@type": "AggregateOffer",
             priceCurrency: "EUR",
-            price: catifa.pvpDesde,
+            lowPrice: range.min,
+            highPrice: range.max,
+            offerCount: detall ? detall.mides.length : undefined,
             url: canonicalUrl,
-            availability: "https://schema.org/MadeToOrder",
+            availability: detall?.perEncarrec
+              ? "https://schema.org/MadeToOrder"
+              : "https://schema.org/InStock",
             seller: { "@type": "Organization", name: SITE_NAME },
           },
         }
-      : {}),
+      : catifa.pvpDesde !== null
+        ? {
+            offers: {
+              "@type": "Offer",
+              priceCurrency: "EUR",
+              price: catifa.pvpDesde,
+              url: canonicalUrl,
+              availability: "https://schema.org/MadeToOrder",
+              seller: { "@type": "Organization", name: SITE_NAME },
+            },
+          }
+        : {}),
   };
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -159,62 +188,57 @@ export default async function CatifaPage({ params }: Props) {
 
             {/* Informació */}
             <div className="lg:sticky lg:top-28 self-start">
-              <p className="font-sans text-eyebrow text-accent-deep uppercase mb-4">
+              <p className="font-sans text-body-sm text-ink-faint mb-3">
                 {familyLabel(catifa.familia)}
               </p>
-              <h1 className="font-serif text-display-lg text-ink mb-4">{catifa.nom}</h1>
-              <p className="font-serif text-display-md text-ink mb-8">{priceLabel}</p>
+              <h1 className="font-serif text-display-md text-ink mb-3 leading-tight">
+                {catifa.nom}
+              </h1>
+              <p className="font-sans text-body-lg text-ink mb-10">{priceLabel}</p>
 
-              <dl className="border-t border-linen divide-y divide-linen mb-8">
-                <div className="flex justify-between py-4">
-                  <dt className="font-sans text-body-sm text-ink-muted uppercase tracking-widest">
-                    {t("family")}
-                  </dt>
-                  <dd className="font-sans text-body-md text-ink">
-                    {familyLabel(catifa.familia)}
-                  </dd>
-                </div>
-                {catifa.nMedides > 0 && (
-                  <div className="flex justify-between py-4">
-                    <dt className="font-sans text-body-sm text-ink-muted uppercase tracking-widest">
-                      {t("measuresAvailable")}
-                    </dt>
-                    <dd className="font-sans text-body-md text-ink">{measuresLabel}</dd>
-                  </div>
-                )}
-                <div className="flex justify-between py-4">
-                  <dt className="font-sans text-body-sm text-ink-muted uppercase tracking-widest">
+              <dl className="divide-y divide-sand-dark/25 border-t border-b border-sand-dark/25 mb-10">
+                <div className="flex justify-between gap-6 py-3.5">
+                  <dt className="font-sans text-body-sm text-ink-muted">
                     {t("madeBy")}
                   </dt>
-                  <dd className="font-serif text-body-md text-ink-faint italic">
-                    {catifa.marca}
-                  </dd>
+                  <dd className="font-sans text-body-sm text-ink">{catifa.marca}</dd>
                 </div>
               </dl>
 
-              {/* Compra directa (només si té PVP). Botó client que afegeix al cistell. */}
-              {catifa.pvpDesde !== null && (
-                <div className="mb-6">
-                  <AddToCartButton
+              {/* Compra directa: selector de mesura + PVP per mesura + termini
+                  d'entrega (requisit legal, visible abans de comprar) + badge
+                  "Per encarrec" + afegir a la cistella. Nomes si tenim detall
+                  comercial amb mesures. */}
+              {detall && detall.mides.length > 0 ? (
+                <div className="mb-8">
+                  <CatifaPurchasePanel
                     slug={catifa.slug}
-                    href={`/catifes/${catifa.slug}`}
                     nom={catifa.nom}
-                    pvp={catifa.pvpDesde}
+                    mides={detall.mides}
+                    termini={detall.termini}
+                    perEncarrec={detall.perEncarrec}
                     image={productImage}
+                    href={`/catifes/${catifa.slug}`}
                   />
                 </div>
+              ) : (
+                catifa.nMedides > 0 && (
+                  <p className="mb-8 font-sans text-body-sm text-ink-muted">
+                    {measuresLabel}
+                  </p>
+                )
               )}
 
-              <div className="border border-linen p-8 bg-canvas-warm">
-                <p className="font-serif text-display-md text-ink mb-3">
+              <div className="pt-8 border-t border-sand-dark/25">
+                <p className="font-serif text-display-md text-ink mb-2 leading-tight">
                   {t("ctaBlockHeadline")}
                 </p>
-                <p className="font-sans text-body-sm text-ink-muted mb-6">
+                <p className="font-sans text-body-sm text-ink-muted mb-6 max-w-prose-editorial">
                   {t("ctaBlockBody")}
                 </p>
                 <Link
                   href={`${prefix}/demana-pressupost`}
-                  className="flex items-center justify-center w-full px-6 py-4 bg-ink text-canvas font-sans text-body-md font-semibold hover:bg-accent-deep transition-colors"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-ink text-canvas font-sans text-body-md font-medium hover:bg-accent-deep transition-colors"
                 >
                   {t("requestBudget")}
                 </Link>
@@ -224,7 +248,7 @@ export default async function CatifaPage({ params }: Props) {
 
           {/* Catifes relacionades */}
           {related.length > 0 && (
-            <section className="mt-section border-t border-linen pt-section">
+            <section className="mt-section border-t border-sand-dark/25 pt-section">
               <div className="flex items-end justify-between mb-10">
                 <h2 className="font-serif text-display-md text-ink">{t("eyebrow")}</h2>
                 <Link
@@ -234,23 +258,23 @@ export default async function CatifaPage({ params }: Props) {
                   {t("backToCatifes")}
                 </Link>
               </div>
-              <ul className="grid grid-cols-2 lg:grid-cols-4 gap-6" role="list">
+              <ul className="grid grid-cols-2 lg:grid-cols-4 gap-x-5 gap-y-10" role="list">
                 {related.map((c) => (
                   <li key={c.slug}>
                     <Link
                       href={`${prefix}/catifes/${c.slug}`}
                       className="group block"
                     >
-                      <div className="relative aspect-square overflow-hidden bg-linen mb-3">
+                      <div className="relative aspect-[4/5] overflow-hidden bg-canvas-warm mb-3">
                         <Image
-                          src={catifaImage(c.slug)}
+                          src={catifaEscena(c.slug)}
                           alt={c.nom}
                           fill
                           sizes="(min-width: 1024px) 25vw, 50vw"
-                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                         />
                       </div>
-                      <p className="font-serif text-body-lg text-ink group-hover:text-accent-deep transition-colors">
+                      <p className="font-sans text-body-md font-medium text-ink group-hover:text-accent-deep transition-colors">
                         {c.nom}
                       </p>
                     </Link>

@@ -1,95 +1,109 @@
-// Registre de mobles — Salgueiro Home. Foto(s) de DOCUMENTS/catalogo_2025.pdf
-// (variants de color sobre fons blanc) + preus de DOCUMENTS/P2.json.
-// Només PVP públic (IVA inclòs), MAI cost. PVP = coste · 2,0 · 1,21, floor+0,95.
-// Imatges: /images/mobiliari/{slug}/{colorSlug}.png
+// Registre de mobiliari (mobles) — co-marca Salgueiro Home. Generat des de
+// DOCUMENTS/_mob/mobiliari.json (només les peces que tenen foto, img:true).
+// Aquí viu només l'estructura i el preu públic (PVP, IVA inclòs); MAI el cost
+// intern. Els noms de model són noms propis i no es tradueixen.
+// Mateix patró minimalista que src/lib/catifes.ts.
 
-export type MobleColor = { slug: string; nom: string };
-export type TipusMoble =
-  | "cadira" | "butaca" | "pouf" | "taula-menjador" | "taula-cafe"
-  | "taula-centre" | "taula-auxiliar" | "tauleta-nit" | "aparador"
-  | "consola" | "comoda" | "escriptori" | "prestatgeria" | "sofa" | "llit" | "moble";
+/** Categories de mobiliari de Salgueiro Home. */
+export type MobleCat = "cadira" | "butaca" | "pouf" | "moble";
+
 export type Moble = {
-  slug: string; nom: string; tipus: TipusMoble; pvpDesde: number;
-  colors: MobleColor[]; marca: "Salgueiro Home";
+  slug: string;
+  /** Nom propi del model (no es tradueix). */
+  nom: string;
+  cat: MobleCat;
+  /** Preu públic, IVA inclòs (€). Per a "moble" és un «des de» (famílies). */
+  pvp: number;
+  /** Co-marca / fabricant. */
+  marca: "Salgueiro Home";
 };
-const SEED: Omit<Moble,"marca">[] = [
-  { slug: "annecy", nom: "Annecy", tipus: "cadira", pvpDesde: 318.95, colors: [{ slug: "principal", nom: "" }] },
-  { slug: "arles", nom: "Arles", tipus: "butaca", pvpDesde: 611.95, colors: [{ slug: "cinza", nom: "Gris" }, { slug: "taupe", nom: "Taupe" }] },
-  { slug: "arles-cadira", nom: "Arles", tipus: "cadira", pvpDesde: 329.95, colors: [{ slug: "cinza", nom: "Gris" }, { slug: "taupe", nom: "Taupe" }] },
-  { slug: "calais", nom: "Calais", tipus: "cadira", pvpDesde: 90.95, colors: [{ slug: "branco", nom: "Blanc" }, { slug: "bege", nom: "Beix" }, { slug: "cinza", nom: "Gris" }] },
-  { slug: "cambrai", nom: "Cambrai", tipus: "cadira", pvpDesde: 273.95, colors: [{ slug: "creme", nom: "Creme" }, { slug: "bege", nom: "Beix" }, { slug: "laranja", nom: "Taronja" }, { slug: "cinza", nom: "Gris" }] },
-  { slug: "dijon", nom: "Dijon", tipus: "cadira", pvpDesde: 287.95, colors: [{ slug: "bege", nom: "Beix" }, { slug: "cinzaclaro", nom: "Gris clar" }, { slug: "verde", nom: "Verd" }] },
-  { slug: "grenoble", nom: "Grenoble", tipus: "cadira", pvpDesde: 65.95, colors: [{ slug: "bege", nom: "Beix" }, { slug: "taupe", nom: "Taupe" }, { slug: "castanho", nom: "Marró" }, { slug: "azul", nom: "Blau" }, { slug: "cinza", nom: "Gris" }, { slug: "cinzaescuro", nom: "Gris fosc" }, { slug: "ouro", nom: "Daurat" }] },
-  { slug: "havre", nom: "Havre", tipus: "cadira", pvpDesde: 244.95, colors: [{ slug: "bege", nom: "Beix" }, { slug: "cinza", nom: "Gris" }, { slug: "laranja", nom: "Taronja" }] },
-  { slug: "limoges", nom: "Limoges", tipus: "cadira", pvpDesde: 153.95, colors: [{ slug: "bege", nom: "Beix" }, { slug: "taupe", nom: "Taupe" }, { slug: "verde", nom: "Verd" }, { slug: "laranja", nom: "Taronja" }, { slug: "cinza", nom: "Gris" }, { slug: "cinzaescuro", nom: "Gris fosc" }] },
-  { slug: "loriente", nom: "Loriente", tipus: "cadira", pvpDesde: 125.95, colors: [{ slug: "creme", nom: "Creme" }, { slug: "bege", nom: "Beix" }, { slug: "verde", nom: "Verd" }, { slug: "azul", nom: "Blau" }, { slug: "cinza", nom: "Gris" }] },
-  { slug: "nice", nom: "Nice", tipus: "cadira", pvpDesde: 460.95, colors: [{ slug: "creme", nom: "Creme" }] },
-  { slug: "nimes", nom: "Nimes", tipus: "cadira", pvpDesde: 151.95, colors: [{ slug: "bege", nom: "Beix" }, { slug: "cinza", nom: "Gris" }] },
-  { slug: "pantin", nom: "Pantin", tipus: "cadira", pvpDesde: 147.95, colors: [{ slug: "creme", nom: "Creme" }, { slug: "castanho", nom: "Marró" }, { slug: "cinza", nom: "Gris" }] },
-  { slug: "rochelle", nom: "Rochelle", tipus: "cadira", pvpDesde: 156.95, colors: [{ slug: "verde", nom: "Verd" }, { slug: "azul", nom: "Blau" }, { slug: "cinza", nom: "Gris" }, { slug: "cinzaescuro", nom: "Gris fosc" }] },
-  { slug: "scandinaveii", nom: "Scandinave II", tipus: "cadira", pvpDesde: 63.95, colors: [{ slug: "cinza", nom: "Gris" }, { slug: "cinzaescuro", nom: "Gris fosc" }, { slug: "preto", nom: "Negre" }, { slug: "azul", nom: "Blau" }, { slug: "taupe", nom: "Taupe" }, { slug: "bege", nom: "Beix" }, { slug: "amarelo", nom: "Groc" }] },
-  { slug: "sevres", nom: "Sevres", tipus: "cadira", pvpDesde: 225.95, colors: [{ slug: "creme", nom: "Creme" }, { slug: "bege", nom: "Beix" }, { slug: "preto", nom: "Negre" }] },
-  { slug: "toulouse", nom: "Toulouse", tipus: "cadira", pvpDesde: 265.95, colors: [{ slug: "begecastanho", nom: "Beix Marró" }, { slug: "begepreto", nom: "Beix Negre" }] },
-  { slug: "chablis", nom: "Chablis", tipus: "butaca", pvpDesde: 589.95, colors: [{ slug: "creme", nom: "Creme" }, { slug: "bege", nom: "Beix" }, { slug: "cinza", nom: "Gris" }] },
-  { slug: "leo", nom: "Leo", tipus: "taula-menjador", pvpDesde: 1103.95, colors: [{ slug: "principal", nom: "" }] },
-  { slug: "pictor", nom: "Pictor", tipus: "taula-menjador", pvpDesde: 918.95, colors: [{ slug: "principal", nom: "" }] },
-  { slug: "aquila", nom: "Aquila", tipus: "taula-menjador", pvpDesde: 1410.95, colors: [{ slug: "preto", nom: "Negre" }] },
-  { slug: "orion-mesa", nom: "Orion", tipus: "taula-menjador", pvpDesde: 2456.95, colors: [{ slug: "principal", nom: "" }] },
-  { slug: "orion-aparador", nom: "Orion", tipus: "aparador", pvpDesde: 1954.95, colors: [{ slug: "principal", nom: "" }] },
-  { slug: "lyra-mesa", nom: "Lyra", tipus: "taula-menjador", pvpDesde: 1853.95, colors: [{ slug: "principal", nom: "" }] },
-  { slug: "columba", nom: "Columba", tipus: "taula-menjador", pvpDesde: 1828.95, colors: [{ slug: "principal", nom: "" }] },
-  { slug: "auriga", nom: "Auriga", tipus: "taula-menjador", pvpDesde: 1418.95, colors: [{ slug: "principal", nom: "" }] },
-  { slug: "pavo", nom: "Pavo", tipus: "aparador", pvpDesde: 974.95, colors: [{ slug: "principal", nom: "" }] },
-  { slug: "taurus", nom: "Taurus", tipus: "aparador", pvpDesde: 1630.95, colors: [{ slug: "principal", nom: "" }] },
-  { slug: "volans-aparador", nom: "Volans", tipus: "aparador", pvpDesde: 639.95, colors: [{ slug: "principal", nom: "" }] },
-  { slug: "volans-comoda", nom: "Volans", tipus: "comoda", pvpDesde: 555.95, colors: [{ slug: "principal", nom: "" }] },
-  { slug: "virgo", nom: "Virgo", tipus: "aparador", pvpDesde: 667.95, colors: [{ slug: "preto", nom: "Negre" }, { slug: "branco", nom: "Blanc" }] },
-  { slug: "pegasus-aparador", nom: "Pegasus", tipus: "aparador", pvpDesde: 856.95, colors: [{ slug: "nogueira", nom: "Noguera" }, { slug: "carvalho", nom: "Roure" }] },
-  { slug: "pegasus-escriptori", nom: "Pegasus", tipus: "escriptori", pvpDesde: 680.95, colors: [{ slug: "nogueira", nom: "Noguera" }, { slug: "carvalho", nom: "Roure" }] },
-  { slug: "vela", nom: "Vela", tipus: "taula-centre", pvpDesde: 1058.95, colors: [{ slug: "principal", nom: "" }] },
-  { slug: "crater", nom: "Crater", tipus: "taula-cafe", pvpDesde: 536.95, colors: [{ slug: "principal", nom: "" }] },
-  { slug: "canes", nom: "Canes", tipus: "taula-cafe", pvpDesde: 423.95, colors: [{ slug: "principal", nom: "" }] },
-  { slug: "caelum", nom: "Caelum", tipus: "taula-cafe", pvpDesde: 441.95, colors: [{ slug: "principal", nom: "" }] },
-  { slug: "cubo", nom: "Cubo", tipus: "taula-centre", pvpDesde: 575.95, colors: [{ slug: "bordeaux", nom: "Bordeus" }] },
-  { slug: "lepus", nom: "Lepus", tipus: "taula-cafe", pvpDesde: 639.95, colors: [{ slug: "principal", nom: "" }] },
-  { slug: "hydra", nom: "Hydra", tipus: "taula-cafe", pvpDesde: 767.95, colors: [{ slug: "principal", nom: "" }] },
-  { slug: "ebro", nom: "Ebro", tipus: "sofa", pvpDesde: 824.95, colors: [{ slug: "principal", nom: "" }] },
-  { slug: "tormes", nom: "Tormes", tipus: "llit", pvpDesde: 974.95, colors: [{ slug: "creme", nom: "Creme" }, { slug: "bege", nom: "Beix" }, { slug: "verde", nom: "Verd" }] },
-  { slug: "aragon", nom: "Aragon", tipus: "llit", pvpDesde: 1337.95, colors: [{ slug: "creme", nom: "Creme" }, { slug: "bege", nom: "Beix" }, { slug: "verde", nom: "Verd" }] },
-  { slug: "ara", nom: "Ara", tipus: "tauleta-nit", pvpDesde: 492.95, colors: [{ slug: "principal", nom: "" }] },
-]
-export const MOBLES: Moble[] = SEED.map((m) => ({ ...m, marca: "Salgueiro Home" }));
-/** Imatge d'un color concret (o la principal = colors[0]). */
-export function mobleImage(slug: string, colorSlug: string): string {
-  return `/images/mobiliari/${slug}/${colorSlug}.png`;
+
+// Dades base (sense la marca, que és constant i s'afegeix al map de sota).
+type MobleSeed = Omit<Moble, "marca">;
+
+// Nota sobre slugs: el nom "Arles" existeix com a cadira i com a butaca a
+// l'origen. Per garantir slugs únics (routing + carpeta d'imatge) la cadira
+// manté "arles" i la butaca passa a "arles-butaca"; ambdues comparteixen la
+// mateixa foto hero (/images/mobiliari/arles*/1.jpg, copiada a cada carpeta).
+const SEED: MobleSeed[] = [
+  // --- Cadires ---
+  { slug: "annecy", nom: "Annecy", cat: "cadira", pvp: 318.95 },
+  { slug: "arles", nom: "Arles", cat: "cadira", pvp: 329.95 },
+  { slug: "calais", nom: "Calais", cat: "cadira", pvp: 90.95 },
+  { slug: "cambrai", nom: "Cambrai", cat: "cadira", pvp: 273.95 },
+  { slug: "dijon", nom: "Dijon", cat: "cadira", pvp: 287.95 },
+  { slug: "grenoble", nom: "Grenoble", cat: "cadira", pvp: 65.95 },
+  { slug: "limoges", nom: "Limoges", cat: "cadira", pvp: 153.95 },
+  { slug: "loriente", nom: "Loriente", cat: "cadira", pvp: 125.95 },
+  { slug: "nice", nom: "Nice", cat: "cadira", pvp: 460.95 },
+  { slug: "nimes", nom: "Nimes", cat: "cadira", pvp: 151.95 },
+  { slug: "pantin", nom: "Pantin", cat: "cadira", pvp: 147.95 },
+  { slug: "rochelle", nom: "Rochelle", cat: "cadira", pvp: 156.95 },
+  { slug: "scandinave-ii", nom: "Scandinave II", cat: "cadira", pvp: 63.95 },
+  { slug: "sevres", nom: "Sevres", cat: "cadira", pvp: 225.95 },
+  { slug: "toulouse", nom: "Toulouse", cat: "cadira", pvp: 265.95 },
+  { slug: "sg-vittel", nom: "SG Vittel", cat: "cadira", pvp: 223.95 },
+  // --- Butaques ---
+  { slug: "arles-butaca", nom: "Arles", cat: "butaca", pvp: 611.95 },
+  { slug: "chablis", nom: "Chablis", cat: "butaca", pvp: 589.95 },
+  { slug: "havre", nom: "Havre", cat: "butaca", pvp: 244.95 },
+  { slug: "rennes-c-reposapi-s", nom: "Rennes C/Reposapiés", cat: "butaca", pvp: 620.95 },
+  // --- Mobles (famílies; pvp "des de") ---
+  { slug: "aquila", nom: "Aquila", cat: "moble", pvp: 1410.95 },
+  { slug: "ara", nom: "Ara", cat: "moble", pvp: 492.95 },
+  { slug: "auriga", nom: "Auriga", cat: "moble", pvp: 1418.95 },
+  { slug: "caelum", nom: "Caelum — 2 peces", cat: "moble", pvp: 441.95 },
+  { slug: "canes", nom: "Canes — 2 peces", cat: "moble", pvp: 423.95 },
+  { slug: "columba", nom: "Columba — 3 peces", cat: "moble", pvp: 1828.95 },
+  { slug: "crater", nom: "Crater — 2 peces", cat: "moble", pvp: 536.95 },
+  { slug: "cubo", nom: "Cubo — 4 peces", cat: "moble", pvp: 575.95 },
+  { slug: "gemini", nom: "Gemini — 2 peces", cat: "moble", pvp: 918.95 },
+  { slug: "hydra", nom: "Hydra — 2 peces", cat: "moble", pvp: 767.95 },
+  { slug: "leo", nom: "Leo", cat: "moble", pvp: 1103.95 },
+  { slug: "lepus", nom: "Lepus — 2 peces", cat: "moble", pvp: 639.95 },
+  { slug: "lyra", nom: "Lyra — 2 peces", cat: "moble", pvp: 1853.95 },
+  { slug: "mosa", nom: "Mosa", cat: "moble", pvp: 435.95 },
+  { slug: "orion", nom: "Orion — 3 peces", cat: "moble", pvp: 1954.95 },
+  { slug: "pavo", nom: "Pavo", cat: "moble", pvp: 974.95 },
+  { slug: "pegasus", nom: "Pegasus — 8 peces", cat: "moble", pvp: 680.95 },
+  { slug: "pictor", nom: "Pictor — 2 peces", cat: "moble", pvp: 918.95 },
+  { slug: "puppis", nom: "Puppis", cat: "moble", pvp: 533.95 },
+  { slug: "sagitta", nom: "Sagitta — 3 peces", cat: "moble", pvp: 319.95 },
+  { slug: "taurus", nom: "Taurus", cat: "moble", pvp: 1630.95 },
+  { slug: "vela", nom: "Vela", cat: "moble", pvp: 1058.95 },
+  { slug: "virgo", nom: "Virgo — 7 peces", cat: "moble", pvp: 267.95 },
+  { slug: "volans", nom: "Volans — 2 peces", cat: "moble", pvp: 555.95 },
+];
+
+export const MOBLES: Moble[] = SEED.map((m) => ({
+  ...m,
+  marca: "Salgueiro Home" as const,
+}));
+
+export const MOBLE_SLUGS = MOBLES.map((m) => m.slug);
+
+/** Ordre estable de les categories per agrupar/filtrar a la UI. */
+export const MOBLE_CATS: MobleCat[] = ["cadira", "butaca", "pouf", "moble"];
+
+export function getMoble(slug: string): Moble | undefined {
+  return MOBLES.find((m) => m.slug === slug);
 }
 
-/** Ruta de la foto d'escena d'un moble (sempre existeix: 41/41). */
-export function mobleEscena(slug: string): string {
-  return `/images/mobiliari/${slug}/escena.png`;
+/** Ruta del hero d'un moble: "/images/mobiliari/{slug}/1.jpg". */
+export function mobleImage(slug: string): string {
+  return `/images/mobiliari/${slug}/1.jpg`;
+}
+
+/** Compta els mobles d'una categoria (per al hub /botiga). */
+export function countMobleByCat(cat: MobleCat): number {
+  return MOBLES.filter((m) => m.cat === cat).length;
 }
 
 /**
- * Llista de slides per a la galeria de la ficha d'un moble.
- * Ordre: escena (cover) → 1 slide per cada color (contain).
+ * Foto representativa d'una categoria de moble (primer moble del catàleg amb
+ * aquesta categoria). Determinista per a SSG estable.
  */
-export function mobleSlides(moble: Moble): import("@/lib/catifes").GallerySlide[] {
-  const slides: import("@/lib/catifes").GallerySlide[] = [
-    {
-      src: mobleEscena(moble.slug),
-      alt: moble.nom,
-      kind: "escena",
-      fit: "cover",
-    },
-  ];
-  for (const color of moble.colors) {
-    slides.push({
-      src: mobleImage(moble.slug, color.slug),
-      alt: color.nom ? `${moble.nom} · ${color.nom}` : moble.nom,
-      kind: "color",
-      colorSlug: color.slug,
-      fit: "contain",
-    });
-  }
-  return slides;
+export function mobleImageForCat(cat: MobleCat): string {
+  const moble = MOBLES.find((m) => m.cat === cat);
+  return moble ? mobleImage(moble.slug) : "/images/placeholder.png";
 }

@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useTranslations, useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
+import Slider from "@/components/Slider";
 
 const INSTAGRAM_URL = "https://www.instagram.com/cortinatgesesteba/";
 const HANDLE = "@cortinatgesesteba";
@@ -9,7 +10,7 @@ const REELS = [1, 2, 3, 4];
 
 export default function ReelsSection() {
   const t = useTranslations("HomeGrid");
-  const containerRef = useRef<HTMLUListElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const videos = Array.from(
@@ -52,10 +53,13 @@ export default function ReelsSection() {
           </a>
         </div>
 
-        <ul ref={containerRef} className="grid grid-cols-2 lg:grid-cols-4 gap-4" role="list">
-          {REELS.map((n) => (
-            <li key={n}>
+        <div ref={containerRef}>
+          <Slider
+            ariaLabel={t("instagramHeading")}
+            slideClassName="w-44 sm:w-52"
+            items={REELS.map((n) => (
               <a
+                key={n}
                 href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -74,9 +78,9 @@ export default function ReelsSection() {
                 </video>
                 <span className="absolute inset-0 bg-ink/0 group-hover:bg-ink/20 transition-colors duration-500" />
               </a>
-            </li>
-          ))}
-        </ul>
+            ))}
+          />
+        </div>
 
         <div className="text-center mt-10">
           <a

@@ -194,11 +194,18 @@ export default function CartView() {
           {t("taxNote")}
         </p>
 
+        <Link
+          href={`${prefix}/checkout`}
+          className="flex items-center justify-center w-full px-6 py-4 bg-ink text-canvas font-sans text-body-md font-semibold hover:bg-accent-deep transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+        >
+          {t("finalizePurchase")}
+        </Link>
+
         <a
           href={cartWhatsappUrl()}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center w-full px-6 py-4 bg-ink text-canvas font-sans text-body-md font-semibold hover:bg-accent-deep transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+          className="flex items-center justify-center w-full px-6 py-4 mt-3 border border-ink text-ink font-sans text-body-md font-semibold hover:bg-ink hover:text-canvas transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
         >
           {t("checkout")}
         </a>

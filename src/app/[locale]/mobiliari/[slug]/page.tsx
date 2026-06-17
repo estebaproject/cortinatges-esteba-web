@@ -5,33 +5,37 @@ import { notFound } from "next/navigation";
 import { getTranslations, getLocale } from "next-intl/server";
 import {
   MOBLES,
+  MOBLE_SLUGS,
+  getMoble,
   mobleImage,
-  type TipusMoble,
+  type MobleCat,
 } from "@/lib/mobiliari";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
-import MobleFicha from "@/components/shop/MobleFicha";
+import {
+  getMobleDetall,
+  moblefPriceRange,
+} from "@/lib/mobiliari-detall";
+import { getMobleSpec, type SpecLocale } from "@/lib/mobiliari-specs";
+import MoblePurchasePanel from "@/components/mobiliari/MoblePurchasePanel";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
 };
 
-// mobiliari.ts no exporta cap helper de cerca; la resolem aquí sobre MOBLES.
-const getMoble = (slug: string) => MOBLES.find((m) => m.slug === slug);
-
 export function generateStaticParams() {
-  return MOBLES.map((m) => ({ slug: m.slug }));
+  return MOBLE_SLUGS.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const moble = getMoble(slug);
   if (!moble) return {};
-  const t = await getTranslations({ locale, namespace: "Mobles" });
+  const t = await getTranslations({ locale, namespace: "Mobiliari" });
   const prefix = locale === "ca" ? "" : `/${locale}`;
   const url = `${SITE_URL}${prefix}/mobiliari/${slug}`;
-  const image = mobleImage(slug, moble.colors[0].slug);
-  const tipusLabel = t(`tipus.${moble.tipus}` as Parameters<typeof t>[0]);
-  const description = `${moble.nom} — ${tipusLabel}. ${t("madeBy")} ${t("madeByBrand")}. ${t("fromPrice")} ${moble.pvpDesde} €.`;
+  const image = mobleImage(slug);
+  const catLabel = t(`tipus.${moble.cat}` as Parameters<typeof t>[0]);
+  const description = `${moble.nom} — ${catLabel}. ${t("madeBy")} ${t("madeByBrand")}. ${t("fromPrice")} ${moble.pvp} €.`;
   return {
     title: `${moble.nom} — ${t("eyebrow")}`,
     description,
@@ -51,23 +55,41 @@ export default async function MoblePage({ params }: Props) {
   const moble = getMoble(slug);
   if (!moble) notFound();
 
-  const t = await getTranslations("Mobles");
+  const t = await getTranslations("Mobiliari");
   const locale = await getLocale();
   const prefix = locale === "ca" ? "" : `/${locale}`;
 
-  const tipusLabel = (tp: TipusMoble) =>
-    t(`tipus.${tp}` as Parameters<typeof t>[0]);
+  const catLabel = (c: MobleCat) =>
+    t(`tipus.${c}` as Parameters<typeof t>[0]);
 
-  // Imatge principal (primer color) per al schema/OG; la galeria gestiona la
-  // resta de colors al client.
-  const image = mobleImage(slug, moble.colors[0].slug);
-  const priceLabel = `${t("fromPrice")} ${moble.pvpDesde.toLocaleString(locale, {
+  const image = mobleImage(slug);
+
+  // Detall comercial (variants + PVP per variant + termini). Font de la fitxa
+  // vendible. Si no hi ha detall (1 moble de 44: "arles-butaca"), caiem amb
+  // elegancia al "des de" del registre base + CTA de pressupost.
+  const detall = getMobleDetall(slug);
+  const range = detall ? moblefPriceRange(detall) : null;
+
+  // Especificacions tecniques (dimensions + material + acabats). Nomes info
+  // publica del producte, mai cap cost. 42 mobles de 44 en tenen; els 2 sense
+  // ("scandinave-ii", "mosa") retornen undefined i amaguem el bloc del tot.
+  const spec = getMobleSpec(slug);
+  // El text de material ja ve traduit als 4 idiomes; triem el de la pagina amb
+  // fallback a "es" si l'idioma actual no fos un dels suportats.
+  const materialText = spec
+    ? spec.material[locale as SpecLocale] ?? spec.material.es
+    : null;
+
+  // El preu "des de" surt del rang real de variants quan tenim detall; si no,
+  // del pvp base del registre.
+  const fromPriceValue = range?.min ?? moble.pvp;
+  const priceLabel = `${t("fromPrice")} ${fromPriceValue.toLocaleString(locale, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   })} €`;
 
   const others = MOBLES.filter(
-    (m) => m.slug !== slug && m.tipus === moble.tipus,
+    (m) => m.slug !== slug && m.cat === moble.cat,
   ).slice(0, 4);
   const fallbackOthers = MOBLES.filter((m) => m.slug !== slug).slice(0, 4);
   const related = others.length > 0 ? others : fallbackOthers;
@@ -82,14 +104,31 @@ export default async function MoblePage({ params }: Props) {
     category: "Mobiliari",
     brand: { "@type": "Brand", name: moble.marca },
     manufacturer: { "@type": "Organization", name: moble.marca },
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "EUR",
-      price: moble.pvpDesde,
-      url: canonicalUrl,
-      availability: "https://schema.org/MadeToOrder",
-      seller: { "@type": "Organization", name: SITE_NAME },
-    },
+    // offers: rang real de preus de totes les variants (AggregateOffer) quan
+    // tenim detall; fallback a Offer simple amb el pvp base si no.
+    ...(range
+      ? {
+          offers: {
+            "@type": "AggregateOffer",
+            priceCurrency: "EUR",
+            lowPrice: range.min,
+            highPrice: range.max,
+            offerCount: detall ? detall.variants.length : undefined,
+            url: canonicalUrl,
+            availability: "https://schema.org/MadeToOrder",
+            seller: { "@type": "Organization", name: SITE_NAME },
+          },
+        }
+      : {
+          offers: {
+            "@type": "Offer",
+            priceCurrency: "EUR",
+            price: moble.pvp,
+            url: canonicalUrl,
+            availability: "https://schema.org/MadeToOrder",
+            seller: { "@type": "Organization", name: SITE_NAME },
+          },
+        }),
   };
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -130,68 +169,126 @@ export default async function MoblePage({ params }: Props) {
             <span className="text-ink">{moble.nom}</span>
           </nav>
 
-          {/* Galeria interactiva per color (client). El bloc d'informació
-              estàtica s'injecta com a children i es manté al servidor; només la
-              foto, els swatches i l'afegir al cistell depenen del color actiu.
-              El botó de compra el renderitza MobleGallery amb el color actiu. */}
-          <MobleFicha
-            moble={moble}
-            footer={
-              <div className="border border-linen p-8 bg-canvas-warm">
-                <p className="font-serif text-display-md text-ink mb-3">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+            {/* Foto gran: object-contain sobre bg-canvas-warm perquè el moble es
+                vegi sencer (proporcions molt variables), sense retall ni
+                deformació. */}
+            <div className="relative aspect-[4/5] overflow-hidden bg-canvas-warm p-8 lg:p-10">
+              <Image
+                src={image}
+                alt={moble.nom}
+                fill
+                priority
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-contain"
+              />
+            </div>
+
+            {/* Informació */}
+            <div className="lg:sticky lg:top-28 self-start">
+              <p className="font-sans text-body-sm text-ink-faint mb-3">
+                {catLabel(moble.cat)}
+              </p>
+              <h1 className="font-serif text-display-md text-ink mb-3 leading-tight">
+                {moble.nom}
+              </h1>
+              <p className="font-sans text-body-lg text-ink mb-10">{priceLabel}</p>
+
+              <dl className="divide-y divide-sand-dark/25 border-t border-b border-sand-dark/25 mb-10">
+                <div className="flex justify-between gap-6 py-3.5">
+                  <dt className="font-sans text-body-sm text-ink-muted">
+                    {t("typeLabel")}
+                  </dt>
+                  <dd className="font-sans text-body-sm text-ink">
+                    {catLabel(moble.cat)}
+                  </dd>
+                </div>
+                <div className="flex justify-between gap-6 py-3.5">
+                  <dt className="font-sans text-body-sm text-ink-muted">
+                    {t("madeBy")}
+                  </dt>
+                  <dd className="font-sans text-body-sm text-ink">{moble.marca}</dd>
+                </div>
+              </dl>
+
+              {/* Compra directa: selector de variant + PVP per variant + termini
+                  d'entrega (requisit legal, visible abans de comprar) + afegir a
+                  la cistella. Nomes si tenim detall comercial amb variants. */}
+              {detall && detall.variants.length > 0 && (
+                <div className="mb-8">
+                  <MoblePurchasePanel
+                    slug={moble.slug}
+                    nom={moble.nom}
+                    variants={detall.variants}
+                    termini={detall.termini}
+                    image={image}
+                    href={`/mobiliari/${moble.slug}`}
+                  />
+                </div>
+              )}
+
+              {/* Especificacions tecniques. Nomes si en tenim dades; si no
+                  (scandinave-ii, mosa) el bloc no es renderitza i la fitxa
+                  degrada netament. Look minimalista: <dl> amb hairlines,
+                  coherent amb el bloc de tipus/marca de dalt. Mai mostra cost. */}
+              {spec && (
+                <div className="mb-10">
+                  <p className="font-sans text-body-sm text-ink-faint mb-4">
+                    {t("specsTitle")}
+                  </p>
+                  <dl className="divide-y divide-sand-dark/25 border-t border-b border-sand-dark/25">
+                    <div className="flex justify-between gap-6 py-3.5">
+                      <dt className="font-sans text-body-sm text-ink-muted shrink-0">
+                        {t("dimensionsLabel")}
+                      </dt>
+                      <dd className="font-sans text-body-sm text-ink text-right">
+                        {spec.dimensions}
+                      </dd>
+                    </div>
+                    {materialText && (
+                      <div className="flex justify-between gap-6 py-3.5">
+                        <dt className="font-sans text-body-sm text-ink-muted shrink-0">
+                          {t("materialLabel")}
+                        </dt>
+                        <dd className="font-sans text-body-sm text-ink text-right max-w-prose-editorial">
+                          {materialText}
+                        </dd>
+                      </div>
+                    )}
+                    {spec.finishes.length > 0 && (
+                      <div className="flex justify-between gap-6 py-3.5">
+                        <dt className="font-sans text-body-sm text-ink-muted shrink-0">
+                          {t("finishesLabel")}
+                        </dt>
+                        <dd className="font-sans text-body-sm text-ink text-right">
+                          {spec.finishes.join(" · ")}
+                        </dd>
+                      </div>
+                    )}
+                  </dl>
+                </div>
+              )}
+
+              <div className="pt-8 border-t border-sand-dark/25">
+                <p className="font-serif text-display-md text-ink mb-2 leading-tight">
                   {t("ctaBlockHeadline")}
                 </p>
-                <p className="font-sans text-body-sm text-ink-muted mb-6">
+                <p className="font-sans text-body-sm text-ink-muted mb-6 max-w-prose-editorial">
                   {t("ctaBlockBody")}
                 </p>
                 <Link
                   href={`${prefix}/demana-pressupost`}
-                  className="flex items-center justify-center w-full px-6 py-4 bg-ink text-canvas font-sans text-body-md font-semibold hover:bg-accent-deep transition-colors"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-ink text-canvas font-sans text-body-md font-medium hover:bg-accent-deep transition-colors"
                 >
                   {t("requestBudget")}
                 </Link>
               </div>
-            }
-          >
-            <p className="font-sans text-eyebrow text-accent-deep uppercase mb-4">
-              {tipusLabel(moble.tipus)}
-            </p>
-            <h1 className="font-serif text-display-lg text-ink mb-4">{moble.nom}</h1>
-            <p className="font-serif text-display-md text-ink mb-8">{priceLabel}</p>
-
-            <dl className="border-t border-linen divide-y divide-linen mb-8">
-              <div className="flex justify-between py-4">
-                <dt className="font-sans text-body-sm text-ink-muted uppercase tracking-widest">
-                  {t("typeLabel")}
-                </dt>
-                <dd className="font-sans text-body-md text-ink">
-                  {tipusLabel(moble.tipus)}
-                </dd>
-              </div>
-              {moble.colors.length > 1 && (
-                <div className="flex justify-between py-4">
-                  <dt className="font-sans text-body-sm text-ink-muted uppercase tracking-widest">
-                    {t("colorLabel")}
-                  </dt>
-                  <dd className="font-sans text-body-md text-ink">
-                    {t("colorsAvailable", { count: moble.colors.length })}
-                  </dd>
-                </div>
-              )}
-              <div className="flex justify-between py-4">
-                <dt className="font-sans text-body-sm text-ink-muted uppercase tracking-widest">
-                  {t("madeBy")}
-                </dt>
-                <dd className="font-serif text-body-md text-ink-faint italic">
-                  {moble.marca}
-                </dd>
-              </div>
-            </dl>
-          </MobleFicha>
+            </div>
+          </div>
 
           {/* Mobles relacionats */}
           {related.length > 0 && (
-            <section className="mt-section border-t border-linen pt-section">
+            <section className="mt-section border-t border-sand-dark/25 pt-section">
               <div className="flex items-end justify-between mb-10">
                 <h2 className="font-serif text-display-md text-ink">{t("eyebrow")}</h2>
                 <Link
@@ -201,23 +298,23 @@ export default async function MoblePage({ params }: Props) {
                   {t("backToMobles")}
                 </Link>
               </div>
-              <ul className="grid grid-cols-2 lg:grid-cols-4 gap-6" role="list">
+              <ul className="grid grid-cols-2 lg:grid-cols-4 gap-x-5 gap-y-10" role="list">
                 {related.map((m) => (
                   <li key={m.slug}>
                     <Link
                       href={`${prefix}/mobiliari/${m.slug}`}
                       className="group block"
                     >
-                      <div className="relative aspect-square overflow-hidden bg-linen mb-3">
+                      <div className="relative aspect-[4/5] overflow-hidden bg-canvas-warm mb-3 p-5">
                         <Image
-                          src={mobleImage(m.slug, m.colors[0].slug)}
+                          src={mobleImage(m.slug)}
                           alt={m.nom}
                           fill
                           sizes="(min-width: 1024px) 25vw, 50vw"
-                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          className="object-contain transition-transform duration-500 group-hover:scale-[1.03]"
                         />
                       </div>
-                      <p className="font-serif text-body-lg text-ink group-hover:text-accent-deep transition-colors">
+                      <p className="font-sans text-body-md font-medium text-ink group-hover:text-accent-deep transition-colors">
                         {m.nom}
                       </p>
                     </Link>

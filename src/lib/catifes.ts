@@ -64,7 +64,6 @@ const SEED: CatifaSeed[] = [
   { slug: "fez", nom: "Fez", familia: "catalogo", pvpDesde: 167.95, nMedides: 5 },
   { slug: "gallery-chenille", nom: "Gallery Chenille", familia: "catalogo", pvpDesde: 281.95, nMedides: 4 },
   { slug: "garden-chenille", nom: "Garden Chenille", familia: "in_out", pvpDesde: 135.95, nMedides: 4 },
-  { slug: "glam-velvet", nom: "Glam Velvet", familia: "catalogo", pvpDesde: null, nMedides: 0 },
   { slug: "gradient-chenille", nom: "Gradient Chenille", familia: "catalogo", pvpDesde: 281.95, nMedides: 4 },
   { slug: "gropius-chenille", nom: "Gropius Chenille", familia: "catalogo", pvpDesde: 286.95, nMedides: 6 },
   { slug: "heritage-chenille", nom: "Heritage Chenille", familia: "catalogo", pvpDesde: 635.95, nMedides: 5 },
@@ -109,6 +108,13 @@ const SEED: CatifaSeed[] = [
   { slug: "viena", nom: "Viena", familia: "bath_collection", pvpDesde: 29.95, nMedides: 2 },
   { slug: "vienciana", nom: "Vienciana", familia: "bath_collection", pvpDesde: 18.95, nMedides: 1 },
   { slug: "zen", nom: "Zen", familia: "catalogo", pvpDesde: 77.95, nMedides: 6 },
+  { slug: "bulgari", nom: "Bulgari", familia: "catalogo", pvpDesde: 886.95, nMedides: 3 },
+  { slug: "chameleon", nom: "Chameleon", familia: "catalogo", pvpDesde: 1058.95, nMedides: 3 },
+  { slug: "cripto", nom: "Cripto", familia: "catalogo", pvpDesde: 977.95, nMedides: 3 },
+  { slug: "griffe", nom: "Griffe", familia: "catalogo", pvpDesde: 269.95, nMedides: 6 },
+  { slug: "pebble", nom: "Pebble", familia: "catalogo", pvpDesde: 1213.95, nMedides: 1 },
+  { slug: "siena", nom: "Siena", familia: "catalogo", pvpDesde: 340.95, nMedides: 6 },
+  { slug: "window", nom: "Window", familia: "catalogo", pvpDesde: 886.95, nMedides: 3 },
 ];
 
 export const CATIFES: Catifa[] = SEED.map((c) => ({
@@ -173,7 +179,6 @@ export const CATIFA_HAS_PRODUCTO = new Set<string>([
   "fez",
   "gallery-chenille",
   "garden-chenille",
-  "glam-velvet",
   "gradient-chenille",
   "gropius-chenille",
   "heritage-chenille",
@@ -253,7 +258,6 @@ export const CATIFA_HAS_DETALL = new Set<string>([
   "fez",
   "gallery-chenille",
   "garden-chenille",
-  "glam-velvet",
   "gradient-chenille",
   "gropius-chenille",
   "heritage-chenille",

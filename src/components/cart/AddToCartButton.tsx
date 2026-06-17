@@ -12,7 +12,7 @@ type Props = {
   slug: string;
   /**
    * Ruta RELATIVA a la fitxa del producte, SENSE prefix de locale i SENSE
-   * sufix de color: "/catifes/adore", "/mobiliari/grenoble", "/decoracio/harbin".
+   * sufix de color: "/catifes/adore", "/mobiliari/grenoble".
    * La passa la pàgina que coneix la categoria i el slug base del model.
    */
   href: string;

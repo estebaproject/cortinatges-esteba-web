@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
+import Slider from "@/components/Slider";
 
 // Logos reals de les marques col·laboradores (de la web actual).
 const BRANDS = [
@@ -40,24 +41,21 @@ export default async function BrandsStrip() {
         <h2 className="text-center font-sans text-eyebrow text-ink-muted uppercase mb-12">
           {t("brandsHeading")}
         </h2>
-        <ul
-          className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-x-8 gap-y-10 items-center"
-          role="list"
-        >
-          {BRANDS.map((brand) => (
-            <li key={brand.file} className="flex items-center justify-center">
-              <div className="relative h-11 w-full">
-                <Image
-                  src={`/images/brands/${brand.file}`}
-                  alt={brand.name}
-                  fill
-                  sizes="140px"
-                  className="object-contain"
-                />
-              </div>
-            </li>
+        <Slider
+          ariaLabel={t("brandsHeading")}
+          slideClassName="w-28 sm:w-32"
+          items={BRANDS.map((brand) => (
+            <div key={brand.file} className="relative h-11 w-full">
+              <Image
+                src={`/images/brands/${brand.file}`}
+                alt={brand.name}
+                fill
+                sizes="140px"
+                className="object-contain"
+              />
+            </div>
           ))}
-        </ul>
+        />
       </div>
     </section>
   );
