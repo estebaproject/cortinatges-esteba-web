@@ -41,7 +41,7 @@ export type CatifaDetall = {
 const CATIFES_DETALL: Record<string, CatifaDetall> = {
   "adore": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 94.95 },
       { mida: "120x170", anchoCm: 120, altoCm: 170, pvp: 150.95 },
@@ -51,7 +51,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "almeria": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "60x115", anchoCm: 60, altoCm: 115, pvp: 37.95 },
       { mida: "70x140", anchoCm: 70, altoCm: 140, pvp: 53.95 },
@@ -76,7 +76,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "ametist-chenille": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "140x200", anchoCm: 140, altoCm: 200, pvp: 297.95 },
       { mida: "155x230", anchoCm: 155, altoCm: 230, pvp: 379.95 },
@@ -86,7 +86,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "antik-canvas": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 62.95 },
       { mida: "120x180", anchoCm: 120, altoCm: 180, pvp: 112.95 },
@@ -96,7 +96,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "antik-chenille": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "068x120", anchoCm: 68, altoCm: 120, pvp: 87.95 },
       { mida: "100x150", anchoCm: 100, altoCm: 150, pvp: 159.95 },
@@ -109,7 +109,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "antik-cloud": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "68x120", anchoCm: 68, altoCm: 120, pvp: 87.95 },
       { mida: "100x150", anchoCm: 100, altoCm: 150, pvp: 159.95 },
@@ -122,7 +122,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "antik-tebas": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "068x120", anchoCm: 68, altoCm: 120, pvp: 87.95 },
       { mida: "100x150", anchoCm: 100, altoCm: 150, pvp: 159.95 },
@@ -134,7 +134,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "batik": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 62.95 },
       { mida: "133x195", anchoCm: 133, altoCm: 195, pvp: 134.95 },
@@ -145,7 +145,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "belize": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 72.95 },
       { mida: "120x170", anchoCm: 120, altoCm: 170, pvp: 113.95 },
@@ -155,7 +155,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "bliss": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "140x200", anchoCm: 140, altoCm: 200, pvp: 297.95 },
       { mida: "155x230", anchoCm: 155, altoCm: 230, pvp: 379.95 },
@@ -165,7 +165,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "boheme": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "60x115", anchoCm: 60, altoCm: 115, pvp: 45.95 },
       { mida: "67x135", anchoCm: 67, altoCm: 135, pvp: 58.95 },
@@ -178,7 +178,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "bohemian": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "60x115", anchoCm: 60, altoCm: 115, pvp: 45.95 },
       { mida: "67x135", anchoCm: 67, altoCm: 135, pvp: 58.95 },
@@ -191,7 +191,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "boho": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 121.95 },
       { mida: "133x190", anchoCm: 133, altoCm: 190, pvp: 254.95 },
@@ -202,7 +202,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "bosco": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 95.95 },
       { mida: "120x180", anchoCm: 120, altoCm: 180, pvp: 172.95 },
@@ -213,7 +213,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "buckley": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 103.95 },
       { mida: "120x170", anchoCm: 120, altoCm: 170, pvp: 169.95 },
@@ -224,7 +224,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "bukhara": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 105.95 },
       { mida: "80x300", anchoCm: 80, altoCm: 300, pvp: 210.95 },
@@ -235,7 +235,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "bulgari": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "160x230", anchoCm: 160, altoCm: 230, pvp: 886.95 },
       { mida: "200x290", anchoCm: 200, altoCm: 290, pvp: 1396.95 },
@@ -244,7 +244,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "burma": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "140x200", anchoCm: 140, altoCm: 200, pvp: 297.95 },
       { mida: "155x230", anchoCm: 155, altoCm: 230, pvp: 379.95 },
@@ -254,7 +254,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "caban-kilim": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "60x120", anchoCm: 60, altoCm: 120, pvp: 34.95 },
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 57.95 },
@@ -265,7 +265,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "camille": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 152.95 },
       { mida: "133x195", anchoCm: 133, altoCm: 195, pvp: 329.95 },
@@ -276,7 +276,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "carrara-chenille": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "140x200", anchoCm: 140, altoCm: 200, pvp: 281.95 },
       { mida: "155x230", anchoCm: 155, altoCm: 230, pvp: 358.95 },
@@ -286,7 +286,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "chameleon": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "160x230", anchoCm: 160, altoCm: 230, pvp: 1058.95 },
       { mida: "200x290", anchoCm: 200, altoCm: 290, pvp: 1668.95 },
@@ -307,7 +307,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "colorful": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "120x170", anchoCm: 120, altoCm: 170, pvp: 113.95 },
       { mida: "120x180", anchoCm: 120, altoCm: 180, pvp: 120.95 },
@@ -316,7 +316,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "corinto": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 86.95 },
       { mida: "120x170", anchoCm: 120, altoCm: 170, pvp: 146.95 },
@@ -328,7 +328,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "cripto": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "160x230", anchoCm: 160, altoCm: 230, pvp: 977.95 },
       { mida: "200x290", anchoCm: 200, altoCm: 290, pvp: 1540.95 },
@@ -350,7 +350,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "dallas": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "60x120", anchoCm: 60, altoCm: 120, pvp: 54.95 },
       { mida: "67x250", anchoCm: 67, altoCm: 250, pvp: 126.95 },
@@ -362,7 +362,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "denon": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "60x120", anchoCm: 60, altoCm: 120, pvp: 46.95 },
       { mida: "67x250", anchoCm: 67, altoCm: 250, pvp: 107.95 },
@@ -387,7 +387,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "fez": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 167.95 },
       { mida: "133x195", anchoCm: 133, altoCm: 195, pvp: 362.95 },
@@ -398,7 +398,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "gallery-chenille": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "140x200", anchoCm: 140, altoCm: 200, pvp: 281.95 },
       { mida: "155x230", anchoCm: 155, altoCm: 230, pvp: 358.95 },
@@ -408,7 +408,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "garden-chenille": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "123x180", anchoCm: 123, altoCm: 180, pvp: 135.95 },
       { mida: "160x230", anchoCm: 160, altoCm: 230, pvp: 225.95 },
@@ -418,7 +418,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "gradient-chenille": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "140x200", anchoCm: 140, altoCm: 200, pvp: 281.95 },
       { mida: "155x230", anchoCm: 155, altoCm: 230, pvp: 358.95 },
@@ -428,7 +428,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "griffe": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "70x140", anchoCm: 70, altoCm: 140, pvp: 269.95 },
       { mida: "90x150", anchoCm: 90, altoCm: 150, pvp: 371.95 },
@@ -463,7 +463,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "himalaya": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "140x200", anchoCm: 140, altoCm: 200, pvp: 374.95 },
       { mida: "155x230", anchoCm: 155, altoCm: 230, pvp: 477.95 },
@@ -473,7 +473,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "jambi": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "070x140", anchoCm: 70, altoCm: 140, pvp: 124.95 },
       { mida: "080x150", anchoCm: 80, altoCm: 150, pvp: 152.95 },
@@ -488,7 +488,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "jaspe": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "67x230", anchoCm: 67, altoCm: 230, pvp: 197.95 },
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 153.95 },
@@ -500,7 +500,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "junko": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 74.95 },
       { mida: "120x170", anchoCm: 120, altoCm: 170, pvp: 117.95 },
@@ -510,7 +510,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "kira": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 152.95 },
       { mida: "133x195", anchoCm: 133, altoCm: 195, pvp: 329.95 },
@@ -536,7 +536,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "lake-chenille": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "140x200", anchoCm: 140, altoCm: 200, pvp: 297.95 },
       { mida: "155x230", anchoCm: 155, altoCm: 230, pvp: 379.95 },
@@ -546,7 +546,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "magritt": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "133x195", anchoCm: 133, altoCm: 195, pvp: 281.95 },
       { mida: "160x230", anchoCm: 160, altoCm: 230, pvp: 399.95 },
@@ -556,7 +556,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "malmo": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "100x140", anchoCm: 100, altoCm: 140, pvp: 137.95 },
       { mida: "135x195", anchoCm: 135, altoCm: 195, pvp: 258.95 },
@@ -567,7 +567,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "marne": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 62.95 },
       { mida: "133x195", anchoCm: 133, altoCm: 195, pvp: 134.95 },
@@ -578,7 +578,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "miura": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "160x230", anchoCm: 160, altoCm: 230, pvp: 513.95 },
       { mida: "200x290", anchoCm: 200, altoCm: 290, pvp: 809.95 },
@@ -587,7 +587,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "monetti": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 152.95 },
       { mida: "133x195", anchoCm: 133, altoCm: 195, pvp: 329.95 },
@@ -613,7 +613,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "mori": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "160x230", anchoCm: 160, altoCm: 230, pvp: 513.95 },
       { mida: "200x290", anchoCm: 200, altoCm: 290, pvp: 809.95 },
@@ -622,7 +622,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "nagano": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 140.95 },
       { mida: "160x230", anchoCm: 160, altoCm: 230, pvp: 430.95 },
@@ -632,7 +632,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "namur": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 88.95 },
       { mida: "133x190", anchoCm: 133, altoCm: 190, pvp: 187.95 },
@@ -643,7 +643,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "nassau": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "123x180", anchoCm: 123, altoCm: 180, pvp: 161.95 },
       { mida: "160x230", anchoCm: 160, altoCm: 230, pvp: 268.95 },
@@ -653,7 +653,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "natural-dots": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "160x230", anchoCm: 160, altoCm: 230, pvp: 417.95 },
       { mida: "200x290", anchoCm: 200, altoCm: 290, pvp: 658.95 },
@@ -662,7 +662,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "natural-link": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "160x230", anchoCm: 160, altoCm: 230, pvp: 298.95 },
       { mida: "200x290", anchoCm: 200, altoCm: 290, pvp: 470.95 },
@@ -671,7 +671,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "ombre-chenille": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "123x180", anchoCm: 123, altoCm: 180, pvp: 135.95 },
       { mida: "160x230", anchoCm: 160, altoCm: 230, pvp: 225.95 },
@@ -681,7 +681,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "papua": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "160x230", anchoCm: 160, altoCm: 230, pvp: 433.95 },
       { mida: "200x290", anchoCm: 200, altoCm: 290, pvp: 682.95 },
@@ -691,14 +691,14 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "pebble": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "200x252", anchoCm: 200, altoCm: 252, pvp: 1213.95 },
     ],
   },
   "pinot": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 57.95 },
       { mida: "133x195", anchoCm: 133, altoCm: 195, pvp: 125.95 },
@@ -709,7 +709,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "polo": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 106.95 },
       { mida: "120x170", anchoCm: 120, altoCm: 170, pvp: 169.95 },
@@ -719,7 +719,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "rainbow": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 45.95 },
       { mida: "120x170", anchoCm: 120, altoCm: 170, pvp: 77.95 },
@@ -742,7 +742,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "sahara": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "130x190", anchoCm: 130, altoCm: 190, pvp: 189.95 },
       { mida: "160x230", anchoCm: 160, altoCm: 230, pvp: 281.95 },
@@ -752,7 +752,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "samba": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "80x125", anchoCm: 80, altoCm: 125, pvp: 100.95 },
       { mida: "140x200", anchoCm: 140, altoCm: 200, pvp: 282.95 },
@@ -763,7 +763,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "sandalo": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "123x180", anchoCm: 123, altoCm: 180, pvp: 175.95 },
       { mida: "160x230", anchoCm: 160, altoCm: 230, pvp: 292.95 },
@@ -773,7 +773,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "santiago": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 86.95 },
       { mida: "120x170", anchoCm: 120, altoCm: 170, pvp: 146.95 },
@@ -784,7 +784,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "siena": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "70x140", anchoCm: 70, altoCm: 140, pvp: 340.95 },
       { mida: "90x150", anchoCm: 90, altoCm: 150, pvp: 468.95 },
@@ -796,7 +796,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "sisalana": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 66.95 },
       { mida: "120x170", anchoCm: 120, altoCm: 170, pvp: 112.95 },
@@ -808,7 +808,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "sultana": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 87.95 },
       { mida: "160x230", anchoCm: 160, altoCm: 230, pvp: 267.95 },
@@ -817,7 +817,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "tatami": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "67x250", anchoCm: 67, altoCm: 250, pvp: 100.95 },
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 75.95 },
@@ -829,7 +829,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "tatami-design": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 75.95 },
       { mida: "120x170", anchoCm: 120, altoCm: 170, pvp: 121.95 },
@@ -840,7 +840,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "tender": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "060x115", anchoCm: 60, altoCm: 115, pvp: 43.95 },
       { mida: "080x150", anchoCm: 80, altoCm: 150, pvp: 76.95 },
@@ -852,7 +852,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "touch": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "60x115", anchoCm: 60, altoCm: 115, pvp: 67.95 },
       { mida: "67x250", anchoCm: 67, altoCm: 250, pvp: 151.95 },
@@ -870,7 +870,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "varadero": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 86.95 },
       { mida: "80x240", anchoCm: 80, altoCm: 240, pvp: 138.95 },
@@ -882,7 +882,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "vegas": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "080x150", anchoCm: 80, altoCm: 150, pvp: 118.95 },
       { mida: "140x200", anchoCm: 140, altoCm: 200, pvp: 275.95 },
@@ -893,7 +893,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "veneza": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "pack_40x50_50x80", anchoCm: null, altoCm: null, pvp: 32.95 },
       { mida: "Ø067", anchoCm: 67, altoCm: 67, pvp: 24.95, pvpAbans: 34.95 }, // PLACEHOLDER rebaixa
@@ -901,7 +901,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "viena": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "pack_40x50_50x80", anchoCm: null, altoCm: null, pvp: 39.95 },
       { mida: "Ø067", anchoCm: 67, altoCm: 67, pvp: 29.95, pvpAbans: 39.95 }, // PLACEHOLDER rebaixa
@@ -909,14 +909,14 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "vienciana": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "50x80", anchoCm: 50, altoCm: 80, pvp: 18.95, pvpAbans: 27.95 }, // PLACEHOLDER rebaixa
     ],
   },
   "window": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "160x230", anchoCm: 160, altoCm: 230, pvp: 886.95 },
       { mida: "200x290", anchoCm: 200, altoCm: 290, pvp: 1396.95 },
@@ -925,7 +925,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
   },
   "zen": {
     perEncarrec: false,
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     mides: [
       { mida: "80x150", anchoCm: 80, altoCm: 150, pvp: 77.95 },
       { mida: "130x190", anchoCm: 130, altoCm: 190, pvp: 160.95 },

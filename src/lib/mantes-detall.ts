@@ -30,35 +30,35 @@ export type MantaDetall = {
 
 const MANTES_DETALL: Record<string, MantaDetall> = {
   "agra": {
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     variants: [{ mida: "130x170", pvp: 52.95 }],
   },
   "bombaim": {
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     variants: [{ mida: "150x200", pvp: 99.95 }],
   },
   "dalin": {
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     variants: [{ mida: "130x170", pvp: 19.95, pvpAbans: 29.95 }], // PLACEHOLDER rebaixa
   },
   "harbin": {
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     variants: [{ mida: "130x170", pvp: 54.95 }],
   },
   "haryana": {
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     variants: [{ mida: "130x170", pvp: 40.95 }],
   },
   "riad": {
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     variants: [{ mida: "130x170", pvp: 37.95, pvpAbans: 54.95 }], // PLACEHOLDER rebaixa
   },
   "surate": {
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     variants: [{ mida: "130x170", pvp: 45.95 }],
   },
   "varanasi": {
-    termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
+    termini: "Termini d'entrega segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     variants: [{ mida: "130x170", pvp: 58.95 }],
   },
 };
