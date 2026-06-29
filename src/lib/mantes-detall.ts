@@ -13,6 +13,12 @@ export type MantaVariant = {
   mida: string;
   /** Preu public d'aquesta mesura, IVA inclos. MAI cost. */
   pvp: number;
+  /**
+   * Preu anterior real (€) d'aquesta mesura per a rebaixes. OPCIONAL: nomes
+   * quan la mesura esta realment en oferta. LEGAL: ha de ser el preu aplicat
+   * els 30 dies previs. Vegeu src/lib/discount.ts.
+   */
+  pvpAbans?: number;
 };
 
 /** Detall comercial complet d'una manta. */
@@ -33,7 +39,7 @@ const MANTES_DETALL: Record<string, MantaDetall> = {
   },
   "dalin": {
     termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
-    variants: [{ mida: "130x170", pvp: 19.95 }],
+    variants: [{ mida: "130x170", pvp: 19.95, pvpAbans: 29.95 }], // PLACEHOLDER rebaixa
   },
   "harbin": {
     termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
@@ -45,7 +51,7 @@ const MANTES_DETALL: Record<string, MantaDetall> = {
   },
   "riad": {
     termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
-    variants: [{ mida: "130x170", pvp: 37.95 }],
+    variants: [{ mida: "130x170", pvp: 37.95, pvpAbans: 54.95 }], // PLACEHOLDER rebaixa
   },
   "surate": {
     termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",

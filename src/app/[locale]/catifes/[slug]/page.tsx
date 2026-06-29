@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTranslations, getLocale } from "next-intl/server";
@@ -17,9 +16,13 @@ import { SITE_URL, SITE_NAME } from "@/lib/site";
 import {
   getCatifaDetall,
   catifaPriceRange,
+  formatMidaLabel,
 } from "@/lib/catifes-detall";
+import { formatEur } from "@/lib/discount";
 import CatifaPurchasePanel from "@/components/catifes/CatifaPurchasePanel";
 import ProductGallery from "@/components/shop/ProductGallery";
+import KaveAboutProduct, { type AboutSection } from "@/components/shop/KaveAboutProduct";
+import ProductCarousel from "@/components/shop/ProductCarousel";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -64,6 +67,8 @@ export default async function CatifaPage({ params }: Props) {
   if (!catifa) notFound();
 
   const t = await getTranslations("Catifes");
+  const ts = await getTranslations("Shop");
+  const tp = await getTranslations("Producte");
   const locale = await getLocale();
   const prefix = locale === "ca" ? "" : `/${locale}`;
 
@@ -83,22 +88,64 @@ export default async function CatifaPage({ params }: Props) {
   const range = detall ? catifaPriceRange(detall) : null;
 
   // El preu "des de" ara surt del rang real de mesures (no del pvpDesde antic).
+  // Fallback quan no hi ha detall: el "des de" del registre base (o "per
+  // encàrrec" si tampoc en té).
   const fromPriceValue = range?.min ?? catifa.pvpDesde;
   const priceLabel =
     fromPriceValue === null
       ? t("onDemand")
-      : `${t("fromPrice")} ${fromPriceValue.toLocaleString(locale, {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })} €`;
-  const measuresLabel =
-    catifa.nMedides === 1 ? t("measuresOne", { count: 1 }) : t("measuresOther", { count: catifa.nMedides });
+      : `${t("fromPrice")} ${formatEur(fromPriceValue, locale)}`;
 
-  const others = CATIFES.filter(
-    (c) => c.slug !== slug && c.familia === catifa.familia,
-  ).slice(0, 4);
-  const fallbackOthers = CATIFES.filter((c) => c.slug !== slug).slice(0, 4);
-  const related = others.length > 0 ? others : fallbackOthers;
+  // Carrusels de relacionades: "Combina'l amb" (mateixa família) i "Et pot
+  // interessar" (altres famílies). Només catifes amb preu, perquè KaveProductCard
+  // (via ProductCarousel) exigeix un pvp numèric; mai mostrem un preu fals.
+  const combina = CATIFES.filter(
+    (c) => c.slug !== slug && c.familia === catifa.familia && c.pvpDesde !== null,
+  ).slice(0, 8);
+  const interessar = CATIFES.filter(
+    (c) => c.slug !== slug && c.familia !== catifa.familia && c.pvpDesde !== null,
+  ).slice(0, 8);
+  const toItem = (c: (typeof CATIFES)[number]) => ({
+    href: `${prefix}/catifes/${c.slug}`,
+    image: catifaEscena(c.slug),
+    title: c.nom,
+    subtitle: familyLabel(c.familia),
+    pvp: c.pvpDesde as number,
+    pvpAbans: c.pvpAbans,
+    pricePrefix: t("fromPrice"),
+    fit: "cover" as const,
+  });
+
+  // Bloc "Sobre el producte": bullets + seccions desplegables (slide-over).
+  const aboutIntro: string[] = [
+    `${familyLabel(catifa.familia)} · ${catifa.marca}`,
+    ...(detall ? [detall.termini] : []),
+  ];
+  const aboutSections: AboutSection[] = [
+    detall && detall.mides.length > 0 && {
+      id: "dimensions",
+      title: ts("accDimensions"),
+      rows: [
+        {
+          label: t("measuresAvailable"),
+          value: detall.mides.map((m) => formatMidaLabel(m.mida)).join(" · "),
+        },
+      ],
+    },
+    detall && {
+      id: "delivery",
+      title: ts("accDelivery"),
+      rows: [{ label: tp("deliveryTime"), value: detall.termini }],
+    },
+    {
+      id: "more",
+      title: ts("accMoreDetails"),
+      rows: [
+        { label: ts("category"), value: familyLabel(catifa.familia) },
+        { label: t("madeBy"), value: catifa.marca },
+      ],
+    },
+  ].filter(Boolean) as AboutSection[];
 
   const canonicalUrl = `${SITE_URL}${prefix}/catifes/${slug}`;
 
@@ -151,7 +198,7 @@ export default async function CatifaPage({ params }: Props) {
   };
 
   return (
-    <article>
+    <article className="bg-kave-bg font-grotesque text-kave-ink">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
@@ -161,130 +208,71 @@ export default async function CatifaPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <section className="pt-40 md:pt-48 pb-section bg-canvas">
-        <div className="max-w-layout mx-auto px-6 lg:px-12">
+      <section className="pt-32 md:pt-36 pb-16 lg:pb-24">
+        <div className="max-w-layout mx-auto px-5 lg:px-10">
           {/* Breadcrumb */}
-          <nav
-            className="flex items-center gap-2 font-sans text-body-sm text-ink-muted mb-8"
-            aria-label="Breadcrumb"
-          >
-            <Link href={prefix || "/"} className="hover:text-ink transition-colors">
-              {SITE_NAME}
+          <nav className="flex items-center gap-2 text-sm text-kave-muted mb-8" aria-label="Breadcrumb">
+            <Link href={`${prefix}/botiga`} className="hover:text-kave-ink transition-colors">
+              {ts("navBotiga")}
             </Link>
-            <span aria-hidden="true">/</span>
-            <Link href={`${prefix}/catifes`} className="hover:text-ink transition-colors">
-              {t("eyebrow")}
+            <span aria-hidden>/</span>
+            <Link href={`${prefix}/catifes`} className="hover:text-kave-ink transition-colors">
+              {ts("navCatifes")}
             </Link>
-            <span aria-hidden="true">/</span>
-            <span className="text-ink">{catifa.nom}</span>
+            <span aria-hidden>/</span>
+            <span className="text-kave-ink">{catifa.nom}</span>
           </nav>
 
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-            {/* Galeria de producte: escena + producte + detall */}
-            <ProductGallery
-              slides={slides}
-              thumbsLabel={tGallery("thumbsLabel")}
-            />
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 items-start">
+            {/* Galeria de producte (escena + producte + detall). Gestiona els
+                seus propis fons; la composem dins de la columna esquerra. */}
+            <ProductGallery slides={slides} thumbsLabel={tGallery("thumbsLabel")} />
 
-            {/* Informació */}
-            <div className="lg:sticky lg:top-28 self-start">
-              <p className="font-sans text-body-sm text-ink-faint mb-3">
-                {familyLabel(catifa.familia)}
-              </p>
-              <h1 className="font-serif text-display-md text-ink mb-3 leading-tight">
+            {/* Columna dreta */}
+            <div className="lg:sticky lg:top-32 self-start">
+              <p className="text-sm text-kave-muted mb-2">{familyLabel(catifa.familia)}</p>
+              <h1 className="font-display text-3xl md:text-4xl text-kave-ink mb-6 leading-tight">
                 {catifa.nom}
               </h1>
-              <p className="font-sans text-body-lg text-ink mb-10">{priceLabel}</p>
 
-              <dl className="divide-y divide-sand-dark/25 border-t border-b border-sand-dark/25 mb-10">
-                <div className="flex justify-between gap-6 py-3.5">
-                  <dt className="font-sans text-body-sm text-ink-muted">
-                    {t("madeBy")}
-                  </dt>
-                  <dd className="font-sans text-body-sm text-ink">{catifa.marca}</dd>
-                </div>
-              </dl>
-
-              {/* Compra directa: selector de mesura + PVP per mesura + termini
-                  d'entrega (requisit legal, visible abans de comprar) + badge
-                  "Per encarrec" + afegir a la cistella. Nomes si tenim detall
-                  comercial amb mesures. */}
+              {/* Compra directa: selector de mesura + PVP per mesura (amb rebaixa
+                  real si la mesura té pvpAbans) + termini d'entrega (requisit
+                  legal, visible ABANS de comprar) + badge "Per encàrrec" + afegir
+                  a la cistella. Nomes si tenim detall comercial amb mesures. */}
               {detall && detall.mides.length > 0 ? (
-                <div className="mb-8">
-                  <CatifaPurchasePanel
-                    slug={catifa.slug}
-                    nom={catifa.nom}
-                    mides={detall.mides}
-                    termini={detall.termini}
-                    perEncarrec={detall.perEncarrec}
-                    image={productImage}
-                    href={`/catifes/${catifa.slug}`}
-                  />
-                </div>
+                <CatifaPurchasePanel
+                  slug={catifa.slug}
+                  nom={catifa.nom}
+                  mides={detall.mides}
+                  termini={detall.termini}
+                  perEncarrec={detall.perEncarrec}
+                  image={productImage}
+                  href={`/catifes/${catifa.slug}`}
+                />
               ) : (
-                catifa.nMedides > 0 && (
-                  <p className="mb-8 font-sans text-body-sm text-ink-muted">
-                    {measuresLabel}
-                  </p>
-                )
+                <div>
+                  <p className="text-3xl font-semibold text-kave-ink mb-6">{priceLabel}</p>
+                  <Link
+                    href={`${prefix}/demana-pressupost`}
+                    className="inline-flex items-center justify-center px-8 py-3.5 bg-kave-ink text-white text-sm font-semibold hover:bg-kave-ink/90 transition-colors"
+                  >
+                    {t("requestBudget")}
+                  </Link>
+                </div>
               )}
-
-              <div className="pt-8 border-t border-sand-dark/25">
-                <p className="font-serif text-display-md text-ink mb-2 leading-tight">
-                  {t("ctaBlockHeadline")}
-                </p>
-                <p className="font-sans text-body-sm text-ink-muted mb-6 max-w-prose-editorial">
-                  {t("ctaBlockBody")}
-                </p>
-                <Link
-                  href={`${prefix}/demana-pressupost`}
-                  className="inline-flex items-center justify-center px-8 py-4 bg-ink text-canvas font-sans text-body-md font-medium hover:bg-accent-deep transition-colors"
-                >
-                  {t("requestBudget")}
-                </Link>
-              </div>
             </div>
           </div>
-
-          {/* Catifes relacionades */}
-          {related.length > 0 && (
-            <section className="mt-section border-t border-sand-dark/25 pt-section">
-              <div className="flex items-end justify-between mb-10">
-                <h2 className="font-serif text-display-md text-ink">{t("eyebrow")}</h2>
-                <Link
-                  href={`${prefix}/catifes`}
-                  className="font-sans text-body-sm text-accent-deep font-medium hover:text-ink transition-colors"
-                >
-                  {t("backToCatifes")}
-                </Link>
-              </div>
-              <ul className="grid grid-cols-2 lg:grid-cols-4 gap-x-5 gap-y-10" role="list">
-                {related.map((c) => (
-                  <li key={c.slug}>
-                    <Link
-                      href={`${prefix}/catifes/${c.slug}`}
-                      className="group block"
-                    >
-                      <div className="relative aspect-[4/5] overflow-hidden bg-canvas-warm mb-3">
-                        <Image
-                          src={catifaEscena(c.slug)}
-                          alt={c.nom}
-                          fill
-                          sizes="(min-width: 1024px) 25vw, 50vw"
-                          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                        />
-                      </div>
-                      <p className="font-sans text-body-md font-medium text-ink group-hover:text-accent-deep transition-colors">
-                        {c.nom}
-                      </p>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )}
         </div>
       </section>
+
+      {/* Sobre el producte (banda verd sàlvia + acordeó/slide-over) */}
+      <KaveAboutProduct intro={aboutIntro} sections={aboutSections} />
+
+      {/* Carrusels de relacionades */}
+      <div className="max-w-layout mx-auto px-5 lg:px-10 py-16 lg:py-24 space-y-16">
+        <ProductCarousel title={ts("combineWith")} items={combina.map(toItem)} />
+        <ProductCarousel title={ts("youMayLike")} items={interessar.map(toItem)} />
+      </div>
     </article>
   );
 }

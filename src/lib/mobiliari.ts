@@ -14,6 +14,13 @@ export type Moble = {
   cat: MobleCat;
   /** Preu públic, IVA inclòs (€). Per a "moble" és un «des de» (famílies). */
   pvp: number;
+  /**
+   * Preu anterior real (€) per a rebaixes. OPCIONAL: només quan la peça està
+   * realment en oferta. La card mostra el tatxat + -% + preu vermell només si
+   * pvpAbans > pvp. LEGAL: ha de ser el preu aplicat els 30 dies previs.
+   * Vegeu src/lib/discount.ts.
+   */
+  pvpAbans?: number;
   /** Co-marca / fabricant. */
   marca: "Salgueiro Home";
 };
@@ -25,21 +32,24 @@ type MobleSeed = Omit<Moble, "marca">;
 // l'origen. Per garantir slugs únics (routing + carpeta d'imatge) la cadira
 // manté "arles" i la butaca passa a "arles-butaca"; ambdues comparteixen la
 // mateixa foto hero (/images/mobiliari/arles*/1.jpg, copiada a cada carpeta).
+// ⚠️ REBAIXES PLACEHOLDER ⚠️ Els pvpAbans marcats "// PLACEHOLDER" són d'exemple
+// perquè Federico vegi el look Kave amb descomptes. NO són preus reals: cal
+// substituir-los pels preus realment aplicats els 30 dies previs (o esborrar-los).
 const SEED: MobleSeed[] = [
   // --- Cadires ---
   { slug: "annecy", nom: "Annecy", cat: "cadira", pvp: 318.95 },
   { slug: "arles", nom: "Arles", cat: "cadira", pvp: 329.95 },
-  { slug: "calais", nom: "Calais", cat: "cadira", pvp: 90.95 },
+  { slug: "calais", nom: "Calais", cat: "cadira", pvp: 90.95, pvpAbans: 129.95 }, // PLACEHOLDER
   { slug: "cambrai", nom: "Cambrai", cat: "cadira", pvp: 273.95 },
   { slug: "dijon", nom: "Dijon", cat: "cadira", pvp: 287.95 },
-  { slug: "grenoble", nom: "Grenoble", cat: "cadira", pvp: 65.95 },
+  { slug: "grenoble", nom: "Grenoble", cat: "cadira", pvp: 65.95, pvpAbans: 109.95 }, // PLACEHOLDER
   { slug: "limoges", nom: "Limoges", cat: "cadira", pvp: 153.95 },
   { slug: "loriente", nom: "Loriente", cat: "cadira", pvp: 125.95 },
   { slug: "nice", nom: "Nice", cat: "cadira", pvp: 460.95 },
   { slug: "nimes", nom: "Nimes", cat: "cadira", pvp: 151.95 },
   { slug: "pantin", nom: "Pantin", cat: "cadira", pvp: 147.95 },
   { slug: "rochelle", nom: "Rochelle", cat: "cadira", pvp: 156.95 },
-  { slug: "scandinave-ii", nom: "Scandinave II", cat: "cadira", pvp: 63.95 },
+  { slug: "scandinave-ii", nom: "Scandinave II", cat: "cadira", pvp: 63.95, pvpAbans: 99.95 }, // PLACEHOLDER
   { slug: "sevres", nom: "Sevres", cat: "cadira", pvp: 225.95 },
   { slug: "toulouse", nom: "Toulouse", cat: "cadira", pvp: 265.95 },
   { slug: "sg-vittel", nom: "SG Vittel", cat: "cadira", pvp: 223.95 },
@@ -106,4 +116,18 @@ export function countMobleByCat(cat: MobleCat): number {
 export function mobleImageForCat(cat: MobleCat): string {
   const moble = MOBLES.find((m) => m.cat === cat);
   return moble ? mobleImage(moble.slug) : "/images/placeholder.png";
+}
+
+// Mobles la foto dels quals és una ESCENA d'ambient (no un retall sobre blanc):
+// es veuen millor amb object-cover (omplen el quadrat) que amb contain (marges
+// grisos). Detectat a la revisió foto-a-foto. La resta queda contain (retalls).
+const MOBLE_COVER_SLUGS = new Set<string>([
+  "aquila", "ara", "auriga", "caelum", "canes", "columba", "crater", "cubo",
+  "gemini", "hydra", "leo", "lepus", "lyra", "mosa", "orion", "pavo", "pegasus",
+  "pictor", "puppis", "sagitta", "taurus", "vela", "virgo", "volans",
+]);
+
+/** object-fit recomanat per a la foto d'un moble (cover per a escenes). */
+export function mobleImgFit(slug: string): "contain" | "cover" {
+  return MOBLE_COVER_SLUGS.has(slug) ? "cover" : "contain";
 }

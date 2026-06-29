@@ -1,43 +1,35 @@
 "use client";
 
-// Catàleg de mobiliari filtrable i organitzable (client-side). Rep la llista
-// completa de mobles per props des del Server Component (page.tsx) i gestiona
-// l'estat de filtres, cerca i ordenació sense recarregar.
-// Disseny minimalista: cards uniformes amb hero (1.jpg) en aspect-[4/5]. A
-// diferència de catifes, el moble usa object-contain sobre bg-canvas-warm amb
-// padding: les fotos varien molt de proporció (estanteries verticals, sofàs
-// amples) i amb cover es retallarien malament. Contain mostra la peça SENCERA
-// sense deformar; tot el grid queda uniforme. Nom en sans, categoria com a
-// línia subtil, "des de X €". Mai cost intern; mai botó de compra.
+// Catàleg de mobiliari filtrable — clon de Kave Home (tema beige/negre).
+// Estructura idèntica a la pàgina de llistat de Kave:
+//   1) fila horitzontal de categories (CategoryCarousel) que actua de filtre,
+//   2) barra "Filtres · N productes · densitat de graella · ordenar",
+//   3) graella de cards (KaveProductCard) amb rebaixes reals,
+//   4) calaix de filtres (cerca + categoria + preu) que s'obre sota demanda.
+// Hidrata cat / q / sale des de la URL perquè el cercador del header i el link
+// "Rebaixes" funcionin. Mai mostra cost intern.
 
 import { useMemo, useState } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
-import Image from "next/image";
-import Link from "next/link";
 import { useTranslations } from "next-intl";
 import clsx from "clsx";
 import {
   MOBLE_CATS,
   mobleImage,
+  mobleImageForCat,
+  mobleImgFit,
+  countMobleByCat,
   type Moble,
   type MobleCat,
 } from "@/lib/mobiliari";
+import { isOnSale } from "@/lib/discount";
+import KaveProductCard from "@/components/shop/KaveProductCard";
+import CategoryCarousel from "@/components/shop/CategoryCarousel";
 
-// --- Tipus i constants de filtratge -------------------------------------
-
-/** Identificadors estables dels trams de preu (sobre pvp, IVA inclòs). */
+// --- Trams de preu (sobre pvp, IVA inclòs) -------------------------------
 type PriceBucketId = "lt150" | "150_350" | "350_600" | "600_1000" | "gt1000";
+type PriceBucket = { id: PriceBucketId; min: number; max: number | null };
 
-type PriceBucket = {
-  id: PriceBucketId;
-  /** Mínim inclòs (€). */
-  min: number;
-  /** Màxim exclòs (€). null = sense límit superior. */
-  max: number | null;
-};
-
-// Trams escollits a partir de la distribució real dels 44 PVP (de 63,95 € a
-// 1.954,95 €): cobreixen seients econòmics, mobles mitjans i peces premium.
 const PRICE_BUCKETS: PriceBucket[] = [
   { id: "lt150", min: 0, max: 150 },
   { id: "150_350", min: 150, max: 350 },
@@ -47,67 +39,58 @@ const PRICE_BUCKETS: PriceBucket[] = [
 ];
 
 type SortId = "name_asc" | "price_asc" | "price_desc";
+type Density = "compact" | "comfortable" | "large";
+
+const DENSITY_GRID: Record<Density, string> = {
+  compact: "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5",
+  comfortable: "grid-cols-2 sm:grid-cols-3 xl:grid-cols-4",
+  large: "grid-cols-1 sm:grid-cols-2 xl:grid-cols-3",
+};
 
 type Props = {
-  /** Llista completa de mobles (dades públiques) servida des del server. */
   mobles: Moble[];
-  /** Prefix de locale per als enllaços ("" per ca, "/es" etc.). */
   prefix: string;
-  /** Locale actiu, per formatar el preu. */
   locale: string;
 };
 
 export default function MobiliariCatalog({ mobles, prefix, locale }: Props) {
   const t = useTranslations("Mobiliari");
   const tf = useTranslations("Filters");
+  const ts = useTranslations("Shop");
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
 
-  // --- Hidratació inicial des de searchParams ----------------------------
-  // Llegim ?cat=cadira|butaca|pouf|moble
+  // --- Hidratació des de la URL ------------------------------------------
   const initialCats = useMemo((): MobleCat[] => {
     const raw = searchParams.get("cat");
     if (!raw) return [];
     return raw
       .split(",")
       .map((s) => s.trim())
-      .filter((s): s is MobleCat =>
-        (MOBLE_CATS as readonly string[]).includes(s),
-      );
+      .filter((s): s is MobleCat => (MOBLE_CATS as readonly string[]).includes(s));
   }, [searchParams]);
 
-  // --- Estat de filtres ---------------------------------------------------
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(() => searchParams.get("q") ?? "");
   const [selectedCats, setSelectedCats] = useState<MobleCat[]>(initialCats);
   const [selectedBuckets, setSelectedBuckets] = useState<PriceBucketId[]>([]);
+  const [saleOnly, setSaleOnly] = useState(() => searchParams.get("sale") === "1");
   const [sort, setSort] = useState<SortId>("name_asc");
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [density, setDensity] = useState<Density>("comfortable");
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
-  // Sincronitzar URL quan canvien les categories seleccionades.
   const syncCatsURL = (cats: MobleCat[]) => {
     const params = new URLSearchParams(searchParams.toString());
-    if (cats.length > 0) {
-      params.set("cat", cats.join(","));
-    } else {
-      params.delete("cat");
-    }
+    if (cats.length > 0) params.set("cat", cats.join(","));
+    else params.delete("cat");
     const qs = params.toString();
     router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
   };
 
-  // --- Helpers d'etiquetes i format --------------------------------------
-  const catLabel = (c: MobleCat) =>
-    t(`tipus.${c}` as Parameters<typeof t>[0]);
-
+  // --- Etiquetes ----------------------------------------------------------
+  const catLabel = (c: MobleCat) => t(`tipus.${c}` as Parameters<typeof t>[0]);
   const bucketLabel = (id: PriceBucketId) =>
     tf(`priceMobles.${id}` as Parameters<typeof tf>[0]);
-
-  const priceFmt = (pvp: number) =>
-    `${t("fromPrice")} ${pvp.toLocaleString(locale, {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    })} €`;
 
   // --- Toggles ------------------------------------------------------------
   const toggleCat = (c: MobleCat) => {
@@ -130,50 +113,48 @@ export default function MobiliariCatalog({ mobles, prefix, locale }: Props) {
       return pvp >= b.min && (b.max === null || pvp < b.max);
     });
 
-  // --- Llista filtrada i ordenada ----------------------------------------
+  // --- Llista filtrada ----------------------------------------------------
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-
     const result = mobles.filter((m) => {
-      // Cerca per nom
       if (q && !m.nom.toLowerCase().includes(q)) return false;
-
-      // Categoria (multiselecció; buit = totes)
       if (selectedCats.length > 0 && !selectedCats.includes(m.cat)) return false;
-
-      // Preu (trams; buit = tots)
-      if (selectedBuckets.length > 0 && !bucketMatches(m.pvp, selectedBuckets))
-        return false;
-
+      if (selectedBuckets.length > 0 && !bucketMatches(m.pvp, selectedBuckets)) return false;
+      if (saleOnly && !isOnSale(m.pvp, m.pvpAbans)) return false;
       return true;
     });
-
-    const sorted = [...result].sort((a, b) => {
+    return [...result].sort((a, b) => {
       if (sort === "name_asc") return a.nom.localeCompare(b.nom, locale);
       return sort === "price_asc" ? a.pvp - b.pvp : b.pvp - a.pvp;
     });
+  }, [mobles, query, selectedCats, selectedBuckets, saleOnly, sort, locale]);
 
-    return sorted;
-  }, [mobles, query, selectedCats, selectedBuckets, sort, locale]);
-
-  // --- Estat de chips actius ---------------------------------------------
   const hasActiveFilters =
     query.trim() !== "" ||
     selectedCats.length > 0 ||
-    selectedBuckets.length > 0;
+    selectedBuckets.length > 0 ||
+    saleOnly;
+
+  const activeFilterCount =
+    selectedCats.length + selectedBuckets.length + (query.trim() ? 1 : 0) + (saleOnly ? 1 : 0);
 
   const clearAll = () => {
     setQuery("");
     setSelectedCats([]);
     setSelectedBuckets([]);
+    setSaleOnly(false);
     syncCatsURL([]);
   };
 
-  const activeFilterCount =
-    selectedCats.length + selectedBuckets.length + (query.trim() ? 1 : 0);
+  // Categories amb productes (es descarten les buides, ex. "pouf").
+  const carouselItems = MOBLE_CATS.filter((c) => countMobleByCat(c) > 0).map((c) => ({
+    key: c,
+    label: catLabel(c),
+    image: mobleImageForCat(c),
+    active: selectedCats.includes(c),
+  }));
 
-  // --- Subcomponents reutilitzats ----------------------------------------
-
+  // --- Subcomponents ------------------------------------------------------
   const FilterCheck = ({
     checked,
     onChange,
@@ -185,29 +166,24 @@ export default function MobiliariCatalog({ mobles, prefix, locale }: Props) {
     label: string;
     name: string;
   }) => (
-    <label className="flex items-center gap-2.5 cursor-pointer group py-1">
+    <label className="flex items-center gap-2.5 cursor-pointer group py-1.5">
       <input
         type="checkbox"
         name={name}
         checked={checked}
         onChange={onChange}
-        className="h-4 w-4 shrink-0 rounded-none border border-sand-dark text-ink accent-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-deep"
+        className="h-4 w-4 shrink-0 rounded-none border border-kave-ink/40 accent-kave-ink"
       />
-      <span className="font-sans text-body-sm text-ink-muted group-hover:text-ink transition-colors">
+      <span className="font-grotesque text-sm text-kave-muted group-hover:text-kave-ink transition-colors">
         {label}
       </span>
     </label>
   );
 
-  // Bloc complet de filtres (compartit entre sidebar desktop i panell mòbil).
   const FiltersBody = (
-    <div className="space-y-8">
-      {/* Cerca */}
+    <div className="space-y-7 font-grotesque">
       <div>
-        <label
-          htmlFor="mobles-search"
-          className="block font-sans text-body-sm font-medium text-ink mb-2.5"
-        >
+        <label htmlFor="mobles-search" className="block text-sm font-medium text-kave-ink mb-2">
           {tf("search")}
         </label>
         <input
@@ -216,51 +192,50 @@ export default function MobiliariCatalog({ mobles, prefix, locale }: Props) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder={tf("searchPlaceholder")}
-          className="w-full px-3 py-2.5 bg-canvas border-b border-sand-dark/40 font-sans text-body-sm text-ink placeholder:text-ink-faint focus-visible:outline-none focus-visible:border-ink transition-colors"
+          className="w-full px-0 py-2 bg-transparent border-b border-kave-ink/30 text-sm text-kave-ink placeholder:text-kave-ink/40 focus:outline-none focus:border-kave-ink transition-colors"
         />
       </div>
 
-      {/* Categoria */}
-      <fieldset className="border-t border-sand-dark/30 pt-6">
-        <legend className="font-sans text-body-sm font-medium text-ink mb-2.5">
-          {t("typeLabel")}
-        </legend>
-        <div>
-          {MOBLE_CATS.map((c) => (
-            <FilterCheck
-              key={c}
-              name="cat"
-              checked={selectedCats.includes(c)}
-              onChange={() => toggleCat(c)}
-              label={catLabel(c)}
-            />
-          ))}
-        </div>
+      <fieldset className="border-t border-kave-line pt-5">
+        <legend className="text-sm font-medium text-kave-ink mb-1.5">{t("typeLabel")}</legend>
+        {MOBLE_CATS.filter((c) => countMobleByCat(c) > 0).map((c) => (
+          <FilterCheck
+            key={c}
+            name="cat"
+            checked={selectedCats.includes(c)}
+            onChange={() => toggleCat(c)}
+            label={catLabel(c)}
+          />
+        ))}
       </fieldset>
 
-      {/* Preu */}
-      <fieldset className="border-t border-sand-dark/30 pt-6">
-        <legend className="font-sans text-body-sm font-medium text-ink mb-2.5">
-          {tf("priceLabel")}
-        </legend>
-        <div>
-          {PRICE_BUCKETS.map((b) => (
-            <FilterCheck
-              key={b.id}
-              name="price"
-              checked={selectedBuckets.includes(b.id)}
-              onChange={() => toggleBucket(b.id)}
-              label={bucketLabel(b.id)}
-            />
-          ))}
-        </div>
+      <fieldset className="border-t border-kave-line pt-5">
+        <legend className="text-sm font-medium text-kave-ink mb-1.5">{tf("priceLabel")}</legend>
+        {PRICE_BUCKETS.map((b) => (
+          <FilterCheck
+            key={b.id}
+            name="price"
+            checked={selectedBuckets.includes(b.id)}
+            onChange={() => toggleBucket(b.id)}
+            label={bucketLabel(b.id)}
+          />
+        ))}
+      </fieldset>
+
+      <fieldset className="border-t border-kave-line pt-5">
+        <FilterCheck
+          name="sale"
+          checked={saleOnly}
+          onChange={() => setSaleOnly((v) => !v)}
+          label={ts("saleTag")}
+        />
       </fieldset>
 
       {hasActiveFilters && (
         <button
           type="button"
           onClick={clearAll}
-          className="font-sans text-body-sm text-accent-deep underline underline-offset-4 hover:text-ink transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-deep"
+          className="text-sm text-kave-ink underline underline-offset-4 hover:text-kave-tag transition-colors"
         >
           {tf("clear")}
         </button>
@@ -268,89 +243,90 @@ export default function MobiliariCatalog({ mobles, prefix, locale }: Props) {
     </div>
   );
 
-  // Chip de filtre actiu amb botó per treure'l.
   const Chip = ({ label, onRemove }: { label: string; onRemove: () => void }) => (
     <button
       type="button"
       onClick={onRemove}
-      className="inline-flex items-center gap-1.5 border border-sand-dark/40 text-ink font-sans text-body-sm px-3 py-1.5 hover:border-ink transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-deep"
+      className="inline-flex items-center gap-1.5 border border-kave-line text-kave-ink font-grotesque text-sm px-3 py-1.5 hover:border-kave-ink transition-colors"
     >
       <span>{label}</span>
-      <span aria-hidden="true" className="text-ink-muted">
-        ×
-      </span>
+      <span aria-hidden className="text-kave-muted">×</span>
       <span className="sr-only">{tf("removeFilter")}</span>
     </button>
   );
 
+  // Icones de densitat (3 nivells, com Kave).
+  const densityButtons: { id: Density; cols: number }[] = [
+    { id: "large", cols: 2 },
+    { id: "comfortable", cols: 3 },
+    { id: "compact", cols: 4 },
+  ];
+
   return (
-    <div className="lg:grid lg:grid-cols-[16rem_1fr] lg:gap-10">
-      {/* --- Sidebar de filtres (desktop) --- */}
-      <aside className="hidden lg:block">
-        <div className="sticky top-32">
-          <h2 className="font-sans text-body-md font-medium text-ink mb-6 pb-4 border-b border-sand-dark/30">
-            {tf("title")}
-          </h2>
-          {FiltersBody}
-        </div>
-      </aside>
+    <div className="font-grotesque text-kave-ink">
+      {/* 1) Fila de categories */}
+      <div className="mb-8">
+        <CategoryCarousel items={carouselItems} onSelect={(k) => toggleCat(k as MobleCat)} />
+      </div>
 
-      {/* --- Columna de resultats --- */}
-      <div>
-        {/* Barra superior: botó mòbil + comptador + ordenar */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-          {/* Botó filtres (mòbil) */}
-          <button
-            type="button"
-            onClick={() => setMobileOpen(true)}
-            className="lg:hidden inline-flex items-center gap-2 px-4 py-2.5 border border-ink text-ink font-sans text-body-sm font-medium hover:bg-ink hover:text-canvas transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
-            aria-haspopup="dialog"
-            aria-expanded={mobileOpen}
-          >
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={1.5}
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 6.75h16.5M6 12h12m-9 5.25h6"
-              />
-            </svg>
-            {tf("filter")}
-            {activeFilterCount > 0 && (
-              <span className="ml-1 inline-flex items-center justify-center min-w-5 h-5 px-1.5 bg-ink text-canvas text-xs rounded-full">
-                {activeFilterCount}
-              </span>
-            )}
-          </button>
+      {/* 2) Barra de filtres / comptador / densitat / ordre */}
+      <div className="flex flex-wrap items-center justify-between gap-4 border-y border-kave-line py-3">
+        <button
+          type="button"
+          onClick={() => setDrawerOpen(true)}
+          className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-kave-ink hover:text-kave-tag transition-colors"
+          aria-haspopup="dialog"
+          aria-expanded={drawerOpen}
+        >
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M6 12h12m-9 5.25h6" />
+          </svg>
+          <span className="uppercase">{ts("filtersTrigger")}</span>
+          {activeFilterCount > 0 && (
+            <span className="ml-0.5 inline-flex items-center justify-center min-w-5 h-5 px-1.5 bg-kave-ink text-white text-xs rounded-full">
+              {activeFilterCount}
+            </span>
+          )}
+        </button>
 
-          {/* Comptador de resultats */}
-          <p
-            className="font-sans text-body-sm text-ink-muted"
-            role="status"
-            aria-live="polite"
-          >
+        <div className="flex items-center gap-4 ml-auto">
+          <p className="text-sm text-kave-muted" role="status" aria-live="polite">
             {t("results", { count: filtered.length })}
           </p>
 
+          {/* Densitat de graella (desktop) */}
+          <div className="hidden lg:flex items-center gap-1" role="group" aria-label={ts("gridLabel")}>
+            {densityButtons.map((d) => (
+              <button
+                key={d.id}
+                type="button"
+                onClick={() => setDensity(d.id)}
+                aria-pressed={density === d.id}
+                aria-label={
+                  d.id === "compact" ? ts("gridCompact") : d.id === "large" ? ts("gridLarge") : ts("gridComfortable")
+                }
+                className={clsx(
+                  "p-1.5 transition-colors",
+                  density === d.id ? "text-kave-ink" : "text-kave-faint hover:text-kave-muted",
+                )}
+              >
+                <svg className="w-4 h-4" viewBox="0 0 16 16" fill="currentColor" aria-hidden>
+                  {Array.from({ length: d.cols }).map((_, i) => (
+                    <rect key={i} x={(i * 16) / d.cols + 0.6} y={1} width={16 / d.cols - 1.2} height={14} rx={0.5} />
+                  ))}
+                </svg>
+              </button>
+            ))}
+          </div>
+
           {/* Ordenar */}
-          <div className="flex items-center gap-2 ml-auto">
-            <label
-              htmlFor="mobles-sort"
-              className="font-sans text-body-sm text-ink-muted"
-            >
-              {tf("sort")}
-            </label>
+          <div className="flex items-center gap-2">
+            <label htmlFor="mobles-sort" className="sr-only">{tf("sort")}</label>
             <select
               id="mobles-sort"
               value={sort}
               onChange={(e) => setSort(e.target.value as SortId)}
-              className="px-3 py-2 bg-canvas border-b border-sand-dark/40 font-sans text-body-sm text-ink focus-visible:outline-none focus-visible:border-ink transition-colors"
+              className="bg-transparent border-b border-kave-ink/30 py-1 text-sm text-kave-ink focus:outline-none focus:border-kave-ink transition-colors"
             >
               <option value="name_asc">{tf("sortNameAsc")}</option>
               <option value="price_asc">{tf("sortPriceAsc")}</option>
@@ -358,150 +334,95 @@ export default function MobiliariCatalog({ mobles, prefix, locale }: Props) {
             </select>
           </div>
         </div>
-
-        {/* Chips de filtres actius */}
-        {hasActiveFilters && (
-          <div className="flex flex-wrap items-center gap-2 mb-6">
-            {query.trim() && (
-              <Chip
-                label={`${tf("search")}: ${query.trim()}`}
-                onRemove={() => setQuery("")}
-              />
-            )}
-            {selectedCats.map((c) => (
-              <Chip
-                key={`cat-${c}`}
-                label={catLabel(c)}
-                onRemove={() => toggleCat(c)}
-              />
-            ))}
-            {selectedBuckets.map((id) => (
-              <Chip
-                key={`price-${id}`}
-                label={bucketLabel(id)}
-                onRemove={() => toggleBucket(id)}
-              />
-            ))}
-            <button
-              type="button"
-              onClick={clearAll}
-              className="font-sans text-body-sm text-accent-deep underline underline-offset-4 hover:text-ink transition-colors ml-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-deep"
-            >
-              {tf("clear")}
-            </button>
-          </div>
-        )}
-
-        {/* Graella de mobles — cards uniformes (hero + object-contain) */}
-        {filtered.length > 0 ? (
-          <ul
-            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 gap-y-10"
-            role="list"
-          >
-            {filtered.map((m, i) => (
-              <li key={m.slug}>
-                <Link
-                  href={`${prefix}/mobiliari/${m.slug}`}
-                  className="group block"
-                  aria-label={m.nom}
-                >
-                  <div className="relative aspect-[4/5] overflow-hidden bg-canvas-warm mb-3 p-5">
-                    <Image
-                      src={mobleImage(m.slug)}
-                      alt={m.nom}
-                      fill
-                      priority={i < 4}
-                      sizes="(min-width: 1280px) 20vw, (min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
-                      className="object-contain transition-transform duration-500 group-hover:scale-[1.03]"
-                    />
-                  </div>
-                  <p className="font-sans text-body-md font-medium text-ink group-hover:text-accent-deep transition-colors">
-                    {m.nom}
-                  </p>
-                  <p className="font-sans text-body-sm text-ink-faint mt-0.5">
-                    {catLabel(m.cat)}
-                  </p>
-                  <p className="font-sans text-body-sm text-ink-muted mt-1">
-                    {priceFmt(m.pvp)}
-                  </p>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <div className="py-20 text-center">
-            <p className="font-serif text-display-md text-ink mb-3">
-              {t("emptyTitle")}
-            </p>
-            <p className="font-sans text-body-md text-ink-muted mb-6">
-              {tf("emptyBody")}
-            </p>
-            <button
-              type="button"
-              onClick={clearAll}
-              className="font-sans text-body-sm text-accent-deep underline underline-offset-4 hover:text-ink transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-deep"
-            >
-              {tf("clear")}
-            </button>
-          </div>
-        )}
       </div>
 
-      {/* --- Panell de filtres (mòbil) --- */}
-      {mobileOpen && (
-        <div
-          className="fixed inset-0 z-50 lg:hidden"
-          role="dialog"
-          aria-modal="true"
-          aria-label={tf("title")}
-        >
-          {/* Fons */}
+      {/* Chips actius */}
+      {hasActiveFilters && (
+        <div className="flex flex-wrap items-center gap-2 mt-5">
+          {saleOnly && <Chip label={ts("saleTag")} onRemove={() => setSaleOnly(false)} />}
+          {query.trim() && (
+            <Chip label={`${tf("search")}: ${query.trim()}`} onRemove={() => setQuery("")} />
+          )}
+          {selectedCats.map((c) => (
+            <Chip key={`cat-${c}`} label={catLabel(c)} onRemove={() => toggleCat(c)} />
+          ))}
+          {selectedBuckets.map((id) => (
+            <Chip key={`price-${id}`} label={bucketLabel(id)} onRemove={() => toggleBucket(id)} />
+          ))}
+          <button
+            type="button"
+            onClick={clearAll}
+            className="text-sm text-kave-ink underline underline-offset-4 hover:text-kave-tag transition-colors ml-1"
+          >
+            {tf("clear")}
+          </button>
+        </div>
+      )}
+
+      {/* 3) Graella */}
+      {filtered.length > 0 ? (
+        <ul className={clsx("grid gap-x-5 gap-y-10 mt-8", DENSITY_GRID[density])} role="list">
+          {filtered.map((m, i) => (
+            <li key={m.slug}>
+              <KaveProductCard
+                href={`${prefix}/mobiliari/${m.slug}`}
+                image={mobleImage(m.slug)}
+                title={m.nom}
+                subtitle={catLabel(m.cat)}
+                pvp={m.pvp}
+                pvpAbans={m.pvpAbans}
+                pricePrefix={m.cat === "moble" ? t("fromPrice") : undefined}
+                fit={mobleImgFit(m.slug)}
+                priority={i < 4}
+              />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <div className="py-24 text-center">
+          <p className="font-display text-2xl text-kave-ink mb-3">{t("emptyTitle")}</p>
+          <p className="text-sm text-kave-muted mb-6">{tf("emptyBody")}</p>
+          <button
+            type="button"
+            onClick={clearAll}
+            className="text-sm text-kave-ink underline underline-offset-4 hover:text-kave-tag transition-colors"
+          >
+            {tf("clear")}
+          </button>
+        </div>
+      )}
+
+      {/* 4) Calaix de filtres */}
+      {drawerOpen && (
+        <div className="fixed inset-0 z-[60]" role="dialog" aria-modal="true" aria-label={tf("title")}>
           <button
             type="button"
             aria-label={tf("close")}
-            onClick={() => setMobileOpen(false)}
-            className="absolute inset-0 bg-ink/40"
+            onClick={() => setDrawerOpen(false)}
+            className="absolute inset-0 bg-kave-ink/40"
           />
-          {/* Calaix */}
-          <div className="absolute inset-y-0 left-0 w-[88%] max-w-sm bg-canvas overflow-y-auto p-6 shadow-xl">
-            <div className="flex items-center justify-between mb-6 pb-4 border-b border-sand-dark/30">
-              <h2 className="font-sans text-body-md font-medium text-ink">
-                {tf("title")}
-              </h2>
+          <div className="absolute inset-y-0 left-0 w-[88%] max-w-sm bg-kave-bg overflow-y-auto p-6 shadow-xl">
+            <div className="flex items-center justify-between mb-6 pb-4 border-b border-kave-line">
+              <h2 className="font-display text-xl text-kave-ink">{tf("title")}</h2>
               <button
                 type="button"
-                onClick={() => setMobileOpen(false)}
+                onClick={() => setDrawerOpen(false)}
                 aria-label={tf("close")}
-                className="p-2 -mr-2 text-ink-muted hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-deep"
+                className="p-2 -mr-2 text-kave-muted hover:text-kave-ink"
               >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={1.5}
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18 18 6M6 6l12 12"
-                  />
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
 
             {FiltersBody}
 
-            <div className="mt-8 pt-6 border-t border-sand-dark/30">
+            <div className="mt-8 pt-6 border-t border-kave-line">
               <button
                 type="button"
-                onClick={() => setMobileOpen(false)}
-                className={clsx(
-                  "w-full px-6 py-3.5 bg-ink text-canvas font-sans text-body-md font-semibold tracking-wide",
-                  "hover:bg-accent-deep transition-colors",
-                  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink",
-                )}
+                onClick={() => setDrawerOpen(false)}
+                className="w-full px-6 py-3.5 bg-kave-ink text-white font-grotesque text-sm font-semibold tracking-wide hover:bg-kave-ink/90 transition-colors"
               >
                 {t("showResults", { count: filtered.length })}
               </button>

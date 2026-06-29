@@ -4,6 +4,11 @@
 // el cost intern. Mateix patro d'inlining que src/lib/catifes.ts.
 //
 // NO editar a ma: regenerar des del JSON font.
+//
+// ⚠️ REBAIXES PLACEHOLDER ⚠️ Els pvpAbans marcats "// PLACEHOLDER" son d'exemple
+// (catifes de bany mes economiques) perque es vegi el look Kave amb descomptes
+// al panell de compra. NO son preus reals: substituir pels aplicats els 30 dies
+// previs o esborrar-los. Han de quadrar amb els pvpAbans de src/lib/catifes.ts.
 
 /** Una mesura concreta amb el seu preu public (IVA inclos). */
 export type CatifaMida = {
@@ -15,6 +20,13 @@ export type CatifaMida = {
   altoCm: number | null;
   /** Preu public d'aquesta mesura, IVA inclos. MAI cost. */
   pvp: number;
+  /**
+   * Preu anterior real (€) d'aquesta mesura per a rebaixes. OPCIONAL: nomes
+   * quan la mesura esta realment en oferta. El panell de compra mostra el
+   * tatxat + -% + preu vermell nomes si pvpAbans > pvp. LEGAL: ha de ser el
+   * preu aplicat els 30 dies previs. Vegeu src/lib/discount.ts.
+   */
+  pvpAbans?: number;
 };
 
 /** Detall comercial complet d'una catifa. */
@@ -884,7 +896,7 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
     termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
     mides: [
       { mida: "pack_40x50_50x80", anchoCm: null, altoCm: null, pvp: 32.95 },
-      { mida: "Ø067", anchoCm: 67, altoCm: 67, pvp: 24.95 },
+      { mida: "Ø067", anchoCm: 67, altoCm: 67, pvp: 24.95, pvpAbans: 34.95 }, // PLACEHOLDER rebaixa
     ],
   },
   "viena": {
@@ -892,14 +904,14 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
     termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
     mides: [
       { mida: "pack_40x50_50x80", anchoCm: null, altoCm: null, pvp: 39.95 },
-      { mida: "Ø067", anchoCm: 67, altoCm: 67, pvp: 29.95 },
+      { mida: "Ø067", anchoCm: 67, altoCm: 67, pvp: 29.95, pvpAbans: 39.95 }, // PLACEHOLDER rebaixa
     ],
   },
   "vienciana": {
     perEncarrec: false,
     termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
     mides: [
-      { mida: "50x80", anchoCm: 50, altoCm: 80, pvp: 18.95 },
+      { mida: "50x80", anchoCm: 50, altoCm: 80, pvp: 18.95, pvpAbans: 27.95 }, // PLACEHOLDER rebaixa
     ],
   },
   "window": {

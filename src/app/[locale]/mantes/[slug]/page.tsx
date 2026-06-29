@@ -9,8 +9,15 @@ import {
   getManta,
   mantaImage,
 } from "@/lib/mantes";
-import { getMantaDetall, mantaPriceRange } from "@/lib/mantes-detall";
+import {
+  getMantaDetall,
+  mantaPriceRange,
+  formatMantaMidaLabel,
+} from "@/lib/mantes-detall";
+import { formatEur } from "@/lib/discount";
 import MantaPurchasePanel from "@/components/mantes/MantaPurchasePanel";
+import KaveAboutProduct, { type AboutSection } from "@/components/shop/KaveAboutProduct";
+import ProductCarousel from "@/components/shop/ProductCarousel";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
 
 type Props = {
@@ -53,6 +60,8 @@ export default async function MantaPage({ params }: Props) {
   if (!manta) notFound();
 
   const t = await getTranslations("Mantes");
+  const ts = await getTranslations("Shop");
+  const tp = await getTranslations("Producte");
   const locale = await getLocale();
   const prefix = locale === "ca" ? "" : `/${locale}`;
 
@@ -67,12 +76,48 @@ export default async function MantaPage({ params }: Props) {
   // El preu "des de" surt del rang real de mesures quan tenim detall; si no,
   // del pvp base del registre.
   const fromPriceValue = range?.min ?? manta.pvp;
-  const priceLabel = `${t("fromPrice")} ${fromPriceValue.toLocaleString(locale, {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  })} €`;
 
-  const related = MANTES.filter((m) => m.slug !== slug).slice(0, 4);
+  // Productes per al carrusel "Et pot interessar" (la resta de mantes). Es
+  // mapegen a items de KaveProductCard (fit cover: foto tèxtil a sang).
+  const interessar = MANTES.filter((m) => m.slug !== slug).slice(0, 8);
+  const toItem = (m: (typeof MANTES)[number]) => ({
+    href: `${prefix}/mantes/${m.slug}`,
+    image: mantaImage(m.slug),
+    title: m.nom,
+    subtitle: t("eyebrow"),
+    pvp: m.pvp,
+    pvpAbans: m.pvpAbans,
+    pricePrefix: t("fromPrice"),
+    fit: "cover" as const,
+  });
+
+  // Bloc "Sobre el producte": bullets + seccions desplegables (slide-over).
+  const aboutIntro: string[] = [
+    `${t("eyebrow")} · ${manta.marca}`,
+    ...(detall ? [detall.termini] : []),
+  ];
+  const aboutSections: AboutSection[] = [
+    detall && detall.variants.length > 0 && {
+      id: "dimensions",
+      title: ts("accDimensions"),
+      rows: [
+        {
+          label: tp("measures"),
+          value: detall.variants.map((v) => formatMantaMidaLabel(v.mida)).join(" · "),
+        },
+      ],
+    },
+    detall && {
+      id: "delivery",
+      title: ts("accDelivery"),
+      rows: [{ label: tp("deliveryTime"), value: detall.termini }],
+    },
+    {
+      id: "more",
+      title: ts("accMoreDetails"),
+      rows: [{ label: t("madeBy"), value: manta.marca }],
+    },
+  ].filter(Boolean) as AboutSection[];
 
   const canonicalUrl = `${SITE_URL}${prefix}/mantes/${slug}`;
 
@@ -121,7 +166,7 @@ export default async function MantaPage({ params }: Props) {
   };
 
   return (
-    <article>
+    <article className="bg-kave-bg font-grotesque text-kave-ink">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
@@ -131,27 +176,24 @@ export default async function MantaPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <section className="pt-40 md:pt-48 pb-section bg-canvas">
-        <div className="max-w-layout mx-auto px-6 lg:px-12">
+      <section className="pt-32 md:pt-36 pb-16 lg:pb-24">
+        <div className="max-w-layout mx-auto px-5 lg:px-10">
           {/* Breadcrumb */}
-          <nav
-            className="flex items-center gap-2 font-sans text-body-sm text-ink-muted mb-8"
-            aria-label="Breadcrumb"
-          >
-            <Link href={prefix || "/"} className="hover:text-ink transition-colors">
-              {SITE_NAME}
+          <nav className="flex items-center gap-2 text-sm text-kave-muted mb-8" aria-label="Breadcrumb">
+            <Link href={`${prefix}/botiga`} className="hover:text-kave-ink transition-colors">
+              {ts("navBotiga")}
             </Link>
-            <span aria-hidden="true">/</span>
-            <Link href={`${prefix}/mantes`} className="hover:text-ink transition-colors">
-              {t("eyebrow")}
+            <span aria-hidden>/</span>
+            <Link href={`${prefix}/mantes`} className="hover:text-kave-ink transition-colors">
+              {ts("navMantes")}
             </Link>
-            <span aria-hidden="true">/</span>
-            <span className="text-ink">{manta.nom}</span>
+            <span aria-hidden>/</span>
+            <span className="text-kave-ink">{manta.nom}</span>
           </nav>
 
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-            {/* Foto gran (object-cover, igual que mobiliari/catifes) */}
-            <div className="relative aspect-[4/5] overflow-hidden bg-canvas-warm">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 items-start">
+            {/* Galeria — foto tèxtil a sang (object-cover) sobre gris càlid */}
+            <div className="relative aspect-[4/5] overflow-hidden bg-kave-surface">
               <Image
                 src={image}
                 alt={manta.nom}
@@ -162,97 +204,47 @@ export default async function MantaPage({ params }: Props) {
               />
             </div>
 
-            {/* Informació */}
-            <div className="lg:sticky lg:top-28 self-start">
-              <p className="font-sans text-body-sm text-ink-faint mb-3">
-                {t("eyebrow")}
-              </p>
-              <h1 className="font-serif text-display-md text-ink mb-3 leading-tight">
+            {/* Columna dreta */}
+            <div className="lg:sticky lg:top-32 self-start">
+              <p className="text-sm text-kave-muted mb-2">{t("eyebrow")}</p>
+              <h1 className="font-display text-3xl md:text-4xl text-kave-ink mb-6 leading-tight">
                 {manta.nom}
               </h1>
-              <p className="font-sans text-body-lg text-ink mb-10">{priceLabel}</p>
 
-              <dl className="divide-y divide-sand-dark/25 border-t border-b border-sand-dark/25 mb-10">
-                <div className="flex justify-between gap-6 py-3.5">
-                  <dt className="font-sans text-body-sm text-ink-muted">
-                    {t("madeBy")}
-                  </dt>
-                  <dd className="font-sans text-body-sm text-ink">{manta.marca}</dd>
-                </div>
-              </dl>
-
-              {/* Compra directa: selector de mesura + PVP + termini d'entrega
-                  (requisit legal, visible abans de comprar) + afegir a la
-                  cistella. Nomes si tenim detall comercial amb mesures. */}
-              {detall && detall.variants.length > 0 && (
-                <div className="mb-8">
-                  <MantaPurchasePanel
-                    slug={manta.slug}
-                    nom={manta.nom}
-                    variants={detall.variants}
-                    termini={detall.termini}
-                    image={image}
-                    href={`/mantes/${manta.slug}`}
-                  />
+              {detall && detall.variants.length > 0 ? (
+                <MantaPurchasePanel
+                  slug={manta.slug}
+                  nom={manta.nom}
+                  variants={detall.variants}
+                  termini={detall.termini}
+                  image={image}
+                  href={`/mantes/${manta.slug}`}
+                />
+              ) : (
+                <div>
+                  <p className="text-3xl font-semibold text-kave-ink mb-6">
+                    {t("fromPrice")} {formatEur(fromPriceValue, locale)}
+                  </p>
+                  <Link
+                    href={`${prefix}/demana-pressupost`}
+                    className="inline-flex items-center justify-center px-8 py-3.5 bg-kave-ink text-white text-sm font-semibold hover:bg-kave-ink/90 transition-colors"
+                  >
+                    {t("requestBudget")}
+                  </Link>
                 </div>
               )}
-
-              <div className="pt-8 border-t border-sand-dark/25">
-                <p className="font-serif text-display-md text-ink mb-2 leading-tight">
-                  {t("ctaBlockHeadline")}
-                </p>
-                <p className="font-sans text-body-sm text-ink-muted mb-6 max-w-prose-editorial">
-                  {t("ctaBlockBody")}
-                </p>
-                <Link
-                  href={`${prefix}/demana-pressupost`}
-                  className="inline-flex items-center justify-center px-8 py-4 bg-ink text-canvas font-sans text-body-md font-medium hover:bg-accent-deep transition-colors"
-                >
-                  {t("requestBudget")}
-                </Link>
-              </div>
             </div>
           </div>
-
-          {/* Mantes relacionades */}
-          {related.length > 0 && (
-            <section className="mt-section border-t border-sand-dark/25 pt-section">
-              <div className="flex items-end justify-between mb-10">
-                <h2 className="font-serif text-display-md text-ink">{t("eyebrow")}</h2>
-                <Link
-                  href={`${prefix}/mantes`}
-                  className="font-sans text-body-sm text-accent-deep font-medium hover:text-ink transition-colors"
-                >
-                  {t("backToMantes")}
-                </Link>
-              </div>
-              <ul className="grid grid-cols-2 lg:grid-cols-4 gap-x-5 gap-y-10" role="list">
-                {related.map((m) => (
-                  <li key={m.slug}>
-                    <Link
-                      href={`${prefix}/mantes/${m.slug}`}
-                      className="group block"
-                    >
-                      <div className="relative aspect-[4/5] overflow-hidden bg-canvas-warm mb-3">
-                        <Image
-                          src={mantaImage(m.slug)}
-                          alt={m.nom}
-                          fill
-                          sizes="(min-width: 1024px) 25vw, 50vw"
-                          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                        />
-                      </div>
-                      <p className="font-sans text-body-md font-medium text-ink group-hover:text-accent-deep transition-colors">
-                        {m.nom}
-                      </p>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )}
         </div>
       </section>
+
+      {/* Sobre el producte (banda verd sàlvia + acordeó/slide-over) */}
+      <KaveAboutProduct intro={aboutIntro} sections={aboutSections} />
+
+      {/* Carrusel de relacionats */}
+      <div className="max-w-layout mx-auto px-5 lg:px-10 py-16 lg:py-24">
+        <ProductCarousel title={ts("youMayLike")} items={interessar.map(toItem)} />
+      </div>
     </article>
   );
 }

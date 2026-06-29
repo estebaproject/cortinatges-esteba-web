@@ -24,10 +24,29 @@ const config: Config = {
         "linen": "#E8E3DA",
         "linen-dark": "#D5CDBF",
         "stone-warm": "#BCAA8C",
+
+        // --- Tema "Kave" (només dins la botiga) -------------------------
+        // Clon de la paleta de Kave Home. Prefix kave- per no tocar mai la
+        // marca Esteba (ink/sand) de la resta del lloc. La pàgina de tenda
+        // és blanca; els "tiles" de foto van sobre gris càlid; els blocs
+        // editorials (Sobre el producte) sobre verd sàlvia.
+        "kave-bg": "#FFFFFF",       // fons de pàgina de la botiga
+        "kave-surface": "#EDEBE6",  // bloc de foto (card media) gris càlid
+        "kave-promo": "#E9E6DD",    // barra promo beige
+        "kave-sage": "#C7CBB4",     // bloc "Sobre el producte"
+        "kave-ink": "#1D1D1B",      // text i botons (gairebé negre)
+        "kave-muted": "#6E6E68",    // text secundari
+        "kave-faint": "#9A968C",    // text terciari / desactivat
+        "kave-line": "#E2DFD8",     // hairlines i vores
+        "kave-red": "#C8102E",      // preu rebaixat (vermell)
+        "kave-tag": "#A85427",      // fons del tag "Rebaixes" (terracota)
       },
       fontFamily: {
         serif: ["var(--font-archivo-narrow)", "Archivo Narrow", "sans-serif"],
         sans: ["var(--font-roboto)", "Roboto", "system-ui", "sans-serif"],
+        // Tipografies del tema Kave (carregades global, usades només a botiga).
+        display: ["var(--font-fraunces)", "Georgia", "serif"],
+        grotesque: ["var(--font-hanken)", "system-ui", "sans-serif"],
       },
       fontSize: {
         "display-xl": ["clamp(2.25rem, 3.5vw, 3.5rem)", { lineHeight: "1.12", letterSpacing: "-0.01em" }],

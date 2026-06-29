@@ -8,6 +8,7 @@ import {
   MOBLE_SLUGS,
   getMoble,
   mobleImage,
+  mobleImgFit,
   type MobleCat,
 } from "@/lib/mobiliari";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
@@ -16,7 +17,10 @@ import {
   moblefPriceRange,
 } from "@/lib/mobiliari-detall";
 import { getMobleSpec, type SpecLocale } from "@/lib/mobiliari-specs";
+import { formatEur } from "@/lib/discount";
 import MoblePurchasePanel from "@/components/mobiliari/MoblePurchasePanel";
+import KaveAboutProduct, { type AboutSection } from "@/components/shop/KaveAboutProduct";
+import ProductCarousel from "@/components/shop/ProductCarousel";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -56,6 +60,8 @@ export default async function MoblePage({ params }: Props) {
   if (!moble) notFound();
 
   const t = await getTranslations("Mobiliari");
+  const ts = await getTranslations("Shop");
+  const tp = await getTranslations("Producte");
   const locale = await getLocale();
   const prefix = locale === "ca" ? "" : `/${locale}`;
 
@@ -80,19 +86,60 @@ export default async function MoblePage({ params }: Props) {
     ? spec.material[locale as SpecLocale] ?? spec.material.es
     : null;
 
-  // El preu "des de" surt del rang real de variants quan tenim detall; si no,
-  // del pvp base del registre.
-  const fromPriceValue = range?.min ?? moble.pvp;
-  const priceLabel = `${t("fromPrice")} ${fromPriceValue.toLocaleString(locale, {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  })} €`;
+  // Productes per als carrusels: "Combina'l amb" (mateixa categoria) i
+  // "Et pot interessar" (la resta). Es mapegen a items de KaveProductCard.
+  const combina = MOBLES.filter((m) => m.slug !== slug && m.cat === moble.cat).slice(0, 8);
+  const interessar = MOBLES.filter((m) => m.slug !== slug && m.cat !== moble.cat).slice(0, 8);
+  const toItem = (m: (typeof MOBLES)[number]) => ({
+    href: `${prefix}/mobiliari/${m.slug}`,
+    image: mobleImage(m.slug),
+    title: m.nom,
+    subtitle: catLabel(m.cat),
+    pvp: m.pvp,
+    pvpAbans: m.pvpAbans,
+    pricePrefix: m.cat === "moble" ? t("fromPrice") : undefined,
+    fit: mobleImgFit(m.slug),
+  });
 
-  const others = MOBLES.filter(
-    (m) => m.slug !== slug && m.cat === moble.cat,
-  ).slice(0, 4);
-  const fallbackOthers = MOBLES.filter((m) => m.slug !== slug).slice(0, 4);
-  const related = others.length > 0 ? others : fallbackOthers;
+  // object-fit de la foto principal (cover per a escenes; contain per a retalls).
+  const imgFit = mobleImgFit(moble.slug);
+
+  // Bloc "Sobre el producte": bullets + seccions desplegables (slide-over).
+  const aboutIntro: string[] = [
+    `${catLabel(moble.cat)} · ${moble.marca}`,
+    ...(materialText ? [materialText] : []),
+    ...(detall ? [detall.termini] : []),
+  ];
+  const aboutSections: AboutSection[] = [
+    spec && {
+      id: "dimensions",
+      title: ts("accDimensions"),
+      rows: [{ label: t("dimensionsLabel"), value: spec.dimensions }],
+    },
+    spec && (materialText || spec.finishes.length > 0) && {
+      id: "specs",
+      title: ts("accSpecs"),
+      rows: [
+        ...(materialText ? [{ label: t("materialLabel"), value: materialText }] : []),
+        ...(spec.finishes.length > 0
+          ? [{ label: t("finishesLabel"), value: spec.finishes.join(" · ") }]
+          : []),
+      ],
+    },
+    detall && {
+      id: "delivery",
+      title: ts("accDelivery"),
+      rows: [{ label: tp("deliveryTime"), value: detall.termini }],
+    },
+    {
+      id: "more",
+      title: ts("accMoreDetails"),
+      rows: [
+        { label: t("typeLabel"), value: catLabel(moble.cat) },
+        { label: t("madeBy"), value: moble.marca },
+      ],
+    },
+  ].filter(Boolean) as AboutSection[];
 
   const canonicalUrl = `${SITE_URL}${prefix}/mobiliari/${slug}`;
 
@@ -141,7 +188,7 @@ export default async function MoblePage({ params }: Props) {
   };
 
   return (
-    <article>
+    <article className="bg-kave-bg font-grotesque text-kave-ink">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
@@ -151,180 +198,77 @@ export default async function MoblePage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <section className="pt-40 md:pt-48 pb-section bg-canvas">
-        <div className="max-w-layout mx-auto px-6 lg:px-12">
+      <section className="pt-32 md:pt-36 pb-16 lg:pb-24">
+        <div className="max-w-layout mx-auto px-5 lg:px-10">
           {/* Breadcrumb */}
-          <nav
-            className="flex items-center gap-2 font-sans text-body-sm text-ink-muted mb-8"
-            aria-label="Breadcrumb"
-          >
-            <Link href={prefix || "/"} className="hover:text-ink transition-colors">
-              {SITE_NAME}
+          <nav className="flex items-center gap-2 text-sm text-kave-muted mb-8" aria-label="Breadcrumb">
+            <Link href={`${prefix}/botiga`} className="hover:text-kave-ink transition-colors">
+              {ts("navBotiga")}
             </Link>
-            <span aria-hidden="true">/</span>
-            <Link href={`${prefix}/mobiliari`} className="hover:text-ink transition-colors">
-              {t("eyebrow")}
+            <span aria-hidden>/</span>
+            <Link href={`${prefix}/mobiliari`} className="hover:text-kave-ink transition-colors">
+              {ts("navMobles")}
             </Link>
-            <span aria-hidden="true">/</span>
-            <span className="text-ink">{moble.nom}</span>
+            <span aria-hidden>/</span>
+            <span className="text-kave-ink">{moble.nom}</span>
           </nav>
 
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-            {/* Foto gran: object-contain sobre bg-canvas-warm perquè el moble es
-                vegi sencer (proporcions molt variables), sense retall ni
-                deformació. */}
-            <div className="relative aspect-[4/5] overflow-hidden bg-canvas-warm p-8 lg:p-10">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 items-start">
+            {/* Galeria (mobiliari: una imatge). Retall → contain amb padding;
+                escena → cover a sang (sense padding). */}
+            <div className={`relative aspect-[4/5] overflow-hidden bg-kave-surface ${imgFit === "cover" ? "" : "p-8 lg:p-12"}`}>
               <Image
                 src={image}
                 alt={moble.nom}
                 fill
                 priority
                 sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-contain"
+                className={`object-${imgFit}`}
               />
             </div>
 
-            {/* Informació */}
-            <div className="lg:sticky lg:top-28 self-start">
-              <p className="font-sans text-body-sm text-ink-faint mb-3">
-                {catLabel(moble.cat)}
-              </p>
-              <h1 className="font-serif text-display-md text-ink mb-3 leading-tight">
+            {/* Columna dreta */}
+            <div className="lg:sticky lg:top-32 self-start">
+              <p className="text-sm text-kave-muted mb-2">{catLabel(moble.cat)}</p>
+              <h1 className="font-display text-3xl md:text-4xl text-kave-ink mb-6 leading-tight">
                 {moble.nom}
               </h1>
-              <p className="font-sans text-body-lg text-ink mb-10">{priceLabel}</p>
 
-              <dl className="divide-y divide-sand-dark/25 border-t border-b border-sand-dark/25 mb-10">
-                <div className="flex justify-between gap-6 py-3.5">
-                  <dt className="font-sans text-body-sm text-ink-muted">
-                    {t("typeLabel")}
-                  </dt>
-                  <dd className="font-sans text-body-sm text-ink">
-                    {catLabel(moble.cat)}
-                  </dd>
-                </div>
-                <div className="flex justify-between gap-6 py-3.5">
-                  <dt className="font-sans text-body-sm text-ink-muted">
-                    {t("madeBy")}
-                  </dt>
-                  <dd className="font-sans text-body-sm text-ink">{moble.marca}</dd>
-                </div>
-              </dl>
-
-              {/* Compra directa: selector de variant + PVP per variant + termini
-                  d'entrega (requisit legal, visible abans de comprar) + afegir a
-                  la cistella. Nomes si tenim detall comercial amb variants. */}
-              {detall && detall.variants.length > 0 && (
-                <div className="mb-8">
-                  <MoblePurchasePanel
-                    slug={moble.slug}
-                    nom={moble.nom}
-                    variants={detall.variants}
-                    termini={detall.termini}
-                    image={image}
-                    href={`/mobiliari/${moble.slug}`}
-                  />
-                </div>
-              )}
-
-              {/* Especificacions tecniques. Nomes si en tenim dades; si no
-                  (scandinave-ii, mosa) el bloc no es renderitza i la fitxa
-                  degrada netament. Look minimalista: <dl> amb hairlines,
-                  coherent amb el bloc de tipus/marca de dalt. Mai mostra cost. */}
-              {spec && (
-                <div className="mb-10">
-                  <p className="font-sans text-body-sm text-ink-faint mb-4">
-                    {t("specsTitle")}
+              {detall && detall.variants.length > 0 ? (
+                <MoblePurchasePanel
+                  slug={moble.slug}
+                  nom={moble.nom}
+                  variants={detall.variants}
+                  termini={detall.termini}
+                  image={image}
+                  href={`/mobiliari/${moble.slug}`}
+                />
+              ) : (
+                <div>
+                  <p className="text-3xl font-semibold text-kave-ink mb-6">
+                    {t("fromPrice")} {formatEur(moble.pvp, locale)}
                   </p>
-                  <dl className="divide-y divide-sand-dark/25 border-t border-b border-sand-dark/25">
-                    <div className="flex justify-between gap-6 py-3.5">
-                      <dt className="font-sans text-body-sm text-ink-muted shrink-0">
-                        {t("dimensionsLabel")}
-                      </dt>
-                      <dd className="font-sans text-body-sm text-ink text-right">
-                        {spec.dimensions}
-                      </dd>
-                    </div>
-                    {materialText && (
-                      <div className="flex justify-between gap-6 py-3.5">
-                        <dt className="font-sans text-body-sm text-ink-muted shrink-0">
-                          {t("materialLabel")}
-                        </dt>
-                        <dd className="font-sans text-body-sm text-ink text-right max-w-prose-editorial">
-                          {materialText}
-                        </dd>
-                      </div>
-                    )}
-                    {spec.finishes.length > 0 && (
-                      <div className="flex justify-between gap-6 py-3.5">
-                        <dt className="font-sans text-body-sm text-ink-muted shrink-0">
-                          {t("finishesLabel")}
-                        </dt>
-                        <dd className="font-sans text-body-sm text-ink text-right">
-                          {spec.finishes.join(" · ")}
-                        </dd>
-                      </div>
-                    )}
-                  </dl>
+                  <Link
+                    href={`${prefix}/demana-pressupost`}
+                    className="inline-flex items-center justify-center px-8 py-3.5 bg-kave-ink text-white text-sm font-semibold hover:bg-kave-ink/90 transition-colors"
+                  >
+                    {t("requestBudget")}
+                  </Link>
                 </div>
               )}
-
-              <div className="pt-8 border-t border-sand-dark/25">
-                <p className="font-serif text-display-md text-ink mb-2 leading-tight">
-                  {t("ctaBlockHeadline")}
-                </p>
-                <p className="font-sans text-body-sm text-ink-muted mb-6 max-w-prose-editorial">
-                  {t("ctaBlockBody")}
-                </p>
-                <Link
-                  href={`${prefix}/demana-pressupost`}
-                  className="inline-flex items-center justify-center px-8 py-4 bg-ink text-canvas font-sans text-body-md font-medium hover:bg-accent-deep transition-colors"
-                >
-                  {t("requestBudget")}
-                </Link>
-              </div>
             </div>
           </div>
-
-          {/* Mobles relacionats */}
-          {related.length > 0 && (
-            <section className="mt-section border-t border-sand-dark/25 pt-section">
-              <div className="flex items-end justify-between mb-10">
-                <h2 className="font-serif text-display-md text-ink">{t("eyebrow")}</h2>
-                <Link
-                  href={`${prefix}/mobiliari`}
-                  className="font-sans text-body-sm text-accent-deep font-medium hover:text-ink transition-colors"
-                >
-                  {t("backToMobles")}
-                </Link>
-              </div>
-              <ul className="grid grid-cols-2 lg:grid-cols-4 gap-x-5 gap-y-10" role="list">
-                {related.map((m) => (
-                  <li key={m.slug}>
-                    <Link
-                      href={`${prefix}/mobiliari/${m.slug}`}
-                      className="group block"
-                    >
-                      <div className="relative aspect-[4/5] overflow-hidden bg-canvas-warm mb-3 p-5">
-                        <Image
-                          src={mobleImage(m.slug)}
-                          alt={m.nom}
-                          fill
-                          sizes="(min-width: 1024px) 25vw, 50vw"
-                          className="object-contain transition-transform duration-500 group-hover:scale-[1.03]"
-                        />
-                      </div>
-                      <p className="font-sans text-body-md font-medium text-ink group-hover:text-accent-deep transition-colors">
-                        {m.nom}
-                      </p>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )}
         </div>
       </section>
+
+      {/* Sobre el producte (banda verd sàlvia + acordeó/slide-over) */}
+      <KaveAboutProduct intro={aboutIntro} sections={aboutSections} />
+
+      {/* Carrusels de relacionats */}
+      <div className="max-w-layout mx-auto px-5 lg:px-10 py-16 lg:py-24 space-y-16">
+        <ProductCarousel title={ts("combineWith")} items={combina.map(toItem)} />
+        <ProductCarousel title={ts("youMayLike")} items={interessar.map(toItem)} />
+      </div>
     </article>
   );
 }

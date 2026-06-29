@@ -4,8 +4,6 @@
 import {
   CATIFES,
   CATIFA_FAMILIES,
-  CATIFA_HAS_PRODUCTO,
-  catifaProducto,
   catifaEscena,
   type CatifaFamilia,
 } from "@/lib/catifes";
@@ -37,16 +35,12 @@ export function countMobleByCategoria(cat: MobleCat): number {
 
 /**
  * Foto representativa d'una família de catifes per al hub.
- * Regla determinista (SSG estable): primera catifa de la família amb foto
- * de producte (2.jpg); si cap en té, l'escena (1.jpg) de la primera.
+ * Regla determinista (SSG estable): ESCENA (1.jpg) de la primera catifa de la
+ * família. Fem servir l'escena i no la foto de producte (2.jpg) perquè algunes
+ * famílies (bany) tenen fotos d'embalatge amb marca d'aigua a 2.jpg.
  */
 export function firstCatifaImageForFamilia(familia: CatifaFamilia): string {
-  const inFamilia = CATIFES.filter((c) => c.familia === familia);
-  const withProducto = inFamilia.find((c) => CATIFA_HAS_PRODUCTO.has(c.slug));
-  if (withProducto) {
-    return catifaProducto(withProducto.slug)!;
-  }
-  const first = inFamilia[0];
+  const first = CATIFES.find((c) => c.familia === familia);
   return first ? catifaEscena(first.slug) : "/images/placeholder.png";
 }
 

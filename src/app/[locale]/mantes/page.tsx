@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
 import { MANTES } from "@/lib/mantes";
 import { SITE_URL } from "@/lib/site";
@@ -26,6 +27,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+function CatalogSkeleton() {
+  return (
+    <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-x-5 gap-y-10 animate-pulse">
+      {Array.from({ length: 8 }).map((_, i) => (
+        <div key={i}>
+          <div className="aspect-square bg-kave-surface mb-3" />
+          <div className="h-4 bg-kave-surface rounded mb-2 w-3/4" />
+          <div className="h-3 bg-kave-surface rounded w-1/2" />
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default async function MantesPage({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations("Mantes");
@@ -51,22 +66,22 @@ export default async function MantesPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
       />
 
-      {/* Capçalera */}
-      <section className="pt-40 md:pt-48 pb-section bg-canvas">
-        <div className="max-w-layout mx-auto px-6 lg:px-12">
-          <header className="mb-14 max-w-prose-editorial">
-            <p className="font-sans text-body-sm text-ink-muted mb-3">
-              {t("eyebrow")}
-            </p>
-            <h1 className="font-serif text-display-md text-ink mb-4 leading-tight">
+      {/* Capçalera — tema Kave */}
+      <section className="pt-32 md:pt-36 pb-24 bg-kave-bg">
+        <div className="max-w-layout mx-auto px-5 lg:px-10">
+          <header className="mb-10 max-w-2xl">
+            <h1 className="font-display text-4xl md:text-5xl text-kave-ink mb-4 leading-[1.05]">
               {t("headline")}
             </h1>
-            <p className="font-sans text-body-md text-ink-muted">{t("intro")}</p>
+            <p className="font-grotesque text-base text-kave-muted">{t("intro")}</p>
           </header>
 
-          {/* Catàleg (client). Rep el set complet per props i gestiona cerca i
-              ordenació sense recarregar. */}
-          <MantesCatalog mantes={MANTES} prefix={prefix} locale={locale} />
+          {/* Catàleg filtrable (client). Rep el set complet per props i gestiona
+              cerca, rebaixes i ordenació sense recarregar.
+              Suspense obligatori perquè MantesCatalog usa useSearchParams() (Next 15). */}
+          <Suspense fallback={<CatalogSkeleton />}>
+            <MantesCatalog mantes={MANTES} prefix={prefix} locale={locale} />
+          </Suspense>
         </div>
       </section>
     </article>

@@ -13,6 +13,12 @@ export type MobleVariant = {
   dim: string | null;
   /** Preu public d'aquesta variant, IVA inclos. MAI cost. */
   pvp: number;
+  /**
+   * Preu anterior real (€) d'aquesta variant per a rebaixes. OPCIONAL: nomes
+   * quan la variant esta realment en oferta. LEGAL: ha de ser el preu aplicat
+   * els 30 dies previs. Vegeu src/lib/discount.ts.
+   */
+  pvpAbans?: number;
 };
 
 /** Detall comercial complet d'un moble. */
@@ -44,7 +50,7 @@ const MOBILIARI_DETALL: Record<string, MobleDetall> = {
   "calais": {
     termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
     variants: [
-      { nom: "Calais", dim: null, pvp: 90.95 },
+      { nom: "Calais", dim: null, pvp: 90.95, pvpAbans: 129.95 }, // PLACEHOLDER rebaixa
     ],
   },
   "cambrai": {
@@ -62,7 +68,7 @@ const MOBILIARI_DETALL: Record<string, MobleDetall> = {
   "grenoble": {
     termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
     variants: [
-      { nom: "Grenoble", dim: null, pvp: 65.95 },
+      { nom: "Grenoble", dim: null, pvp: 65.95, pvpAbans: 109.95 }, // PLACEHOLDER rebaixa
     ],
   },
   "limoges": {
@@ -104,7 +110,7 @@ const MOBILIARI_DETALL: Record<string, MobleDetall> = {
   "scandinave-ii": {
     termini: "Termini d'entrega aprox. 15 dies (segons condicions de venda)",
     variants: [
-      { nom: "Scandinave II", dim: null, pvp: 63.95 },
+      { nom: "Scandinave II", dim: null, pvp: 63.95, pvpAbans: 99.95 }, // PLACEHOLDER rebaixa
     ],
   },
   "sevres": {

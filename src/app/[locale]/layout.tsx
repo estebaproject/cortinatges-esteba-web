@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo_Narrow, Roboto } from "next/font/google";
+import { Archivo_Narrow, Roboto, Fraunces, Hanken_Grotesk } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/routing";
 import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE } from "@/lib/site";
-import Header from "@/components/Header";
+import SiteHeader from "@/components/shop/SiteHeader";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import CookieBanner from "@/components/CookieBanner";
@@ -24,6 +24,22 @@ const roboto = Roboto({
   variable: "--font-roboto",
   display: "swap",
   weight: ["300", "400", "500", "700"],
+});
+
+// Tipografies del tema Kave (clon de la botiga). Es carreguen sempre però
+// només s'apliquen dins les rutes de tenda (classes font-display/font-grotesque).
+// Fraunces ≈ el serif editorial de Kave; Hanken Grotesk ≈ la seva grotesca.
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+  display: "swap",
+});
+
+const hankenGrotesk = Hanken_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-hanken",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
 type Props = {
@@ -121,7 +137,10 @@ export default async function LocaleLayout({ children, params }: Props) {
   };
 
   return (
-    <html lang={locale} className={`${archivoNarrow.variable} ${roboto.variable}`}>
+    <html
+      lang={locale}
+      className={`${archivoNarrow.variable} ${roboto.variable} ${fraunces.variable} ${hankenGrotesk.variable}`}
+    >
       <head>
         <script
           type="application/ld+json"
@@ -137,7 +156,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         </a>
         <NextIntlClientProvider messages={messages}>
           <CartProvider>
-            <Header />
+            <SiteHeader />
             <main id="main-content">{children}</main>
             <Footer />
             <WhatsAppFloat />

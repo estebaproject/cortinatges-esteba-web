@@ -23,6 +23,13 @@ export type Catifa = {
   familia: CatifaFamilia;
   /** Preu públic «des de», IVA inclòs (€). null si encara no informat. */
   pvpDesde: number | null;
+  /**
+   * Preu anterior real (€) per a rebaixes. OPCIONAL: només quan la catifa està
+   * realment en oferta. La card mostra el tatxat + -% + preu vermell només si
+   * pvpAbans > pvpDesde. LEGAL: ha de ser el preu aplicat els 30 dies previs.
+   * Vegeu src/lib/discount.ts. Mai aplica a catifes sense preu (per encàrrec).
+   */
+  pvpAbans?: number;
   /** Nombre de mesures disponibles per encàrrec. */
   nMedides: number;
   /** Co-marca / fabricant. */
@@ -32,6 +39,10 @@ export type Catifa = {
 // Dades base (sense la marca, que és constant i s'afegeix al map de sota).
 type CatifaSeed = Omit<Catifa, "marca">;
 
+// ⚠️ REBAIXES PLACEHOLDER ⚠️ Els pvpAbans marcats "// PLACEHOLDER" són d'exemple
+// perquè Federico vegi el look Kave amb descomptes a catifes (s'han triat les
+// catifes de bany més econòmiques). NO són preus reals: cal substituir-los pels
+// preus realment aplicats els 30 dies previs (o esborrar-los).
 const SEED: CatifaSeed[] = [
   { slug: "adore", nom: "Adore", familia: "catalogo", pvpDesde: 94.95, nMedides: 4 },
   { slug: "almeria", nom: "Almeria", familia: "catalogo", pvpDesde: 37.95, nMedides: 6 },
@@ -104,9 +115,9 @@ const SEED: CatifaSeed[] = [
   { slug: "touch", nom: "Touch", familia: "catalogo", pvpDesde: 64.95, nMedides: 12 },
   { slug: "varadero", nom: "Varadero", familia: "in_out", pvpDesde: 86.95, nMedides: 6 },
   { slug: "vegas", nom: "Vegas", familia: "catalogo", pvpDesde: 118.95, nMedides: 5 },
-  { slug: "veneza", nom: "Veneza", familia: "bath_collection", pvpDesde: 24.95, nMedides: 2 },
-  { slug: "viena", nom: "Viena", familia: "bath_collection", pvpDesde: 29.95, nMedides: 2 },
-  { slug: "vienciana", nom: "Vienciana", familia: "bath_collection", pvpDesde: 18.95, nMedides: 1 },
+  { slug: "veneza", nom: "Veneza", familia: "bath_collection", pvpDesde: 24.95, pvpAbans: 34.95, nMedides: 2 }, // PLACEHOLDER rebaixa
+  { slug: "viena", nom: "Viena", familia: "bath_collection", pvpDesde: 29.95, pvpAbans: 39.95, nMedides: 2 }, // PLACEHOLDER rebaixa
+  { slug: "vienciana", nom: "Vienciana", familia: "bath_collection", pvpDesde: 18.95, pvpAbans: 27.95, nMedides: 1 }, // PLACEHOLDER rebaixa
   { slug: "zen", nom: "Zen", familia: "catalogo", pvpDesde: 77.95, nMedides: 6 },
   { slug: "bulgari", nom: "Bulgari", familia: "catalogo", pvpDesde: 886.95, nMedides: 3 },
   { slug: "chameleon", nom: "Chameleon", familia: "catalogo", pvpDesde: 1058.95, nMedides: 3 },
@@ -137,6 +148,16 @@ export function getCatifa(slug: string): Catifa | undefined {
 }
 
 /** Ruta del hero d'una catifa: "/images/catifes/{slug}/1.jpg". */
+// Catifes la foto d'escena de les quals és vertical/portrait amb la catifa al
+// capdavall: el retall quadrat (cover) les talla. Es veuen senceres amb contain.
+// Detectat a la revisió foto-a-foto. La resta queda cover (escenes apaïsades).
+const CATIFA_CONTAIN_SLUGS = new Set<string>(["dallas"]);
+
+/** object-fit recomanat per a la foto d'una catifa (contain per a portraits). */
+export function catifaImgFit(slug: string): "contain" | "cover" {
+  return CATIFA_CONTAIN_SLUGS.has(slug) ? "contain" : "cover";
+}
+
 export function catifaImage(slug: string): string {
   return `/images/catifes/${slug}/1.jpg`;
 }
