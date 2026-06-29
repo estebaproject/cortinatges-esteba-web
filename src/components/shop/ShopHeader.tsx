@@ -55,7 +55,14 @@ export default function ShopHeader() {
           del web original. Text clar a sobre. */}
       <div className="bg-ink text-canvas">
         <div className="max-w-layout mx-auto px-5 lg:px-10 flex items-center justify-between h-9 text-[0.72rem]">
-          <span className="truncate text-canvas/80">{t("promoLeft")}</span>
+          <Link
+            href={`${prefix || "/"}`}
+            className="inline-flex items-center gap-1.5 text-canvas/80 hover:text-canvas transition-colors"
+            aria-label="Tornar a la web de Cortinatges Esteba"
+          >
+            <span aria-hidden>←</span>
+            <span className="truncate">Cortinatges Esteba</span>
+          </Link>
           <div className="flex items-center gap-4">
             <Link href={`${prefix}/nosaltres`} className="hidden sm:inline text-canvas/80 hover:text-canvas transition-colors">
               {t("promoRight1")}
