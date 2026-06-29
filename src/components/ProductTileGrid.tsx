@@ -49,8 +49,8 @@ export default async function ProductTileGrid() {
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           className="object-cover transition-transform duration-[800ms] ease-editorial group-hover:scale-105"
         />
-        {/* Tapa de color homogeni que es retira del tot en passar el rató (sense filtre) */}
-        <div className="absolute inset-0 bg-sand group-hover:bg-sand/0 transition-colors duration-500" />
+        {/* Vel d'arena translúcid: la foto sempre es veu (també en mòbil sense hover) i en hover es retira del tot */}
+        <div className="absolute inset-0 bg-sand/40 group-hover:bg-sand/0 transition-colors duration-500" />
         <span className="relative z-10 font-serif text-lg md:text-xl text-ink group-hover:text-canvas group-hover:[text-shadow:0_2px_8px_rgba(0,0,0,0.55)] tracking-[0.12em] uppercase px-4 transition-colors duration-500">
           {tile.label}
         </span>
