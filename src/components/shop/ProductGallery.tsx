@@ -1,9 +1,8 @@
 "use client";
 
 // Galeria genèrica de producte reutilitzable per a catifes, mobiliari i decoració.
-// Rep una llista tipada de slides (escena/producto/detall/color) i gestiona
-// l'índex actiu internament. Crida onColorChange quan el slide actiu té colorSlug
-// (ús exclusiu de mobiliari per sincronitzar el selector de color amb el carrito).
+// Rep una llista tipada de slides (escena/producto/detall) i gestiona l'índex
+// actiu internament.
 //
 // Accessibilitat:
 //   - Thumbnails = <button aria-pressed> reals.
@@ -17,15 +16,10 @@ import { type GallerySlide } from "@/lib/catifes";
 export type { GallerySlide };
 
 export type ProductGalleryProps = {
-  /** Llista ordenada de slides (escena primer, producte/color després). */
+  /** Llista ordenada de slides (escena primer, producte/detall després). */
   slides: GallerySlide[];
   /** Índex inicial. Default: 0. */
   initialIndex?: number;
-  /**
-   * Callback per sincronitzar el color actiu amb el add-to-cart (mobiliari).
-   * S'invoca quan el slide actiu canvia i té colorSlug.
-   */
-  onColorChange?: (colorSlug: string) => void;
   /** Etiqueta i18n del grup de thumbnails (a11y, aria-label). */
   thumbsLabel: string;
   /**
@@ -38,7 +32,6 @@ export type ProductGalleryProps = {
 export default function ProductGallery({
   slides,
   initialIndex = 0,
-  onColorChange,
   thumbsLabel,
   mainImageClassName,
 }: ProductGalleryProps) {
@@ -49,7 +42,7 @@ export default function ProductGallery({
 
   // Decideix el fit de la imatge gran:
   // - escena → object-cover (foto ambiental, el recorte és intencionat)
-  // - producto/detall/color → object-contain (foto de producte, mai retallem)
+  // - producto/detall → object-contain (foto de producte, mai retallem)
   const isEscena =
     current?.fit === "cover" ||
     (current?.fit === undefined && current?.kind === "escena");
@@ -58,10 +51,6 @@ export default function ProductGallery({
 
   function handleSelect(index: number) {
     setActive(index);
-    const slide = slides[index];
-    if (slide?.colorSlug && onColorChange) {
-      onColorChange(slide.colorSlug);
-    }
   }
 
   return (

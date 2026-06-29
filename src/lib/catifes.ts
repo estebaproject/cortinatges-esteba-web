@@ -370,8 +370,7 @@ export function catifaDetall(slug: string): string | null {
 export type GallerySlide = {
   src: string;
   alt: string;
-  kind: "escena" | "producto" | "detall" | "color";
-  colorSlug?: string;
+  kind: "escena" | "producto" | "detall";
   fit?: "cover" | "contain";
 };
 

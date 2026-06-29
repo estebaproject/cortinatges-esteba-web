@@ -20,11 +20,16 @@ const STORAGE_KEY = "esteba-cart";
 
 /** Una línia del cistell. Només dades públiques del producte. */
 export type CartLine = {
-  /** Slug de la línia. Identificador únic (pot ser compost: "grenoble#verd"). */
+  /**
+   * Slug de la línia. Identificador únic i clau de deduplicació. Pot ser compost
+   * per distingir variants del mateix model: catifes/mantes hi afegeixen la mida
+   * ("adore#160x230"), mobiliari hi afegeix l'índex i la dimensió de la variant
+   * ("grenoble#2-120x40x76"). NO codifica color.
+   */
   slug: string;
   /**
-   * Ruta RELATIVA a la fitxa del producte, SENSE prefix de locale i SENSE
-   * sufix de color: "/catifes/adore", "/mobiliari/grenoble".
+   * Ruta RELATIVA a la fitxa del producte, SENSE prefix de locale i SENSE el
+   * sufix de variant del slug: "/catifes/adore", "/mobiliari/grenoble".
    * CartView l'enllaça com `${prefix}${href}`. Pot faltar en cistells antics
    * desats abans d'introduir aquest camp (es degrada amb elegància).
    */

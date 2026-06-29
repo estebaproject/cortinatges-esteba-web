@@ -340,13 +340,50 @@ export function moblefPriceRange(
   return { min: Math.min(...prices), max: Math.max(...prices) };
 }
 
+// Acabats (color/material) coneguts que poden venir incrustats al 'nom' lliure
+// d'una variant. L'ordre importa: els mes especifics primer perque "Efecto
+// Roble" guanyi a "Roble" i "Black Marble" no es confongui amb res mes generic.
+const KNOWN_FINISHES = [
+  "Black Marble",
+  "Golden Carrara",
+  "Gloss L.Pandora",
+  "Bordeaux Marm.Natural",
+  "Efecto Roble",
+  "Nogal",
+  "Roble",
+  "Negro",
+  "Blanco",
+  "Beige",
+  "Marron",
+  "Rosa",
+  "Bronze",
+] as const;
+
+/**
+ * Acabat d'una variant si el seu 'nom' n'inclou un de conegut, o null. NOMES
+ * serveix per fer visible l'acabat a l'etiqueta: no toca slug/variantKey ni la
+ * clau de deduplicacio del cistell. La llista informativa completa d'acabats
+ * viu a spec.finishes (src/lib/mobiliari-specs.ts).
+ */
+export function variantFinish(variant: MobleVariant): string | null {
+  for (const finish of KNOWN_FINISHES) {
+    if (variant.nom.includes(finish)) return finish;
+  }
+  return null;
+}
+
 /**
  * Etiqueta llegible d'una variant per a la UI. Si te dimensio, formata els
- * separadors "x" com "×" (idioma-neutral); si no, retorna el nom de la variant.
+ * separadors "x" com "×" (idioma-neutral) i hi afegeix l'acabat quan forma part
+ * de la variant, perque dues variants que nomes difereixen per l'acabat (p. ex.
+ * Roble vs Nogal a la mateixa mida) no mostrin etiquetes identiques. Si no te
+ * dimensio, retorna el nom de la variant.
  */
 export function formatVariantLabel(variant: MobleVariant): string {
   if (variant.dim) {
-    return variant.dim.replace(/x/gi, "×");
+    const dim = variant.dim.replace(/x/gi, "×");
+    const finish = variantFinish(variant);
+    return finish ? `${dim} · ${finish}` : dim;
   }
   return variant.nom;
 }
