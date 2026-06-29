@@ -223,7 +223,7 @@ export default async function MoblePage({ params }: Props) {
                 fill
                 priority
                 sizes="(min-width: 1024px) 50vw, 100vw"
-                className={`object-${imgFit}`}
+                className={imgFit === "cover" ? "object-cover" : "object-contain"}
               />
             </div>
 

@@ -193,14 +193,14 @@ export default async function MantaPage({ params }: Props) {
 
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 items-start">
             {/* Galeria — foto tèxtil a sang (object-cover) sobre gris càlid */}
-            <div className="relative aspect-[4/5] overflow-hidden bg-kave-surface">
+            <div className="relative aspect-[4/5] overflow-hidden bg-kave-surface p-8 lg:p-12">
               <Image
                 src={image}
                 alt={manta.nom}
                 fill
                 priority
                 sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover"
+                className="object-contain"
               />
             </div>
 
