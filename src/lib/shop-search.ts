@@ -27,7 +27,53 @@ export type ShopItem = {
   groupKey: string;
   /** true si pvp és un «des de» (famílies de moble, catifes, mantes). */
   fromPrice: boolean;
+  /** Text de cerca pre-normalitzat (nom + categoria + família, 4 idiomes). */
+  haystack: string;
 };
+
+// Plega diacrítics i normalitza majúscules: "Catifà" → "catifa", "Sillón" → "sillon".
+const fold = (s: string): string =>
+  s
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase()
+    .trim();
+
+// Termes de categoria localitzats (ca/es/fr/en) per fer cercable la metadata, no
+// només el nom propi del model. Es manté un mapa PETIT i estable aquí en comptes
+// d'importar els 4 bundles complets de missatges (messages/*.json) dins d'aquesta
+// utilitat pura: són paraules curtes de categoria que no canvien, i així el lib no
+// queda acoblat a tot el paquet i18n ni a rutes de claus niades.
+const TYPE_TERMS: Record<ShopItemType, string[]> = {
+  catifa: ["catifa", "catifes", "alfombra", "alfombras", "tapis", "rug", "rugs"],
+  moble: ["moble", "mobles", "mueble", "muebles", "meuble", "meubles", "mobilier", "furniture"],
+  manta: ["manta", "mantes", "mantas", "plaid", "plaids", "blanket", "blankets"],
+};
+
+const CATIFA_FAMILY_TERMS: Record<string, string[]> = {
+  catalogo: ["cataleg", "catalogo", "catalogue"],
+  in_out: ["interior", "exterior", "indoor", "outdoor", "interieur", "exterieur"],
+  bath_collection: ["bany", "bano", "bain", "bath"],
+  kids_collection: ["infantil", "kids", "enfant"],
+};
+
+const MOBLE_CAT_TERMS: Record<string, string[]> = {
+  cadira: ["cadira", "silla", "chaise", "chair"],
+  butaca: ["butaca", "sillon", "fauteuil", "armchair"],
+  pouf: ["pouf", "puf"],
+  moble: ["moble", "mueble", "meuble", "furniture"],
+};
+
+/** Construeix el text de cerca normalitzat: nom + categoria + família, 4 idiomes. */
+function buildHaystack(type: ShopItemType, nom: string, groupKey: string): string {
+  const catTerms =
+    type === "catifa"
+      ? CATIFA_FAMILY_TERMS[groupKey] ?? []
+      : type === "moble"
+        ? MOBLE_CAT_TERMS[groupKey] ?? []
+        : [];
+  return fold([nom, groupKey, ...TYPE_TERMS[type], ...catTerms].join(" "));
+}
 
 /** Llista única de tots els productes de la botiga. Determinista (SSG estable). */
 export const SHOP_ITEMS: ShopItem[] = [
@@ -42,6 +88,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     pvpAbans: m.pvpAbans,
     groupKey: m.cat,
     fromPrice: m.cat === "moble",
+    haystack: buildHaystack("moble", m.nom, m.cat),
   })),
   ...VISIBLE_CATIFES.map((c): ShopItem => ({
     type: "catifa",
@@ -54,6 +101,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     pvpAbans: c.pvpAbans,
     groupKey: c.familia,
     fromPrice: true,
+    haystack: buildHaystack("catifa", c.nom, c.familia),
   })),
   ...(SHOW_MANTES
     ? MANTES.map((m): ShopItem => ({
@@ -67,6 +115,7 @@ export const SHOP_ITEMS: ShopItem[] = [
         pvpAbans: m.pvpAbans,
         groupKey: "",
         fromPrice: true,
+        haystack: buildHaystack("manta", m.nom, ""),
       }))
     : []),
 ];
@@ -76,9 +125,10 @@ export function onSaleItems(): ShopItem[] {
   return SHOP_ITEMS.filter((it) => it.pvp !== null && isOnSale(it.pvp, it.pvpAbans));
 }
 
-/** Cerca per nom (case-insensitive) a tota la botiga. Buit si no hi ha query. */
+// Cerca a tota la botiga: insensible a majúscules i accents, cobreix nom +
+// categoria/tipus + família en els 4 idiomes (ca/es/fr/en). Buit si no hi ha query.
 export function searchItems(q: string): ShopItem[] {
-  const needle = q.trim().toLowerCase();
+  const needle = fold(q);
   if (!needle) return [];
-  return SHOP_ITEMS.filter((it) => it.nom.toLowerCase().includes(needle));
+  return SHOP_ITEMS.filter((it) => it.haystack.includes(needle));
 }
