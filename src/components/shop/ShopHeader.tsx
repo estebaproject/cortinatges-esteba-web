@@ -13,6 +13,7 @@ import { useLocale, useTranslations } from "next-intl";
 import clsx from "clsx";
 import LocaleSwitcher from "@/components/LocaleSwitcher";
 import CartIndicator from "@/components/cart/CartIndicator";
+import { SHOW_MANTES } from "@/lib/site";
 
 /** Secció de botiga activa, derivada del primer segment després del locale. */
 function activeSection(pathname: string, prefix: string): string {
@@ -38,7 +39,7 @@ export default function ShopHeader() {
     { key: "botiga", href: `${prefix}/botiga`, label: t("navBotiga") },
     { key: "mobiliari", href: `${prefix}/mobiliari`, label: t("navMobles") },
     { key: "catifes", href: `${prefix}/catifes`, label: t("navCatifes") },
-    { key: "mantes", href: `${prefix}/mantes`, label: t("navMantes") },
+    ...(SHOW_MANTES ? [{ key: "mantes", href: `${prefix}/mantes`, label: t("navMantes") }] : []),
     { key: "rebaixes", href: `${prefix}/rebaixes`, label: t("navRebaixes") },
   ];
 

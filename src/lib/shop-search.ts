@@ -4,9 +4,10 @@
 // Només dades públiques; el preu pot ser null (catifes per encàrrec).
 
 import { MOBLES, mobleImage, mobleImgFit } from "@/lib/mobiliari";
-import { CATIFES, catifaEscena, catifaImgFit } from "@/lib/catifes";
+import { VISIBLE_CATIFES, catifaEscena, catifaImgFit } from "@/lib/catifes";
 import { MANTES, mantaImage } from "@/lib/mantes";
 import { isOnSale } from "@/lib/discount";
+import { SHOW_MANTES } from "@/lib/site";
 
 export type ShopItemType = "moble" | "catifa" | "manta";
 
@@ -42,7 +43,7 @@ export const SHOP_ITEMS: ShopItem[] = [
     groupKey: m.cat,
     fromPrice: m.cat === "moble",
   })),
-  ...CATIFES.map((c): ShopItem => ({
+  ...VISIBLE_CATIFES.map((c): ShopItem => ({
     type: "catifa",
     slug: c.slug,
     nom: c.nom,
@@ -54,18 +55,20 @@ export const SHOP_ITEMS: ShopItem[] = [
     groupKey: c.familia,
     fromPrice: true,
   })),
-  ...MANTES.map((m): ShopItem => ({
-    type: "manta",
-    slug: m.slug,
-    nom: m.nom,
-    path: `/mantes/${m.slug}`,
-    image: mantaImage(m.slug),
-    fit: "cover",
-    pvp: m.pvp,
-    pvpAbans: m.pvpAbans,
-    groupKey: "",
-    fromPrice: true,
-  })),
+  ...(SHOW_MANTES
+    ? MANTES.map((m): ShopItem => ({
+        type: "manta",
+        slug: m.slug,
+        nom: m.nom,
+        path: `/mantes/${m.slug}`,
+        image: mantaImage(m.slug),
+        fit: "cover",
+        pvp: m.pvp,
+        pvpAbans: m.pvpAbans,
+        groupKey: "",
+        fromPrice: true,
+      }))
+    : []),
 ];
 
 /** Productes amb rebaixa real (pvpAbans > pvp). Mai inventa descomptes. */

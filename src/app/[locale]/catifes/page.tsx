@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
-import { CATIFES } from "@/lib/catifes";
+import { VISIBLE_CATIFES } from "@/lib/catifes";
 import { SITE_URL } from "@/lib/site";
 import CatifesCatalog from "@/components/CatifesCatalog";
 
@@ -52,7 +52,7 @@ export default async function CatifesPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: t("metaTitle"),
-    itemListElement: CATIFES.map((c, i) => ({
+    itemListElement: VISIBLE_CATIFES.map((c, i) => ({
       "@type": "ListItem",
       position: i + 1,
       name: c.nom,
@@ -81,7 +81,7 @@ export default async function CatifesPage({ params }: Props) {
               filtres, cerca i ordenació sense recarregar.
               Suspense obligatori perquè CatifesCatalog usa useSearchParams() (Next 15). */}
           <Suspense fallback={<CatalogSkeleton />}>
-            <CatifesCatalog catifes={CATIFES} prefix={prefix} locale={locale} />
+            <CatifesCatalog catifes={VISIBLE_CATIFES} prefix={prefix} locale={locale} />
           </Suspense>
         </div>
       </section>

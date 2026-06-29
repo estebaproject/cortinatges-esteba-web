@@ -14,7 +14,7 @@ import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import clsx from "clsx";
 import {
-  CATIFA_FAMILIES,
+  VISIBLE_CATIFA_FAMILIES,
   catifaEscena,
   catifaImgFit,
   type Catifa,
@@ -72,7 +72,7 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
       .split(",")
       .map((s) => s.trim())
       .filter((s): s is CatifaFamilia =>
-        (CATIFA_FAMILIES as readonly string[]).includes(s),
+        (VISIBLE_CATIFA_FAMILIES as readonly string[]).includes(s),
       );
   }, [searchParams]);
 
@@ -196,7 +196,7 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
 
   // Famílies amb una imatge representativa (escena de la primera catifa de cada
   // família). Es descarten les famílies sense cap catifa.
-  const carouselItems = CATIFA_FAMILIES.map((f) => {
+  const carouselItems = VISIBLE_CATIFA_FAMILIES.map((f) => {
     const first = catifes.find((c) => c.familia === f);
     return first
       ? {
@@ -252,7 +252,7 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
 
       <fieldset className="border-t border-kave-line pt-5">
         <legend className="text-sm font-medium text-kave-ink mb-1.5">{tf("family")}</legend>
-        {CATIFA_FAMILIES.map((f) => (
+        {VISIBLE_CATIFA_FAMILIES.map((f) => (
           <FilterCheck
             key={f}
             name="family"

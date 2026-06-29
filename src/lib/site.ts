@@ -5,3 +5,6 @@ export const SITE_URL = "https://www.cortinatgesesteba.com";
 export const SITE_NAME = "Cortinatges Esteba";
 export const DEFAULT_OG_IMAGE = "/images/tradicional_8.jpg";
 export const CONTACT_EMAIL = "info@cortinatgesesteba.com";
+
+// Feature flag: secció de mantes oculta de tota la UI (dades i rutes intactes).
+export const SHOW_MANTES = false;

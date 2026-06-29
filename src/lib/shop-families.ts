@@ -4,6 +4,7 @@
 import {
   CATIFES,
   CATIFA_FAMILIES,
+  VISIBLE_CATIFA_FAMILIES,
   catifaEscena,
   type CatifaFamilia,
 } from "@/lib/catifes";
@@ -15,7 +16,7 @@ import {
 } from "@/lib/mobiliari";
 
 // Re-exportar per als consumidors del hub (evita imports multiples).
-export { CATIFA_FAMILIES };
+export { CATIFA_FAMILIES, VISIBLE_CATIFA_FAMILIES };
 
 /**
  * Categories de moble destacades al hub /botiga.

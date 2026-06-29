@@ -4,7 +4,9 @@ import { notFound } from "next/navigation";
 import { getTranslations, getLocale } from "next-intl/server";
 import {
   CATIFES,
-  CATIFA_SLUGS,
+  VISIBLE_CATIFES,
+  VISIBLE_CATIFA_SLUGS,
+  HIDDEN_CATIFA_FAMILIES,
   getCatifa,
   catifaImage,
   catifaEscena,
@@ -29,7 +31,7 @@ type Props = {
 };
 
 export function generateStaticParams() {
-  return CATIFA_SLUGS.map((slug) => ({ slug }));
+  return VISIBLE_CATIFA_SLUGS.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -65,6 +67,7 @@ export default async function CatifaPage({ params }: Props) {
   const { slug } = await params;
   const catifa = getCatifa(slug);
   if (!catifa) notFound();
+  if (HIDDEN_CATIFA_FAMILIES.has(catifa.familia)) notFound();
 
   const t = await getTranslations("Catifes");
   const ts = await getTranslations("Shop");
@@ -99,10 +102,10 @@ export default async function CatifaPage({ params }: Props) {
   // Carrusels de relacionades: "Combina'l amb" (mateixa família) i "Et pot
   // interessar" (altres famílies). Només catifes amb preu, perquè KaveProductCard
   // (via ProductCarousel) exigeix un pvp numèric; mai mostrem un preu fals.
-  const combina = CATIFES.filter(
+  const combina = VISIBLE_CATIFES.filter(
     (c) => c.slug !== slug && c.familia === catifa.familia && c.pvpDesde !== null,
   ).slice(0, 8);
-  const interessar = CATIFES.filter(
+  const interessar = VISIBLE_CATIFES.filter(
     (c) => c.slug !== slug && c.familia !== catifa.familia && c.pvpDesde !== null,
   ).slice(0, 8);
   const toItem = (c: (typeof CATIFES)[number]) => ({

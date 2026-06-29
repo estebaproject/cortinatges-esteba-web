@@ -143,6 +143,22 @@ export const CATIFA_FAMILIES: CatifaFamilia[] = [
   "bath_collection",
 ];
 
+/** Famílies amagades de la UI (dades intactes). Flag únic per ocultar. */
+export const HIDDEN_CATIFA_FAMILIES = new Set<CatifaFamilia>(["kids_collection"]);
+
+/** Catifes visibles a la botiga (exclou famílies amagades). */
+export const VISIBLE_CATIFES: Catifa[] = CATIFES.filter(
+  (c) => !HIDDEN_CATIFA_FAMILIES.has(c.familia),
+);
+
+/** Slugs visibles (per a generateStaticParams). */
+export const VISIBLE_CATIFA_SLUGS = VISIBLE_CATIFES.map((c) => c.slug);
+
+/** Famílies visibles a la UI (ordre estable, exclou amagades). */
+export const VISIBLE_CATIFA_FAMILIES: CatifaFamilia[] = CATIFA_FAMILIES.filter(
+  (f) => !HIDDEN_CATIFA_FAMILIES.has(f),
+);
+
 export function getCatifa(slug: string): Catifa | undefined {
   return CATIFES.find((c) => c.slug === slug);
 }

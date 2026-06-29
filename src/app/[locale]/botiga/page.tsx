@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, SHOW_MANTES } from "@/lib/site";
 import { formatEur } from "@/lib/discount";
 import {
   MOBLE_CATS,
@@ -10,7 +10,7 @@ import {
   mobleImageForCat,
 } from "@/lib/mobiliari";
 import {
-  CATIFA_FAMILIES,
+  VISIBLE_CATIFA_FAMILIES,
   countCatifaByFamilia,
   firstCatifaImageForFamilia,
 } from "@/lib/shop-families";
@@ -121,7 +121,7 @@ export default async function BotigaPage({ params }: Props) {
   }));
 
   // --- Catifes: tiles per família ---
-  const catifaTiles: Tile[] = CATIFA_FAMILIES.filter((f) => countCatifaByFamilia(f) > 0).map((fam) => ({
+  const catifaTiles: Tile[] = VISIBLE_CATIFA_FAMILIES.filter((f) => countCatifaByFamilia(f) > 0).map((fam) => ({
     key: `catifa-${fam}`,
     label: tCatifes(`families.${fam}` as Parameters<typeof tCatifes>[0]),
     sub: count(countCatifaByFamilia(fam)),
@@ -131,14 +131,16 @@ export default async function BotigaPage({ params }: Props) {
   }));
 
   // --- Mantes: tiles de productes destacats amb preu ---
-  const mantaTiles: Tile[] = MANTES.slice(0, 4).map((m) => ({
-    key: `manta-${m.slug}`,
-    label: m.nom,
-    sub: `${tMantes("fromPrice")} ${formatEur(m.pvp, locale)}`,
-    image: mantaImage(m.slug),
-    href: `${prefix}/mantes/${m.slug}`,
-    fit: "cover",
-  }));
+  const mantaTiles: Tile[] = SHOW_MANTES
+    ? MANTES.slice(0, 4).map((m) => ({
+        key: `manta-${m.slug}`,
+        label: m.nom,
+        sub: `${tMantes("fromPrice")} ${formatEur(m.pvp, locale)}`,
+        image: mantaImage(m.slug),
+        href: `${prefix}/mantes/${m.slug}`,
+        fit: "cover" as const,
+      }))
+    : [];
 
   const sections = [
     { key: "mobles", title: t("moblesTitle"), href: `${prefix}/mobiliari`, tiles: mobleTiles },
