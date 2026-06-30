@@ -21,6 +21,7 @@ import {
   formatMidaLabel,
 } from "@/lib/catifes-detall";
 import { formatEur } from "@/lib/discount";
+import { productSku } from "@/lib/sku";
 import CatifaPurchasePanel from "@/components/catifes/CatifaPurchasePanel";
 import ProductGallery from "@/components/shop/ProductGallery";
 import KaveAboutProduct, { type AboutSection } from "@/components/shop/KaveAboutProduct";
@@ -119,6 +120,9 @@ export default async function CatifaPage({ params }: Props) {
     fit: "cover" as const,
   });
 
+  // SKU propi DERIVAT (no desat): prefix de catàleg + slug. Vegeu src/lib/sku.ts.
+  const sku = productSku("catifa", slug);
+
   // Bloc "Sobre el producte": bullets + seccions desplegables (slide-over).
   const aboutIntro: string[] = [
     `${familyLabel(catifa.familia)} · ${catifa.marca}`,
@@ -146,6 +150,7 @@ export default async function CatifaPage({ params }: Props) {
       rows: [
         { label: ts("category"), value: familyLabel(catifa.familia) },
         { label: t("madeBy"), value: catifa.marca },
+        { label: ts("reference"), value: sku },
       ],
     },
   ].filter(Boolean) as AboutSection[];
@@ -158,6 +163,9 @@ export default async function CatifaPage({ params }: Props) {
     name: catifa.nom,
     image: `${SITE_URL}${productImage}`,
     category: "Catifes a mida",
+    sku,
+    // mpn = referència del proveïdor quan existeixi (de moment buida).
+    ...(catifa.supplierRef ? { mpn: catifa.supplierRef } : {}),
     brand: { "@type": "Brand", name: catifa.marca },
     manufacturer: { "@type": "Organization", name: catifa.marca },
     // offers: rang real de preus de totes les mesures (AggregateOffer) quan

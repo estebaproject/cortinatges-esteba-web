@@ -18,6 +18,7 @@
 //     server-side; ara el `consentiment` és el snapshot client-side).
 
 import { getSupabase } from "@/lib/supabase";
+import { skuFromCartLine } from "@/lib/sku";
 
 /** Estat inicial de tota comanda online: registrada, pendent de pagament. */
 const INITIAL_ESTAT = "pendent_pagament";
@@ -31,6 +32,12 @@ export type OrderLineInput = {
   /** PVP unitari, IVA inclòs (€). MAI cost intern. */
   pvp: number;
   qty: number;
+  /**
+   * Ruta relativa de la fitxa ("/catifes/adore"), tal com la porta la línia del
+   * cistell. Serveix per DERIVAR el SKU de variant (catàleg + slug base) sense
+   * cap canvi de forma persistida. Opcional: cistells antics no la tenen.
+   */
+  href?: string;
 };
 
 /** Dades del client recollides al formulari de checkout. */
@@ -142,7 +149,9 @@ export async function persistOrder(
       comanda_id: id,
       producte_slug: l.slug,
       nom: l.nom,
-      variant: null,
+      // SKU de variant DERIVAT (href + slug compost). Si no es pot inferir el
+      // catàleg (cistell antic sense href), queda null com fins ara.
+      variant: skuFromCartLine(l.href, l.slug),
       pvp_unitari: l.pvp,
       qty: l.qty,
       import: l.pvp * l.qty,

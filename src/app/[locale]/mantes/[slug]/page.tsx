@@ -15,6 +15,7 @@ import {
   formatMantaMidaLabel,
 } from "@/lib/mantes-detall";
 import { formatEur } from "@/lib/discount";
+import { productSku } from "@/lib/sku";
 import MantaPurchasePanel from "@/components/mantes/MantaPurchasePanel";
 import KaveAboutProduct, { type AboutSection } from "@/components/shop/KaveAboutProduct";
 import ProductCarousel from "@/components/shop/ProductCarousel";
@@ -91,6 +92,9 @@ export default async function MantaPage({ params }: Props) {
     fit: "cover" as const,
   });
 
+  // SKU propi DERIVAT (no desat): prefix de catàleg + slug. Vegeu src/lib/sku.ts.
+  const sku = productSku("manta", slug);
+
   // Bloc "Sobre el producte": bullets + seccions desplegables (slide-over).
   const aboutIntro: string[] = [
     `${t("eyebrow")} · ${manta.marca}`,
@@ -115,7 +119,10 @@ export default async function MantaPage({ params }: Props) {
     {
       id: "more",
       title: ts("accMoreDetails"),
-      rows: [{ label: t("madeBy"), value: manta.marca }],
+      rows: [
+        { label: t("madeBy"), value: manta.marca },
+        { label: ts("reference"), value: sku },
+      ],
     },
   ].filter(Boolean) as AboutSection[];
 
@@ -127,6 +134,9 @@ export default async function MantaPage({ params }: Props) {
     name: manta.nom,
     image: `${SITE_URL}${image}`,
     category: "Mantes",
+    sku,
+    // mpn = referència del proveïdor quan existeixi (de moment buida).
+    ...(manta.supplierRef ? { mpn: manta.supplierRef } : {}),
     brand: { "@type": "Brand", name: manta.marca },
     manufacturer: { "@type": "Organization", name: manta.marca },
     // offers: AggregateOffer amb el rang real quan tenim detall amb mes d'una

@@ -11,6 +11,7 @@ import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { useCart } from "./CartProvider";
 import { whatsappUrl } from "@/lib/whatsapp";
+import { skuFromCartLine } from "@/lib/sku";
 
 export default function CartView() {
   const t = useTranslations("Cart");
@@ -29,7 +30,14 @@ export default function CartView() {
   // Només dades públiques (nom, quantitat, PVP amb IVA). MAI cost intern.
   const cartWhatsappUrl = () => {
     const items = lines
-      .map((line) => `• ${line.nom} ×${line.qty} — ${fmtPrice(line.pvp * line.qty)}`)
+      .map((line) => {
+        // SKU DERIVAT de la línia (href + slug compost). El propietari pot
+        // identificar exactament la variant demanada. Pot ser null en cistells
+        // antics sense href: en aquest cas no l'afegim.
+        const sku = skuFromCartLine(line.href, line.slug);
+        const ref = sku ? ` [${sku}]` : "";
+        return `• ${line.nom}${ref} ×${line.qty} — ${fmtPrice(line.pvp * line.qty)}`;
+      })
       .join("\n");
     const message = `${t("waIntro")}\n\n${items}\n\n${t("subtotal")}: ${fmtPrice(subtotal)}`;
     return whatsappUrl(message);
@@ -70,6 +78,9 @@ export default function CartView() {
       <ul className="border-t border-linen divide-y divide-linen" role="list">
         {lines.map((line) => {
           const lineTotal = line.pvp * line.qty;
+          // SKU DERIVAT (no desat) per identificar la variant. Pot ser null en
+          // cistells antics sense href; en aquest cas no es mostra.
+          const sku = skuFromCartLine(line.href, line.slug);
           // Enllaç a la fitxa: ruta relativa (sense prefix) desada a la línia,
           // amb prefix de locale. Si falta (cistells antics), degradem sense
           // enllaç per no portar a una ruta trencada.
@@ -117,6 +128,11 @@ export default function CartView() {
                   <span className="font-serif text-body-lg text-ink">
                     {line.nom}
                   </span>
+                )}
+                {sku && (
+                  <p className="font-sans text-body-sm text-ink-faint mt-0.5 tabular-nums">
+                    {sku}
+                  </p>
                 )}
                 <p className="font-sans text-body-sm text-ink-muted mt-1">
                   {fmtPrice(line.pvp)}

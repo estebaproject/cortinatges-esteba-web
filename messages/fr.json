@@ -628,6 +628,7 @@
     "accDelivery": "Livraison",
     "quantity": "Quantité",
     "deliveryFast": "Livraison à domicile",
-    "category": "Catégorie"
+    "category": "Catégorie",
+    "reference": "Référence"
   }
 }

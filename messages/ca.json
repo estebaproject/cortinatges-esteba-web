@@ -628,6 +628,7 @@
     "accDelivery": "Lliurament",
     "quantity": "Quantitat",
     "deliveryFast": "Lliurament a domicili",
-    "category": "Categoria"
+    "category": "Categoria",
+    "reference": "Referència"
   }
 }

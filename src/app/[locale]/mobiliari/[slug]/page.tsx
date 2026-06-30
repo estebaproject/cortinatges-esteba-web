@@ -18,6 +18,7 @@ import {
 } from "@/lib/mobiliari-detall";
 import { getMobleSpec, type SpecLocale } from "@/lib/mobiliari-specs";
 import { formatEur } from "@/lib/discount";
+import { productSku } from "@/lib/sku";
 import MoblePurchasePanel from "@/components/mobiliari/MoblePurchasePanel";
 import KaveAboutProduct, { type AboutSection } from "@/components/shop/KaveAboutProduct";
 import ProductCarousel from "@/components/shop/ProductCarousel";
@@ -104,6 +105,9 @@ export default async function MoblePage({ params }: Props) {
   // object-fit de la foto principal (cover per a escenes; contain per a retalls).
   const imgFit = mobleImgFit(moble.slug);
 
+  // SKU propi DERIVAT (no desat): prefix de catàleg + slug. Vegeu src/lib/sku.ts.
+  const sku = productSku("moble", slug);
+
   // Bloc "Sobre el producte": bullets + seccions desplegables (slide-over).
   const aboutIntro: string[] = [
     `${catLabel(moble.cat)} · ${moble.marca}`,
@@ -137,6 +141,7 @@ export default async function MoblePage({ params }: Props) {
       rows: [
         { label: t("typeLabel"), value: catLabel(moble.cat) },
         { label: t("madeBy"), value: moble.marca },
+        { label: ts("reference"), value: sku },
       ],
     },
   ].filter(Boolean) as AboutSection[];
@@ -149,6 +154,9 @@ export default async function MoblePage({ params }: Props) {
     name: moble.nom,
     image: `${SITE_URL}${image}`,
     category: "Mobiliari",
+    sku,
+    // mpn = referència del proveïdor quan existeixi (de moment buida).
+    ...(moble.supplierRef ? { mpn: moble.supplierRef } : {}),
     brand: { "@type": "Brand", name: moble.marca },
     manufacturer: { "@type": "Organization", name: moble.marca },
     // offers: rang real de preus de totes les variants (AggregateOffer) quan

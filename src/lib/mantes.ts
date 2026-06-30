@@ -21,6 +21,12 @@ export type Manta = {
   nMides: number;
   /** Co-marca / fabricant. */
   marca: "Salgueiro Home";
+  /**
+   * Referència del proveïdor (codi de catàleg del fabricant). OPCIONAL i de
+   * moment buida: els catàlegs de proveïdor no porten codi per producte. Quan
+   * existeixi, alimenta el `mpn` del JSON-LD. El SKU propi es DERIVA (src/lib/sku.ts).
+   */
+  supplierRef?: string;
 };
 
 // Dades base (sense la marca, que és constant i s'afegeix al map de sota).

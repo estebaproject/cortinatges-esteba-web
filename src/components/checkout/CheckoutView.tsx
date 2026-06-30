@@ -123,6 +123,7 @@ export default function CheckoutView() {
       nom: l.nom,
       pvp: l.pvp, // PVP públic, IVA inclòs. MAI cost.
       qty: l.qty,
+      href: l.href, // per DERIVAR el SKU de variant a persistOrder.
     }));
 
     // Captura del consentiment (client-side; IP + prova servidor-side pendents).
