@@ -20,7 +20,7 @@ export type Manta = {
   /** Nombre de mides disponibles per encàrrec. */
   nMides: number;
   /** Co-marca / fabricant. */
-  marca: "Salgueiro Home";
+  marca: "Cortinatges Esteba";
   /**
    * Referència del proveïdor (codi de catàleg del fabricant). OPCIONAL i de
    * moment buida: els catàlegs de proveïdor no porten codi per producte. Quan
@@ -48,7 +48,7 @@ const SEED: MantaSeed[] = [
 
 export const MANTES: Manta[] = SEED.map((m) => ({
   ...m,
-  marca: "Salgueiro Home" as const,
+  marca: "Cortinatges Esteba" as const,
 }));
 
 export const MANTA_SLUGS = MANTES.map((m) => m.slug);

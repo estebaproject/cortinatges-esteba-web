@@ -22,7 +22,7 @@ export type Moble = {
    */
   pvpAbans?: number;
   /** Co-marca / fabricant. */
-  marca: "Salgueiro Home";
+  marca: "Cortinatges Esteba";
   /**
    * Referència del proveïdor (codi de catàleg del fabricant). OPCIONAL i de
    * moment buida: els catàlegs de proveïdor no porten codi per producte. Quan
@@ -93,7 +93,7 @@ const SEED: MobleSeed[] = [
 
 export const MOBLES: Moble[] = SEED.map((m) => ({
   ...m,
-  marca: "Salgueiro Home" as const,
+  marca: "Cortinatges Esteba" as const,
 }));
 
 export const MOBLE_SLUGS = MOBLES.map((m) => m.slug);

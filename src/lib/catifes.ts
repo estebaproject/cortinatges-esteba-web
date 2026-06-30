@@ -33,7 +33,7 @@ export type Catifa = {
   /** Nombre de mesures disponibles per encàrrec. */
   nMedides: number;
   /** Co-marca / fabricant. */
-  marca: "Salgueiro Home";
+  marca: "Cortinatges Esteba";
   /**
    * Referència del proveïdor (codi de catàleg del fabricant). OPCIONAL i de
    * moment buida: els catàlegs de proveïdor no porten codi per producte. Quan
@@ -136,7 +136,7 @@ const SEED: CatifaSeed[] = [
 
 export const CATIFES: Catifa[] = SEED.map((c) => ({
   ...c,
-  marca: "Salgueiro Home" as const,
+  marca: "Cortinatges Esteba" as const,
 }));
 
 export const CATIFA_SLUGS = CATIFES.map((c) => c.slug);
