@@ -39,7 +39,7 @@ const config: Config = {
         "kave-faint": "#9A968C",    // text terciari / desactivat
         "kave-line": "#E2DFD8",     // hairlines i vores
         "kave-red": "#C8102E",      // preu rebaixat (vermell)
-        "kave-tag": "#8C6B2E",      // accent daurat (or vell) — abans terracota
+        "kave-tag": "#C2A468",      // accent (daurat beix clar)
       },
       fontFamily: {
         serif: ["var(--font-archivo-narrow)", "Archivo Narrow", "sans-serif"],

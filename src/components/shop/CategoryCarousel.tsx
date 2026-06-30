@@ -49,8 +49,10 @@ export default function CategoryCarousel({
               </div>
               <span
                 className={clsx(
-                  "mt-2 block text-sm font-grotesque transition-colors",
-                  it.active ? "text-kave-tag font-medium" : "text-kave-ink group-hover:text-kave-tag",
+                  "mt-2 block text-sm font-grotesque underline-offset-4 transition-colors",
+                  it.active
+                    ? "text-kave-ink font-medium underline decoration-2 decoration-kave-tag"
+                    : "text-kave-ink group-hover:underline group-hover:decoration-kave-tag",
                 )}
               >
                 {it.label}

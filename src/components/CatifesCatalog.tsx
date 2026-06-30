@@ -305,7 +305,7 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
         <button
           type="button"
           onClick={clearAll}
-          className="text-sm text-kave-ink underline underline-offset-4 hover:text-kave-tag transition-colors"
+          className="text-sm text-kave-ink underline underline-offset-4 decoration-kave-tag hover:decoration-2 transition-all"
         >
           {tf("clear")}
         </button>
@@ -344,7 +344,7 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
         <button
           type="button"
           onClick={() => setDrawerOpen(true)}
-          className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-kave-ink hover:text-kave-tag transition-colors"
+          className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-kave-ink hover:underline hover:decoration-kave-tag underline-offset-4"
           aria-haspopup="dialog"
           aria-expanded={drawerOpen}
         >
@@ -429,7 +429,7 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
           <button
             type="button"
             onClick={clearAll}
-            className="text-sm text-kave-ink underline underline-offset-4 hover:text-kave-tag transition-colors ml-1"
+            className="text-sm text-kave-ink underline underline-offset-4 decoration-kave-tag hover:decoration-2 transition-all ml-1"
           >
             {tf("clear")}
           </button>
@@ -461,7 +461,7 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
           <button
             type="button"
             onClick={clearAll}
-            className="text-sm text-kave-ink underline underline-offset-4 hover:text-kave-tag transition-colors"
+            className="text-sm text-kave-ink underline underline-offset-4 decoration-kave-tag hover:decoration-2 transition-all"
           >
             {tf("clear")}
           </button>

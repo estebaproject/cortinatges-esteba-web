@@ -57,7 +57,7 @@ export default function KaveProductCard({
         />
 
         {onSale && (
-          <span className="absolute left-0 top-3 z-10 bg-kave-tag text-white text-[0.7rem] font-medium tracking-wide px-2.5 py-1">
+          <span className="absolute left-0 top-3 z-10 bg-kave-tag text-kave-ink text-[0.7rem] font-medium tracking-wide px-2.5 py-1">
             {t("saleTag")}
           </span>
         )}

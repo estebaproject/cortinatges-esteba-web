@@ -99,10 +99,10 @@ export default function ShopHeader() {
                     key={link.key}
                     href={link.href}
                     className={clsx(
-                      "text-[0.95rem] transition-colors",
+                      "text-[0.95rem] underline-offset-[6px] transition-colors",
                       isActive
-                        ? "text-kave-tag"
-                        : "text-kave-ink hover:text-kave-tag",
+                        ? "text-kave-ink font-medium underline decoration-2 decoration-kave-tag"
+                        : "text-kave-ink hover:underline hover:decoration-kave-tag",
                     )}
                   >
                     {link.label}
@@ -193,8 +193,10 @@ export default function ShopHeader() {
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
                   className={clsx(
-                    "py-2 text-base",
-                    section === link.key ? "text-kave-tag" : "text-kave-ink",
+                    "py-2 text-base underline-offset-4",
+                    section === link.key
+                      ? "text-kave-ink font-medium underline decoration-2 decoration-kave-tag"
+                      : "text-kave-ink",
                   )}
                 >
                   {link.label}

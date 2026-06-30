@@ -54,7 +54,7 @@ function SectionHeader({ id, title, href, verTot }: { id: string; title: string;
       <h2 id={id} className="font-display text-2xl md:text-3xl text-kave-ink">
         {title}
       </h2>
-      <Link href={href} className="inline-flex items-center gap-1 text-sm text-kave-ink hover:text-kave-tag transition-colors group">
+      <Link href={href} className="inline-flex items-center gap-1 text-sm text-kave-ink hover:underline hover:decoration-kave-tag underline-offset-4 transition-colors group">
         {verTot}
         <svg className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6} aria-hidden>
           <path strokeLinecap="round" strokeLinejoin="round" d="m9 5 7 7-7 7" />
@@ -79,7 +79,7 @@ function TileRow({ tiles }: { tiles: Tile[] }) {
                 className={`${tl.fit === "cover" ? "object-cover" : "object-contain p-4"} transition-transform duration-500 group-hover:scale-[1.03]`}
               />
             </div>
-            <p className="mt-3 text-[0.95rem] font-semibold text-kave-ink group-hover:text-kave-tag transition-colors">
+            <p className="mt-3 text-[0.95rem] font-semibold text-kave-ink group-hover:underline group-hover:decoration-kave-tag underline-offset-4 transition-colors">
               {tl.label}
             </p>
             {tl.sub && <p className="mt-0.5 text-sm text-kave-muted">{tl.sub}</p>}

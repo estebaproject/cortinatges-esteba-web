@@ -211,7 +211,7 @@ export default function MantaPurchasePanel({
       <p
         role="status"
         aria-live="polite"
-        className={`mt-3 text-sm text-kave-tag transition-opacity ${added ? "opacity-100" : "opacity-0"}`}
+        className={`mt-3 text-sm text-kave-ink transition-opacity ${added ? "opacity-100" : "opacity-0"}`}
       >
         {added ? tCart("added") : " "}
       </p>
