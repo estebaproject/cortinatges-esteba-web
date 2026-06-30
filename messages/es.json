@@ -366,7 +366,7 @@
     }
   },
   "Catifes": {
-    "metaTitle": "Alfombras a medida — Cortinatges Esteba | Costa Brava",
+    "metaTitle": "Alfombras a medida | Costa Brava",
     "metaDescription": "Alfombras por encargo fabricadas en el taller de Cortinatges Esteba desde 1961. Diseño, medidas a medida y asesoramiento en las tiendas de Girona, Blanes y Palamós.",
     "eyebrow": "Alfombras",
     "headline": "Alfombras que visten el suelo.",
@@ -391,7 +391,7 @@
     "ctaBlockBody": "Pide presupuesto sin compromiso. Cuidaremos la medida, el color y la colocación."
   },
   "Mobiliari": {
-    "metaTitle": "Muebles — Cortinatges Esteba | Costa Brava",
+    "metaTitle": "Muebles | Costa Brava",
     "metaDescription": "Mobiliario por encargo fabricado en el taller de Cortinatges Esteba desde 1961. Sillas, sillones, pufs y muebles, con asesoramiento en las tiendas de Girona, Blanes y Palamós.",
     "eyebrow": "Muebles",
     "headline": "Muebles que componen la casa.",
@@ -419,7 +419,7 @@
     }
   },
   "Botiga": {
-    "metaTitle": "Tienda ESTEBA — Alfombras y muebles | Cortinatges Esteba",
+    "metaTitle": "Tienda ESTEBA — Alfombras y muebles",
     "metaDescription": "La tienda online de Cortinatges Esteba: alfombras a medida y mobiliario por encargo fabricados en nuestro taller, desde 1961.",
     "eyebrow": "Tienda ESTEBA",
     "headline": "Tienda",
@@ -442,7 +442,7 @@
     }
   },
   "Cart": {
-    "metaTitle": "Mi cesta — Cortinatges Esteba",
+    "metaTitle": "Mi cesta",
     "metaDescription": "Revisa los productos de tu cesta antes de tramitar el pedido.",
     "eyebrow": "Tienda ESTEBA",
     "title": "Mi cesta",
@@ -514,7 +514,7 @@
     "color": "Color"
   },
   "Mantes": {
-    "metaTitle": "Mantas — Cortinatges Esteba | Costa Brava",
+    "metaTitle": "Mantas | Costa Brava",
     "metaDescription": "Mantas y plaids fabricados en el taller de Cortinatges Esteba desde 1961. Decoración textil por encargo, con asesoramiento en las tiendas de Girona, Blanes y Palamós.",
     "eyebrow": "Mantas",
     "headline": "Mantas que abrigan la casa.",
@@ -538,7 +538,7 @@
     "addToCart": "Añadir a la cesta"
   },
   "Checkout": {
-    "metaTitle": "Finalizar compra — Cortinatges Esteba",
+    "metaTitle": "Finalizar compra",
     "metaDescription": "Revisa tu pedido, introduce los datos de envío y finaliza la compra.",
     "eyebrow": "Tienda ESTEBA",
     "title": "Finalizar compra",
@@ -580,7 +580,7 @@
     "paymentStubNote": "El pago en línea aún no está activo. Al finalizar, tu pedido quedará registrado y nos pondremos en contacto para completarlo.",
     "orderError": "No hemos podido registrar tu pedido. Vuelve a intentarlo en unos minutos; si el problema persiste, contacta con nosotros.",
     "backToCart": "Volver a la cesta",
-    "confMetaTitle": "Pedido registrado — Cortinatges Esteba",
+    "confMetaTitle": "Pedido registrado",
     "confMetaDescription": "Tu pedido ha quedado registrado.",
     "confPageTitle": "Pedido registrado",
     "confLoading": "Cargando…",

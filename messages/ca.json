@@ -366,7 +366,7 @@
     }
   },
   "Catifes": {
-    "metaTitle": "Catifes a mida — Cortinatges Esteba | Costa Brava",
+    "metaTitle": "Catifes a mida | Costa Brava",
     "metaDescription": "Catifes per encàrrec fabricades al taller de Cortinatges Esteba des de 1961. Disseny, mesures a mida i assessorament a les botigues de Girona, Blanes i Palamós.",
     "eyebrow": "Catifes",
     "headline": "Catifes que vesteixen el terra.",
@@ -391,7 +391,7 @@
     "ctaBlockBody": "Demana pressupost sense compromís. Tindrem cura de la mesura, el color i la col·locació."
   },
   "Mobiliari": {
-    "metaTitle": "Mobles — Cortinatges Esteba | Costa Brava",
+    "metaTitle": "Mobles | Costa Brava",
     "metaDescription": "Mobiliari per encàrrec fabricat al taller de Cortinatges Esteba des de 1961. Cadires, butaques, poufs i mobles, amb assessorament a les botigues de Girona, Blanes i Palamós.",
     "eyebrow": "Mobles",
     "headline": "Mobles que componen la casa.",
@@ -419,7 +419,7 @@
     }
   },
   "Botiga": {
-    "metaTitle": "Botiga ESTEBA — Catifes i mobles | Cortinatges Esteba",
+    "metaTitle": "Botiga ESTEBA — Catifes i mobles",
     "metaDescription": "La botiga online de Cortinatges Esteba: catifes a mida i mobiliari per encàrrec fabricats al nostre taller, des de 1961.",
     "eyebrow": "Botiga ESTEBA",
     "headline": "Botiga",
@@ -442,7 +442,7 @@
     }
   },
   "Cart": {
-    "metaTitle": "El meu cistell — Cortinatges Esteba",
+    "metaTitle": "El meu cistell",
     "metaDescription": "Revisa els productes del teu cistell abans de tramitar la comanda.",
     "eyebrow": "Botiga ESTEBA",
     "title": "El meu cistell",
@@ -514,7 +514,7 @@
     "color": "Color"
   },
   "Mantes": {
-    "metaTitle": "Mantes — Cortinatges Esteba | Costa Brava",
+    "metaTitle": "Mantes | Costa Brava",
     "metaDescription": "Mantes i plaids fabricats al taller de Cortinatges Esteba des de 1961. Decoració tèxtil per encàrrec, amb assessorament a les botigues de Girona, Blanes i Palamós.",
     "eyebrow": "Mantes",
     "headline": "Mantes que abriguen la casa.",
@@ -538,7 +538,7 @@
     "addToCart": "Afegir a la cistella"
   },
   "Checkout": {
-    "metaTitle": "Finalitzar compra — Cortinatges Esteba",
+    "metaTitle": "Finalitzar compra",
     "metaDescription": "Revisa la teva comanda, introdueix les dades d'enviament i finalitza la compra.",
     "eyebrow": "Botiga ESTEBA",
     "title": "Finalitzar compra",
@@ -580,7 +580,7 @@
     "paymentStubNote": "El pagament en línia encara no està actiu. En finalitzar, la teva comanda quedarà registrada i ens posarem en contacte per completar-la.",
     "orderError": "No hem pogut registrar la teva comanda. Torna-ho a provar d'aquí una estona; si el problema continua, contacta amb nosaltres.",
     "backToCart": "Tornar al cistell",
-    "confMetaTitle": "Comanda registrada — Cortinatges Esteba",
+    "confMetaTitle": "Comanda registrada",
     "confMetaDescription": "La teva comanda ha quedat registrada.",
     "confPageTitle": "Comanda registrada",
     "confLoading": "Carregant…",

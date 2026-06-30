@@ -366,7 +366,7 @@
     }
   },
   "Catifes": {
-    "metaTitle": "Made-to-measure rugs — Cortinatges Esteba | Costa Brava",
+    "metaTitle": "Made-to-measure rugs | Costa Brava",
     "metaDescription": "Made-to-order rugs manufactured at the Cortinatges Esteba workshop since 1961. Design, custom sizes and advice at our stores in Girona, Blanes and Palamós.",
     "eyebrow": "Rugs",
     "headline": "Rugs that dress the floor.",
@@ -391,7 +391,7 @@
     "ctaBlockBody": "Request a quote with no commitment. We will take care of the size, the colour and the placement."
   },
   "Mobiliari": {
-    "metaTitle": "Furniture — Cortinatges Esteba | Costa Brava",
+    "metaTitle": "Furniture | Costa Brava",
     "metaDescription": "Made-to-order furniture manufactured at the Cortinatges Esteba workshop since 1961. Chairs, armchairs, poufs and furniture, with advice at our stores in Girona, Blanes and Palamós.",
     "eyebrow": "Furniture",
     "headline": "Furniture that composes the home.",
@@ -419,7 +419,7 @@
     }
   },
   "Botiga": {
-    "metaTitle": "ESTEBA store — Rugs and furniture | Cortinatges Esteba",
+    "metaTitle": "ESTEBA store — Rugs and furniture",
     "metaDescription": "The Cortinatges Esteba online store: made-to-measure rugs and made-to-order furniture manufactured in our workshop, since 1961.",
     "eyebrow": "ESTEBA store",
     "headline": "Shop",
@@ -442,7 +442,7 @@
     }
   },
   "Cart": {
-    "metaTitle": "My cart — Cortinatges Esteba",
+    "metaTitle": "My cart",
     "metaDescription": "Review the products in your cart before placing your order.",
     "eyebrow": "ESTEBA store",
     "title": "My cart",
@@ -514,7 +514,7 @@
     "color": "Colour"
   },
   "Mantes": {
-    "metaTitle": "Blankets — Cortinatges Esteba | Costa Brava",
+    "metaTitle": "Blankets | Costa Brava",
     "metaDescription": "Blankets and throws manufactured at the Cortinatges Esteba workshop since 1961. Made-to-order textile decoration, with advice at our stores in Girona, Blanes and Palamós.",
     "eyebrow": "Blankets",
     "headline": "Blankets that warm the home.",
@@ -538,7 +538,7 @@
     "addToCart": "Add to cart"
   },
   "Checkout": {
-    "metaTitle": "Checkout — Cortinatges Esteba",
+    "metaTitle": "Checkout",
     "metaDescription": "Review your order, enter your shipping details and complete your purchase.",
     "eyebrow": "ESTEBA Store",
     "title": "Checkout",
@@ -580,7 +580,7 @@
     "paymentStubNote": "Online payment is not active yet. On completion, your order will be registered and we will contact you to finalise it.",
     "orderError": "We couldn't register your order. Please try again in a moment; if the problem persists, contact us.",
     "backToCart": "Back to cart",
-    "confMetaTitle": "Order registered — Cortinatges Esteba",
+    "confMetaTitle": "Order registered",
     "confMetaDescription": "Your order has been registered.",
     "confPageTitle": "Order registered",
     "confLoading": "Loading…",

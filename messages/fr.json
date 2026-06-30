@@ -366,7 +366,7 @@
     }
   },
   "Catifes": {
-    "metaTitle": "Tapis sur mesure — Cortinatges Esteba | Costa Brava",
+    "metaTitle": "Tapis sur mesure | Costa Brava",
     "metaDescription": "Tapis sur commande fabriqués à l’atelier de Cortinatges Esteba depuis 1961. Design, dimensions sur mesure et conseil dans nos boutiques de Girona, Blanes et Palamós.",
     "eyebrow": "Tapis",
     "headline": "Des tapis qui habillent le sol.",
@@ -391,7 +391,7 @@
     "ctaBlockBody": "Demandez un devis sans engagement. Nous prendrons soin de la dimension, de la couleur et de la pose."
   },
   "Mobiliari": {
-    "metaTitle": "Meubles — Cortinatges Esteba | Costa Brava",
+    "metaTitle": "Meubles | Costa Brava",
     "metaDescription": "Mobilier sur commande fabriqué à l'atelier de Cortinatges Esteba depuis 1961. Chaises, fauteuils, poufs et meubles, avec conseil dans nos boutiques de Girona, Blanes et Palamós.",
     "eyebrow": "Meubles",
     "headline": "Des meubles qui composent la maison.",
@@ -419,7 +419,7 @@
     }
   },
   "Botiga": {
-    "metaTitle": "Boutique ESTEBA — Tapis et meubles | Cortinatges Esteba",
+    "metaTitle": "Boutique ESTEBA — Tapis et meubles",
     "metaDescription": "La boutique en ligne de Cortinatges Esteba : tapis sur mesure et mobilier sur commande fabriqués dans notre atelier, depuis 1961.",
     "eyebrow": "Boutique ESTEBA",
     "headline": "Boutique",
@@ -442,7 +442,7 @@
     }
   },
   "Cart": {
-    "metaTitle": "Mon panier — Cortinatges Esteba",
+    "metaTitle": "Mon panier",
     "metaDescription": "Vérifiez les produits de votre panier avant de passer commande.",
     "eyebrow": "Boutique ESTEBA",
     "title": "Mon panier",
@@ -514,7 +514,7 @@
     "color": "Couleur"
   },
   "Mantes": {
-    "metaTitle": "Plaids — Cortinatges Esteba | Costa Brava",
+    "metaTitle": "Plaids | Costa Brava",
     "metaDescription": "Plaids et couvertures fabriqués à l'atelier de Cortinatges Esteba depuis 1961. Décoration textile sur commande, avec conseil dans nos boutiques de Girona, Blanes et Palamós.",
     "eyebrow": "Plaids",
     "headline": "Des plaids qui réchauffent la maison.",
@@ -538,7 +538,7 @@
     "addToCart": "Ajouter au panier"
   },
   "Checkout": {
-    "metaTitle": "Finaliser l’achat — Cortinatges Esteba",
+    "metaTitle": "Finaliser l’achat",
     "metaDescription": "Vérifiez votre commande, saisissez vos coordonnées de livraison et finalisez votre achat.",
     "eyebrow": "Boutique ESTEBA",
     "title": "Finaliser l’achat",
@@ -580,7 +580,7 @@
     "paymentStubNote": "Le paiement en ligne n’est pas encore actif. À la validation, votre commande sera enregistrée et nous vous contacterons pour la finaliser.",
     "orderError": "Nous n’avons pas pu enregistrer votre commande. Réessayez dans un instant ; si le problème persiste, contactez-nous.",
     "backToCart": "Retour au panier",
-    "confMetaTitle": "Commande enregistrée — Cortinatges Esteba",
+    "confMetaTitle": "Commande enregistrée",
     "confMetaDescription": "Votre commande a été enregistrée.",
     "confPageTitle": "Commande enregistrée",
     "confLoading": "Chargement…",
