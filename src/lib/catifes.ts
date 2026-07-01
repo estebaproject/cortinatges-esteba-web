@@ -169,6 +169,17 @@ export function getCatifa(slug: string): Catifa | undefined {
   return CATIFES.find((c) => c.slug === slug);
 }
 
+/**
+ * Famílies sota les quals una catifa és FILTRABLE (no la seva família primària
+ * de display). Les "in_out" (Exterior) són dual-use: resisteixen a fora però
+ * també van bé a dins, així que apareixen també sota "catalogo" (Interior). La
+ * resta només coincideix amb la seva pròpia família. La família primària
+ * (c.familia) segueix manant a la fitxa, el subtítol i el JSON-LD.
+ */
+export function catifaFilterFamilies(c: Catifa): CatifaFamilia[] {
+  return c.familia === "in_out" ? ["in_out", "catalogo"] : [c.familia];
+}
+
 /** Ruta del hero d'una catifa: "/images/catifes/{slug}/1.jpg". */
 // Catifes la foto d'escena de les quals és vertical/portrait amb la catifa al
 // capdavall: el retall quadrat (cover) les talla. Es veuen senceres amb contain.

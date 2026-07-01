@@ -6,6 +6,7 @@ import {
   CATIFA_FAMILIES,
   VISIBLE_CATIFA_FAMILIES,
   catifaEscena,
+  catifaFilterFamilies,
   type CatifaFamilia,
 } from "@/lib/catifes";
 import {
@@ -24,9 +25,13 @@ export { CATIFA_FAMILIES, VISIBLE_CATIFA_FAMILIES };
  */
 export const MOBLE_CAT_HUB: MobleCat[] = MOBLE_CATS;
 
-/** Nombre de catifes per família. */
+/**
+ * Nombre de catifes per família, coherent amb el filtre del catàleg: compta per
+ * família DE FILTRE (les "in_out"/Exterior també sumen a "catalogo"/Interior),
+ * així el comptador de la tile del hub quadra amb el que surt en clicar-la.
+ */
 export function countCatifaByFamilia(familia: CatifaFamilia): number {
-  return CATIFES.filter((c) => c.familia === familia).length;
+  return CATIFES.filter((c) => catifaFilterFamilies(c).includes(familia)).length;
 }
 
 /** Nombre de mobles per categoria. */

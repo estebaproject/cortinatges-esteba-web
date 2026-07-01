@@ -382,8 +382,8 @@
     "backToCatifes": "Todas las alfombras",
     "family": "Familia",
     "families": {
-      "catalogo": "Catálogo",
-      "in_out": "Interior · Exterior",
+      "catalogo": "Interior",
+      "in_out": "Exterior",
       "kids_collection": "Colección infantil",
       "bath_collection": "Baño"
     },

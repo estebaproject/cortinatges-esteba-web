@@ -382,8 +382,8 @@
     "backToCatifes": "All rugs",
     "family": "Collection",
     "families": {
-      "catalogo": "Catalogue",
-      "in_out": "Indoor · Outdoor",
+      "catalogo": "Indoor",
+      "in_out": "Outdoor",
       "kids_collection": "Kids collection",
       "bath_collection": "Bath"
     },

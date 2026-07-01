@@ -382,8 +382,8 @@
     "backToCatifes": "Totes les catifes",
     "family": "Família",
     "families": {
-      "catalogo": "Catàleg",
-      "in_out": "Interior · Exterior",
+      "catalogo": "Interior",
+      "in_out": "Exterior",
       "kids_collection": "Col·lecció infantil",
       "bath_collection": "Bany"
     },

@@ -70,7 +70,7 @@ function TileRow({ tiles }: { tiles: Tile[] }) {
       {tiles.map((tl) => (
         <li key={tl.key}>
           <Link href={tl.href} className="group block">
-            <div className="relative aspect-square overflow-hidden bg-kave-surface">
+            <div className="relative aspect-square overflow-hidden bg-white">
               <Image
                 src={tl.image}
                 alt={tl.label}

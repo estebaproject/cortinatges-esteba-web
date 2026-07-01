@@ -16,6 +16,7 @@ import clsx from "clsx";
 import {
   VISIBLE_CATIFA_FAMILIES,
   catifaEscena,
+  catifaFilterFamilies,
   catifaImgFit,
   type Catifa,
   type CatifaFamilia,
@@ -126,7 +127,12 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
     const q = query.trim().toLowerCase();
     const result = catifes.filter((c) => {
       if (q && !c.nom.toLowerCase().includes(q)) return false;
-      if (selectedFamilies.length > 0 && !selectedFamilies.includes(c.familia))
+      // Match per família DE FILTRE: les "in_out" (Exterior) també surten sota
+      // "catalogo" (Interior) perquè són dual-use. Vegeu catifaFilterFamilies.
+      if (
+        selectedFamilies.length > 0 &&
+        !catifaFilterFamilies(c).some((f) => selectedFamilies.includes(f))
+      )
         return false;
       if (minMeasures && c.nMedides < MEASURES_THRESHOLD) return false;
       // Rebaixa real (només catifes amb preu i pvpAbans > pvpDesde).

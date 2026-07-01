@@ -46,7 +46,7 @@ export default function KaveProductCard({
 
   return (
     <Link href={href} className="group block font-grotesque">
-      <div className="relative aspect-square overflow-hidden bg-kave-surface">
+      <div className="relative aspect-square overflow-hidden bg-white">
         <Image
           src={image}
           alt={title}

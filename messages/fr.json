@@ -382,8 +382,8 @@
     "backToCatifes": "Tous les tapis",
     "family": "Collection",
     "families": {
-      "catalogo": "Catalogue",
-      "in_out": "Intérieur · Extérieur",
+      "catalogo": "Intérieur",
+      "in_out": "Extérieur",
       "kids_collection": "Collection enfant",
       "bath_collection": "Bain"
     },

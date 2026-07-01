@@ -51,8 +51,8 @@ const TYPE_TERMS: Record<ShopItemType, string[]> = {
 };
 
 const CATIFA_FAMILY_TERMS: Record<string, string[]> = {
-  catalogo: ["cataleg", "catalogo", "catalogue"],
-  in_out: ["interior", "exterior", "indoor", "outdoor", "interieur", "exterieur"],
+  catalogo: ["interior", "interieur", "indoor", "cataleg", "catalogo", "catalogue"],
+  in_out: ["exterior", "exterieur", "outdoor", "in out", "in&out"],
   bath_collection: ["bany", "bano", "bain", "bath"],
   kids_collection: ["infantil", "kids", "enfant"],
 };
