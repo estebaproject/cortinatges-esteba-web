@@ -9,6 +9,7 @@
 import { useTranslations } from "next-intl";
 import KaveProductCard from "@/components/shop/KaveProductCard";
 import CatifaCard from "@/components/catifes/CatifaCard";
+import { getMobleColors } from "@/lib/mobiliari-colors";
 import type { ShopItem } from "@/lib/shop-search";
 
 export default function ShopResultsGrid({
@@ -64,6 +65,7 @@ export default function ShopResultsGrid({
               pricePrefix={pricePrefixFor(it)}
               showSale={showSale}
               fit={it.fit}
+              colors={it.type === "moble" ? getMobleColors(it.slug).map((c) => c.image) : undefined}
             />
           )}
         </li>

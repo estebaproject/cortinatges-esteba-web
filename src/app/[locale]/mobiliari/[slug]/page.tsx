@@ -109,6 +109,7 @@ export default async function MoblePage({ params }: Props) {
     pvpAbans: m.pvpAbans,
     pricePrefix: m.cat === "moble" ? t("fromPrice") : undefined,
     fit: mobleImgFit(m.slug),
+    colors: getMobleColors(m.slug).map((c) => c.image),
   });
 
   // object-fit de la foto principal (cover per a escenes; contain per a retalls).

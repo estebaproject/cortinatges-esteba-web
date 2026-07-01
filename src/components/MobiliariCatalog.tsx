@@ -23,6 +23,7 @@ import {
   type MobleCat,
 } from "@/lib/mobiliari";
 import { isOnSale } from "@/lib/discount";
+import { getMobleColors } from "@/lib/mobiliari-colors";
 import KaveProductCard from "@/components/shop/KaveProductCard";
 import CategoryCarousel from "@/components/shop/CategoryCarousel";
 
@@ -376,6 +377,7 @@ export default function MobiliariCatalog({ mobles, prefix, locale }: Props) {
                 pvpAbans={m.pvpAbans}
                 pricePrefix={m.cat === "moble" ? t("fromPrice") : undefined}
                 fit={mobleImgFit(m.slug)}
+                colors={getMobleColors(m.slug).map((c) => c.image)}
               />
             </li>
           ))}

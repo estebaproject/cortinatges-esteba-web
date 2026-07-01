@@ -33,6 +33,8 @@ export type KaveProductCardProps = {
   fit?: "contain" | "cover";
   priority?: boolean;
   sizes?: string;
+  /** Rutes de foto de cada color disponible; pinta mostres rodones a la card. */
+  colors?: string[];
 };
 
 export default function KaveProductCard({
@@ -47,6 +49,7 @@ export default function KaveProductCard({
   fit = "contain",
   priority,
   sizes,
+  colors,
 }: KaveProductCardProps) {
   const t = useTranslations("Shop");
   const locale = useLocale();
@@ -102,6 +105,24 @@ export default function KaveProductCard({
           </span>
         )}
       </div>
+
+      {/* Mostres de color disponibles (fins a 5 + "+N"). Decoratives: la tria
+          real es fa a la fitxa. */}
+      {colors && colors.length > 0 && (
+        <div className="mt-2 flex items-center gap-1.5" aria-hidden>
+          {colors.slice(0, 5).map((img, i) => (
+            <span
+              key={`${img}-${i}`}
+              className="relative h-4 w-4 overflow-hidden rounded-full ring-1 ring-kave-line"
+            >
+              <Image src={img} alt="" fill sizes="16px" className="object-cover" />
+            </span>
+          ))}
+          {colors.length > 5 && (
+            <span className="text-[0.72rem] text-kave-muted">+{colors.length - 5}</span>
+          )}
+        </div>
+      )}
 
       <span className="mt-1.5 inline-flex items-center gap-1.5 text-[0.78rem] text-kave-muted">
         <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6} aria-hidden>
