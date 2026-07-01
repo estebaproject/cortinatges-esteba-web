@@ -7,7 +7,6 @@ import { routing } from "@/routing";
 import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE } from "@/lib/site";
 import SiteHeader from "@/components/shop/SiteHeader";
 import Footer from "@/components/Footer";
-import WhatsAppFloat from "@/components/WhatsAppFloat";
 import CookieBanner from "@/components/CookieBanner";
 import { CartProvider } from "@/components/cart/CartProvider";
 import "@/app/globals.css";
@@ -159,7 +158,6 @@ export default async function LocaleLayout({ children, params }: Props) {
             <SiteHeader />
             <main id="main-content">{children}</main>
             <Footer />
-            <WhatsAppFloat />
             <CookieBanner />
           </CartProvider>
         </NextIntlClientProvider>
