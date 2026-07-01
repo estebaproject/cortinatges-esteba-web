@@ -121,7 +121,7 @@ export default function MobleBuyBlock({
     <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 items-start">
       {/* Galeria — la foto principal canvia amb el color/acabat escollit. */}
       <div
-        className={`relative aspect-[4/5] overflow-hidden bg-kave-surface ${fit === "cover" ? "" : "p-8 lg:p-12"}`}
+        className={`relative aspect-[4/5] max-h-[70vh] lg:max-h-[560px] overflow-hidden bg-kave-surface ${fit === "cover" ? "" : "p-8 lg:p-12"}`}
       >
         <Image
           key={mainImage}

@@ -66,6 +66,7 @@ export default function KaveProductCard({
           alt={title}
           fill
           priority={priority}
+          quality={90}
           sizes={sizes ?? "(min-width:1280px) 22vw, (min-width:1024px) 25vw, (min-width:640px) 33vw, 50vw"}
           className={`${fit === "cover" ? "object-cover" : "object-contain p-4"} transition-transform duration-500 group-hover:scale-[1.02]`}
         />

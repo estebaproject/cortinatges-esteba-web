@@ -68,6 +68,11 @@ const MOBLE_COLORS: Record<string, MobleColor[]> = {
     { name: "Gris fosc", image: "/images/mobiliari/grenoble/color-gris-fosc.jpg" },
     { name: "Or", image: "/images/mobiliari/grenoble/color-or.jpg" },
   ],
+  "havre": [
+    { name: "Beix", image: "/images/mobiliari/havre/color-beix.jpg" },
+    { name: "Gris", image: "/images/mobiliari/havre/color-gris.jpg" },
+    { name: "Taronja", image: "/images/mobiliari/havre/color-taronja.jpg" },
+  ],
   "limoges": [
     { name: "Beige", image: "/images/mobiliari/limoges/color-beige.jpg" },
     { name: "Taronja", image: "/images/mobiliari/limoges/color-taronja.jpg" },
@@ -102,10 +107,27 @@ const MOBLE_COLORS: Record<string, MobleColor[]> = {
     { name: "Gris", image: "/images/mobiliari/rochelle/color-gris.jpg" },
     { name: "Gris fosc", image: "/images/mobiliari/rochelle/color-gris-fosc.jpg" },
   ],
+  "scandinave-ii": [
+    { name: "Gris", image: "/images/mobiliari/scandinave-ii/color-gris.jpg" },
+    { name: "Gris fosc", image: "/images/mobiliari/scandinave-ii/color-gris-fosc.jpg" },
+    { name: "Negre", image: "/images/mobiliari/scandinave-ii/color-negre.jpg" },
+    { name: "Blanc", image: "/images/mobiliari/scandinave-ii/color-blanc.jpg" },
+    { name: "Blau", image: "/images/mobiliari/scandinave-ii/color-blau.jpg" },
+    { name: "Menta", image: "/images/mobiliari/scandinave-ii/color-menta.jpg" },
+    { name: "Taupe", image: "/images/mobiliari/scandinave-ii/color-taupe.jpg" },
+    { name: "Beix", image: "/images/mobiliari/scandinave-ii/color-beix.jpg" },
+    { name: "Groc", image: "/images/mobiliari/scandinave-ii/color-groc.jpg" },
+  ],
   "sevres": [
     { name: "Creme", image: "/images/mobiliari/sevres/color-creme.jpg" },
     { name: "Beige", image: "/images/mobiliari/sevres/color-beige.jpg" },
     { name: "Negro", image: "/images/mobiliari/sevres/color-negro.jpg" },
+  ],
+  "sg-vittel": [
+    { name: "Crema", image: "/images/mobiliari/sg-vittel/color-crema.jpg" },
+    { name: "Groc", image: "/images/mobiliari/sg-vittel/color-groc.jpg" },
+    { name: "Gris", image: "/images/mobiliari/sg-vittel/color-gris.jpg" },
+    { name: "Verd", image: "/images/mobiliari/sg-vittel/color-verd.jpg" },
   ],
   "toulouse": [
     { name: "Beige / Castano", image: "/images/mobiliari/toulouse/color-beige-castano.jpg" },

@@ -11,7 +11,11 @@
 import { useMemo, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useCart } from "@/components/cart/CartProvider";
-import { formatVariantLabel, type MobleVariant } from "@/lib/mobiliari-detall";
+import {
+  formatVariantLabel,
+  formatVariantLabelNoFinish,
+  type MobleVariant,
+} from "@/lib/mobiliari-detall";
 import { discountPct, formatEur } from "@/lib/discount";
 
 type Props = {
@@ -23,6 +27,12 @@ type Props = {
   href: string;
   /** Acabat de color escollit al bloc superior (null si el moble no en té). */
   colorName?: string | null;
+  /**
+   * L'acabat ja s'ha triat abans (swatch que filtra la llista): amaga l'acabat
+   * de les etiquetes i mostra la peça en lloc de repetir el color. Vegeu
+   * formatVariantLabelNoFinish a mobiliari-detall.ts.
+   */
+  hideFinish?: boolean;
 };
 
 function variantKey(variant: MobleVariant, index: number): string {
@@ -37,6 +47,7 @@ export default function MoblePurchasePanel({
   image,
   href,
   colorName,
+  hideFinish = false,
 }: Props) {
   const t = useTranslations("Producte");
   const tCart = useTranslations("Cart");
@@ -125,8 +136,10 @@ export default function MoblePurchasePanel({
           <div className="space-y-2">
             {variants.map((v, i) => {
               const isSelected = i === selected;
-              const label = formatVariantLabel(v);
-              const showSubtitle = dimsAreAmbiguous && v.dim !== null;
+              const label = hideFinish
+                ? formatVariantLabelNoFinish(v)
+                : formatVariantLabel(v);
+              const showSubtitle = !hideFinish && dimsAreAmbiguous && v.dim !== null;
               const vPct = discountPct(v.pvp, v.pvpAbans);
               return (
                 <label

@@ -348,6 +348,7 @@ const KNOWN_FINISHES = [
   "Golden Carrara",
   "Gloss L.Pandora",
   "Bordeaux Marm.Natural",
+  "Comp.Piedra",
   "Efecto Roble",
   "Nogal",
   "Roble",
@@ -386,4 +387,19 @@ export function formatVariantLabel(variant: MobleVariant): string {
     return finish ? `${dim} · ${finish}` : dim;
   }
   return variant.nom;
+}
+
+/**
+ * Etiqueta d'una variant SENSE l'acabat, per quan l'acabat ja s'ha triat abans
+ * (swatch de color): mostra la peça i la mida a partir del nom sencer, sense
+ * repetir el color. Ex.: "Aparador Pegasus 2P 120x40x76 Roble" → "Aparador
+ * Pegasus 2P 120×40×76". Així a pegasus es distingeix Aparador de Mesa de TV.
+ */
+export function formatVariantLabelNoFinish(variant: MobleVariant): string {
+  const finish = variantFinish(variant);
+  const base = finish ? variant.nom.split(finish).join(" ") : variant.nom;
+  return base
+    .replace(/(\d)x(\d)/gi, "$1×$2")
+    .replace(/\s{2,}/g, " ")
+    .trim();
 }
