@@ -40,7 +40,7 @@ export default async function RebaixesPage({ params }: Props) {
           </header>
 
           {items.length > 0 ? (
-            <ShopResultsGrid items={items} prefix={prefix} />
+            <ShopResultsGrid items={items} prefix={prefix} showSale />
           ) : (
             <p className="py-20 text-center text-kave-muted">{ts("saleEmpty")}</p>
           )}

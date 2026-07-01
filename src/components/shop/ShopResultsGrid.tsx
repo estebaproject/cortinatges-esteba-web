@@ -14,9 +14,12 @@ import type { ShopItem } from "@/lib/shop-search";
 export default function ShopResultsGrid({
   items,
   prefix,
+  showSale = false,
 }: {
   items: ShopItem[];
   prefix: string;
+  /** Pinta la UI de rebaixa a les cards. Només /rebaixes ho activa; /cerca no. */
+  showSale?: boolean;
 }) {
   const tMobles = useTranslations("Mobiliari");
   const tCatifes = useTranslations("Catifes");
@@ -47,6 +50,7 @@ export default function ShopResultsGrid({
               subtitle={subtitleFor(it)}
               pvpDesde={it.pvp}
               pvpAbans={it.pvpAbans}
+              showSale={showSale}
               fit={it.fit}
             />
           ) : (
@@ -58,6 +62,7 @@ export default function ShopResultsGrid({
               pvp={it.pvp as number}
               pvpAbans={it.pvpAbans}
               pricePrefix={pricePrefixFor(it)}
+              showSale={showSale}
               fit={it.fit}
             />
           )}

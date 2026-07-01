@@ -94,15 +94,22 @@ export default function ShopHeader() {
             <nav className="hidden lg:flex items-center justify-center gap-7" aria-label="Navegació de la botiga">
               {navLinks.map((link) => {
                 const isActive = section === link.key || (link.key === "mobiliari" && section === "mobiliari");
+                // Rebaixes es destaca en vermell: ara les ofertes viuen només aquí.
+                const isSale = link.key === "rebaixes";
                 return (
                   <Link
                     key={link.key}
                     href={link.href}
                     className={clsx(
                       "text-[0.95rem] underline-offset-[6px] transition-colors",
+                      isSale ? "text-kave-red font-medium" : "text-kave-ink",
                       isActive
-                        ? "text-kave-ink font-medium underline decoration-2 decoration-kave-tag"
-                        : "text-kave-ink hover:underline hover:decoration-kave-tag",
+                        ? isSale
+                          ? "underline decoration-2 decoration-kave-red"
+                          : "font-medium underline decoration-2 decoration-kave-tag"
+                        : isSale
+                          ? "hover:underline hover:decoration-kave-red"
+                          : "hover:underline hover:decoration-kave-tag",
                     )}
                   >
                     {link.label}
@@ -194,9 +201,12 @@ export default function ShopHeader() {
                   onClick={() => setMenuOpen(false)}
                   className={clsx(
                     "py-2 text-base underline-offset-4",
+                    link.key === "rebaixes" && "text-kave-red font-medium",
                     section === link.key
-                      ? "text-kave-ink font-medium underline decoration-2 decoration-kave-tag"
-                      : "text-kave-ink",
+                      ? link.key === "rebaixes"
+                        ? "underline decoration-2 decoration-kave-red"
+                        : "text-kave-ink font-medium underline decoration-2 decoration-kave-tag"
+                      : link.key !== "rebaixes" && "text-kave-ink",
                   )}
                 >
                   {link.label}

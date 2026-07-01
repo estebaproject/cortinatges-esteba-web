@@ -24,6 +24,8 @@ type Props = {
   pvpDesde: number | null;
   /** Preu anterior real (€) — només si hi ha rebaixa real sobre pvpDesde. */
   pvpAbans?: number;
+  /** Mostra la UI de rebaixa (només /rebaixes). Per defecte false: preu net. */
+  showSale?: boolean;
   /** object-fit de la foto (default cover; contain per a portraits). */
   fit?: "contain" | "cover";
   priority?: boolean;
@@ -37,6 +39,7 @@ export default function CatifaCard({
   subtitle,
   pvpDesde,
   pvpAbans,
+  showSale = false,
   fit = "cover",
   priority,
   sizes,
@@ -57,6 +60,7 @@ export default function CatifaCard({
         pvp={pvpDesde}
         pvpAbans={pvpAbans}
         pricePrefix={t("fromPrice")}
+        showSale={showSale}
         fit={fit}
         priority={priority}
         sizes={sizes}

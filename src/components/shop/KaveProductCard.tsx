@@ -22,6 +22,14 @@ export type KaveProductCardProps = {
   pvpAbans?: number;
   /** Prefix de preu opcional (ex. "des de" per a famílies amb «des de»). */
   pricePrefix?: string;
+  /**
+   * Mostra la UI de rebaixa (tag "Rebaixes" + tatxat + -% + preu vermell) quan
+   * hi ha oferta real. Per defecte FALSE: als llistats, cerca i carrusels la card
+   * ensenya només el preu net. Només la pàgina /rebaixes ho posa a true, de manera
+   * que les ofertes viuen concentrades allà. La fitxa de producte té la seva
+   * pròpia lògica de rebaixa (panells de compra), independent d'aquest flag.
+   */
+  showSale?: boolean;
   fit?: "contain" | "cover";
   priority?: boolean;
   sizes?: string;
@@ -35,6 +43,7 @@ export default function KaveProductCard({
   pvp,
   pvpAbans,
   pricePrefix,
+  showSale = false,
   fit = "contain",
   priority,
   sizes,
@@ -42,7 +51,9 @@ export default function KaveProductCard({
   const t = useTranslations("Shop");
   const locale = useLocale();
   const pct = discountPct(pvp, pvpAbans);
-  const onSale = pct !== null;
+  // La rebaixa només es pinta si el consumidor ho demana (showSale). Fora de
+  // /rebaixes la card ensenya el preu net encara que existeixi pvpAbans.
+  const onSale = pct !== null && showSale;
 
   return (
     <Link href={href} className="group block font-grotesque">
