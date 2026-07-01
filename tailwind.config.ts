@@ -63,7 +63,10 @@ const config: Config = {
       },
       maxWidth: {
         "prose-editorial": "68ch",
-        "layout": "1440px",
+        // Full width: el contingut ocupa tot l'ample del monitor (només el
+        // padding lateral de cada secció el separa de la vora). Sense tope fix
+        // — decisió de Federico per aprofitar monitors grans.
+        "layout": "100%",
       },
       transitionTimingFunction: {
         "editorial": "cubic-bezier(0.25, 0.1, 0.25, 1)",
