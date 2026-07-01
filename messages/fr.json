@@ -416,6 +416,12 @@
       "butaca": "Fauteuil",
       "pouf": "Pouf",
       "moble": "Meuble"
+    },
+    "tipusPlural": {
+      "cadira": "Chaises",
+      "butaca": "Fauteuils",
+      "pouf": "Poufs",
+      "moble": "Meubles"
     }
   },
   "Botiga": {
@@ -533,6 +539,7 @@
     "measures": "Tailles",
     "selectMeasure": "Sélectionnez une taille",
     "selectVariant": "Sélectionnez une option",
+    "colorLabel": "Couleur",
     "deliveryTime": "Délai de livraison",
     "perEncarrec": "Sur commande",
     "addToCart": "Ajouter au panier"

@@ -88,7 +88,10 @@ export default function MobiliariCatalog({ mobles, prefix, locale }: Props) {
   };
 
   // --- Etiquetes ----------------------------------------------------------
+  // Singular per a la fitxa/subtítol de producte ("aquest producte és una Cadira").
   const catLabel = (c: MobleCat) => t(`tipus.${c}` as Parameters<typeof t>[0]);
+  // Plural per a seccions i filtres (agrupen molts: "Cadires", "Butaques").
+  const catLabelPlural = (c: MobleCat) => t(`tipusPlural.${c}` as Parameters<typeof t>[0]);
   const bucketLabel = (id: PriceBucketId) =>
     tf(`priceMobles.${id}` as Parameters<typeof tf>[0]);
 
@@ -149,7 +152,7 @@ export default function MobiliariCatalog({ mobles, prefix, locale }: Props) {
   // Categories amb productes (es descarten les buides, ex. "pouf").
   const carouselItems = MOBLE_CATS.filter((c) => countMobleByCat(c) > 0).map((c) => ({
     key: c,
-    label: catLabel(c),
+    label: catLabelPlural(c),
     image: mobleImageForCat(c),
     active: selectedCats.includes(c),
   }));
@@ -204,7 +207,7 @@ export default function MobiliariCatalog({ mobles, prefix, locale }: Props) {
             name="cat"
             checked={selectedCats.includes(c)}
             onChange={() => toggleCat(c)}
-            label={catLabel(c)}
+            label={catLabelPlural(c)}
           />
         ))}
       </fieldset>
@@ -344,7 +347,7 @@ export default function MobiliariCatalog({ mobles, prefix, locale }: Props) {
             <Chip label={`${tf("search")}: ${query.trim()}`} onRemove={() => setQuery("")} />
           )}
           {selectedCats.map((c) => (
-            <Chip key={`cat-${c}`} label={catLabel(c)} onRemove={() => toggleCat(c)} />
+            <Chip key={`cat-${c}`} label={catLabelPlural(c)} onRemove={() => toggleCat(c)} />
           ))}
           {selectedBuckets.map((id) => (
             <Chip key={`price-${id}`} label={bucketLabel(id)} onRemove={() => toggleBucket(id)} />

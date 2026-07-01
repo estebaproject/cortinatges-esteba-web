@@ -100,7 +100,7 @@ export default async function BotigaPage({ params }: Props) {
   // --- Mobles: tiles per categoria amb productes (descarta buides) ---
   const mobleTiles: Tile[] = MOBLE_CATS.filter((c) => countMobleByCat(c) > 0).map((cat) => ({
     key: `moble-${cat}`,
-    label: tMobles(`tipus.${cat}` as Parameters<typeof tMobles>[0]),
+    label: tMobles(`tipusPlural.${cat}` as Parameters<typeof tMobles>[0]),
     sub: count(countMobleByCat(cat)),
     image: mobleImageForCat(cat),
     href: `${prefix}/mobiliari?cat=${cat}`,

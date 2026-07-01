@@ -416,6 +416,12 @@
       "butaca": "Sillón",
       "pouf": "Puf",
       "moble": "Mueble"
+    },
+    "tipusPlural": {
+      "cadira": "Sillas",
+      "butaca": "Sillones",
+      "pouf": "Pufs",
+      "moble": "Muebles"
     }
   },
   "Botiga": {
@@ -533,6 +539,7 @@
     "measures": "Medidas",
     "selectMeasure": "Selecciona una medida",
     "selectVariant": "Selecciona una opción",
+    "colorLabel": "Color",
     "deliveryTime": "Plazo de entrega",
     "perEncarrec": "Bajo pedido",
     "addToCart": "Añadir a la cesta"

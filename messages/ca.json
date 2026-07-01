@@ -416,6 +416,12 @@
       "butaca": "Butaca",
       "pouf": "Pouf",
       "moble": "Moble"
+    },
+    "tipusPlural": {
+      "cadira": "Cadires",
+      "butaca": "Butaques",
+      "pouf": "Poufs",
+      "moble": "Mobles"
     }
   },
   "Botiga": {
@@ -533,6 +539,7 @@
     "measures": "Mesures",
     "selectMeasure": "Selecciona una mesura",
     "selectVariant": "Selecciona una opció",
+    "colorLabel": "Color",
     "deliveryTime": "Termini d'entrega",
     "perEncarrec": "Per encàrrec",
     "addToCart": "Afegir a la cistella"

@@ -416,6 +416,12 @@
       "butaca": "Armchair",
       "pouf": "Pouf",
       "moble": "Furniture"
+    },
+    "tipusPlural": {
+      "cadira": "Chairs",
+      "butaca": "Armchairs",
+      "pouf": "Poufs",
+      "moble": "Furniture"
     }
   },
   "Botiga": {
@@ -533,6 +539,7 @@
     "measures": "Sizes",
     "selectMeasure": "Select a size",
     "selectVariant": "Select an option",
+    "colorLabel": "Color",
     "deliveryTime": "Delivery time",
     "perEncarrec": "Made to order",
     "addToCart": "Add to cart"
