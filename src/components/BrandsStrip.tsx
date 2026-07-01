@@ -23,7 +23,6 @@ const BRANDS = [
   { name: "Armura", file: "armura.jpg" },
   { name: "Klinun", file: "klinun.jpg" },
   { name: "Linen-Silk", file: "Linen-Silk.jpg" },
-  { name: "Ma Salgueiro", file: "ma-salgueiro.jpg" },
   { name: "Nici", file: "nici.png" },
   { name: "Pepa Pastor", file: "pepa-pastor.jpg" },
   { name: "Piubell", file: "piubell.jpg" },
