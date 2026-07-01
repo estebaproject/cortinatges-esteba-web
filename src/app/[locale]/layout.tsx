@@ -23,7 +23,7 @@ const roboto = Roboto({
   subsets: ["latin"],
   variable: "--font-roboto",
   display: "swap",
-  weight: ["300", "400", "500", "700"],
+  weight: ["400", "500", "700"],
 });
 
 // Tipografies del tema Kave (clon de la botiga). Es carreguen sempre però

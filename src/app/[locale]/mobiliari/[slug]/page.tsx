@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTranslations, getLocale } from "next-intl/server";
@@ -11,15 +10,15 @@ import {
   mobleImgFit,
   type MobleCat,
 } from "@/lib/mobiliari";
-import { SITE_URL, SITE_NAME } from "@/lib/site";
+import { SITE_URL, SITE_NAME, localizedAlternates } from "@/lib/site";
 import {
   getMobleDetall,
   moblefPriceRange,
 } from "@/lib/mobiliari-detall";
 import { getMobleSpec, type SpecLocale } from "@/lib/mobiliari-specs";
-import { formatEur } from "@/lib/discount";
+import { getMobleColors } from "@/lib/mobiliari-colors";
 import { productSku } from "@/lib/sku";
-import MoblePurchasePanel from "@/components/mobiliari/MoblePurchasePanel";
+import MobleBuyBlock from "@/components/mobiliari/MobleBuyBlock";
 import KaveAboutProduct, { type AboutSection } from "@/components/shop/KaveAboutProduct";
 import ProductCarousel from "@/components/shop/ProductCarousel";
 
@@ -44,13 +43,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${moble.nom} — ${t("eyebrow")}`,
     description,
-    alternates: { canonical: url },
+    alternates: localizedAlternates(locale, "mobiliari", slug),
     openGraph: {
       type: "website",
       url,
       title: `${moble.nom} — ${t("eyebrow")}`,
       description,
       images: [{ url: image, width: 1200, height: 1200, alt: moble.nom }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${moble.nom} — ${t("eyebrow")}`,
+      description,
+      images: [image],
     },
   };
 }
@@ -86,6 +91,10 @@ export default async function MoblePage({ params }: Props) {
   const materialText = spec
     ? spec.material[locale as SpecLocale] ?? spec.material.es
     : null;
+
+  // Variants de color amb foto (buit si el moble no en té). Alimenta el
+  // selector de color del bloc superior, que canvia la foto principal.
+  const colors = getMobleColors(slug);
 
   // Productes per als carrusels: "Combina'l amb" (mateixa categoria) i
   // "Et pot interessar" (la resta). Es mapegen a items de KaveProductCard.
@@ -148,10 +157,14 @@ export default async function MoblePage({ params }: Props) {
 
   const canonicalUrl = `${SITE_URL}${prefix}/mobiliari/${slug}`;
 
+  // Mateixa descripció que generateMetadata (reusada al JSON-LD Product).
+  const schemaDescription = `${moble.nom} — ${catLabel(moble.cat)}. ${t("madeBy")} ${t("madeByBrand")}. ${t("fromPrice")} ${moble.pvp} €.`;
+
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: moble.nom,
+    description: schemaDescription,
     image: `${SITE_URL}${image}`,
     category: "Mobiliari",
     sku,
@@ -221,51 +234,19 @@ export default async function MoblePage({ params }: Props) {
             <span className="text-kave-ink">{moble.nom}</span>
           </nav>
 
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 items-start">
-            {/* Galeria (mobiliari: una imatge). Retall → contain amb padding;
-                escena → cover a sang (sense padding). */}
-            <div className={`relative aspect-[4/5] overflow-hidden bg-kave-surface ${imgFit === "cover" ? "" : "p-8 lg:p-12"}`}>
-              <Image
-                src={image}
-                alt={moble.nom}
-                fill
-                priority
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className={imgFit === "cover" ? "object-cover" : "object-contain"}
-              />
-            </div>
-
-            {/* Columna dreta */}
-            <div className="lg:sticky lg:top-32 self-start">
-              <p className="text-sm text-kave-muted mb-2">{catLabel(moble.cat)}</p>
-              <h1 className="font-display text-3xl md:text-4xl text-kave-ink mb-6 leading-tight">
-                {moble.nom}
-              </h1>
-
-              {detall && detall.variants.length > 0 ? (
-                <MoblePurchasePanel
-                  slug={moble.slug}
-                  nom={moble.nom}
-                  variants={detall.variants}
-                  termini={detall.termini}
-                  image={image}
-                  href={`/mobiliari/${moble.slug}`}
-                />
-              ) : (
-                <div>
-                  <p className="text-3xl font-semibold text-kave-ink mb-6">
-                    {t("fromPrice")} {formatEur(moble.pvp, locale)}
-                  </p>
-                  <Link
-                    href={`${prefix}/demana-pressupost`}
-                    className="inline-flex items-center justify-center px-8 py-3.5 bg-kave-ink text-white text-sm font-semibold hover:bg-kave-ink/90 transition-colors"
-                  >
-                    {t("requestBudget")}
-                  </Link>
-                </div>
-              )}
-            </div>
-          </div>
+          <MobleBuyBlock
+            slug={moble.slug}
+            nom={moble.nom}
+            catLabel={catLabel(moble.cat)}
+            imgFit={imgFit}
+            defaultImage={image}
+            colors={colors}
+            variants={detall?.variants ?? []}
+            termini={detall?.termini ?? null}
+            basePvp={moble.pvp}
+            budgetHref={`${prefix}/demana-pressupost`}
+            href={`/mobiliari/${moble.slug}`}
+          />
         </div>
       </section>
 

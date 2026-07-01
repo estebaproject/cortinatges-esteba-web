@@ -14,7 +14,7 @@ import {
   catifaSlides,
   type CatifaFamilia,
 } from "@/lib/catifes";
-import { SITE_URL, SITE_NAME } from "@/lib/site";
+import { SITE_URL, SITE_NAME, localizedAlternates } from "@/lib/site";
 import {
   getCatifaDetall,
   catifaPriceRange,
@@ -53,13 +53,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${catifa.nom} — ${t("eyebrow")}`,
     description,
-    alternates: { canonical: url },
+    alternates: localizedAlternates(locale, "catifes", slug),
     openGraph: {
       type: "website",
       url,
       title: `${catifa.nom} — ${t("eyebrow")}`,
       description,
       images: [{ url: ogImage, width: 1200, height: 1200, alt: catifa.nom }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${catifa.nom} — ${t("eyebrow")}`,
+      description,
+      images: [ogImage],
     },
   };
 }
@@ -157,10 +163,18 @@ export default async function CatifaPage({ params }: Props) {
 
   const canonicalUrl = `${SITE_URL}${prefix}/catifes/${slug}`;
 
+  // Mateixa descripció que generateMetadata (reusada al JSON-LD Product).
+  const schemaDescription = `${catifa.nom} — ${familyLabel(catifa.familia)}. ${t("madeBy")} ${t("madeByBrand")}. ${
+    catifa.pvpDesde !== null
+      ? `${t("fromPrice")} ${catifa.pvpDesde} €.`
+      : t("onDemand")
+  }`;
+
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: catifa.nom,
+    description: schemaDescription,
     image: `${SITE_URL}${productImage}`,
     category: "Catifes a mida",
     sku,

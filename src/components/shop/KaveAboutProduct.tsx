@@ -67,7 +67,7 @@ export default function KaveAboutProduct({
         <div className="fixed inset-0 z-[70]" role="dialog" aria-modal="true" aria-label={open.title}>
           <button
             type="button"
-            aria-label={ts("accDelivery")}
+            aria-label={ts("close")}
             onClick={() => setOpenId(null)}
             className="absolute inset-0 bg-kave-ink/40"
           />
@@ -77,7 +77,7 @@ export default function KaveAboutProduct({
               <button
                 type="button"
                 onClick={() => setOpenId(null)}
-                aria-label="✕"
+                aria-label={ts("close")}
                 className="p-2 -mr-2 text-kave-muted hover:text-kave-ink"
               >
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>

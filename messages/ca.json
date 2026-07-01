@@ -613,6 +613,8 @@
     "searchHint": "Resultats per «{q}»",
     "searchResults": "{count, plural, =0 {cap producte} one {# producte} other {# productes}}",
     "searchEmpty": "No hem trobat cap resultat per «{q}». Prova amb un altre terme.",
+    "searchPrompt": "Què estàs buscant?",
+    "close": "Tanca",
     "accountLabel": "El meu compte",
     "cartLabel": "Cistell",
     "saleTag": "Rebaixes",

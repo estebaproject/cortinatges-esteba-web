@@ -613,6 +613,8 @@
     "searchHint": "Resultados para «{q}»",
     "searchResults": "{count, plural, =0 {ningún producto} one {# producto} other {# productos}}",
     "searchEmpty": "No hemos encontrado resultados para «{q}». Prueba con otro término.",
+    "searchPrompt": "¿Qué estás buscando?",
+    "close": "Cerrar",
     "accountLabel": "Mi cuenta",
     "cartLabel": "Cesta",
     "saleTag": "Rebajas",

@@ -35,7 +35,7 @@ export default function CategoryCarousel({
             >
               <div
                 className={clsx(
-                  "relative aspect-square w-28 sm:w-32 overflow-hidden bg-kave-surface transition-shadow",
+                  "relative aspect-square w-28 sm:w-32 overflow-hidden bg-kave-surface transition-shadow group-focus-visible:ring-2 group-focus-visible:ring-kave-ink group-focus-visible:ring-offset-2 group-focus-visible:ring-offset-kave-bg",
                   it.active ? "ring-1 ring-kave-ink ring-offset-2 ring-offset-kave-bg" : "group-hover:ring-1 group-hover:ring-kave-line",
                 )}
               >

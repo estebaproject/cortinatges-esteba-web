@@ -10,7 +10,7 @@ import {
   productImages,
 } from "@/lib/products";
 import { whatsappUrl } from "@/lib/whatsapp";
-import { SITE_URL, SITE_NAME } from "@/lib/site";
+import { SITE_URL, SITE_NAME, localizedAlternates } from "@/lib/site";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -32,13 +32,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: name,
     description: tagline,
-    alternates: { canonical: url },
+    alternates: localizedAlternates(locale, "colleccions", slug),
     openGraph: {
       type: "website",
       url,
       title: name,
       description: tagline,
       images: [{ url: image, width: 1200, height: 630, alt: name }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: name,
+      description: tagline,
+      images: [image],
     },
   };
 }

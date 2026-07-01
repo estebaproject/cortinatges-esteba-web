@@ -19,7 +19,7 @@ import { productSku } from "@/lib/sku";
 import MantaPurchasePanel from "@/components/mantes/MantaPurchasePanel";
 import KaveAboutProduct, { type AboutSection } from "@/components/shop/KaveAboutProduct";
 import ProductCarousel from "@/components/shop/ProductCarousel";
-import { SITE_URL, SITE_NAME } from "@/lib/site";
+import { SITE_URL, SITE_NAME, localizedAlternates } from "@/lib/site";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -44,13 +44,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${manta.nom} — ${t("eyebrow")}`,
     description,
-    alternates: { canonical: url },
+    alternates: localizedAlternates(locale, "mantes", slug),
     openGraph: {
       type: "website",
       url,
       title: `${manta.nom} — ${t("eyebrow")}`,
       description,
       images: [{ url: image, width: 1200, height: 1200, alt: manta.nom }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${manta.nom} — ${t("eyebrow")}`,
+      description,
+      images: [image],
     },
   };
 }
@@ -128,10 +134,14 @@ export default async function MantaPage({ params }: Props) {
 
   const canonicalUrl = `${SITE_URL}${prefix}/mantes/${slug}`;
 
+  // Mateixa descripció que generateMetadata (reusada al JSON-LD Product).
+  const schemaDescription = `${manta.nom} — ${t("eyebrow")}. ${t("madeBy")} ${t("madeByBrand")}. ${t("fromPrice")} ${fromPriceValue} €.`;
+
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: manta.nom,
+    description: schemaDescription,
     image: `${SITE_URL}${image}`,
     category: "Mantes",
     sku,

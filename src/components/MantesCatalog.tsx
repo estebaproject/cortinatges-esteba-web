@@ -241,7 +241,7 @@ export default function MantesCatalog({ mantes, prefix, locale }: Props) {
       {/* 2) Graella */}
       {filtered.length > 0 ? (
         <ul className={clsx("grid gap-x-5 gap-y-10 mt-8", DENSITY_GRID[density])} role="list">
-          {filtered.map((m, i) => (
+          {filtered.map((m) => (
             <li key={m.slug}>
               <KaveProductCard
                 href={`${prefix}/mantes/${m.slug}`}
@@ -252,7 +252,6 @@ export default function MantesCatalog({ mantes, prefix, locale }: Props) {
                 pvpAbans={m.pvpAbans}
                 pricePrefix={t("fromPrice")}
                 fit="cover"
-                priority={i < 4}
               />
             </li>
           ))}

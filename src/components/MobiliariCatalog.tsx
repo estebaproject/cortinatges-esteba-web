@@ -365,7 +365,7 @@ export default function MobiliariCatalog({ mobles, prefix, locale }: Props) {
       {/* 3) Graella */}
       {filtered.length > 0 ? (
         <ul className={clsx("grid gap-x-5 gap-y-10 mt-8", DENSITY_GRID[density])} role="list">
-          {filtered.map((m, i) => (
+          {filtered.map((m) => (
             <li key={m.slug}>
               <KaveProductCard
                 href={`${prefix}/mobiliari/${m.slug}`}
@@ -376,7 +376,6 @@ export default function MobiliariCatalog({ mobles, prefix, locale }: Props) {
                 pvpAbans={m.pvpAbans}
                 pricePrefix={m.cat === "moble" ? t("fromPrice") : undefined}
                 fit={mobleImgFit(m.slug)}
-                priority={i < 4}
               />
             </li>
           ))}

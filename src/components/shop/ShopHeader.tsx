@@ -135,7 +135,7 @@ export default function ShopHeader() {
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder={t("searchPlaceholder")}
                   aria-label={t("searchLabel")}
-                  className="w-full bg-transparent text-sm text-kave-ink placeholder:text-kave-ink/50 focus:outline-none"
+                  className="w-full bg-transparent text-sm text-kave-ink placeholder:text-kave-ink/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-kave-ink"
                 />
               </form>
 
@@ -190,7 +190,7 @@ export default function ShopHeader() {
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder={t("searchPlaceholder")}
                 aria-label={t("searchLabel")}
-                className="w-full bg-transparent text-sm text-kave-ink placeholder:text-kave-ink/50 focus:outline-none"
+                className="w-full bg-transparent text-sm text-kave-ink placeholder:text-kave-ink/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-kave-ink"
               />
             </form>
             <nav className="flex flex-col gap-1" aria-label="Navegació de la botiga">

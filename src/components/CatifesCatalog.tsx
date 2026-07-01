@@ -252,7 +252,7 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder={tf("searchPlaceholder")}
-          className="w-full px-0 py-2 bg-transparent border-b border-kave-ink/30 text-sm text-kave-ink placeholder:text-kave-ink/40 focus:outline-none focus:border-kave-ink transition-colors"
+          className="w-full px-0 py-2 bg-transparent border-b border-kave-ink/30 text-sm text-kave-ink placeholder:text-kave-ink/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-kave-ink focus:border-kave-ink transition-colors"
         />
       </div>
 
@@ -402,7 +402,7 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
               id="catifes-sort"
               value={sort}
               onChange={(e) => setSort(e.target.value as SortId)}
-              className="bg-transparent border-b border-kave-ink/30 py-1 text-sm text-kave-ink focus:outline-none focus:border-kave-ink transition-colors"
+              className="bg-transparent border-b border-kave-ink/30 py-1 text-sm text-kave-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-kave-ink focus:border-kave-ink transition-colors"
             >
               <option value="name_asc">{tf("sortNameAsc")}</option>
               <option value="price_asc">{tf("sortPriceAsc")}</option>
@@ -445,7 +445,7 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
       {/* 3) Graella */}
       {filtered.length > 0 ? (
         <ul className={clsx("grid gap-x-5 gap-y-10 mt-8", DENSITY_GRID[density])} role="list">
-          {filtered.map((c, i) => (
+          {filtered.map((c) => (
             <li key={c.slug}>
               <CatifaCard
                 href={`${prefix}/catifes/${c.slug}`}
@@ -455,7 +455,6 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
                 pvpDesde={c.pvpDesde}
                 pvpAbans={c.pvpAbans}
                 fit={catifaImgFit(c.slug)}
-                priority={i < 4}
               />
             </li>
           ))}

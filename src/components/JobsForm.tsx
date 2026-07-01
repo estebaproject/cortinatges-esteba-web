@@ -21,7 +21,7 @@ export default function JobsForm() {
     window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
   };
 
-  const field = "w-full border border-linen-dark bg-canvas px-4 py-3 font-sans text-body-md text-ink focus:outline-none focus:border-accent-deep transition-colors";
+  const field = "w-full border border-linen-dark bg-canvas px-4 py-3 font-sans text-body-md text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-deep focus:border-accent-deep transition-colors";
   const label = "block font-sans text-body-sm text-ink-muted tracking-wide uppercase mb-2";
 
   return (

@@ -21,6 +21,8 @@ type Props = {
   termini: string;
   image: string;
   href: string;
+  /** Acabat de color escollit al bloc superior (null si el moble no en té). */
+  colorName?: string | null;
 };
 
 function variantKey(variant: MobleVariant, index: number): string {
@@ -34,6 +36,7 @@ export default function MoblePurchasePanel({
   termini,
   image,
   href,
+  colorName,
 }: Props) {
   const t = useTranslations("Producte");
   const tCart = useTranslations("Cart");
@@ -70,11 +73,16 @@ export default function MoblePurchasePanel({
   const handleAdd = () => {
     if (selected === null || !selectedVariant) return;
     const label = formatVariantLabel(selectedVariant);
+    // Si hi ha color escollit, l'afegim al nom (visible a la cistella) i a la
+    // clau (perquè dos colors del mateix moble+mida siguin línies diferents).
+    // La miniatura (image) ja és la foto del color, ve del bloc superior.
+    const colorSuffix = colorName ? ` · ${colorName}` : "";
+    const colorKey = colorName ? `#${colorName}` : "";
     add(
       {
-        slug: `${slug}#${variantKey(selectedVariant, selected)}`,
+        slug: `${slug}#${variantKey(selectedVariant, selected)}${colorKey}`,
         href,
-        nom: `${nom} — ${label}`,
+        nom: `${nom} — ${label}${colorSuffix}`,
         pvp: selectedVariant.pvp,
         image,
       },

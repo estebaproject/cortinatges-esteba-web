@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { searchItems } from "@/lib/shop-search";
 import ShopResultsGrid from "@/components/shop/ShopResultsGrid";
@@ -41,7 +42,28 @@ export default async function CercaPage({ params, searchParams }: Props) {
             )}
           </header>
 
-          {trimmed && items.length === 0 ? (
+          {!trimmed ? (
+            // Sense query: no mostrem una graella buida. Convidem a cercar i
+            // oferim dreceres a les categories principals. (Mantes ocult:
+            // SHOW_MANTES = false.)
+            <div className="py-16">
+              <p className="text-lg text-kave-ink mb-6">{ts("searchPrompt")}</p>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href={`${prefix}/catifes`}
+                  className="inline-flex items-center px-5 py-2.5 border border-kave-ink/30 text-sm text-kave-ink hover:border-kave-ink transition-colors"
+                >
+                  {ts("navCatifes")}
+                </Link>
+                <Link
+                  href={`${prefix}/mobiliari`}
+                  className="inline-flex items-center px-5 py-2.5 border border-kave-ink/30 text-sm text-kave-ink hover:border-kave-ink transition-colors"
+                >
+                  {ts("navMobles")}
+                </Link>
+              </div>
+            </div>
+          ) : items.length === 0 ? (
             <p className="py-20 text-center text-kave-muted">{ts("searchEmpty", { q: trimmed })}</p>
           ) : (
             <ShopResultsGrid items={items} prefix={prefix} />

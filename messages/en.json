@@ -539,7 +539,7 @@
     "measures": "Sizes",
     "selectMeasure": "Select a size",
     "selectVariant": "Select an option",
-    "colorLabel": "Color",
+    "colorLabel": "Colour",
     "deliveryTime": "Delivery time",
     "perEncarrec": "Made to order",
     "addToCart": "Add to cart"
@@ -613,6 +613,8 @@
     "searchHint": "Results for “{q}”",
     "searchResults": "{count, plural, =0 {no products} one {# product} other {# products}}",
     "searchEmpty": "No results for “{q}”. Try another term.",
+    "searchPrompt": "What are you looking for?",
+    "close": "Close",
     "accountLabel": "My account",
     "cartLabel": "Cart",
     "saleTag": "Sale",
