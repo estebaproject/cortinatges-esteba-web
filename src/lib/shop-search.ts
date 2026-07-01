@@ -125,6 +125,12 @@ export function onSaleItems(): ShopItem[] {
   return SHOP_ITEMS.filter((it) => it.pvp !== null && isOnSale(it.pvp, it.pvpAbans));
 }
 
+// True només si hi ha alguna oferta REAL activa a la botiga. Es calcula un cop, a
+// la càrrega del mòdul (dades estàtiques). L'usa el menú per mostrar/amagar l'enllaç
+// "Rebaixes": sense ofertes, l'enllaç desapareix; quan s'afegeix un pvpAbans real,
+// torna a aparèixer sol. Segur en client (només filtra arrays estàtics).
+export const HAS_ACTIVE_SALES: boolean = onSaleItems().length > 0;
+
 // Cerca a tota la botiga: insensible a majúscules i accents, cobreix nom +
 // categoria/tipus + família en els 4 idiomes (ca/es/fr/en). Buit si no hi ha query.
 export function searchItems(q: string): ShopItem[] {

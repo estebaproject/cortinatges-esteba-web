@@ -14,6 +14,7 @@ import clsx from "clsx";
 import LocaleSwitcher from "@/components/LocaleSwitcher";
 import CartIndicator from "@/components/cart/CartIndicator";
 import { SHOW_MANTES } from "@/lib/site";
+import { HAS_ACTIVE_SALES } from "@/lib/shop-search";
 
 /** Secció de botiga activa, derivada del primer segment després del locale. */
 function activeSection(pathname: string, prefix: string): string {
@@ -40,7 +41,8 @@ export default function ShopHeader() {
     { key: "mobiliari", href: `${prefix}/mobiliari`, label: t("navMobles") },
     { key: "catifes", href: `${prefix}/catifes`, label: t("navCatifes") },
     ...(SHOW_MANTES ? [{ key: "mantes", href: `${prefix}/mantes`, label: t("navMantes") }] : []),
-    { key: "rebaixes", href: `${prefix}/rebaixes`, label: t("navRebaixes") },
+    // "Rebaixes" només al menú si hi ha ofertes reals actives (vegeu HAS_ACTIVE_SALES).
+    ...(HAS_ACTIVE_SALES ? [{ key: "rebaixes", href: `${prefix}/rebaixes`, label: t("navRebaixes") }] : []),
   ];
 
   const onSearch = (e: React.FormEvent) => {
