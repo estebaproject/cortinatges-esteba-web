@@ -38,24 +38,25 @@ type MobleSeed = Omit<Moble, "marca">;
 // l'origen. Per garantir slugs únics (routing + carpeta d'imatge) la cadira
 // manté "arles" i la butaca passa a "arles-butaca"; ambdues comparteixen la
 // mateixa foto hero (/images/mobiliari/arles*/1.jpg, copiada a cada carpeta).
-// ⚠️ REBAIXES PLACEHOLDER ⚠️ Els pvpAbans marcats "// PLACEHOLDER" són d'exemple
-// perquè Federico vegi el look Kave amb descomptes. NO són preus reals: cal
-// substituir-los pels preus realment aplicats els 30 dies previs (o esborrar-los).
+// REBAIXES (15%) — apartat reduït de /rebaixes. El pvpAbans és el preu real
+// aplicat abans (preu de catàleg vigent); el pvp és aquest preu amb un 15% de
+// descompte real. LEGAL: el pvpAbans ha de ser el preu realment aplicat els 30
+// dies previs; només és vàlid mentre la botiga vengui de veritat al preu rebaixat.
 const SEED: MobleSeed[] = [
   // --- Cadires ---
   { slug: "annecy", nom: "Annecy", cat: "cadira", pvp: 318.95 },
   { slug: "arles", nom: "Arles", cat: "cadira", pvp: 329.95 },
-  { slug: "calais", nom: "Calais", cat: "cadira", pvp: 90.95, pvpAbans: 129.95 }, // PLACEHOLDER
+  { slug: "calais", nom: "Calais", cat: "cadira", pvp: 77.31, pvpAbans: 90.95 }, // -15%
   { slug: "cambrai", nom: "Cambrai", cat: "cadira", pvp: 273.95 },
   { slug: "dijon", nom: "Dijon", cat: "cadira", pvp: 287.95 },
-  { slug: "grenoble", nom: "Grenoble", cat: "cadira", pvp: 65.95, pvpAbans: 109.95 }, // PLACEHOLDER
+  { slug: "grenoble", nom: "Grenoble", cat: "cadira", pvp: 56.06, pvpAbans: 65.95 }, // -15%
   { slug: "limoges", nom: "Limoges", cat: "cadira", pvp: 153.95 },
   { slug: "loriente", nom: "Loriente", cat: "cadira", pvp: 125.95 },
   { slug: "nice", nom: "Nice", cat: "cadira", pvp: 460.95 },
   { slug: "nimes", nom: "Nimes", cat: "cadira", pvp: 151.95 },
   { slug: "pantin", nom: "Pantin", cat: "cadira", pvp: 147.95 },
   { slug: "rochelle", nom: "Rochelle", cat: "cadira", pvp: 156.95 },
-  { slug: "scandinave-ii", nom: "Scandinave II", cat: "cadira", pvp: 63.95, pvpAbans: 99.95 }, // PLACEHOLDER
+  { slug: "scandinave-ii", nom: "Scandinave II", cat: "cadira", pvp: 54.36, pvpAbans: 63.95 }, // -15%
   { slug: "sevres", nom: "Sevres", cat: "cadira", pvp: 225.95 },
   { slug: "toulouse", nom: "Toulouse", cat: "cadira", pvp: 265.95 },
   { slug: "sg-vittel", nom: "SG Vittel", cat: "cadira", pvp: 223.95 },

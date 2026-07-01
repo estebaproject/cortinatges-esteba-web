@@ -32,16 +32,16 @@ export type Manta = {
 // Dades base (sense la marca, que és constant i s'afegeix al map de sota).
 type MantaSeed = Omit<Manta, "marca">;
 
-// ⚠️ REBAIXES PLACEHOLDER ⚠️ Els pvpAbans marcats "// PLACEHOLDER" són d'exemple
-// perquè Federico vegi el look Kave amb descomptes a mantes. NO són preus reals:
-// cal substituir-los pel preu realment aplicat els 30 dies previs (o esborrar-los).
+// REBAIXES (15%) — apartat reduït de /rebaixes. El pvpAbans és el preu real
+// aplicat abans; el pvp és aquest preu amb un 15% de descompte real. LEGAL: el
+// pvpAbans ha de ser el preu realment aplicat els 30 dies previs.
 const SEED: MantaSeed[] = [
   { slug: "agra", nom: "Agra", pvp: 52.95, nMides: 1 },
   { slug: "bombaim", nom: "Bombaim", pvp: 99.95, nMides: 1 },
-  { slug: "dalin", nom: "Dalin", pvp: 19.95, pvpAbans: 29.95, nMides: 1 }, // PLACEHOLDER
+  { slug: "dalin", nom: "Dalin", pvp: 16.96, pvpAbans: 19.95, nMides: 1 }, // -15%
   { slug: "harbin", nom: "Harbin", pvp: 54.95, nMides: 1 },
   { slug: "haryana", nom: "Haryana", pvp: 40.95, nMides: 1 },
-  { slug: "riad", nom: "Riad", pvp: 37.95, pvpAbans: 54.95, nMides: 1 }, // PLACEHOLDER
+  { slug: "riad", nom: "Riad", pvp: 32.26, pvpAbans: 37.95, nMides: 1 }, // -15%
   { slug: "surate", nom: "Surate", pvp: 45.95, nMides: 1 },
   { slug: "varanasi", nom: "Varanasi", pvp: 58.95, nMides: 1 },
 ];
