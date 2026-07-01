@@ -32,16 +32,15 @@ export type Manta = {
 // Dades base (sense la marca, que és constant i s'afegeix al map de sota).
 type MantaSeed = Omit<Manta, "marca">;
 
-// REBAIXES (15%) — apartat reduït de /rebaixes. El pvpAbans és el preu real
-// aplicat abans; el pvp és aquest preu amb un 15% de descompte real. LEGAL: el
-// pvpAbans ha de ser el preu realment aplicat els 30 dies previs.
+// Sense rebaixes actives: les mantes es venen al preu original. Per a una oferta
+// REAL, afegir pvpAbans (preu realment aplicat els 30 dies previs, art. 20 LOCM).
 const SEED: MantaSeed[] = [
   { slug: "agra", nom: "Agra", pvp: 52.95, nMides: 1 },
   { slug: "bombaim", nom: "Bombaim", pvp: 99.95, nMides: 1 },
-  { slug: "dalin", nom: "Dalin", pvp: 16.96, pvpAbans: 19.95, nMides: 1 }, // -15%
+  { slug: "dalin", nom: "Dalin", pvp: 19.95, nMides: 1 },
   { slug: "harbin", nom: "Harbin", pvp: 54.95, nMides: 1 },
   { slug: "haryana", nom: "Haryana", pvp: 40.95, nMides: 1 },
-  { slug: "riad", nom: "Riad", pvp: 32.26, pvpAbans: 37.95, nMides: 1 }, // -15%
+  { slug: "riad", nom: "Riad", pvp: 37.95, nMides: 1 },
   { slug: "surate", nom: "Surate", pvp: 45.95, nMides: 1 },
   { slug: "varanasi", nom: "Varanasi", pvp: 58.95, nMides: 1 },
 ];

@@ -45,10 +45,8 @@ export type Catifa = {
 // Dades base (sense la marca, que és constant i s'afegeix al map de sota).
 type CatifaSeed = Omit<Catifa, "marca">;
 
-// REBAIXES (15%) — apartat reduït de /rebaixes (catifes de bany). El pvpAbans és
-// el preu «des de» real aplicat abans; el pvpDesde és aquest preu amb un 15% de
-// descompte real. LEGAL: el pvpAbans ha de ser el preu realment aplicat els 30
-// dies previs.
+// Sense rebaixes actives: les catifes es venen al preu original. Per a una oferta
+// REAL, afegir pvpAbans (preu realment aplicat els 30 dies previs, art. 20 LOCM).
 const SEED: CatifaSeed[] = [
   { slug: "adore", nom: "Adore", familia: "catalogo", pvpDesde: 94.95, nMedides: 4 },
   { slug: "almeria", nom: "Almeria", familia: "catalogo", pvpDesde: 37.95, nMedides: 6 },
@@ -121,9 +119,9 @@ const SEED: CatifaSeed[] = [
   { slug: "touch", nom: "Touch", familia: "catalogo", pvpDesde: 64.95, nMedides: 12 },
   { slug: "varadero", nom: "Varadero", familia: "in_out", pvpDesde: 86.95, nMedides: 6 },
   { slug: "vegas", nom: "Vegas", familia: "catalogo", pvpDesde: 118.95, nMedides: 5 },
-  { slug: "veneza", nom: "Veneza", familia: "bath_collection", pvpDesde: 21.21, pvpAbans: 24.95, nMedides: 2 }, // -15%
-  { slug: "viena", nom: "Viena", familia: "bath_collection", pvpDesde: 25.46, pvpAbans: 29.95, nMedides: 2 }, // -15%
-  { slug: "vienciana", nom: "Vienciana", familia: "bath_collection", pvpDesde: 18.95, pvpAbans: 27.95, nMedides: 1 }, // PLACEHOLDER rebaixa
+  { slug: "veneza", nom: "Veneza", familia: "bath_collection", pvpDesde: 24.95, nMedides: 2 },
+  { slug: "viena", nom: "Viena", familia: "bath_collection", pvpDesde: 29.95, nMedides: 2 },
+  { slug: "vienciana", nom: "Vienciana", familia: "bath_collection", pvpDesde: 18.95, nMedides: 1 },
   { slug: "zen", nom: "Zen", familia: "catalogo", pvpDesde: 77.95, nMedides: 6 },
   { slug: "bulgari", nom: "Bulgari", familia: "catalogo", pvpDesde: 886.95, nMedides: 3 },
   { slug: "chameleon", nom: "Chameleon", familia: "catalogo", pvpDesde: 1058.95, nMedides: 3 },
