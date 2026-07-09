@@ -71,7 +71,7 @@ export default function CatifaCard({
   // Cas "per encàrrec" sense preu: mateixa estructura visual que KaveProductCard,
   // però amb una etiqueta honesta on aniria el preu.
   return (
-    <Link href={href} className="group block font-grotesque">
+    <Link href={href} className="group flex h-full flex-col font-grotesque">
       <div className="relative aspect-square overflow-hidden bg-white">
         <Image
           src={image}
@@ -87,11 +87,11 @@ export default function CatifaCard({
         </span>
       </div>
 
-      <h3 className="mt-3 text-[0.95rem] font-semibold text-kave-ink group-hover:underline underline-offset-2 decoration-1">
+      <h3 className="mt-3 text-[0.95rem] font-semibold text-kave-ink group-hover:underline underline-offset-2 decoration-1 line-clamp-2 min-h-[2.85rem]">
         {title}
       </h3>
       {subtitle && (
-        <p className="mt-0.5 text-sm text-kave-muted line-clamp-2">{subtitle}</p>
+        <p className="mt-0.5 text-sm text-kave-muted line-clamp-1">{subtitle}</p>
       )}
 
       <div className="mt-1.5 text-sm">

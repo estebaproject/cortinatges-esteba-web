@@ -51,6 +51,15 @@ const DENSITY_GRID: Record<Density, string> = {
   large: "grid-cols-1 sm:grid-cols-2 xl:grid-cols-3",
 };
 
+// `sizes` per densitat: coincideix amb les columnes reals de DENSITY_GRID a cada
+// breakpoint, perquè el navegador serveixi la resolució justa (nítid a qualsevol
+// pantalla, sense descarregar de més).
+const DENSITY_SIZES: Record<Density, string> = {
+  compact: "(min-width:1280px) 20vw, (min-width:1024px) 25vw, (min-width:640px) 33vw, 50vw",
+  comfortable: "(min-width:1280px) 25vw, (min-width:640px) 33vw, 50vw",
+  large: "(min-width:1280px) 33vw, (min-width:640px) 50vw, 100vw",
+};
+
 type Props = {
   catifes: Catifa[];
   prefix: string;
@@ -455,6 +464,7 @@ export default function CatifesCatalog({ catifes, prefix, locale }: Props) {
                 pvpDesde={c.pvpDesde}
                 pvpAbans={c.pvpAbans}
                 fit={catifaImgFit(c.slug)}
+                sizes={DENSITY_SIZES[density]}
               />
             </li>
           ))}

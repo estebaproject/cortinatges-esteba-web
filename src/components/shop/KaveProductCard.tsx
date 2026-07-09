@@ -59,7 +59,7 @@ export default function KaveProductCard({
   const onSale = pct !== null && showSale;
 
   return (
-    <Link href={href} className="group block font-grotesque">
+    <Link href={href} className="group flex h-full flex-col font-grotesque">
       <div className="relative aspect-square overflow-hidden bg-white">
         <Image
           src={image}
@@ -83,11 +83,11 @@ export default function KaveProductCard({
         </span>
       </div>
 
-      <h3 className="mt-3 text-[0.95rem] font-semibold text-kave-ink group-hover:underline underline-offset-2 decoration-1">
+      <h3 className="mt-3 text-[0.95rem] font-semibold text-kave-ink group-hover:underline underline-offset-2 decoration-1 line-clamp-2 min-h-[2.85rem]">
         {title}
       </h3>
       {subtitle && (
-        <p className="mt-0.5 text-sm text-kave-muted line-clamp-2">{subtitle}</p>
+        <p className="mt-0.5 text-sm text-kave-muted line-clamp-1">{subtitle}</p>
       )}
 
       <div className="mt-1.5 flex flex-wrap items-baseline gap-x-2 gap-y-1 text-sm">
@@ -107,10 +107,18 @@ export default function KaveProductCard({
         )}
       </div>
 
-      {/* Mostres de color disponibles (fins a 5 + "+N"). Decoratives: la tria
-          real es fa a la fitxa. */}
+      <span className="mt-1.5 inline-flex items-center gap-1.5 text-[0.78rem] text-kave-muted">
+        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6} aria-hidden>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-6V6.75A1.5 1.5 0 0 0 9 5.25H5.25m11.25 0H18a2.25 2.25 0 0 1 2.25 2.25v3" />
+        </svg>
+        {t("deliveryFast")}
+      </span>
+
+      {/* Mostres de color disponibles (fins a 5 + "+N"). Al final i ancorades a
+          baix (mt-auto) perquè no descuadrin la resta de la card. Decoratives: la
+          tria real es fa a la fitxa. */}
       {colors && colors.length > 0 && (
-        <div className="mt-2 flex items-center gap-1.5" aria-hidden>
+        <div className="mt-auto pt-2 flex items-center gap-1.5" aria-hidden>
           {colors.slice(0, 5).map((img, i) => (
             <span
               key={`${img}-${i}`}
@@ -124,13 +132,6 @@ export default function KaveProductCard({
           )}
         </div>
       )}
-
-      <span className="mt-1.5 inline-flex items-center gap-1.5 text-[0.78rem] text-kave-muted">
-        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6} aria-hidden>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-6V6.75A1.5 1.5 0 0 0 9 5.25H5.25m11.25 0H18a2.25 2.25 0 0 1 2.25 2.25v3" />
-        </svg>
-        {t("deliveryFast")}
-      </span>
     </Link>
   );
 }
