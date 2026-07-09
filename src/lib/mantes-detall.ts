@@ -39,7 +39,7 @@ const MANTES_DETALL: Record<string, MantaDetall> = {
   },
   "dalin": {
     termini: "Segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
-    variants: [{ mida: "130x170", pvp: 19.95, pvpAbans: 29.95 }], // PLACEHOLDER rebaixa
+    variants: [{ mida: "130x170", pvp: 19.95 }],
   },
   "harbin": {
     termini: "Segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
@@ -51,7 +51,7 @@ const MANTES_DETALL: Record<string, MantaDetall> = {
   },
   "riad": {
     termini: "Segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
-    variants: [{ mida: "130x170", pvp: 37.95, pvpAbans: 54.95 }], // PLACEHOLDER rebaixa
+    variants: [{ mida: "130x170", pvp: 37.95 }],
   },
   "surate": {
     termini: "Segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",

@@ -595,7 +595,7 @@
     "confReference": "Référence : {ref}",
     "confPendingBody": "Votre commande a été enregistrée. Le paiement en ligne n’est pas encore actif, nous vous contacterons donc pour la finaliser et confirmer le délai de livraison.",
     "confGenericBody": "Votre commande a été enregistrée. Nous vous contacterons pour la confirmer.",
-    "confEmailNote": "Nous enverrons la confirmation à {email}.",
+    "confEmailNote": "Nous vous contacterons à {email} pour confirmer la commande.",
     "confSummaryHeading": "Récapitulatif",
     "confContinue": "Continuer mes achats"
   },

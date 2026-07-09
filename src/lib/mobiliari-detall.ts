@@ -50,7 +50,7 @@ const MOBILIARI_DETALL: Record<string, MobleDetall> = {
   "calais": {
     termini: "Segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     variants: [
-      { nom: "Calais", dim: null, pvp: 90.95, pvpAbans: 129.95 }, // PLACEHOLDER rebaixa
+      { nom: "Calais", dim: null, pvp: 90.95 },
     ],
   },
   "cambrai": {
@@ -68,7 +68,7 @@ const MOBILIARI_DETALL: Record<string, MobleDetall> = {
   "grenoble": {
     termini: "Segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     variants: [
-      { nom: "Grenoble", dim: null, pvp: 65.95, pvpAbans: 109.95 }, // PLACEHOLDER rebaixa
+      { nom: "Grenoble", dim: null, pvp: 65.95 },
     ],
   },
   "limoges": {
@@ -110,7 +110,7 @@ const MOBILIARI_DETALL: Record<string, MobleDetall> = {
   "scandinave-ii": {
     termini: "Segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
     variants: [
-      { nom: "Scandinave II", dim: null, pvp: 63.95, pvpAbans: 99.95 }, // PLACEHOLDER rebaixa
+      { nom: "Scandinave II", dim: null, pvp: 63.95 },
     ],
   },
   "sevres": {

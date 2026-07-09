@@ -595,7 +595,7 @@
     "confReference": "Referencia: {ref}",
     "confPendingBody": "Tu pedido ha quedado registrado. El pago en línea aún no está activo, así que nos pondremos en contacto contigo para completarlo y confirmarte el plazo de entrega.",
     "confGenericBody": "Tu pedido ha quedado registrado. Nos pondremos en contacto contigo para confirmarlo.",
-    "confEmailNote": "Te enviaremos la confirmación a {email}.",
+    "confEmailNote": "Nos pondremos en contacto contigo en {email} para confirmar el pedido.",
     "confSummaryHeading": "Resumen",
     "confContinue": "Seguir comprando"
   },

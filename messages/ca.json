@@ -595,7 +595,7 @@
     "confReference": "Referència: {ref}",
     "confPendingBody": "La teva comanda ha quedat registrada. El pagament en línia encara no està actiu, així que ens posarem en contacte amb tu per completar-la i confirmar-te el termini d'entrega.",
     "confGenericBody": "La teva comanda ha quedat registrada. Ens posarem en contacte amb tu per confirmar-la.",
-    "confEmailNote": "T'enviarem la confirmació a {email}.",
+    "confEmailNote": "Ens posarem en contacte amb tu a {email} per confirmar la comanda.",
     "confSummaryHeading": "Resum",
     "confContinue": "Continuar comprant"
   },

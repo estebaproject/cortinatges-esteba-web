@@ -40,20 +40,33 @@ export function catalogPrefix(type: CatalogType): string {
 }
 
 /**
- * Normalitza una clau de variant a un token de SKU: majúscules, sense espais ni
- * el signe ×, "Ø"→"D" i "_"→"-".
+ * Normalitza una clau de variant a un token de SKU apte per a l'ERP: el resultat
+ * conté NOMÉS [A-Z0-9-]. Majúscules, "Ø"→"D", elimina el signe ×; qualsevol
+ * altre caràcter no [A-Z0-9] (espais, accents, "#", "/", ".", "_", puntuació…)
+ * es substitueix per "-", es col·lapsen els "-" repetits i es retallen els dels
+ * extrems. Això evita SKUs bruts quan la clau de variant du un sufix de color
+ * ("0#Beix", "0#Beige / Negro") o accents ("Marró").
  *
  * @example sanitizeVariantToken("160x230")          // "160X230"
  * @example sanitizeVariantToken("Ø240")             // "D240"
  * @example sanitizeVariantToken("pack_40x50_50x80") // "PACK-40X50-50X80"
+ * @example sanitizeVariantToken("0#Beix")           // "0-BEIX"
+ * @example sanitizeVariantToken("0#Beige / Negro")  // "0-BEIGE-NEGRO"
  */
 export function sanitizeVariantToken(key: string): string {
   return key
     .toUpperCase()
     .replace(/Ø/g, "D")
     .replace(/×/g, "")
-    .replace(/\s+/g, "")
-    .replace(/_/g, "-");
+    // Descompon els accents (NFD) i n'elimina les marques diacrítiques, així
+    // "MARRÓ" → "MARRO" i "CASTAÑO" → "CASTANO" abans de netejar la resta.
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    // Tota la resta que no sigui [A-Z0-9] passa a "-".
+    .replace(/[^A-Z0-9]+/g, "-")
+    // Col·lapsa "-" repetits i retalla els dels extrems.
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
 }
 
 /**

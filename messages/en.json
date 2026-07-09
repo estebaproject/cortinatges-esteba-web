@@ -595,7 +595,7 @@
     "confReference": "Reference: {ref}",
     "confPendingBody": "Your order has been registered. Online payment is not active yet, so we will contact you to finalise it and confirm the delivery time.",
     "confGenericBody": "Your order has been registered. We will contact you to confirm it.",
-    "confEmailNote": "We will send the confirmation to {email}.",
+    "confEmailNote": "We'll get in touch with you at {email} to confirm your order.",
     "confSummaryHeading": "Summary",
     "confContinue": "Continue shopping"
   },
