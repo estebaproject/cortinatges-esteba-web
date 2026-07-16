@@ -30,6 +30,10 @@ type Props = {
   image: string;
   /** Ruta relativa a la fitxa, sense prefix de locale ("/catifes/adore"). */
   href: string;
+  /** Referència/color escollit al bloc superior (null si la catifa no en té). */
+  colorCode?: string | null;
+  /** Mides NO disponibles per al color escollit (es deshabiliten al selector). */
+  unavailableSizes?: string[];
 };
 
 export default function CatifaPurchasePanel({
@@ -40,6 +44,8 @@ export default function CatifaPurchasePanel({
   perEncarrec,
   image,
   href,
+  colorCode,
+  unavailableSizes = [],
 }: Props) {
   const t = useTranslations("Producte");
   const tCart = useTranslations("Cart");
@@ -48,20 +54,28 @@ export default function CatifaPurchasePanel({
   const locale = useLocale();
   const { add } = useCart();
 
-  const single = mides.length === 1;
+  const unavailable = useMemo(() => new Set(unavailableSizes), [unavailableSizes]);
+  // Mides realment disponibles per al color escollit.
+  const availMides = useMemo(() => mides.filter((m) => !unavailable.has(m.mida)), [mides, unavailable]);
+
+  const single = availMides.length === 1;
   // Per defecte, cap mesura seleccionada (l'usuari tria conscientment), tret que
   // només n'hi hagi una.
-  const [selected, setSelected] = useState<string | null>(single ? mides[0].mida : null);
+  const [selected, setSelected] = useState<string | null>(single ? availMides[0].mida : null);
   const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  // Si la mida escollida deixa d'estar disponible (canvi de color), es descarta.
   const selectedMida = useMemo(
-    () => mides.find((m) => m.mida === selected) ?? null,
-    [mides, selected],
+    () => mides.find((m) => m.mida === selected && !unavailable.has(m.mida)) ?? null,
+    [mides, selected, unavailable],
   );
 
-  const minPvp = useMemo(() => Math.min(...mides.map((m) => m.pvp)), [mides]);
+  const minPvp = useMemo(
+    () => Math.min(...(availMides.length ? availMides : mides).map((m) => m.pvp)),
+    [availMides, mides],
+  );
 
   // Preu a mostrar: si hi ha mesura escollida, la seva; si no (multi sense
   // tria), un "des de" amb el mínim i sense badge de descompte (seria ambigu).
@@ -73,14 +87,17 @@ export default function CatifaPurchasePanel({
   const handleAdd = () => {
     if (!selectedMida) return;
     const midaLabel = formatMidaLabel(selectedMida.mida);
+    // El color/referencia escollit fa la linia de cistella unica i visible.
+    const colorSuffix = colorCode ? ` · ${colorCode}` : "";
+    const colorKey = colorCode ? `#${colorCode}` : "";
     add(
       {
-        // Slug compost: cada mesura és una línia independent al cistell.
-        slug: `${slug}#${selectedMida.mida}`,
+        // Slug compost: cada mesura (i color) és una línia independent al cistell.
+        slug: `${slug}#${selectedMida.mida}${colorKey}`,
         href,
-        // El nom inclou la mesura perquè el cistell i el missatge de WhatsApp
-        // (que només mostren `nom`) reflecteixin què s'ha comprat.
-        nom: `${nom} — ${midaLabel}`,
+        // El nom inclou la mesura i el color perquè el cistell i el missatge de
+        // WhatsApp (que només mostren `nom`) reflecteixin què s'ha comprat.
+        nom: `${nom} — ${midaLabel}${colorSuffix}`,
         pvp: selectedMida.pvp,
         image,
       },
@@ -131,13 +148,18 @@ export default function CatifaPurchasePanel({
         </legend>
         <div className="space-y-2">
           {mides.map((m) => {
-            const isSelected = m.mida === selected;
+            const off = unavailable.has(m.mida);
+            const isSelected = selectedMida?.mida === m.mida;
             const mPct = discountPct(m.pvp, m.pvpAbans);
             return (
               <label
                 key={m.mida}
-                className={`flex items-center justify-between gap-4 px-4 py-3 border cursor-pointer transition-colors ${
-                  isSelected ? "border-kave-ink bg-kave-surface" : "border-kave-line hover:border-kave-ink/50"
+                className={`flex items-center justify-between gap-4 px-4 py-3 border transition-colors ${
+                  off
+                    ? "border-kave-line opacity-40 cursor-not-allowed"
+                    : isSelected
+                      ? "border-kave-ink bg-kave-surface cursor-pointer"
+                      : "border-kave-line hover:border-kave-ink/50 cursor-pointer"
                 }`}
               >
                 <span className="flex items-center gap-3">
@@ -146,10 +168,14 @@ export default function CatifaPurchasePanel({
                     name={`mida-${slug}`}
                     value={m.mida}
                     checked={isSelected}
+                    disabled={off}
                     onChange={() => setSelected(m.mida)}
                     className="accent-kave-ink"
                   />
-                  <span className="text-[0.95rem] text-kave-ink">{formatMidaLabel(m.mida)}</span>
+                  <span className="text-[0.95rem] text-kave-ink">
+                    {formatMidaLabel(m.mida)}
+                    {off && <span className="text-xs text-kave-muted"> · no disp.</span>}
+                  </span>
                 </span>
                 <span className="flex items-baseline gap-2 shrink-0 tabular-nums">
                   {mPct !== null && m.pvpAbans !== undefined && (

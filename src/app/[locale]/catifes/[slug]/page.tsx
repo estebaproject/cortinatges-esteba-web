@@ -22,8 +22,8 @@ import {
 } from "@/lib/catifes-detall";
 import { formatEur } from "@/lib/discount";
 import { productSku } from "@/lib/sku";
-import CatifaPurchasePanel from "@/components/catifes/CatifaPurchasePanel";
-import ProductGallery from "@/components/shop/ProductGallery";
+import CatifaBuyBlock from "@/components/catifes/CatifaBuyBlock";
+import { getCatifaColors } from "@/lib/catifes-colors";
 import KaveAboutProduct, { type AboutSection } from "@/components/shop/KaveAboutProduct";
 import ProductCarousel from "@/components/shop/ProductCarousel";
 
@@ -248,45 +248,22 @@ export default async function CatifaPage({ params }: Props) {
             <span className="text-kave-ink">{catifa.nom}</span>
           </nav>
 
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 items-start">
-            {/* Galeria de producte (escena + producte + detall). Gestiona els
-                seus propis fons; la composem dins de la columna esquerra. */}
-            <ProductGallery slides={slides} thumbsLabel={tGallery("thumbsLabel")} />
-
-            {/* Columna dreta */}
-            <div className="lg:sticky lg:top-32 self-start">
-              <p className="text-sm text-kave-muted mb-2">{familyLabel(catifa.familia)}</p>
-              <h1 className="font-display text-3xl md:text-4xl text-kave-ink mb-6 leading-tight">
-                {catifa.nom}
-              </h1>
-
-              {/* Compra directa: selector de mesura + PVP per mesura (amb rebaixa
-                  real si la mesura té pvpAbans) + termini d'entrega (requisit
-                  legal, visible ABANS de comprar) + badge "Per encàrrec" + afegir
-                  a la cistella. Nomes si tenim detall comercial amb mesures. */}
-              {detall && detall.mides.length > 0 ? (
-                <CatifaPurchasePanel
-                  slug={catifa.slug}
-                  nom={catifa.nom}
-                  mides={detall.mides}
-                  termini={detall.termini}
-                  perEncarrec={detall.perEncarrec}
-                  image={productImage}
-                  href={`/catifes/${catifa.slug}`}
-                />
-              ) : (
-                <div>
-                  <p className="text-3xl font-semibold text-kave-ink mb-6">{priceLabel}</p>
-                  <Link
-                    href={`${prefix}/demana-pressupost`}
-                    className="inline-flex items-center justify-center px-8 py-3.5 bg-kave-ink text-white text-sm font-semibold hover:bg-kave-ink/90 transition-colors"
-                  >
-                    {t("requestBudget")}
-                  </Link>
-                </div>
-              )}
-            </div>
-          </div>
+          <CatifaBuyBlock
+            slug={catifa.slug}
+            nom={catifa.nom}
+            familyLabel={familyLabel(catifa.familia)}
+            colors={getCatifaColors(catifa.slug)}
+            slides={slides}
+            thumbsLabel={tGallery("thumbsLabel")}
+            mides={detall?.mides ?? []}
+            termini={detall?.termini ?? null}
+            perEncarrec={detall?.perEncarrec ?? false}
+            productImage={productImage}
+            href={`/catifes/${catifa.slug}`}
+            priceLabel={priceLabel}
+            budgetHref={`${prefix}/demana-pressupost`}
+            requestBudget={t("requestBudget")}
+          />
         </div>
       </section>
 
