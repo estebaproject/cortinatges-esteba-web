@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
-import { MOBLES } from "@/lib/mobiliari";
+import { getMobles } from "@/lib/mobiliari-source";
 import { SITE_URL } from "@/lib/site";
 import MobiliariCatalog from "@/components/MobiliariCatalog";
+
+// ISR: revalida cada hora perquè els canvis de la BD (ERP) es propaguin sense
+// redeploy. La revalidació immediata la dispara /api/revalidate en "Publicar".
+export const revalidate = 3600;
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -44,13 +48,16 @@ export default async function MobiliariPage({ params }: Props) {
   const t = await getTranslations("Mobiliari");
   const prefix = locale === "ca" ? "" : `/${locale}`;
 
+  // Mobles: DB-first amb fallback a l'estàtic (bulletproof).
+  const mobles = await getMobles();
+
   // Dades estructurades: llista de productes (mobles) per a SEO local.
   // Sempre el set complet (no el filtrat), per consistència del JSON-LD.
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: t("metaTitle"),
-    itemListElement: MOBLES.map((m, i) => ({
+    itemListElement: mobles.map((m, i) => ({
       "@type": "ListItem",
       position: i + 1,
       name: m.nom,
@@ -79,7 +86,7 @@ export default async function MobiliariPage({ params }: Props) {
               filtres, cerca i ordenació sense recarregar.
               Suspense obligatori perquè MobiliariCatalog usa useSearchParams() (Next 15). */}
           <Suspense fallback={<CatalogSkeleton />}>
-            <MobiliariCatalog mobles={MOBLES} prefix={prefix} locale={locale} />
+            <MobiliariCatalog mobles={mobles} prefix={prefix} locale={locale} />
           </Suspense>
         </div>
       </section>

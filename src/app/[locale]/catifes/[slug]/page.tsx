@@ -3,20 +3,20 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTranslations, getLocale } from "next-intl/server";
 import {
-  CATIFES,
-  VISIBLE_CATIFES,
-  VISIBLE_CATIFA_SLUGS,
   HIDDEN_CATIFA_FAMILIES,
-  getCatifa,
-  catifaImage,
   catifaEscena,
-  catifaProducto,
-  catifaSlides,
+  type Catifa,
   type CatifaFamilia,
 } from "@/lib/catifes";
+import {
+  getVisibleCatifes,
+  getVisibleCatifaSlugs,
+  getCatifaBySlug,
+  getCatifaImages,
+  getCatifaDetallSource,
+} from "@/lib/catifes-source";
 import { SITE_URL, SITE_NAME, localizedAlternates } from "@/lib/site";
 import {
-  getCatifaDetall,
   catifaPriceRange,
   formatMidaLabel,
 } from "@/lib/catifes-detall";
@@ -27,23 +27,28 @@ import { getCatifaColors } from "@/lib/catifes-colors";
 import KaveAboutProduct, { type AboutSection } from "@/components/shop/KaveAboutProduct";
 import ProductCarousel from "@/components/shop/ProductCarousel";
 
+// ISR: revalida cada hora perquè els canvis de la BD (ERP) es propaguin sense
+// redeploy. La revalidació immediata la dispara /api/revalidate en "Publicar".
+export const revalidate = 3600;
+
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
 };
 
-export function generateStaticParams() {
-  return VISIBLE_CATIFA_SLUGS.map((slug) => ({ slug }));
+export async function generateStaticParams() {
+  const slugs = await getVisibleCatifaSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
-  const catifa = getCatifa(slug);
+  const catifa = await getCatifaBySlug(slug);
   if (!catifa) return {};
   const t = await getTranslations({ locale, namespace: "Catifes" });
   const prefix = locale === "ca" ? "" : `/${locale}`;
   const url = `${SITE_URL}${prefix}/catifes/${slug}`;
   // ADR-7: OG usa imatge de producte quan existeix, fallback escena.
-  const ogImage = catifaProducto(slug) ?? catifaImage(slug);
+  const { productImage: ogImage } = await getCatifaImages(slug, catifa.nom);
   const familyLabel = t(`families.${catifa.familia}` as Parameters<typeof t>[0]);
   const description = `${catifa.nom} — ${familyLabel}. ${t("madeBy")} ${t("madeByBrand")}. ${
     catifa.pvpDesde !== null
@@ -72,7 +77,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CatifaPage({ params }: Props) {
   const { slug } = await params;
-  const catifa = getCatifa(slug);
+  const catifa = await getCatifaBySlug(slug);
   if (!catifa) notFound();
   if (HIDDEN_CATIFA_FAMILIES.has(catifa.familia)) notFound();
 
@@ -85,16 +90,16 @@ export default async function CatifaPage({ params }: Props) {
   const familyLabel = (f: CatifaFamilia) =>
     t(`families.${f}` as Parameters<typeof t>[0]);
 
-  // Imatge per al JSON-LD Product.image i add-to-cart: producte si existeix.
-  const productImage = catifaProducto(slug) ?? catifaEscena(slug);
-  // Slides per a la galeria: escena + producte + detall (omets inexistents).
+  // Galeria + imatge de producte (DB-first amb fallback estàtic). productImage
+  // (producto ?? escena) alimenta el JSON-LD Product.image i l'add-to-cart;
+  // slides = escena + producte + detall (omet inexistents).
   const tGallery = await getTranslations("Gallery");
-  const slides = catifaSlides(slug, catifa.nom);
+  const { slides, productImage } = await getCatifaImages(slug, catifa.nom);
 
   // Detall comercial (mesures + PVP per mesura + termini). Font de la fitxa
   // vendible. Si no hi ha detall (no hauria de passar per a les live), caiem
   // amb elegancia al "des de" antic.
-  const detall = getCatifaDetall(slug);
+  const detall = await getCatifaDetallSource(slug);
   const range = detall ? catifaPriceRange(detall) : null;
 
   // El preu "des de" ara surt del rang real de mesures (no del pvpDesde antic).
@@ -109,13 +114,14 @@ export default async function CatifaPage({ params }: Props) {
   // Carrusels de relacionades: "Combina'l amb" (mateixa família) i "Et pot
   // interessar" (altres famílies). Només catifes amb preu, perquè KaveProductCard
   // (via ProductCarousel) exigeix un pvp numèric; mai mostrem un preu fals.
-  const combina = VISIBLE_CATIFES.filter(
+  const visibleCatifes = await getVisibleCatifes();
+  const combina = visibleCatifes.filter(
     (c) => c.slug !== slug && c.familia === catifa.familia && c.pvpDesde !== null,
   ).slice(0, 8);
-  const interessar = VISIBLE_CATIFES.filter(
+  const interessar = visibleCatifes.filter(
     (c) => c.slug !== slug && c.familia !== catifa.familia && c.pvpDesde !== null,
   ).slice(0, 8);
-  const toItem = (c: (typeof CATIFES)[number]) => ({
+  const toItem = (c: Catifa) => ({
     href: `${prefix}/catifes/${c.slug}`,
     image: catifaEscena(c.slug),
     title: c.nom,

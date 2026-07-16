@@ -61,9 +61,32 @@ function SectionHeader({ id, title, href, verTot }: { id: string; title: string;
   );
 }
 
+// Columnes segons el nombre de tiles: la graella s'ajusta al contingut perquè una
+// secció amb 3 tiles ompli l'ample amb 3 columnes (i no deixi un forat a la dreta,
+// com passava amb `lg:grid-cols-4` fix). Classes literals completes perquè el
+// scanner de Tailwind les capti (res de concatenació dinàmica).
+const COLS_BY_COUNT: Record<number, string> = {
+  1: "grid-cols-1 max-w-md",
+  2: "grid-cols-2",
+  3: "grid-cols-2 sm:grid-cols-3",
+  4: "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4",
+};
+
+// `sizes` coherent amb les columnes reals de cada recompte (imatge nítida sense
+// descarregar de més).
+const SIZES_BY_COUNT: Record<number, string> = {
+  1: "(min-width:640px) 28rem, 100vw",
+  2: "50vw",
+  3: "(min-width:640px) 33vw, 50vw",
+  4: "(min-width:1024px) 25vw, (min-width:640px) 33vw, 50vw",
+};
+
 function TileRow({ tiles }: { tiles: Tile[] }) {
+  const n = Math.min(tiles.length, 4);
+  const cols = COLS_BY_COUNT[n] ?? COLS_BY_COUNT[4];
+  const sizes = SIZES_BY_COUNT[n] ?? SIZES_BY_COUNT[4];
   return (
-    <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-5 gap-y-8" role="list">
+    <ul className={`grid ${cols} gap-x-5 gap-y-8`} role="list">
       {tiles.map((tl) => (
         <li key={tl.key}>
           <Link href={tl.href} className="group block">
@@ -72,7 +95,7 @@ function TileRow({ tiles }: { tiles: Tile[] }) {
                 src={tl.image}
                 alt={tl.label}
                 fill
-                sizes="(min-width:1024px) 25vw, (min-width:640px) 33vw, 50vw"
+                sizes={sizes}
                 className={`${tl.fit === "cover" ? "object-cover" : "object-contain p-4"} transition-transform duration-500 group-hover:scale-[1.03]`}
               />
             </div>

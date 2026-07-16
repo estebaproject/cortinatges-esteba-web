@@ -3,14 +3,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTranslations, getLocale } from "next-intl/server";
+import { mantaImage, type Manta } from "@/lib/mantes";
 import {
-  MANTES,
-  MANTA_SLUGS,
-  getManta,
-  mantaImage,
-} from "@/lib/mantes";
+  getVisibleMantes,
+  getVisibleMantaSlugs,
+  getMantaBySlug,
+  getMantaImage,
+  getMantaDetallSource,
+} from "@/lib/mantes-source";
 import {
-  getMantaDetall,
   mantaPriceRange,
   formatMantaMidaLabel,
 } from "@/lib/mantes-detall";
@@ -21,23 +22,28 @@ import KaveAboutProduct, { type AboutSection } from "@/components/shop/KaveAbout
 import ProductCarousel from "@/components/shop/ProductCarousel";
 import { SITE_URL, SITE_NAME, localizedAlternates } from "@/lib/site";
 
+// ISR: revalida cada hora perquè els canvis de la BD (ERP) es propaguin sense
+// redeploy. La revalidació immediata la dispara /api/revalidate en "Publicar".
+export const revalidate = 3600;
+
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
 };
 
-export function generateStaticParams() {
-  return MANTA_SLUGS.map((slug) => ({ slug }));
+export async function generateStaticParams() {
+  const slugs = await getVisibleMantaSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
-  const manta = getManta(slug);
+  const manta = await getMantaBySlug(slug);
   if (!manta) return {};
   const t = await getTranslations({ locale, namespace: "Mantes" });
   const prefix = locale === "ca" ? "" : `/${locale}`;
   const url = `${SITE_URL}${prefix}/mantes/${slug}`;
-  const image = mantaImage(slug);
-  const detall = getMantaDetall(slug);
+  const image = await getMantaImage(slug);
+  const detall = await getMantaDetallSource(slug);
   const range = detall ? mantaPriceRange(detall) : null;
   const fromPriceValue = range?.min ?? manta.pvp;
   const description = `${manta.nom} — ${t("eyebrow")}. ${t("madeBy")} ${t("madeByBrand")}. ${t("fromPrice")} ${fromPriceValue} €.`;
@@ -63,7 +69,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function MantaPage({ params }: Props) {
   const { slug } = await params;
-  const manta = getManta(slug);
+  const manta = await getMantaBySlug(slug);
   if (!manta) notFound();
 
   const t = await getTranslations("Mantes");
@@ -72,12 +78,13 @@ export default async function MantaPage({ params }: Props) {
   const locale = await getLocale();
   const prefix = locale === "ca" ? "" : `/${locale}`;
 
-  const image = mantaImage(slug);
+  // Imatge (hero): DB-first amb fallback estàtic ("/images/decor/{slug}/1.jpg").
+  const image = await getMantaImage(slug);
 
   // Detall comercial (mesura + PVP per mesura + termini). Font de la fitxa
   // vendible. Si no hi ha detall, caiem amb elegancia al "des de" del registre
   // base + CTA de pressupost.
-  const detall = getMantaDetall(slug);
+  const detall = await getMantaDetallSource(slug);
   const range = detall ? mantaPriceRange(detall) : null;
 
   // El preu "des de" surt del rang real de mesures quan tenim detall; si no,
@@ -86,8 +93,10 @@ export default async function MantaPage({ params }: Props) {
 
   // Productes per al carrusel "Et pot interessar" (la resta de mantes). Es
   // mapegen a items de KaveProductCard (fit cover: foto tèxtil a sang).
-  const interessar = MANTES.filter((m) => m.slug !== slug).slice(0, 8);
-  const toItem = (m: (typeof MANTES)[number]) => ({
+  // DB-first amb fallback estàtic (bulletproof).
+  const mantes = await getVisibleMantes();
+  const interessar = mantes.filter((m) => m.slug !== slug).slice(0, 8);
+  const toItem = (m: Manta) => ({
     href: `${prefix}/mantes/${m.slug}`,
     image: mantaImage(m.slug),
     title: m.nom,

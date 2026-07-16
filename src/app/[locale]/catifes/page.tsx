@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
-import { VISIBLE_CATIFES } from "@/lib/catifes";
+import { getVisibleCatifes } from "@/lib/catifes-source";
 import { SITE_URL } from "@/lib/site";
 import CatifesCatalog from "@/components/CatifesCatalog";
+
+// ISR: revalida cada hora perquè els canvis de la BD (ERP) es propaguin sense
+// redeploy. La revalidació immediata la dispara /api/revalidate en "Publicar".
+export const revalidate = 3600;
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -46,13 +50,16 @@ export default async function CatifesPage({ params }: Props) {
   const t = await getTranslations("Catifes");
   const prefix = locale === "ca" ? "" : `/${locale}`;
 
+  // Catifes visibles: DB-first amb fallback a l'estàtic (bulletproof).
+  const catifes = await getVisibleCatifes();
+
   // Dades estructurades: llista de productes (catifes) per a SEO local.
   // Sempre el set complet (no el filtrat), per consistència del JSON-LD.
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: t("metaTitle"),
-    itemListElement: VISIBLE_CATIFES.map((c, i) => ({
+    itemListElement: catifes.map((c, i) => ({
       "@type": "ListItem",
       position: i + 1,
       name: c.nom,
@@ -81,7 +88,7 @@ export default async function CatifesPage({ params }: Props) {
               filtres, cerca i ordenació sense recarregar.
               Suspense obligatori perquè CatifesCatalog usa useSearchParams() (Next 15). */}
           <Suspense fallback={<CatalogSkeleton />}>
-            <CatifesCatalog catifes={VISIBLE_CATIFES} prefix={prefix} locale={locale} />
+            <CatifesCatalog catifes={catifes} prefix={prefix} locale={locale} />
           </Suspense>
         </div>
       </section>

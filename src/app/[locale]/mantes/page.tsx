@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
-import { MANTES } from "@/lib/mantes";
+import { getVisibleMantes } from "@/lib/mantes-source";
 import { SITE_URL } from "@/lib/site";
 import MantesCatalog from "@/components/MantesCatalog";
+
+// ISR: revalida cada hora perquè els canvis de la BD (ERP) es propaguin sense
+// redeploy. La revalidació immediata la dispara /api/revalidate en "Publicar".
+export const revalidate = 3600;
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -46,12 +50,15 @@ export default async function MantesPage({ params }: Props) {
   const t = await getTranslations("Mantes");
   const prefix = locale === "ca" ? "" : `/${locale}`;
 
+  // Mantes visibles: DB-first amb fallback a l'estàtic (bulletproof).
+  const mantes = await getVisibleMantes();
+
   // Dades estructurades: llista de productes (mantes) per a SEO local.
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: t("metaTitle"),
-    itemListElement: MANTES.map((m, i) => ({
+    itemListElement: mantes.map((m, i) => ({
       "@type": "ListItem",
       position: i + 1,
       name: m.nom,
@@ -80,7 +87,7 @@ export default async function MantesPage({ params }: Props) {
               cerca, rebaixes i ordenació sense recarregar.
               Suspense obligatori perquè MantesCatalog usa useSearchParams() (Next 15). */}
           <Suspense fallback={<CatalogSkeleton />}>
-            <MantesCatalog mantes={MANTES} prefix={prefix} locale={locale} />
+            <MantesCatalog mantes={mantes} prefix={prefix} locale={locale} />
           </Suspense>
         </div>
       </section>
