@@ -1,7 +1,9 @@
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
+import Hero from "@/components/Hero";
 import ProductTileGrid from "@/components/ProductTileGrid";
 import ArtisanBand from "@/components/ArtisanBand";
+import SectionOfici from "@/components/SectionOfici";
 import ServicesGrid from "@/components/ServicesGrid";
 import ContentRows from "@/components/ContentRows";
 import EspaisSection from "@/components/EspaisSection";
@@ -24,14 +26,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function HomePage() {
   return (
-    <div className="pt-32 md:pt-40">
-      <ProductTileGrid />
-      <ArtisanBand />
-      <ServicesGrid compact />
-      <ContentRows />
-      <EspaisSection />
-      <LocationsSection />
-      <CtaVisita />
+    <div>
+      {/* El Hero va a sang, sense el padding superior que compensava la
+          capçalera fixa: la imatge ha d'arrencar dalt de tot. */}
+      <Hero />
+      <div className="pt-12 md:pt-16">
+        <ProductTileGrid />
+        <ArtisanBand />
+        <SectionOfici />
+        <ServicesGrid compact />
+        <ContentRows />
+        <EspaisSection />
+        <LocationsSection />
+        <CtaVisita />
+      </div>
     </div>
   );
 }

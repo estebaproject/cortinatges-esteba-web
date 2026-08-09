@@ -10,6 +10,9 @@ import { SHOP_PUBLISHED } from "@/lib/shop-visibility";
 
 export default function Header() {
   const t = useTranslations("Navigation");
+  // L'enllaç de la franja superior estava HARDCODEJAT en català
+  // ("Demana pressupost") i sortia igual a les pàgines en es/en/fr.
+  const tb = useTranslations("FormBudget");
   const locale = useLocale();
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -33,7 +36,7 @@ export default function Header() {
               href={publicPath("/demana-pressupost", locale)}
               className="hidden sm:inline text-canvas/80 hover:text-canvas transition-colors"
             >
-              Demana pressupost
+              {tb("title")}
             </Link>
             <a
               href="https://www.instagram.com/cortinatgesesteba/"
