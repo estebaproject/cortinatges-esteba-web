@@ -253,7 +253,8 @@
     "otherCollections": "Other collections",
     "featuresHeading": "Features",
     "ctaBlockHeadline": "Like what you see? Let's talk.",
-    "ctaBlockBody": "We come to you, take measurements and advise you with no obligation. One conversation is worth more than a thousand photos."
+    "ctaBlockBody": "We come to you, take measurements and advise you with no obligation. One conversation is worth more than a thousand photos.",
+    "notesHeading": "To be taken into account"
   },
   "Products": {
     "tradicional": {
@@ -263,6 +264,16 @@
       "paragraphs": [
         "They create welcoming, warm spaces full of harmony.",
         "There is a wide variety of weaves to fine-tune light control, from sheer to opaque, so every room gets exactly the light it needs."
+      ],
+      "features": [
+        "Great diversity of fabrics to achieve a natural look and a cozy atmosphere.",
+        "With 10 different types of fabrics to choose from.",
+        "We offer a large selection of rods and rails."
+      ],
+      "notes": [
+        "Depending on the type of construction, the same fabric can produce curtains of different appearance.",
+        "If you choose perfect wave, you will get a curtain with a neat and modern look.",
+        "If you choose frungida, this same fabric will become a more classic and traditional curtain."
       ]
     },
     "estor-paquet": {
@@ -271,6 +282,15 @@
       "intro": "The Roman blind is the flagship product for dressing a space: it is the perfect curtain for creating welcoming rooms with a comfortable feel.",
       "paragraphs": [
         "Its construction lets the folds fall far more naturally and beautifully, gathering the fabric in a light, simple way."
+      ],
+      "features": [
+        "Great diversity of fabrics to achieve a natural look and a cozy atmosphere.",
+        "Installation can be ceiling or wall mounted.",
+        "Extensive light control, depending on the fabric chosen."
+      ],
+      "notes": [
+        "Very simple installation.",
+        "This type of curtain can be installed in bedrooms, kitchens and dining rooms."
       ]
     },
     "estor-enrotllable": {
@@ -280,6 +300,16 @@
       "paragraphs": [
         "Screen fabric filters the light and shields you from the heat while keeping the view outside; blackout darkens the room completely whenever you need it.",
         "It takes up very little space when rolled up and fits almost any window. Available with manual or motorised operation."
+      ],
+      "features": [
+        "Roller blinds give a feeling of spaciousness and make the rooms where they are installed seem larger and brighter.",
+        "They have included trims that help to hide both the metal supports and the fixing snails, achieving a formidable aesthetic.",
+        "Our supports allow both ceiling and wall installation."
+      ],
+      "notes": [
+        "The drop of the fabric behind the tube offers better thermal insulation, thanks to the fact that the fabric is closer to the glass.",
+        "The drop of the fabric in front of the tube allows to avoid obstacles, such as the handle of the window.",
+        "The premium mechanism with gear reduction reduces the curtain’s weight sensation."
       ]
     },
     "panell-japones": {
@@ -292,7 +322,13 @@
       "features": [
         "Screen: light and protection from the heat, with easy cleaning using a damp sponge.",
         "Translucent: weaves that offer a soft, diffused light while preserving privacy.",
-        "Opaque: stand out for their darkness, offering privacy and thermal insulation."
+        "Opaque: stand out for their darkness, offering privacy and thermal insulation.",
+        "You will be able to regulate the natural light coming from the outside.",
+        "The variety of designs and colors is very extensive.",
+        "The Japanese panel has a very simple maintenance."
+      ],
+      "notes": [
+        "There is also the option of choosing the Japanese panel with a handle at each end for easy access."
       ]
     },
     "veneciana-alumini": {
@@ -320,6 +356,16 @@
       "paragraphs": [
         "They come translucent or fully opaque to block out the light.",
         "They can be fitted in tight spaces, since their stack space is minimal."
+      ],
+      "features": [
+        "Two opening systems:",
+        "Unidirectional (curtains can be gathered downward only).",
+        "Bidirectional (curtains can be drawn upwards and downwards).",
+        "Fixing possible without perforation.",
+        "The fabric can be left in the desired position, therefore, it is possible to wash the window easily, without the need to disassemble the curtain."
+      ],
+      "notes": [
+        "Custom-made and available with various mounting options, the pleated curtain can be adapted to fit both large and small windows."
       ]
     },
     "vertical": {
@@ -329,6 +375,10 @@
       "paragraphs": [
         "If you have a generously sized window, this is a type of blind that fits it perfectly.",
         "They let you control light and privacy precisely thanks to their adjustable slats, with manual or motorised operation."
+      ],
+      "features": [
+        "They allow precise control of light and privacy, thanks to their adjustable slats.",
+        "They can be manual or motorized."
       ]
     },
     "nit-i-dia": {
@@ -337,6 +387,15 @@
       "intro": "Day and night blinds are modern, elegant and decoratively striking. They are made of a double fabric that alternates in succession, forming bands of translucent and transparent weave.",
       "paragraphs": [
         "As you raise or lower the blind, these bands slide and overlap one another, producing a magical effect of light and shadow."
+      ],
+      "features": [
+        "Creates bright, warm and modern environments.",
+        "Fabric with a wide range of colors available."
+      ],
+      "notes": [
+        "All the shades allow the entrance of dim light except for black, which feels more diffuser.",
+        "The night and day blinds include an embellishing drawer to cover the mechanism and create a cleaner environment.",
+        "This can also be with textile prints to match the curtain itself."
       ]
     },
     "motoritzacio": {

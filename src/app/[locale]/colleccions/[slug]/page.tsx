@@ -74,6 +74,11 @@ export default async function ProductPage({ params }: Props) {
   const intro = tp(key("intro"));
   const paragraphs = tp.raw(key("paragraphs")) as string[];
   const featuresRaw = tp.has(key("features")) ? (tp.raw(key("features")) as string[]) : [];
+  // "A tenir en compte": criteris de tria i advertiments que el WordPress
+  // presentava en un bloc PROPI, separat dels avantatges. Sense aquest segon
+  // bloc, tot cauria dins de `features` i es perdria la distinció entre
+  // argument de venda i cosa a tenir present abans de decidir.
+  const notesRaw = tp.has(key("notes")) ? (tp.raw(key("notes")) as string[]) : [];
   const images = productImages(product);
   const [hero, ...gallery] = images;
 
@@ -179,6 +184,21 @@ export default async function ProductPage({ params }: Props) {
                       className="font-sans text-body-md text-ink-muted pl-5 border-l-2 border-linen-dark"
                     >
                       {f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {notesRaw.length > 0 && (
+              <div className="mt-12 border border-linen bg-canvas-warm p-8">
+                <h2 className="font-sans text-eyebrow text-accent-deep uppercase mb-6">
+                  {t("notesHeading")}
+                </h2>
+                <ul className="flex flex-col gap-4" role="list">
+                  {notesRaw.map((n, i) => (
+                    <li key={i} className="font-sans text-body-md text-ink-muted">
+                      {n}
                     </li>
                   ))}
                 </ul>

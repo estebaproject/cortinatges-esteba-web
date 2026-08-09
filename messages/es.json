@@ -253,7 +253,8 @@
     "otherCollections": "Otras colecciones",
     "featuresHeading": "Características",
     "ctaBlockHeadline": "¿Te gusta lo que ves? Hablemos.",
-    "ctaBlockBody": "Te hacemos una visita, tomamos medidas y te asesoramos sin compromiso. Una conversación vale más que mil fotos."
+    "ctaBlockBody": "Te hacemos una visita, tomamos medidas y te asesoramos sin compromiso. Una conversación vale más que mil fotos.",
+    "notesHeading": "A tener en cuenta"
   },
   "Products": {
     "tradicional": {
@@ -263,6 +264,16 @@
       "paragraphs": [
         "Permiten crear ambientes acogedores, cálidos y llenos de armonía.",
         "Existe una gran variedad de tejidos para mejorar el control de la luz, desde transparentes hasta opacos, para que cada estancia tenga exactamente la luz que necesita."
+      ],
+      "features": [
+        "Gran diversidad de tejidos para conseguir un aspecto natural y un ambiente acogedor.",
+        "Con 10 tipos de confección diferentes a escoger.",
+        "Ofrecemos una gran selección de barras y riells."
+      ],
+      "notes": [
+        "Según el tipo de confección, una misma tela puede dar lugar a cortinas de diferente aspecto.",
+        "Si escoges ola perfecta, conseguirás una cortina de aspecto ordenado y moderno.",
+        "Si escoges frungida, esta misma tela se convertirá en una cortina más clásica y tradicional."
       ]
     },
     "estor-paquet": {
@@ -271,6 +282,15 @@
       "intro": "El estor paquete es el producto estrella para vestir un espacio: es la cortina perfecta para crear ambientes acogedores de apariencia confortable.",
       "paragraphs": [
         "Su forma permite que los pliegues que realiza la cortina sean mucho más naturales y bonitos, ya que recoge la tela de manera ligera y sencilla."
+      ],
+      "features": [
+        "Gran diversidad de tejidos para conseguir un aspecto natural y un ambiente acogedor.",
+        "La instalación puede ser a techo o pared.",
+        "Amplio control de la luz, dependiendo del tejido escogido."
+      ],
+      "notes": [
+        "Instalación muy sencilla.",
+        "Este tipo de cortina se instala tanto con dormitorios como cocinas o comedores."
       ]
     },
     "estor-enrotllable": {
@@ -280,6 +300,16 @@
       "paragraphs": [
         "El tejido screen filtra la luz y protege del calor manteniendo la visión hacia el exterior; el blackout oscurece completamente la estancia cuando lo necesitas.",
         "Ocupa muy poco espacio al recogerse y se adapta a prácticamente cualquier ventana. Disponible con accionamiento manual o motorizado."
+      ],
+      "features": [
+        "Los estores enrollables dan la sensación de amplitud y hacen que las habitaciones donde se instalan parezcan más grandes y luminosas.",
+        "Llevan embellecedores incluidos que ayudan a ocultar tanto los apoyos metálicos como los caracoles de fijación, consiguiendo una estética formidable.",
+        "Nuestros apoyos permiten tanto la instalación a techo como pared."
+      ],
+      "notes": [
+        "La caída del tejido por detrás del tubo ofrece mejor aislamiento térmico, gracias al hecho que el tejido queda más próximo al vidrio.",
+        "La caída del tejido por ante el tubo permite salvar obstáculos, como la manecita de la ventana.",
+        "El mecanismo prémium con desmultiplicador, reduce la sensación de peso de la cortina"
       ]
     },
     "panell-japones": {
@@ -292,7 +322,13 @@
       "features": [
         "Screen: luz y protección frente al calor, con una limpieza fácil con una esponja húmeda.",
         "Translúcidos: tejidos que ofrecen una luz suave y difuminada facilitando la privacidad.",
-        "Opacos: destacan por la oscuridad, ofreciendo privacidad y aislamiento térmico."
+        "Opacos: destacan por la oscuridad, ofreciendo privacidad y aislamiento térmico.",
+        "Podràs regular com convingui la llum natural que prové de l’exterior.",
+        "La varietat de dissenys i colors és molt extensa.",
+        "El panell japonès té un manteniment molt senzill."
+      ],
+      "notes": [
+        "También hay la opción de escoger el panel japonés con un tirador a cada extremo para facilitar el acceso."
       ]
     },
     "veneciana-alumini": {
@@ -320,6 +356,16 @@
       "paragraphs": [
         "Podemos encontrarlas translúcidas o totalmente opacas para evitar el paso de la luz.",
         "Se pueden instalar en lugares donde hay poco espacio, ya que su espacio de recogida es mínimo."
+      ],
+      "features": [
+        "Dos sistemas de apertura:",
+        "Unidireccional (las cortinas se pueden recoger solo hacia abajo).",
+        "Bidireccional (se pueden recoger hacia arriba y hacia abajo).",
+        "Posible fijación sin perforación.",
+        "El tejido se puede dejar en la posición deseada, por lo tanto, es posible lavar la ventana fácilmente, sin la necesidad de desmontar la cortina."
+      ],
+      "notes": [
+        "Fabricada a medida y disponible con varias opciones de montaje, la cortina plisada puede adaptarse tanto a las ventanas grandes como pequeñas."
       ]
     },
     "vertical": {
@@ -329,6 +375,10 @@
       "paragraphs": [
         "Si dispones de un ventanal de dimensiones amplias, este es un tipo de cortina que se adapta perfectamente.",
         "Permiten controlar con precisión la luz y la privacidad gracias a sus lamas orientables, con accionamiento manual o motorizado."
+      ],
+      "features": [
+        "Permiten controlar con precisión la luz y privacidad, gracias a sus laminas orientables.",
+        "Pueden ser con accionamiento manual o motorizado."
       ]
     },
     "nit-i-dia": {
@@ -337,6 +387,15 @@
       "intro": "Los estores noche y día son modernos, elegantes y de gran impacto decorativo. Están formados por un tejido doble que se alterna sucesivamente formando franjas de tejido translúcido y transparente.",
       "paragraphs": [
         "A medida que recogemos o extendemos el estor, estas bandas se deslizan y se superponen unas a otras, produciendo un mágico efecto de luces y sombras."
+      ],
+      "features": [
+        "Crea ambientes luminosos, cálidos y modernos.",
+        "Tejido con una amplia gama de colores disponibles."
+      ],
+      "notes": [
+        "Todas las tonalidades permiten la entrada de luz tenue a excepción del color negro, siente este más enfosquidor.",
+        "Los estores noche y día incluyen un cajón embellecedor para cubrir el mecanismo y crear un ambiente más limpio.",
+        "Este también pueden ser con estampados textiles a juego con la misma cortina."
       ]
     },
     "motoritzacio": {

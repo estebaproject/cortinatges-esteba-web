@@ -253,7 +253,8 @@
     "otherCollections": "Altres col·leccions",
     "featuresHeading": "Característiques",
     "ctaBlockHeadline": "T'agrada el que veus? Parlem-ne.",
-    "ctaBlockBody": "Et fem una visita, prenem mides i t'assessorem sense compromís. Una conversa val més que mil fotos."
+    "ctaBlockBody": "Et fem una visita, prenem mides i t'assessorem sense compromís. Una conversa val més que mil fotos.",
+    "notesHeading": "A tenir en compte"
   },
   "Products": {
     "tradicional": {
@@ -263,6 +264,16 @@
       "paragraphs": [
         "Permeten crear ambients acollidors, càlids i plens d'harmonia.",
         "Hi ha una gran varietat de teixits per millorar el control de la llum, des de transparents fins a opacs, perquè cada estança tingui exactament la llum que necessita."
+      ],
+      "features": [
+        "Gran diversitat de texits per aconseguir un aspecte natural i un ambient acollidor.",
+        "Amb 10 tipus de confecció diferents a escollir.",
+        "Oferim una gran selecció de barres i riells."
+      ],
+      "notes": [
+        "Segons el tipus de confecció, una mateixa tela pot donar lloc a cortines de diferent aspecte.",
+        "Si esculls ona perfecta, aconseguiràs una cortina d’aspecte ordenat i modern.",
+        "Si esculls frungit, aquesta mateixa tela es convertirà en una cortina més clàssica i tradicional."
       ]
     },
     "estor-paquet": {
@@ -271,6 +282,15 @@
       "intro": "L'estor paquet és el producte estrella per vestir un espai: és la cortina perfecta per crear ambients acollidors d'aparença confortable.",
       "paragraphs": [
         "La seva forma permet que els plecs que realitza la cortina siguin molt més naturals i bonics, ja que recull la tela de manera lleugera i senzilla."
+      ],
+      "features": [
+        "Gran diversitat de teixits per aconseguir un aspecte natural i un ambient acollidor.",
+        "La instal·lació pot ser a sostre o paret.",
+        "Ampli control de la llum, tot depenent del teixit escollit."
+      ],
+      "notes": [
+        "Instal·lació molt senzilla.",
+        "Aquest tipus de cortina s’instal·la tant amb dormitoris com cuines o menjadors."
       ]
     },
     "estor-enrotllable": {
@@ -280,6 +300,16 @@
       "paragraphs": [
         "El teixit screen filtra la llum i protegeix de la calor mantenint la visió cap a l'exterior; el blackout enfosqueix completament l'estança quan ho necessites.",
         "Ocupa molt poc espai en recollir-se i s'adapta a pràcticament qualsevol finestra. Disponible amb accionament manual o motoritzat."
+      ],
+      "features": [
+        "Els estors enrotllables donen la sensació d’amplitud i fan que les habitacions on s’instal·len semblin més grans i lluminoses.",
+        "Porten embellidors inclosos que ajuden a ocultar tant els suports metàl·lics com els caragols de fixació, aconseguint una estètica formidable.",
+        "Els nostres suports permeten tant la instal·lació a sostre com a paret."
+      ],
+      "notes": [
+        "La caiguda del teixit per darrere del tub ofereix millor aïllament tèrmic, gràcies al fet que el teixit queda més pròxim al vidre.",
+        "La caiguda del teixit per davant del tub permet salvar obstacles, com la maneta de la finestra.",
+        "El mecanisme prèmium amb desmultiplicador, redueix la sensació de pes de la cortina"
       ]
     },
     "panell-japones": {
@@ -292,7 +322,13 @@
       "features": [
         "Screen: llum i protecció davant la calor, amb una neteja fàcil amb una esponja humida.",
         "Translúcids: teixits que ofereixen una llum suau i difuminada tot facilitant la privacitat.",
-        "Opacs: destaquen per la foscor, oferint privacitat i aïllament tèrmic."
+        "Opacs: destaquen per la foscor, oferint privacitat i aïllament tèrmic.",
+        "Podràs regular com convingui la llum natural que prové de l’exterior.",
+        "La varietat de dissenys i colors és molt extensa.",
+        "El panell japonès té un manteniment molt senzill."
+      ],
+      "notes": [
+        "També hi ha l’opció d’escollir el panel japonés amb un tirador a cada extrem per tal de facilitar l’accés."
       ]
     },
     "veneciana-alumini": {
@@ -320,6 +356,16 @@
       "paragraphs": [
         "Podem trobar-les translúcides o totalment opaques per evitar el pas de la llum.",
         "Es poden instal·lar en llocs on hi ha poc espai, ja que el seu espai de recollida és mínim."
+      ],
+      "features": [
+        "Dos sistemes d’obertura:",
+        "Unidireccional (les cortines es poden recollir només cap avall).",
+        "Bidireccional (es poden recollir cap amunt i cap avall).",
+        "Possible fixació sense perforació.",
+        "El teixit es pot deixar en la posició desitjada, per tant, és possible rentar la finestra fàcilment, sense la necessitat de desmuntar la cortina."
+      ],
+      "notes": [
+        "Fabricada a mesura i disponible amb diverses opcions de muntatge, la cortina prisada pot adaptar-se tant a les finestres grans com petites."
       ]
     },
     "vertical": {
@@ -329,6 +375,10 @@
       "paragraphs": [
         "Si disposeu d'un finestral de dimensions àmplies, aquest és un tipus de cortina que s'hi adapta perfectament.",
         "Permeten controlar amb precisió la llum i la privadesa gràcies a les seves lames orientables, amb accionament manual o motoritzat."
+      ],
+      "features": [
+        "Permeten controlar amb precisió la llum i privadesa, gràcies a les seves lames orientables.",
+        "Poden ser amb accionament manual o motoritzat."
       ]
     },
     "nit-i-dia": {
@@ -337,6 +387,15 @@
       "intro": "Els estors nit i dia són moderns, elegants i de gran impacte decoratiu. Estan formats per un teixit doble que s'alterna successivament formant franges de teixit translúcid i transparent.",
       "paragraphs": [
         "A mesura que recollim o estenem l'estor, aquestes bandes llisquen i se superposen les unes a les altres, produint un màgic efecte de llums i ombres."
+      ],
+      "features": [
+        "Crea ambients lluminosos, càlids i moderns.",
+        "Teixit amb una àmplia gamma de colors disponibles."
+      ],
+      "notes": [
+        "Totes les tonalitats permeten l’entrada de llum tènue a excepció del color negre, sent aquest més enfosquidor.",
+        "Els estors nit i dia inclouen un calaix embellidor per tal de cobrir el mecanisme i crear un ambient més net.",
+        "Aquest també poden ser amb estampats tèxtils a joc amb la mateixa cortina."
       ]
     },
     "motoritzacio": {

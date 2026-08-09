@@ -253,7 +253,8 @@
     "otherCollections": "Autres collections",
     "featuresHeading": "Caractéristiques",
     "ctaBlockHeadline": "Ce que vous voyez vous plaît ? Parlons-en.",
-    "ctaBlockBody": "Nous vous rendons visite, prenons les mesures et vous conseillons sans engagement. Une conversation vaut mieux que mille photos."
+    "ctaBlockBody": "Nous vous rendons visite, prenons les mesures et vous conseillons sans engagement. Une conversation vaut mieux que mille photos.",
+    "notesHeading": "À prendre en compte"
   },
   "Products": {
     "tradicional": {
@@ -263,6 +264,16 @@
       "paragraphs": [
         "Ils permettent de créer des ambiances accueillantes, chaleureuses et pleines d'harmonie.",
         "Il existe une grande variété de tissus pour mieux maîtriser la lumière, des plus transparents aux plus opaques, afin que chaque pièce bénéficie exactement de la lumière dont elle a besoin."
+      ],
+      "features": [
+        "Grande diversité de tissus pour obtenir un aspect naturel et une atmosphère chaleureuse.",
+        "Vous avez le choix entre 10 types de tissus différents.",
+        "Nous proposons un large choix de tringles et de rails."
+      ],
+      "notes": [
+        "Selon le type de construction, le même tissu peut produire des rideaux d’aspect différent.",
+        "Si vous choisissez perfect wave, vous obtiendrez un rideau à l’aspect soigné et moderne.",
+        "Si vous choisissez la frungida, ce même tissu deviendra un rideau plus classique et traditionnel."
       ]
     },
     "estor-paquet": {
@@ -271,6 +282,15 @@
       "intro": "Le store bateau est le produit phare pour habiller un espace : c'est le rideau idéal pour créer des ambiances accueillantes à l'allure confortable.",
       "paragraphs": [
         "Sa forme permet d'obtenir des plis bien plus naturels et élégants, car il recueille le tissu de manière légère et délicate."
+      ],
+      "features": [
+        "Grande diversité de tissus pour obtenir un aspect naturel et une atmosphère chaleureuse.",
+        "L’installation peut se faire au plafond ou au mur.",
+        "Contrôle étendu de la lumière, en fonction du tissu choisi."
+      ],
+      "notes": [
+        "Installation très simple.",
+        "Ce type de rideau peut être installé dans les chambres à coucher, les cuisines et les salles à manger."
       ]
     },
     "estor-enrotllable": {
@@ -280,6 +300,16 @@
       "paragraphs": [
         "Le tissu écran filtre la lumière et protège de la chaleur tout en préservant la vue vers l'extérieur ; l'occultant plonge la pièce dans l'obscurité totale quand vous en avez besoin.",
         "Il occupe très peu de place une fois enroulé et s'adapte à pratiquement toutes les fenêtres. Disponible en commande manuelle ou motorisée."
+      ],
+      "features": [
+        "Les stores à enroulement donnent une impression d’espace et font paraître les pièces où ils sont installés plus grandes et plus lumineuses.",
+        "Ils ont inclus des garnitures qui aident à dissimuler les supports métalliques et les escargots de fixation, ce qui leur confère une formidable esthétique.",
+        "Nos supports permettent une installation aussi bien au plafond qu’au mur."
+      ],
+      "notes": [
+        "La goutte de tissu derrière le tube offre une meilleure isolation thermique, grâce au fait que le tissu est plus proche du verre.",
+        "La chute du tissu devant le tube permet d’éviter les obstacles, tels que la poignée de la fenêtre.",
+        "Le mécanisme haut de gamme avec réduction d’engrenage réduit la sensation de poids du rideau."
       ]
     },
     "panell-japones": {
@@ -292,7 +322,13 @@
       "features": [
         "Écran : lumière et protection contre la chaleur, avec un nettoyage facile à l'aide d'une éponge humide.",
         "Translucides : des tissus qui offrent une lumière douce et diffuse tout en préservant l'intimité.",
-        "Opaques : ils se distinguent par leur obscurité, offrant intimité et isolation thermique."
+        "Opaques : ils se distinguent par leur obscurité, offrant intimité et isolation thermique.",
+        "Vous pourrez réguler la lumière naturelle provenant de l’extérieur.",
+        "La variété des motifs et des couleurs est très étendue.",
+        "Le panneau japonais a un entretien très simple."
+      ],
+      "notes": [
+        "Il est également possible de choisir le panneau japonais avec une poignée à chaque extrémité pour un accès facile."
       ]
     },
     "veneciana-alumini": {
@@ -320,6 +356,16 @@
       "paragraphs": [
         "On les trouve translucides ou totalement opaques pour empêcher le passage de la lumière.",
         "Ils peuvent s'installer dans des endroits où l'espace est réduit, car leur espace de rangement est minimal."
+      ],
+      "features": [
+        "Deux systèmes d’ouverture :",
+        "Unidirectionnel (les rideaux peuvent être tirés vers le bas uniquement).",
+        "Bidirectionnel (les rideaux peuvent être tirés vers le haut et vers le bas).",
+        "Fixation possible sans perforation.",
+        "Le tissu peut être laissé dans la position souhaitée, ce qui permet de laver la fenêtre facilement, sans avoir à démonter le rideau."
+      ],
+      "notes": [
+        "Fabriqué sur mesure et disponible avec différentes options de montage, le rideau plissé peut s’adapter aux petites et grandes fenêtres."
       ]
     },
     "vertical": {
@@ -329,6 +375,10 @@
       "paragraphs": [
         "Si vous disposez d'une baie vitrée de grandes dimensions, c'est un type de store qui s'y adapte parfaitement.",
         "Ils permettent de maîtriser avec précision la lumière et l'intimité grâce à leurs lames orientables, en commande manuelle ou motorisée."
+      ],
+      "features": [
+        "Ils permettent un contrôle précis de la lumière et de l’intimité, grâce à leurs lames réglables.",
+        "Ils peuvent être manuels ou motorisés."
       ]
     },
     "nit-i-dia": {
@@ -337,6 +387,15 @@
       "intro": "Les stores jour-nuit sont modernes, élégants et d'un grand impact décoratif. Ils sont formés d'un tissu double qui alterne successivement des bandes de tissu translucide et transparent.",
       "paragraphs": [
         "À mesure que l'on remonte ou que l'on déploie le store, ces bandes glissent et se superposent les unes aux autres, produisant un magique effet de lumières et d'ombres."
+      ],
+      "features": [
+        "Crée des environnements lumineux, chaleureux et modernes.",
+        "Tissu disponible dans une large gamme de couleurs."
+      ],
+      "notes": [
+        "Tous les stores permettent l’entrée d’une lumière tamisée, à l’exception du noir, qui semble plus diffus.",
+        "Les stores de jour et de nuit comprennent un tiroir d’embellissement pour couvrir le mécanisme et créer un environnement plus propre.",
+        "Il peut également s’agir d’imprimés textiles assortis au rideau lui-même."
       ]
     },
     "motoritzacio": {
