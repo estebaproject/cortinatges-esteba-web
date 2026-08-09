@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { whatsappUrl } from "@/lib/whatsapp";
 import CopyEmail from "@/components/CopyEmail";
+import StoresMap from "@/components/StoresMap";
 import { localizedAlternatesFor, openGraphFor } from "@/lib/site";
 
 type Props = {
@@ -86,16 +87,15 @@ export default async function ContactPage() {
                     >
                       {phone}
                     </a>
-                    <div className="relative aspect-[16/9] mt-4 overflow-hidden border border-linen bg-linen">
-                      <iframe
-                        src={`https://maps.google.com/maps?q=${mapQuery}&z=16&output=embed`}
-                        className="absolute inset-0 h-full w-full"
-                        style={{ border: 0 }}
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                        title={`Mapa — ${city}`}
-                      />
-                    </div>
+                    {/* El mapa de cada botiga carregava Google (scripts i
+                        cookies) en renderitzar, ABANS que l'usuari toqués el
+                        banner de cookies. Ara passa pel mateix control de
+                        consentiment que la resta. */}
+                    <StoresMap
+                      className="mt-4"
+                      query={mapQuery}
+                      stores={[{ city, address }]}
+                    />
                   </li>
                 );
               })}

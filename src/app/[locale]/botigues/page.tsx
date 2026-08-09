@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { whatsappUrl } from "@/lib/whatsapp";
 import { SITE_URL, SITE_NAME, localizedAlternatesFor, openGraphFor } from "@/lib/site";
+import StoresMap from "@/components/StoresMap";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -61,6 +62,17 @@ export default async function StoresPage() {
           </p>
           <h1 className="font-serif text-display-lg text-ink">{t("headline")}</h1>
         </header>
+
+        {/* Mapa únic amb els quatre punts de venda. Fins ara aquesta pàgina
+            no en tenia cap: les adreces només sortien en text. */}
+        <StoresMap
+          className="mb-16"
+          query="Cortinatges Esteba"
+          stores={STORE_KEYS.map((key) => ({
+            city: t(`stores.${key}.city` as Parameters<typeof t>[0]),
+            address: t(`stores.${key}.address` as Parameters<typeof t>[0]),
+          }))}
+        />
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" role="list">
           {STORE_KEYS.map((key) => {
