@@ -16,6 +16,7 @@ import {
   getCatifaDetallSource,
 } from "@/lib/catifes-source";
 import { SITE_URL, SITE_NAME, localizedAlternates } from "@/lib/site";
+import { SHOP_ROBOTS } from "@/lib/shop-visibility";
 import {
   catifaPriceRange,
   formatMidaLabel,
@@ -58,6 +59,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${catifa.nom} — ${t("eyebrow")}`,
     description,
+    robots: SHOP_ROBOTS,
     alternates: localizedAlternates(locale, "catifes", slug),
     openGraph: {
       type: "website",

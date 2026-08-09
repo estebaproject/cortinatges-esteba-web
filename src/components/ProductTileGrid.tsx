@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getTranslations, getLocale } from "next-intl/server";
 import { PRODUCTS, productHero } from "@/lib/products";
+import { publicPath, collectionHref } from "@/lib/site";
 
 const DECORESTEBA = "https://www.decoresteba.com";
 
@@ -17,12 +18,12 @@ export default async function ProductTileGrid() {
   const tp = await getTranslations("Products");
   const tg = await getTranslations("HomeGrid");
   const locale = await getLocale();
-  const prefix = locale === "ca" ? "" : `/${locale}`;
+
 
   const productTiles: Tile[] = PRODUCTS.map((p) => ({
     key: p.slug,
     label: tp(`${p.slug}.name` as Parameters<typeof tp>[0]),
-    href: `${prefix}/colleccions/${p.slug}`,
+    href: publicPath(collectionHref(p.slug), locale),
     image: productHero(p.slug),
   }));
 

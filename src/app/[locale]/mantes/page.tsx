@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
 import { getVisibleMantes } from "@/lib/mantes-source";
 import { SITE_URL } from "@/lib/site";
+import { SHOP_ROBOTS } from "@/lib/shop-visibility";
 import MantesCatalog from "@/components/MantesCatalog";
 
 // ISR: revalida cada hora perquè els canvis de la BD (ERP) es propaguin sense
@@ -19,8 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
-    // Secció oculta de moment (només Mobiliari publicat). No indexar.
-    robots: { index: false, follow: false },
+    robots: SHOP_ROBOTS,
     alternates: { canonical: url },
     openGraph: {
       type: "website",

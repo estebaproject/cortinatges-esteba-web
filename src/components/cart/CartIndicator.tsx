@@ -12,14 +12,14 @@ export default function CartIndicator() {
   const t = useTranslations("Cart");
   const locale = useLocale();
   const { count, hydrated } = useCart();
-  const prefix = locale === "ca" ? "" : `/${locale}`;
+
 
   // Abans d'hidratar mostrem 0 perquè SSR i client coincideixin.
   const visibleCount = hydrated ? count : 0;
 
   return (
     <Link
-      href={`${prefix}/cistell`}
+      href={`${locale === "ca" ? "" : `/${locale}`}/cistell`}
       aria-label={
         visibleCount > 0
           ? t("indicatorWithCount", { count: visibleCount })

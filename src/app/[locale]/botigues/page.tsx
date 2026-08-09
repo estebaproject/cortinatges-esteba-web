@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { whatsappUrl } from "@/lib/whatsapp";
-import { SITE_URL, SITE_NAME } from "@/lib/site";
+import { SITE_URL, SITE_NAME, localizedAlternatesFor, openGraphFor } from "@/lib/site";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -40,6 +40,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t("headline"),
     description: t("eyebrow"),
+    alternates: localizedAlternatesFor("/botigues", locale),
+    openGraph: openGraphFor("/botigues", locale, t("headline"), t("eyebrow")),
   };
 }
 

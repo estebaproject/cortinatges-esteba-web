@@ -5,19 +5,21 @@ import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import LocaleSwitcher from "./LocaleSwitcher";
 import CartIndicator from "./cart/CartIndicator";
+import { publicPath } from "@/lib/site";
+import { SHOP_PUBLISHED } from "@/lib/shop-visibility";
 
 export default function Header() {
   const t = useTranslations("Navigation");
   const locale = useLocale();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const prefix = locale === "ca" ? "" : `/${locale}`;
+  const home = publicPath("/", locale);
 
   const navLinks = [
-    { href: `${prefix || "/"}#productes`, label: t("collections"), external: false },
-    { href: `${prefix}/serveis`, label: t("services"), external: false },
-    { href: `${prefix}/botigues`, label: t("stores"), external: false },
-    { href: `${prefix}/nosaltres`, label: t("about"), external: false },
+    { href: `${home}#productes`, label: t("collections"), external: false },
+    { href: publicPath("/serveis", locale), label: t("services"), external: false },
+    { href: publicPath("/botigues", locale), label: t("stores"), external: false },
+    { href: publicPath("/nosaltres", locale), label: t("about"), external: false },
   ];
 
   return (
@@ -28,7 +30,7 @@ export default function Header() {
           <span className="font-sans text-canvas/70">Des de 1961</span>
           <div className="flex items-center gap-5">
             <Link
-              href={`${prefix}/demana-pressupost`}
+              href={publicPath("/demana-pressupost", locale)}
               className="hidden sm:inline text-canvas/80 hover:text-canvas transition-colors"
             >
               Demana pressupost
@@ -69,7 +71,7 @@ export default function Header() {
 
             {/* Logo centrat dins caixa */}
             <Link
-              href={prefix || "/"}
+              href={home}
               className="justify-self-start md:justify-self-center group"
               aria-label="Cortinatges Esteba — inici"
             >
@@ -82,19 +84,28 @@ export default function Header() {
 
             {/* Accions dreta */}
             <div className="flex items-center justify-end gap-3 md:gap-4">
-              <CartIndicator />
+              {/* Accés a la botiga: amagat mentre no es publiqui (Shopify).
+                  Governat per la MATEIXA palanca que robots.txt i el noindex,
+                  a src/lib/shop-visibility.ts. Enllaçar-la mentre està en
+                  disallow seria incoherent per a Google i portaria l'usuari a
+                  un checkout que no cobra. */}
+              {SHOP_PUBLISHED && (
+                <>
+                  <CartIndicator />
+                  <Link
+                    href={`${locale === "ca" ? "" : `/${locale}`}/botiga`}
+                    className="hidden md:inline-flex items-center gap-2 px-6 py-2.5 bg-ink text-canvas font-sans text-xs font-semibold tracking-[0.2em] uppercase hover:bg-ink/90 transition-colors"
+                    aria-label="ESTEBA — botiga online"
+                  >
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12A1.125 1.125 0 0 1 19.748 21H4.252a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 6.75h12.974c.576 0 1.059.435 1.119 1.007Z" />
+                    </svg>
+                    ESTEBA
+                  </Link>
+                </>
+              )}
               <Link
-                href={`${prefix}/botiga`}
-                className="hidden md:inline-flex items-center gap-2 px-6 py-2.5 bg-ink text-canvas font-sans text-xs font-semibold tracking-[0.2em] uppercase hover:bg-ink/90 transition-colors"
-                aria-label="ESTEBA — botiga online"
-              >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12A1.125 1.125 0 0 1 19.748 21H4.252a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 6.75h12.974c.576 0 1.059.435 1.119 1.007Z" />
-                </svg>
-                ESTEBA
-              </Link>
-              <Link
-                href={`${prefix}/contacte`}
+                href={publicPath("/contacte", locale)}
                 className="hidden md:inline-flex items-center px-6 py-2.5 bg-sand text-ink font-sans text-xs font-medium tracking-widest uppercase hover:bg-sand-dark transition-colors"
               >
                 {t("contact")}
@@ -174,18 +185,20 @@ export default function Header() {
                 </Link>
               ),
             )}
+            {SHOP_PUBLISHED && (
+              <Link
+                href={`${locale === "ca" ? "" : `/${locale}`}/botiga`}
+                onClick={() => setMenuOpen(false)}
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-ink text-canvas font-sans text-xs font-semibold tracking-[0.2em] uppercase"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12A1.125 1.125 0 0 1 19.748 21H4.252a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 6.75h12.974c.576 0 1.059.435 1.119 1.007Z" />
+                </svg>
+                ESTEBA
+              </Link>
+            )}
             <Link
-              href={`${prefix}/botiga`}
-              onClick={() => setMenuOpen(false)}
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-ink text-canvas font-sans text-xs font-semibold tracking-[0.2em] uppercase"
-            >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12A1.125 1.125 0 0 1 19.748 21H4.252a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 6.75h12.974c.576 0 1.059.435 1.119 1.007Z" />
-              </svg>
-              ESTEBA
-            </Link>
-            <Link
-              href={`${prefix}/contacte`}
+              href={publicPath("/contacte", locale)}
               onClick={() => setMenuOpen(false)}
               className="inline-flex items-center justify-center px-5 py-3 bg-sand text-ink font-sans text-xs tracking-widest uppercase"
             >

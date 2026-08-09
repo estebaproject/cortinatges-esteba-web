@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getTranslations, getLocale } from "next-intl/server";
+import { publicPath } from "@/lib/site";
 
 export default async function EspaisSection() {
   const t = await getTranslations("HomeSections");
   const tn = await getTranslations("Navigation");
   const locale = await getLocale();
-  const prefix = locale === "ca" ? "" : `/${locale}`;
+
 
   return (
     <section className="relative overflow-hidden bg-ink text-canvas" aria-label={t("espaisTitle")}>
@@ -27,7 +28,7 @@ export default async function EspaisSection() {
           {t("espaisBody")}
         </p>
         <Link
-          href={`${prefix}/colleccions/motoritzacio`}
+          href={publicPath("/colleccions/motoritzacio", locale)}
           className="inline-flex items-center px-8 py-3.5 bg-sand text-ink font-sans text-xs font-medium tracking-widest uppercase hover:bg-sand-dark transition-colors"
         >
           {tn("collections")}

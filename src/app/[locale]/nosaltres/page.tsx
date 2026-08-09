@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import BrandsStrip from "@/components/BrandsStrip";
 import ReelsSection from "@/components/ReelsSection";
 import CtaVisita from "@/components/CtaVisita";
+import { localizedAlternatesFor, openGraphFor } from "@/lib/site";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -12,7 +13,12 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "About" });
-  return { title: t("metaTitle"), description: t("metaDescription") };
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+    alternates: localizedAlternatesFor("/nosaltres", locale),
+    openGraph: openGraphFor("/nosaltres", locale, t("metaTitle"), t("metaDescription")),
+  };
 }
 
 export default async function AboutPage() {

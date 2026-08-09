@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { SITE_URL, SHOW_MANTES } from "@/lib/site";
+import { SHOP_ROBOTS } from "@/lib/shop-visibility";
 import { formatEur } from "@/lib/discount";
 import {
   MOBLE_CATS,
@@ -26,6 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
+    robots: SHOP_ROBOTS,
     alternates: { canonical: url },
     openGraph: { type: "website", url, title: t("metaTitle"), description: t("metaDescription") },
   };

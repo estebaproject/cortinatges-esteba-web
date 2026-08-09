@@ -21,6 +21,7 @@ import MantaPurchasePanel from "@/components/mantes/MantaPurchasePanel";
 import KaveAboutProduct, { type AboutSection } from "@/components/shop/KaveAboutProduct";
 import ProductCarousel from "@/components/shop/ProductCarousel";
 import { SITE_URL, SITE_NAME, localizedAlternates } from "@/lib/site";
+import { SHOP_ROBOTS } from "@/lib/shop-visibility";
 
 // ISR: revalida cada hora perquè els canvis de la BD (ERP) es propaguin sense
 // redeploy. La revalidació immediata la dispara /api/revalidate en "Publicar".
@@ -50,6 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${manta.nom} — ${t("eyebrow")}`,
     description,
+    robots: SHOP_ROBOTS,
     alternates: localizedAlternates(locale, "mantes", slug),
     openGraph: {
       type: "website",

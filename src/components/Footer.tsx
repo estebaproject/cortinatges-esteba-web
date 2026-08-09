@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { getTranslations, getLocale } from "next-intl/server";
+import { publicPath } from "@/lib/site";
 
 export default async function Footer() {
   const t = await getTranslations("Footer");
   const locale = await getLocale();
-  const prefix = locale === "ca" ? "" : `/${locale}`;
+  const home = publicPath("/", locale);
 
   const stores = [
     {
@@ -34,7 +35,7 @@ export default async function Footer() {
       <div className="max-w-layout mx-auto px-6 lg:px-12 py-16 lg:py-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-12">
           <div className="sm:col-span-2 lg:col-span-1">
-            <Link href={prefix || "/"} className="block mb-4" aria-label="Cortinatges Esteba — inici">
+            <Link href={home} className="block mb-4" aria-label="Cortinatges Esteba — inici">
               <span className="font-serif text-xl text-canvas block">Cortinatges Esteba</span>
               <span className="font-sans text-xs text-stone-warm tracking-widest uppercase">
                 Des de 1961
@@ -97,7 +98,7 @@ export default async function Footer() {
             <ul className="flex flex-wrap gap-6" role="list">
               <li>
                 <Link
-                  href={`${prefix}/serveis`}
+                  href={publicPath("/serveis", locale)}
                   className="font-sans text-body-sm text-stone-warm hover:text-canvas transition-colors"
                 >
                   {t("services")}
@@ -105,7 +106,7 @@ export default async function Footer() {
               </li>
               <li>
                 <Link
-                  href={`${prefix}/demana-pressupost`}
+                  href={publicPath("/demana-pressupost", locale)}
                   className="font-sans text-body-sm text-stone-warm hover:text-canvas transition-colors"
                 >
                   {t("budget")}
@@ -113,7 +114,7 @@ export default async function Footer() {
               </li>
               <li>
                 <Link
-                  href={`${prefix}/vols-treballar-amb-nosaltres`}
+                  href={publicPath("/vols-treballar-amb-nosaltres", locale)}
                   className="font-sans text-body-sm text-stone-warm hover:text-canvas transition-colors"
                 >
                   {t("jobs")}
@@ -121,7 +122,7 @@ export default async function Footer() {
               </li>
               <li>
                 <Link
-                  href={`${prefix}/privacitat`}
+                  href={publicPath("/privacitat", locale)}
                   className="font-sans text-body-sm text-stone-warm hover:text-canvas transition-colors"
                 >
                   {t("privacy")}
@@ -129,7 +130,7 @@ export default async function Footer() {
               </li>
               <li>
                 <Link
-                  href={`${prefix}/cookies`}
+                  href={publicPath("/cookies", locale)}
                   className="font-sans text-body-sm text-stone-warm hover:text-canvas transition-colors"
                 >
                   {t("cookies")}
@@ -137,7 +138,7 @@ export default async function Footer() {
               </li>
               <li>
                 <Link
-                  href={`${prefix}/avis-legal`}
+                  href={publicPath("/avis-legal", locale)}
                   className="font-sans text-body-sm text-stone-warm hover:text-canvas transition-colors"
                 >
                   {t("legal")}

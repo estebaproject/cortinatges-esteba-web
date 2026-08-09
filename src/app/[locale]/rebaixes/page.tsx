@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { SITE_URL } from "@/lib/site";
+import { SHOP_ROBOTS } from "@/lib/shop-visibility";
 import { onSaleItems } from "@/lib/shop-search";
 import ShopResultsGrid from "@/components/shop/ShopResultsGrid";
 
@@ -14,6 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: ts("saleTag"),
     description: ts("salePageIntro"),
+    robots: SHOP_ROBOTS,
     alternates: { canonical: url },
     openGraph: { type: "website", url, title: ts("saleTag"), description: ts("salePageIntro") },
   };

@@ -1,11 +1,12 @@
 import { getTranslations } from "next-intl/server";
 import { getLocale } from "next-intl/server";
 import Link from "next/link";
+import { publicPath } from "@/lib/site";
 
 export default async function CtaVisita() {
   const t = await getTranslations("CtaVisita");
   const locale = await getLocale();
-  const prefix = locale === "ca" ? "" : `/${locale}`;
+
 
   return (
     <section
@@ -36,13 +37,13 @@ export default async function CtaVisita() {
 
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <Link
-            href={`${prefix}/contacte`}
+            href={publicPath("/contacte", locale)}
             className="inline-flex items-center justify-center px-10 py-4 bg-canvas text-ink font-sans text-body-md font-medium hover:bg-accent-light hover:text-ink transition-colors"
           >
             {t("ctaPrimary")}
           </Link>
           <Link
-            href={`${prefix}/botigues`}
+            href={publicPath("/botigues", locale)}
             className="inline-flex items-center justify-center px-10 py-4 border border-canvas/40 text-canvas font-sans text-body-md hover:border-canvas hover:bg-canvas/10 transition-colors"
           >
             {t("ctaSecondary")}

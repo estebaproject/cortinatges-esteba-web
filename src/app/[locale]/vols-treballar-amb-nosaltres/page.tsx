@@ -1,13 +1,19 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import JobsForm from "@/components/JobsForm";
+import { localizedAlternatesFor, openGraphFor } from "@/lib/site";
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "FormJobs" });
-  return { title: t("metaTitle"), description: t("metaDescription") };
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+    alternates: localizedAlternatesFor("/vols-treballar-amb-nosaltres", locale),
+    openGraph: openGraphFor("/vols-treballar-amb-nosaltres", locale, t("metaTitle"), t("metaDescription")),
+  };
 }
 
 export default async function JobsPage() {

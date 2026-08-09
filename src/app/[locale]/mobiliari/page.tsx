@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
 import { getMobles } from "@/lib/mobiliari-source";
 import { SITE_URL } from "@/lib/site";
+import { SHOP_ROBOTS } from "@/lib/shop-visibility";
 import MobiliariCatalog from "@/components/MobiliariCatalog";
 
 // ISR: revalida cada hora perquè els canvis de la BD (ERP) es propaguin sense
@@ -19,6 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
+    robots: SHOP_ROBOTS,
     alternates: { canonical: url },
     openGraph: {
       type: "website",

@@ -9,6 +9,7 @@ import {
   type MobleCat,
 } from "@/lib/mobiliari";
 import { SITE_URL, SITE_NAME, localizedAlternates } from "@/lib/site";
+import { SHOP_ROBOTS } from "@/lib/shop-visibility";
 import { moblefPriceRange } from "@/lib/mobiliari-detall";
 import { type SpecLocale } from "@/lib/mobiliari-specs";
 import { getMobleColors } from "@/lib/mobiliari-colors";
@@ -52,6 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${moble.nom} — ${t("eyebrow")}`,
     description,
+    robots: SHOP_ROBOTS,
     alternates: localizedAlternates(locale, "mobiliari", slug),
     openGraph: {
       type: "website",

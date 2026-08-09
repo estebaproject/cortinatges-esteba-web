@@ -1,13 +1,19 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import BudgetForm from "@/components/BudgetForm";
+import { localizedAlternatesFor, openGraphFor } from "@/lib/site";
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "FormBudget" });
-  return { title: t("metaTitle"), description: t("metaDescription") };
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+    alternates: localizedAlternatesFor("/demana-pressupost", locale),
+    openGraph: openGraphFor("/demana-pressupost", locale, t("metaTitle"), t("metaDescription")),
+  };
 }
 
 export default async function DemanaPressupostPage() {

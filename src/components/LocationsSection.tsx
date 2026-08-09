@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getTranslations, getLocale } from "next-intl/server";
+import { publicPath } from "@/lib/site";
 
 const TOWN_KEYS = ["girona", "blanes", "palamos"] as const;
 
@@ -7,7 +8,7 @@ export default async function LocationsSection() {
   const t = await getTranslations("Locations");
   const tv = await getTranslations("CtaVisita");
   const locale = await getLocale();
-  const prefix = locale === "ca" ? "" : `/${locale}`;
+
 
   const towns = TOWN_KEYS.map((k) =>
     t(`stores.${k}.city` as Parameters<typeof t>[0]),
@@ -24,7 +25,7 @@ export default async function LocationsSection() {
         </h2>
         <p className="font-serif text-display-md text-ink-muted mb-10">{towns}</p>
         <Link
-          href={`${prefix}/botigues`}
+          href={publicPath("/botigues", locale)}
           className="inline-flex items-center gap-2 px-8 py-4 bg-accent-deep text-canvas font-sans text-xs font-medium tracking-widest uppercase hover:bg-ink transition-colors"
         >
           {tv("ctaSecondary")}

@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getTranslations, getLocale } from "next-intl/server";
+import { publicPath } from "@/lib/site";
 
 export default async function ContentRows() {
   const t = await getTranslations("HomeSections");
   const locale = await getLocale();
-  const prefix = locale === "ca" ? "" : `/${locale}`;
+
 
   const rows = [
     { key: "tipus", title: t("tipusTitle"), body: t("tipusBody"), image: "/images/tradicional_8.jpg" },
@@ -38,7 +39,7 @@ export default async function ContentRows() {
               </h2>
               <p className="font-sans text-body-lg text-ink-muted mb-6">{row.body}</p>
               <Link
-                href={`${prefix}/contacte`}
+                href={publicPath("/contacte", locale)}
                 className="inline-flex items-center gap-2 font-sans text-body-md text-accent-deep font-medium hover:gap-3 transition-all"
               >
                 {t("consulta")}

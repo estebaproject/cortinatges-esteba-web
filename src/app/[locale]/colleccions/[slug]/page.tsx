@@ -10,7 +10,14 @@ import {
   productImages,
 } from "@/lib/products";
 import { whatsappUrl } from "@/lib/whatsapp";
-import { SITE_URL, SITE_NAME, localizedAlternates } from "@/lib/site";
+import {
+  SITE_URL,
+  SITE_NAME,
+  collectionHref,
+  localizedAlternatesFor,
+  publicPath,
+  publicUrl,
+} from "@/lib/site";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -26,13 +33,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const tp = await getTranslations({ locale, namespace: "Products" });
   const name = tp(`${slug}.name` as Parameters<typeof tp>[0]);
   const tagline = tp(`${slug}.tagline` as Parameters<typeof tp>[0]);
-  const prefix = locale === "ca" ? "" : `/${locale}`;
-  const url = `${SITE_URL}${prefix}/colleccions/${slug}`;
+  const url = publicUrl(collectionHref(slug), locale);
   const image = `/images/products/${slug}/1.jpg`;
   return {
     title: name,
     description: tagline,
-    alternates: localizedAlternates(locale, "colleccions", slug),
+    alternates: localizedAlternatesFor(collectionHref(slug), locale),
     openGraph: {
       type: "website",
       url,
@@ -57,7 +63,10 @@ export default async function ProductPage({ params }: Props) {
   const t = await getTranslations("ProductPage");
   const tp = await getTranslations("Products");
   const locale = await getLocale();
-  const prefix = locale === "ca" ? "" : `/${locale}`;
+  // Rutes públiques reals (amb `pathnames`). Enllaçar la ruta interna faria
+  // passar cada clic per una redirecció.
+  const homePath = publicPath("/", locale);
+  const collectionsAnchor = `${homePath}#productes`;
 
   const key = (k: string) => `${slug}.${k}` as Parameters<typeof tp>[0];
   const name = tp(key("name"));
@@ -71,7 +80,7 @@ export default async function ProductPage({ params }: Props) {
   const budgetMessage = `Hola! Voldria demanar pressupost:\n\nProducte: ${name}\nPoblació: `;
   const otherProducts = PRODUCTS.filter((p) => p.slug !== slug).slice(0, 4);
 
-  const canonicalUrl = `${SITE_URL}${prefix}/colleccions/${slug}`;
+  const canonicalUrl = publicUrl(collectionHref(slug), locale);
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -88,8 +97,8 @@ export default async function ProductPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: t("breadcrumbHome"), item: `${SITE_URL}${prefix || "/"}` },
-      { "@type": "ListItem", position: 2, name: t("breadcrumbCollections"), item: `${SITE_URL}${prefix || "/"}#productes` },
+      { "@type": "ListItem", position: 1, name: t("breadcrumbHome"), item: `${SITE_URL}${homePath}` },
+      { "@type": "ListItem", position: 2, name: t("breadcrumbCollections"), item: `${SITE_URL}${collectionsAnchor}` },
       { "@type": "ListItem", position: 3, name, item: canonicalUrl },
     ],
   };
@@ -122,12 +131,12 @@ export default async function ProductPage({ params }: Props) {
             className="flex items-center gap-2 font-sans text-body-sm text-canvas/70 mb-5"
             aria-label="Breadcrumb"
           >
-            <Link href={prefix || "/"} className="hover:text-canvas transition-colors">
+            <Link href={homePath} className="hover:text-canvas transition-colors">
               {t("breadcrumbHome")}
             </Link>
             <span aria-hidden="true">/</span>
             <Link
-              href={`${prefix || "/"}#productes`}
+              href={collectionsAnchor}
               className="hover:text-canvas transition-colors"
             >
               {t("breadcrumbCollections")}
@@ -198,7 +207,7 @@ export default async function ProductPage({ params }: Props) {
                 {t("requestBudget")}
               </a>
               <Link
-                href={`${prefix}/contacte`}
+                href={publicPath("/contacte", locale)}
                 className="flex items-center justify-center w-full px-6 py-4 border border-ink/20 text-ink font-sans text-body-md hover:bg-ink hover:text-canvas transition-colors"
               >
                 {t("contactCta")}
@@ -255,7 +264,7 @@ export default async function ProductPage({ params }: Props) {
               {t("otherCollections")}
             </h2>
             <Link
-              href={`${prefix || "/"}#productes`}
+              href={collectionsAnchor}
               className="font-sans text-body-sm text-accent-deep font-medium hover:text-ink transition-colors"
             >
               {t("backToCollections")}
@@ -264,7 +273,7 @@ export default async function ProductPage({ params }: Props) {
           <ul className="grid grid-cols-2 lg:grid-cols-4 gap-6" role="list">
             {otherProducts.map((p) => (
               <li key={p.slug}>
-                <Link href={`${prefix}/colleccions/${p.slug}`} className="group block">
+                <Link href={publicPath(collectionHref(p.slug), locale)} className="group block">
                   <div className="relative aspect-[3/4] overflow-hidden bg-linen mb-3">
                     <Image
                       src={`/images/products/${p.slug}/1.jpg`}
