@@ -23,6 +23,14 @@ revertir en un quart d'hora.
 | `ftp` | CNAME | `cortinatgesesteba.com.` | ⚠️ Segueix l'apex |
 | `cpanel` | CNAME | `cortinatgesesteba.com.` | ⚠️ Segueix l'apex |
 | `@` | TXT | `v=spf1 include:_spf.srv.cat include:_spf.odoo.com ~all` | SPF del correu |
+| `_dmarc` | TXT | `v=DMARC1; p=quarantine; aspf=s; adkim=r` | ⚠️ Vegeu la nota |
+| `*` | CNAME | `cortinatgesesteba.com.` | ⚠️ **Comodí**, vegeu avall |
+
+> **Nota sobre el DMARC.** La política és `p=quarantine` amb alineació SPF
+> **estricta** (`aspf=s`). Vol dir que qualsevol correu que no alineï
+> exactament el domini no rebota: **va a la carpeta de spam en silenci**. És
+> el mode de fallada més difícil de detectar. Si es toca res d'enviament de
+> correu, cal provar-ho enviant de veritat, no donar-ho per bo.
 
 **Registre que dona Vercel:** `A` / `@` / `216.198.79.1`
 
@@ -44,11 +52,35 @@ revertir en un quart d'hora.
 
 ---
 
+## ⚠️ La zona té un COMODÍ
+
+Verificat: existeix `*.cortinatgesesteba.com` → `cortinatgesesteba.com`.
+Qualsevol subdomini que no tingui registre propi **resol cap a l'apex**:
+
+```bash
+dig +short CNAME qwerty-test-9876.cortinatgesesteba.com
+# → cortinatgesesteba.com.
+```
+
+Dues conseqüències que cal tenir al cap:
+
+1. **En canviar l'A de l'apex, TOTS els subdominis sense registre propi
+   passaran a apuntar a Vercel** i respondran un 404 del web nou. No només
+   `ftp` i `cpanel`: qualsevol.
+2. Els que SÍ tenen registre propi (`mail`, `webmail`, `autodiscover`) no
+   s'hi veuen afectats. Per això el correu està a salvo.
+
+Regla de DNS que cal recordar (RFC 4592): **el comodí deixa d'aplicar-se a un
+nom en el moment que aquest nom té QUALSEVOL registre propi.** Per tant, la
+manera de blindar un subdomini és crear-li registres explícits.
+
+---
+
 ## Pas 0 — Blindar `ftp` i `cpanel` (FER-HO PRIMER)
 
-`ftp` i `cpanel` són CNAME cap a l'apex. Si canvies l'apex sense tocar-los,
-tots dos passaran a apuntar a Vercel i perdràs l'accés al servidor vell just
-quan el pots necessitar més.
+`ftp` i `cpanel` no tenen registre propi: resolen per comodí cap a l'apex. Si
+canvies l'apex sense tocar-los, tots dos passaran a apuntar a Vercel i perdràs
+l'accés al servidor vell just quan el pots necessitar més.
 
 **Canvia'ls de CNAME a registre A abans de tocar res més:**
 
