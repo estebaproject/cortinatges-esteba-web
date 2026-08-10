@@ -63,10 +63,16 @@ const config: Config = {
       },
       maxWidth: {
         "prose-editorial": "68ch",
-        // Full width: el contingut ocupa tot l'ample del monitor (només el
-        // padding lateral de cada secció el separa de la vora). Sense tope fix
-        // — decisió de Federico per aprofitar monitors grans.
-        "layout": "100%",
+        // Tope de contingut. Amb `100%` (full width, com estava des de
+        // 5189bf4) el contingut s'estirava fins a l'ample del monitor: a
+        // 2560px les targetes de categoria feien 813px cadascuna, més amples
+        // que TOT el contingut del WordPress que substituïm (que topa a
+        // 1200px). No eren només les targetes: ContentRows i ServicesGrid
+        // s'estiraven igual.
+        //
+        // 1280 menys el padding lateral (px-6 lg:px-12 = 96px) deixa 1184px
+        // de contingut, pràcticament el mateix que el WordPress.
+        "layout": "1280px",
       },
       transitionTimingFunction: {
         "editorial": "cubic-bezier(0.25, 0.1, 0.25, 1)",
