@@ -18,6 +18,20 @@
 //     server-side; ara el `consentiment` és el snapshot client-side).
 
 import { getSupabase } from "@/lib/supabase";
+import { SHOP_PUBLISHED } from "@/lib/shop-visibility";
+
+/**
+ * La botiga no accepta comandes: no és un error tècnic, és un estat previst.
+ * El checkout ha de distingir-lo d'una fallada real per a mostrar un missatge
+ * clar en comptes d'un "no hem pogut registrar la teva comanda".
+ */
+export class OrderClosedError extends Error {
+  readonly closed = true;
+  constructor() {
+    super("La botiga no accepta comandes en aquest moment.");
+    this.name = "OrderClosedError";
+  }
+}
 import { skuFromCartLine } from "@/lib/sku";
 
 /** Estat inicial de tota comanda online: registrada, pendent de pagament. */
@@ -99,6 +113,24 @@ const MAX_RETRIES = 3;
 export async function persistOrder(
   input: PersistOrderInput,
 ): Promise<PersistOrderResult> {
+  // Pany del checkout mentre la botiga no es publica (Shopify).
+  //
+  // AVÍS: aquesta comprovació és NECESSÀRIA PERÒ NO SUFICIENT. Aquest fitxer
+  // s'executa al NAVEGADOR (CheckoutView.tsx és "use client"), o sigui que
+  // qualsevol pot saltar-se-la amb les devtools o cridant l'API REST de
+  // Supabase amb la clau anon, que és pública per disseny. Serveix NOMÉS per
+  // a donar un missatge clar a l'usuari.
+  //
+  // EL PANY DE VERITAT és al servidor, a la base de dades: el rol `anon` té
+  // REVOCAT l'INSERT sobre `comandes_online` i `comanda_online_linies`.
+  // Per a reobrir el checkout cal FER LES DUES COSES:
+  //   1. SHOP_PUBLISHED = true a src/lib/shop-visibility.ts
+  //   2. GRANT INSERT ON comandes_online, comanda_online_linies TO anon;
+  // Si només es fa la 1, el checkout tornarà a fallar amb un error de permisos.
+  if (!SHOP_PUBLISHED) {
+    throw new OrderClosedError();
+  }
+
   const supabase = getSupabase();
 
   let lastError: unknown = null;

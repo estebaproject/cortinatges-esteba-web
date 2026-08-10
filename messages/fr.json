@@ -656,7 +656,8 @@
     "confGenericBody": "Votre commande a été enregistrée. Nous vous contacterons pour la confirmer.",
     "confEmailNote": "Nous vous contacterons à {email} pour confirmer la commande.",
     "confSummaryHeading": "Récapitulatif",
-    "confContinue": "Continuer mes achats"
+    "confContinue": "Continuer mes achats",
+    "shopClosed": "La boutique en ligne n'accepte pas de commandes pour le moment. Si ce produit vous intéresse, écrivez-nous sur WhatsApp ou passez dans l'une de nos boutiques et nous vous le préparerons."
   },
   "Shop": {
     "promoRight1": "À propos",

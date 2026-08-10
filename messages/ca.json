@@ -656,7 +656,8 @@
     "confGenericBody": "La teva comanda ha quedat registrada. Ens posarem en contacte amb tu per confirmar-la.",
     "confEmailNote": "Ens posarem en contacte amb tu a {email} per confirmar la comanda.",
     "confSummaryHeading": "Resum",
-    "confContinue": "Continuar comprant"
+    "confContinue": "Continuar comprant",
+    "shopClosed": "La botiga en línia no accepta comandes en aquest moment. Si t'interessa aquest producte, escriu-nos per WhatsApp o passa per qualsevol de les nostres botigues i te'l preparem."
   },
   "Shop": {
     "promoRight1": "Sobre nosaltres",

@@ -21,7 +21,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { useCart } from "@/components/cart/CartProvider";
 import { calculateShipping } from "@/lib/shipping";
 import { initiatePayment, type OrderDraft } from "@/lib/payment";
-import { persistOrder } from "@/lib/order";
+import { persistOrder, OrderClosedError } from "@/lib/order";
 import {
   buildConsentSnapshot,
   persistConsentSnapshot,
@@ -71,6 +71,9 @@ export default function CheckoutView() {
   });
   const [submitting, setSubmitting] = useState(false);
   const [orderError, setOrderError] = useState(false);
+  // Botiga tancada: estat previst, no fallada tècnica. Va a part d'`orderError`
+  // perquè el missatge i el to són diferents (i aquí no s'ha de reintentar).
+  const [shopClosed, setShopClosed] = useState(false);
 
   const fmtPrice = (n: number) =>
     `${n.toLocaleString(locale, {
@@ -116,6 +119,7 @@ export default function CheckoutView() {
     e.preventDefault();
     if (!canPay) return;
     setOrderError(false);
+    setShopClosed(false);
     setSubmitting(true);
 
     const orderLines = lines.map((l) => ({
@@ -154,8 +158,12 @@ export default function CheckoutView() {
         idioma: locale,
       });
       numero = persisted.numero;
-    } catch {
-      setOrderError(true);
+    } catch (err) {
+      // La botiga tancada NO és una fallada tècnica: mereix un missatge propi.
+      // Si es mostrés "no hem pogut registrar la teva comanda", l'usuari
+      // reintentaria una i altra vegada una cosa que no pot funcionar.
+      if (err instanceof OrderClosedError) setShopClosed(true);
+      else setOrderError(true);
       setSubmitting(false);
       return;
     }
@@ -579,6 +587,16 @@ export default function CheckoutView() {
             aria-live="assertive"
           >
             {t("orderError")}
+          </p>
+        )}
+
+        {shopClosed && (
+          <p
+            className="mt-3 border border-linen bg-canvas-warm p-5 font-sans text-body-sm text-ink-muted"
+            role="alert"
+            aria-live="assertive"
+          >
+            {t("shopClosed")}
           </p>
         )}
 
