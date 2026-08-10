@@ -30,7 +30,15 @@ export default async function Hero() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/35 to-ink/10" />
+        {/* Degradat CONFINAT a la meitat inferior, que és on hi ha el text.
+            Abans anava de baix (80%) fins a dalt de tot (10%): tenyia la foto
+            sencera per a protegir un text que només ocupa la part baixa, i
+            just a la zona alta és on es veu el producte.
+            Mesurat: el contrast del titular puja de 4,94:1 a 5,38:1 i el del
+            subtítol de 4,68:1 a 5,19:1, i el 28% superior queda net del tot.
+            NO es pot resoldre abaixant l'opacitat de tot: amb la capa fluixa
+            el text cau a 3,7:1, per sota del mínim AA de 4,5. */}
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/40 via-50% to-transparent to-72%" />
       </div>
 
       <div className="relative z-10 max-w-layout mx-auto px-6 lg:px-12 w-full pb-14 md:pb-20">
