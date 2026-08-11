@@ -88,6 +88,11 @@ export default async function StoresPage() {
                 <p className="font-sans text-body-md text-ink-muted mb-2">
                   {t(`stores.${key}.address` as Parameters<typeof t>[0])}
                 </p>
+                {t.has(`stores.${key}.note` as Parameters<typeof t>[0]) && (
+                  <p className="font-sans text-body-sm text-ink-faint mb-2">
+                    {t(`stores.${key}.note` as Parameters<typeof t>[0])}
+                  </p>
+                )}
                 <p className="font-sans text-body-sm text-ink-faint mb-6">
                   {t(`stores.${key}.schedule` as Parameters<typeof t>[0])}
                 </p>

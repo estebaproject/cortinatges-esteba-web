@@ -34,7 +34,7 @@
   },
   "Hero": {
     "ariaLabel": "Hero section",
-    "headline": "Since 1961, weaving light into the homes of the Costa Brava.",
+    "headline": "Made-to-measure curtains, fitted in your home. Since 1961.",
     "subheadline": "We take measurements at your home and advise you. Made to measure, manufactured and installed by us.",
     "ctaPrimary": "Book a consultation",
     "ctaSecondary": "Explore our collections"
@@ -108,7 +108,8 @@
         "city": "Mattress store",
         "address": "C/ Rutlla, 20 · 17002 Girona",
         "phone": "972 20 34 23",
-        "schedule": "Mon–Fri 9.30–13.30 & 16.30–20.00 · Sat 10.00–13.30"
+        "schedule": "Mon–Fri 9.30–13.30 & 16.30–20.00 · Sat 10.00–13.30",
+        "note": "Mattress shop, opposite our Girona store."
       }
     }
   },
@@ -127,7 +128,7 @@
   },
   "About": {
     "metaTitle": "About Us — Three generations of textile artisans on the Costa Brava",
-    "metaDescription": "The story of Cortinatges Esteba: since 1961, three generations crafting custom curtains, with stores in Girona, Blanes and Palamós.",
+    "metaDescription": "Cortinatges Esteba since 1961: our own workshop, measuring at your home and installation. Shops in Girona, Blanes and Palamós.",
     "eyebrow": "About Us",
     "title": "Three generations dressing the homes of the Costa Brava",
     "lead": "Since 1961 we've done one thing and done it well: dressing homes with custom textiles, with taste and craft.",
@@ -150,7 +151,7 @@
       },
       {
         "title": "60 years of experience",
-        "desc": "Three generations at the service of the Costa Brava."
+        "desc": "Three generations in the same workshop, passed down the family."
       }
     ]
   },

@@ -108,7 +108,8 @@
         "city": "Matalasseria",
         "address": "C/ Rutlla, 20 · 17002 Girona",
         "phone": "972 20 34 23",
-        "schedule": "Dilluns a divendres 9.30–13.30 i 16.30–20.00 · Dissabte 10.00–13.30"
+        "schedule": "Dilluns a divendres 9.30–13.30 i 16.30–20.00 · Dissabte 10.00–13.30",
+        "note": "Local de matalassos, davant de la botiga de Girona."
       }
     }
   },
@@ -127,7 +128,7 @@
   },
   "About": {
     "metaTitle": "Nosaltres — Tres generacions d'artesans tèxtils a la Costa Brava",
-    "metaDescription": "La història de Cortinatges Esteba: des de 1961, tres generacions confeccionant cortines a mida amb botigues a Girona, Blanes i Palamós.",
+    "metaDescription": "Cortinatges Esteba des de 1961: taller propi de confecció, presa de mides a domicili i instal·lació. Botigues a Girona, Blanes i Palamós.",
     "eyebrow": "Nosaltres",
     "title": "Tres generacions vestint les cases de la Costa Brava",
     "lead": "Des de 1961 fem una sola cosa i la fem bé: vestir les llars amb tèxtils a mida, amb criteri i ofici.",
@@ -150,7 +151,7 @@
       },
       {
         "title": "60 anys d'experiència",
-        "desc": "Tres generacions al servei de la Costa Brava."
+        "desc": "Tres generacions al mateix taller, de pares a fills."
       }
     ]
   },

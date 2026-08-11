@@ -116,8 +116,10 @@ export default async function LocaleLayout({ children, params }: Props) {
     "@type": "Organization",
     name: SITE_NAME,
     foundingDate: "1961",
+    // Aquesta descripció la llegeix Google directament (dades estructurades):
+    // ha de dir què es fa, no explicar un relat.
     description:
-      "Cortinatges i decoració d'interiors a la Costa Brava des de 1961. Tres generacions d'artesans tèxtils amb botigues a Girona, Blanes i Palamós.",
+      "Cortines, estors i tèxtil de la llar a mida des de 1961. Taller propi de confecció, presa de mides a domicili i instal·lació. Botigues a Girona, Blanes i Palamós.",
     url: SITE_URL,
     logo: `${SITE_URL}${DEFAULT_OG_IMAGE}`,
     sameAs: [

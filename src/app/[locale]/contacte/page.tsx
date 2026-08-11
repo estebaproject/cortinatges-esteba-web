@@ -78,6 +78,15 @@ export default async function ContactPage() {
                   <li key={key} className="py-6 first:pt-0">
                     <h2 className="font-serif text-display-md text-ink mb-1">{city}</h2>
                     <p className="font-sans text-body-md text-ink-muted mb-1">{address}</p>
+                    {/* Nota opcional (només la Matalasseria en té). Va a part
+                        de `address` A PROPÒSIT: l'adreça alimenta la consulta
+                        del mapa, i barrejar-hi "davant de la botiga de Girona"
+                        faria que Google Maps busqués això literalment. */}
+                    {tl.has(`stores.${key}.note` as Parameters<typeof tl>[0]) && (
+                      <p className="font-sans text-body-sm text-ink-faint mb-1">
+                        {tl(`stores.${key}.note` as Parameters<typeof tl>[0])}
+                      </p>
+                    )}
                     <p className="font-sans text-body-sm text-ink-faint mb-2">
                       {tl(`stores.${key}.schedule` as Parameters<typeof tl>[0])}
                     </p>

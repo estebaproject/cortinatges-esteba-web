@@ -34,7 +34,7 @@
   },
   "Hero": {
     "ariaLabel": "Section principale",
-    "headline": "Depuis 1961, nous cousons la lumière dans les maisons de la Costa Brava.",
+    "headline": "Rideaux sur mesure, installés chez vous. Depuis 1961.",
     "subheadline": "Nous prenons les mesures chez vous et nous vous conseillons. Produit sur mesure, fabriqué et installé par nos soins.",
     "ctaPrimary": "Prendre rendez-vous",
     "ctaSecondary": "Découvrir les collections"
@@ -108,7 +108,8 @@
         "city": "Literie",
         "address": "C/ Rutlla, 20 · 17002 Girona",
         "phone": "972 20 34 23",
-        "schedule": "Lun–Ven 9.30–13.30 et 16.30–20.00 · Sam 10.00–13.30"
+        "schedule": "Lun–Ven 9.30–13.30 et 16.30–20.00 · Sam 10.00–13.30",
+        "note": "Local de literie, en face de notre boutique de Gérone."
       }
     }
   },
@@ -127,7 +128,7 @@
   },
   "About": {
     "metaTitle": "À propos — Trois générations d'artisans textiles sur la Costa Brava",
-    "metaDescription": "L'histoire de Cortinatges Esteba : depuis 1961, trois générations confectionnent des rideaux sur mesure avec des boutiques à Gérone, Blanes et Palamós.",
+    "metaDescription": "Cortinatges Esteba depuis 1961 : atelier de confection, prise de mesures à domicile et installation. Boutiques à Gérone, Blanes et Palamós.",
     "eyebrow": "À propos",
     "title": "Trois générations à habiller les maisons de la Costa Brava",
     "lead": "Depuis 1961, nous faisons une seule chose et nous la faisons bien : habiller les foyers de textiles sur mesure, avec goût et savoir-faire.",
@@ -150,7 +151,7 @@
       },
       {
         "title": "60 ans d'expérience",
-        "desc": "Trois générations au service de la Costa Brava."
+        "desc": "Trois générations dans le même atelier, de père en fils."
       }
     ]
   },

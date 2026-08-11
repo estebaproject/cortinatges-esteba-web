@@ -108,7 +108,8 @@
         "city": "Colchonería",
         "address": "C/ Rutlla, 20 · 17002 Girona",
         "phone": "972 20 34 23",
-        "schedule": "Lunes a viernes 9.30–13.30 y 16.30–20.00 · Sábado 10.00–13.30"
+        "schedule": "Lunes a viernes 9.30–13.30 y 16.30–20.00 · Sábado 10.00–13.30",
+        "note": "Local de colchones, enfrente de la tienda de Girona."
       }
     }
   },
@@ -127,7 +128,7 @@
   },
   "About": {
     "metaTitle": "Nosotros — Tres generaciones de artesanos textiles en la Costa Brava",
-    "metaDescription": "La historia de Cortinatges Esteba: desde 1961, tres generaciones confeccionando cortinas a medida con tiendas en Girona, Blanes y Palamós.",
+    "metaDescription": "Cortinatges Esteba desde 1961: taller propio de confección, toma de medidas a domicilio e instalación. Tiendas en Girona, Blanes y Palamós.",
     "eyebrow": "Nosotros",
     "title": "Tres generaciones vistiendo las casas de la Costa Brava",
     "lead": "Desde 1961 hacemos una sola cosa y la hacemos bien: vestir los hogares con textiles a medida, con criterio y oficio.",
@@ -150,7 +151,7 @@
       },
       {
         "title": "60 años de experiencia",
-        "desc": "Tres generaciones al servicio de la Costa Brava."
+        "desc": "Tres generaciones en el mismo taller, de padres a hijos."
       }
     ]
   },

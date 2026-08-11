@@ -6,7 +6,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: `${SITE_NAME} — Cortines a mida des de 1961`,
     short_name: SITE_NAME,
     description:
-      "Cortines, estors i decoració a mida a la Costa Brava. Tres generacions d'artesans tèxtils.",
+      "Cortines, estors i tèxtil de la llar a mida. Fabricació i instal·lació pròpies.",
     start_url: "/",
     display: "standalone",
     background_color: "#FFFFFF",
