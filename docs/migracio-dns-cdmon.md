@@ -100,6 +100,52 @@ dig +short A     cpanel.cortinatgesesteba.com  # 185.42.104.42
 
 ---
 
+## Pas 0 bis — Registres de Resend (formularis)
+
+**És INDEPENDENT del canvi de l'apex.** Es pot fer abans, després o el mateix
+dia: són registres a `send.`, i el canvi de l'apex és un registre `A` a `@`.
+Ni el tipus ni el nom coincideixen.
+
+Els valors EXACTES els dona el panell de Resend en donar d'alta el domini
+`send.cortinatgesesteba.com` (la clau DKIM és única i no es pot saber abans).
+Els tipus i els noms són aquests:
+
+| Registre | Tipus | Nom | Valor |
+|---|---|---|---|
+| Rebots | MX | `send` | `feedback-smtp.<regió>.amazonses.com` · prioritat 10 |
+| SPF | TXT | `send` | `v=spf1 include:amazonses.com ~all` |
+| DKIM | TXT | `resend._domainkey.send` | la clau llarga que dona Resend |
+
+**Per què a un subdomini i no a l'arrel:** així el SPF del domini principal
+(`_spf.srv.cat` i `_spf.odoo.com`) NO es toca. Només pot haver-hi un SPF per
+nom, i aquests són noms diferents.
+
+**Compte amb el comodí.** `send.` avui resol per comodí cap a l'apex. En
+crear-hi registres explícits el comodí deixa d'aplicar-s'hi (RFC 4592), però
+per això cal crear-los TOTS: si en falta un, aquell tipus quedarà sense
+resposta en comptes d'heretar res.
+
+**I compte amb el DMARC.** La política és `p=quarantine` amb `aspf=s`. Amb el
+subdomini d'enviament l'alineació quadra, però si alguna cosa falla el correu
+**no rebota: va a spam en silenci**. Per tant, en acabar:
+
+```bash
+# comprovar que els registres hi són
+dig +short MX  send.cortinatgesesteba.com
+dig +short TXT send.cortinatgesesteba.com
+dig +short TXT resend._domainkey.send.cortinatgesesteba.com
+```
+
+I sobretot: **enviar un formulari de debò i comprovar que arriba a la safata
+d'entrada, no a la de spam**. Que l'API respongui 200 no vol dir que hagi
+arribat.
+
+Falta també definir a Vercel (entorn Production): `RESEND_API_KEY` (secreta),
+`LEAD_TO_EMAIL=info@cortinatgesesteba.com` i
+`LEAD_FROM_EMAIL=web@send.cortinatgesesteba.com`.
+
+---
+
 ## Pas 1 — Apuntar el domini a Vercel
 
 Un sol canvi:
