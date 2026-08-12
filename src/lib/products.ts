@@ -24,6 +24,31 @@ export const PRODUCTS: Product[] = [
   { slug: "motoritzacio", gallery: 2, brands: ["Somfy"] },
 ];
 
+/**
+ * Fitxes EN PREPARACIÓ — consolidació de decoresteba.com (la societat de
+ * l'oncle, que passa a Cortinatges Esteba).
+ *
+ * NO estan a `PRODUCTS` A PROPÒSIT. Tot el web consumeix `PRODUCTS` o
+ * `PRODUCT_SLUGS`, de manera que mentre siguin aquí:
+ *   · no surten al sitemap
+ *   · no es generen estàticament (les seves URLs fan 404)
+ *   · no apareixen ni a la graella de la portada ni a "altres col·leccions"
+ *
+ * PER A PUBLICAR-LES, quan el contingut i les fotos estiguin llestos:
+ *   1. Omplir Products.{slug} a messages/*.json (els 4 idiomes).
+ *   2. Posar-hi almenys UNA foto a public/images/products/{slug}/1.jpg i
+ *      ajustar `gallery`. Sense hero la plantilla peta:
+ *      `const [hero, ...gallery] = images`.
+ *   3. Moure l'entrada d'aquest array a PRODUCTS.
+ *   4. NOMÉS DESPRÉS, redirigir decoresteba.com. Mai les dues webs vives
+ *      amb el mateix text.
+ */
+export const DRAFT_PRODUCTS: Product[] = [
+  { slug: "tendals", gallery: 0 },
+  { slug: "pergoles", gallery: 0 },
+  { slug: "tapisseria", gallery: 0 },
+];
+
 export const PRODUCT_SLUGS = PRODUCTS.map((p) => p.slug);
 
 export function getProduct(slug: string): Product | undefined {

@@ -122,6 +122,29 @@ export const routing = defineRouting({
       fr: "/store-venitien-bois",
     },
 
+    // --- Fitxes EN PREPARACIÓ (consolidació de decoresteba.com) ------------
+    // Les rutes es fixen ARA perquè els 301 de decoresteba puguin apuntar-hi
+    // sense refer el mapa després. Mentre l'entrada visqui a DRAFT_PRODUCTS
+    // (src/lib/products.ts) aquestes URLs fan 404, que és el que toca.
+    "/colleccions/tendals": {
+      ca: "/tendals",
+      es: "/toldos",
+      en: "/awnings",
+      fr: "/stores-bannes", // NO "/auvents": un auvent és una marquesina fixa
+    },
+    "/colleccions/pergoles": {
+      ca: "/pergoles",
+      es: "/pergolas",
+      en: "/pergolas", // NO "/arbors": un arbor és un arc de jardí
+      fr: "/pergolas",
+    },
+    "/colleccions/tapisseria": {
+      ca: "/tapisseria",
+      es: "/tapiceria",
+      en: "/upholstery",
+      fr: "/tapisserie",
+    },
+
     // PENDENT: "/colleccions/veneciana" (pàgina de categoria que presenta les
     // dues variants) i les seves 4 redireccions des del WordPress, a l'espera
     // del copy validat. Slug previst: /cortina-veneciana i equivalents.

@@ -37,6 +37,8 @@ export const PRODUCT_OPTIONS = [
   "matalassos",
   "tapisseria",
   "tendals",
+  // Faltava al desplegable del WordPress tot i que és un producte que es fa.
+  "pergoles",
   "part-de-reparacio",
 ] as const;
 

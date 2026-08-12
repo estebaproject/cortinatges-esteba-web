@@ -254,6 +254,7 @@
       "matalassos": "Matalassos",
       "tapisseria": "Tapisseria",
       "tendals": "Tendals",
+      "pergoles": "Pèrgoles",
       "part-de-reparacio": "Parte de Reparació"
     }
   },
@@ -468,6 +469,57 @@
       "paragraphs": [
         "Estan fabricades amb materials d'alta qualitat i dissenyades per adaptar-se a qualsevol tipus de finestra o porta, proporcionant una barrera efectiva sense comprometre la ventilació ni l'entrada de llum natural.",
         "Amb una instal·lació fàcil i ràpida, són una opció pràctica per mantenir la teva llar protegida durant tot l'any."
+      ]
+    },
+    "tendals": {
+      "name": "",
+      "tagline": "",
+      "intro": "",
+      "paragraphs": [
+        "",
+        ""
+      ],
+      "features": [
+        "",
+        "",
+        ""
+      ],
+      "notes": [
+        ""
+      ]
+    },
+    "pergoles": {
+      "name": "",
+      "tagline": "",
+      "intro": "",
+      "paragraphs": [
+        "",
+        ""
+      ],
+      "features": [
+        "",
+        "",
+        ""
+      ],
+      "notes": [
+        ""
+      ]
+    },
+    "tapisseria": {
+      "name": "",
+      "tagline": "",
+      "intro": "",
+      "paragraphs": [
+        "",
+        ""
+      ],
+      "features": [
+        "",
+        "",
+        ""
+      ],
+      "notes": [
+        ""
       ]
     }
   },
