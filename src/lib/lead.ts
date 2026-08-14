@@ -89,4 +89,6 @@ export type LeadResponse =
       detail?: string;
       from?: string;
       to?: string;
+      /** Empremta de la clau (llargada, espais, prefix). Mai la clau. */
+      key?: string;
     };

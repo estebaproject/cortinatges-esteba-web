@@ -45,6 +45,22 @@ function potDepurar(): boolean {
   return process.env.VERCEL_ENV !== "production" || process.env.LEAD_DEBUG === "1";
 }
 
+/**
+ * Empremta de la clau per a diagnosticar SENSE revelar-la: llargada, si duia
+ * espais o salts de línia enganxats, i el prefix (les claus de Resend sempre
+ * comencen per `re_`). Amb això es distingeix "la variable no s'ha actualitzat"
+ * de "el valor és una altra cosa" sense haver de veure el secret.
+ */
+function empremtaClau(raw: string | undefined): string {
+  if (!raw) return "absent";
+  const net = raw.trim();
+  return [
+    `llargada ${raw.length}`,
+    raw.length !== net.length ? `⚠️ amb ${raw.length - net.length} car. d'espai/salt` : "sense espais",
+    net.startsWith("re_") ? "prefix re_ ✓" : `prefix «${net.slice(0, 3)}» ✗`,
+  ].join(" · ");
+}
+
 /** Redueix un error desconegut a text llegible, sense arrossegar-hi secrets. */
 function detall(err: unknown): string {
   if (err && typeof err === "object") {
@@ -154,9 +170,15 @@ export async function POST(req: NextRequest): Promise<NextResponse<LeadResponse>
   }
 
   // --- Correu ---
-  const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.LEAD_TO_EMAIL;
-  const from = process.env.LEAD_FROM_EMAIL;
+  // Es fa `.trim()` A PROPÒSIT: enganxar una clau al panell de Vercel s'endú
+  // molt sovint un salt de línia o un espai final invisible, i llavors Resend
+  // respon 401 "API key is invalid" sense que es vegi res estrany al panell.
+  // Com que la variable es marca com a Sensitive, tampoc es pot rellegir per
+  // a comparar-la. Retallar-la aquí és inofensiu i estalvia hores.
+  const apiKeyRaw = process.env.RESEND_API_KEY;
+  const apiKey = apiKeyRaw?.trim();
+  const to = process.env.LEAD_TO_EMAIL?.trim();
+  const from = process.env.LEAD_FROM_EMAIL?.trim();
   if (!apiKey || !to || !from) {
     const quines = [
       !apiKey && "RESEND_API_KEY",
@@ -236,7 +258,7 @@ export async function POST(req: NextRequest): Promise<NextResponse<LeadResponse>
         {
           ok: false,
           error: "send",
-          ...(potDepurar() ? { detail: detall(error), from, to } : {}),
+          ...(potDepurar() ? { detail: detall(error), from, to, key: empremtaClau(apiKeyRaw) } : {}),
         },
         { status: 502 },
       );
@@ -247,7 +269,7 @@ export async function POST(req: NextRequest): Promise<NextResponse<LeadResponse>
       {
         ok: false,
         error: "send",
-        ...(potDepurar() ? { detail: detall(err), from, to } : {}),
+        ...(potDepurar() ? { detail: detall(err), from, to, key: empremtaClau(apiKeyRaw) } : {}),
       },
       { status: 502 },
     );
