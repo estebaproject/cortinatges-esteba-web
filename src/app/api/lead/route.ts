@@ -27,6 +27,33 @@ import { SITE_URL } from "@/lib/site";
 
 export const runtime = "nodejs";
 
+/**
+ * Retorna el detall de l'error a la resposta, per a poder diagnosticar amb un
+ * `curl` en comptes d'anar a cegues.
+ *
+ * S'obre en dos casos:
+ *   · fora de producció (previews i local), sempre;
+ *   · a producció NOMÉS si hi ha `LEAD_DEBUG=1` definida.
+ *
+ * La segona porta existeix perquè els errors d'enviament passen justament a
+ * producció, i una porta que només obrís als previews no serviria de res.
+ * Es posa la variable, es diagnostica i S'ESBORRA. Els missatges de Resend no
+ * contenen secrets (són del tipus "domain is not verified"), però tampoc cal
+ * publicar-los per sempre.
+ */
+function potDepurar(): boolean {
+  return process.env.VERCEL_ENV !== "production" || process.env.LEAD_DEBUG === "1";
+}
+
+/** Redueix un error desconegut a text llegible, sense arrossegar-hi secrets. */
+function detall(err: unknown): string {
+  if (err && typeof err === "object") {
+    const e = err as { name?: string; message?: string; statusCode?: number; error?: string };
+    return [e.name, e.statusCode, e.message ?? e.error].filter(Boolean).join(" · ");
+  }
+  return String(err);
+}
+
 const IDIOMES: Record<string, string> = {
   ca: "Català",
   es: "Castellà",
@@ -131,8 +158,16 @@ export async function POST(req: NextRequest): Promise<NextResponse<LeadResponse>
   const to = process.env.LEAD_TO_EMAIL;
   const from = process.env.LEAD_FROM_EMAIL;
   if (!apiKey || !to || !from) {
-    console.error("[lead] falten RESEND_API_KEY, LEAD_TO_EMAIL o LEAD_FROM_EMAIL");
-    return NextResponse.json({ ok: false, error: "send" }, { status: 500 });
+    const quines = [
+      !apiKey && "RESEND_API_KEY",
+      !to && "LEAD_TO_EMAIL",
+      !from && "LEAD_FROM_EMAIL",
+    ].filter(Boolean).join(", ");
+    console.error("[lead] falten variables:", quines);
+    return NextResponse.json(
+      { ok: false, error: "send", ...(potDepurar() ? { detail: `falten: ${quines}` } : {}) },
+      { status: 500 },
+    );
   }
 
   // Prefix FIX en català sigui quin sigui l'idioma del client: així el filtre
@@ -197,11 +232,25 @@ export async function POST(req: NextRequest): Promise<NextResponse<LeadResponse>
     });
     if (error) {
       console.error("[lead] Resend:", error);
-      return NextResponse.json({ ok: false, error: "send" }, { status: 502 });
+      return NextResponse.json(
+        {
+          ok: false,
+          error: "send",
+          ...(potDepurar() ? { detail: detall(error), from, to } : {}),
+        },
+        { status: 502 },
+      );
     }
   } catch (err) {
     console.error("[lead] excepció en enviar:", err);
-    return NextResponse.json({ ok: false, error: "send" }, { status: 502 });
+    return NextResponse.json(
+      {
+        ok: false,
+        error: "send",
+        ...(potDepurar() ? { detail: detall(err), from, to } : {}),
+      },
+      { status: 502 },
+    );
   }
 
   return NextResponse.json({ ok: true });

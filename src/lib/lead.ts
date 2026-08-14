@@ -80,4 +80,13 @@ export type LeadPayload = {
   renderedAt: number;
 };
 
-export type LeadResponse = { ok: true } | { ok: false; error: "invalid" | "send" };
+export type LeadResponse =
+  | { ok: true }
+  | {
+      ok: false;
+      error: "invalid" | "send";
+      /** Detall de diagnòstic. NOMÉS fora de producció o amb LEAD_DEBUG=1. */
+      detail?: string;
+      from?: string;
+      to?: string;
+    };
