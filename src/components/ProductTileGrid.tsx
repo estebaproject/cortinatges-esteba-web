@@ -36,30 +36,29 @@ export default async function ProductTileGrid() {
   // Tots els blocs en ordre; el sell "60 anys" es col·loca al centre exacte
   // de la graella (a 3 columnes queda a la fila i columna del mig).
   const allTiles = [...productTiles, ...extraTiles];
-  const splitAt = Math.floor((allTiles.length + 1) / 2);
+  const splitAt = allTiles.length;
 
   const Tile = ({ tile, priority = false }: { tile: Tile; priority?: boolean }) => {
     const inner = tile.image ? (
-      // Per defecte: bloc de color homogeni (arena) amb el nom. En hover apareix la foto.
-      <div className="group relative aspect-[10/11] overflow-hidden bg-sand flex items-center justify-center text-center">
-        <Image
-          src={tile.image}
-          alt={tile.label}
-          fill
-          priority={priority}
-          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-          className="object-cover transition-transform duration-[800ms] ease-editorial group-hover:scale-105"
-        />
-        {/* Vel d'arena translúcid: la foto sempre es veu (també en mòbil sense hover) i en hover es retira del tot */}
-        <div className="absolute inset-0 bg-sand/40 group-hover:bg-sand/0 transition-colors duration-500" />
-        <span className="relative z-10 font-serif text-lg md:text-xl text-ink group-hover:text-canvas group-hover:[text-shadow:0_2px_8px_rgba(0,0,0,0.55)] tracking-[0.12em] uppercase px-4 transition-colors duration-500">
+      <div className="group">
+        <div className="relative aspect-[4/5] overflow-hidden bg-linen">
+          <Image
+            src={tile.image}
+            alt={tile.label}
+            fill
+            priority={priority}
+            sizes="(min-width: 1024px) 20vw, (min-width: 640px) 33vw, 50vw"
+            className="object-cover transition-transform duration-[800ms] ease-editorial group-hover:scale-105"
+          />
+        </div>
+        <span className="block mt-3 font-serif text-sm md:text-base text-ink tracking-[0.1em] uppercase group-hover:text-accent-deep transition-colors">
           {tile.label}
         </span>
       </div>
     ) : (
-      // Bloc sense foto (categories externes): arena sòlid amb etiqueta centrada
-      <div className="group relative aspect-[10/11] overflow-hidden bg-sand hover:bg-sand-dark transition-colors duration-500 flex items-center justify-center text-center">
-        <span className="font-serif text-lg md:text-xl text-ink tracking-[0.12em] uppercase px-4">
+      <div className="group">
+        <div className="relative aspect-[4/5] overflow-hidden bg-sand group-hover:bg-sand-dark transition-colors duration-500" />
+        <span className="block mt-3 font-serif text-sm md:text-base text-ink tracking-[0.1em] uppercase group-hover:text-accent-deep transition-colors">
           {tile.label}
         </span>
       </div>
@@ -90,21 +89,10 @@ export default async function ProductTileGrid() {
 
       {/* Graella de blocs arena */}
       <div id="productes" className="max-w-layout mx-auto px-6 lg:px-12 pb-section scroll-mt-32">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8">
           {allTiles.slice(0, splitAt).map((tile, i) => (
             <Tile key={tile.key} tile={tile} priority={i === 0} />
           ))}
-
-          {/* Sell 60 anys — imatge real, centrat a la graella */}
-          <div className="relative aspect-[10/11] bg-canvas">
-            <Image
-              src="/images/60_anys.webp"
-              alt={`${tg("badgeYears")} ${tg("badgeAnys")} Cortinatges Esteba · 1961`}
-              fill
-              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-              className="object-contain p-1"
-            />
-          </div>
 
           {allTiles.slice(splitAt).map((tile) => (
             <Tile key={tile.key} tile={tile} />
