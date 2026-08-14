@@ -27,8 +27,17 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      {/* Strip superior blau marí */}
-      <div className="bg-ink text-canvas">
+      {/* Strip superior blau marí. AMAGAT per sota de `sm`: la capçalera és
+          fixa i OPACA, i entre aquesta franja (36px) i la barra blanca (81px)
+          tapava 117px de la pantalla. En un mòbil amb la barra del navegador
+          visible això és el 18% de tot el que es veu, i al hero deixava el
+          titular per sota de la capçalera (mesurat a 360px: -6px en català i
+          -70px en francès, on el titular passa a tres línies).
+          El que hi ha aquí dins no es perd: Instagram i Facebook ja són al
+          peu, i "Demana pressupost" ja estava amagat per sota de `sm`. L'únic
+          que NOMÉS vivia aquí és el selector d'idioma — per això baixa a la
+          barra blanca en mòbil, uns quants elements més avall. */}
+      <div className="hidden sm:block bg-ink text-canvas">
         <div className="max-w-layout mx-auto px-6 lg:px-12 flex items-center justify-between h-9 text-xs tracking-widest uppercase">
           <span className="font-sans text-canvas/70">Des de 1961</span>
           <div className="flex items-center gap-5">
@@ -60,7 +69,10 @@ export default function Header() {
                 <path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.02 4.39 11.01 10.13 11.93v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88v2.26h3.32l-.53 3.49h-2.79V24C19.61 23.08 24 18.09 24 12.07z" />
               </svg>
             </a>
-            <LocaleSwitcher />
+            {/* `light` perquè aquí el fons és la franja blava. Sense això el
+                selector es pintava en tinta fosca sobre tinta fosca i l'idioma
+                actiu no es veia: mateix color exacte, contrast 1:1. */}
+            <LocaleSwitcher tone="light" />
           </div>
         </div>
       </div>
@@ -87,6 +99,14 @@ export default function Header() {
 
             {/* Accions dreta */}
             <div className="flex items-center justify-end gap-3 md:gap-4">
+              {/* Selector d'idioma, NOMÉS en mòbil. A partir de `sm` torna a
+                  ser a la franja blava de dalt, que és on ha estat sempre.
+                  Aquest component no surt enlloc més del lloc: sense aquesta
+                  còpia, amagar la franja deixaria un web de quatre idiomes
+                  sense manera de canviar-lo des del mòbil. */}
+              <div className="sm:hidden">
+                <LocaleSwitcher />
+              </div>
               {/* Accés a la botiga: amagat mentre no es publiqui (Shopify).
                   Governat per la MATEIXA palanca que robots.txt i el noindex,
                   a src/lib/shop-visibility.ts. Enllaçar-la mentre està en
