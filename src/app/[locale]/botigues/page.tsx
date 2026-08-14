@@ -48,6 +48,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function StoresPage() {
   const t = await getTranslations("Locations");
+  const tw = await getTranslations("Whatsapp");
 
   return (
     <section className="pt-40 md:pt-48 pb-section bg-canvas" aria-label={t("ariaLabel")}>
@@ -105,7 +106,7 @@ export default async function StoresPage() {
                   </a>
                   <a
                     href={whatsappUrl(
-                      `Hola! Voldria informació de la botiga de ${t(`stores.${key}.city` as Parameters<typeof t>[0])}.`,
+                      tw("storeInfo", { city: t(`stores.${key}.city` as Parameters<typeof t>[0]) }),
                     )}
                     target="_blank"
                     rel="noopener noreferrer"

@@ -82,7 +82,10 @@ export default async function ProductPage({ params }: Props) {
   const images = productImages(product);
   const [hero, ...gallery] = images;
 
-  const budgetMessage = `Hola! Voldria demanar pressupost:\n\nProducte: ${name}\nPoblació: `;
+  // Missatge de WhatsApp TRADUÏT: abans anava en català als 4 idiomes.
+  const tw = await getTranslations("Whatsapp");
+  const budgetMessage =
+    `${tw("productIntro")}\n\n${tw("product")}: ${name}\n${tw("town")}: `;
   const otherProducts = PRODUCTS.filter((p) => p.slug !== slug).slice(0, 4);
 
   const canonicalUrl = publicUrl(collectionHref(slug), locale);

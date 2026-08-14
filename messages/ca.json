@@ -798,5 +798,13 @@
     "deliveryFast": "Lliurament a domicili",
     "category": "Categoria",
     "reference": "Referència"
+  },
+  "Whatsapp": {
+    "budgetIntro": "Hola! Voldria demanar pressupost.",
+    "productIntro": "Hola! Voldria demanar pressupost:",
+    "product": "Producte",
+    "town": "Població",
+    "storeInfo": "Hola! Voldria informació de la botiga de {city}.",
+    "jobsIntro": "Hola! Voldria enviar-vos la meva candidatura."
   }
 }

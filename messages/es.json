@@ -747,5 +747,13 @@
     "deliveryFast": "Entrega a domicilio",
     "category": "Categoría",
     "reference": "Referencia"
+  },
+  "Whatsapp": {
+    "budgetIntro": "¡Hola! Me gustaría pedir presupuesto.",
+    "productIntro": "¡Hola! Me gustaría pedir presupuesto:",
+    "product": "Producto",
+    "town": "Población",
+    "storeInfo": "¡Hola! Me gustaría información de la tienda de {city}.",
+    "jobsIntro": "¡Hola! Me gustaría enviaros mi candidatura."
   }
 }

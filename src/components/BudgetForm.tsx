@@ -27,6 +27,7 @@ import {
  */
 export default function BudgetForm() {
   const t = useTranslations("FormBudget");
+  const tw = useTranslations("Whatsapp");
   const { state, submit, honeypot, setHoneypot } = useLeadSubmit("budget");
 
   const [form, setForm] = useState({
@@ -46,10 +47,10 @@ export default function BudgetForm() {
 
   // Missatge pregenerat de WhatsApp: aprofita el que l'usuari ja hagi escrit.
   const waMessage =
-    `Hola! Voldria demanar pressupost.\n\n` +
+    `${tw("budgetIntro")}\n\n` +
     `${t("nom")}: ${form.nom}\n${t("telefon")}: ${form.telefon}\n` +
     `${t("email")}: ${form.email}\n` +
-    (form.producte ? `${t("producte")}: ${t(`products.${form.producte}` as never)}\n` : "") +
+    (form.producte ? `${tw("product")}: ${t(`products.${form.producte}` as never)}\n` : "") +
     (form.mides ? `${t("mides")}: ${form.mides}\n` : "") +
     (form.missatge ? `${t("missatge")}: ${form.missatge}` : "");
 

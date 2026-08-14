@@ -747,5 +747,13 @@
     "deliveryFast": "Home delivery",
     "category": "Category",
     "reference": "Reference"
+  },
+  "Whatsapp": {
+    "budgetIntro": "Hello! I'd like to request a quote.",
+    "productIntro": "Hello! I'd like to request a quote:",
+    "product": "Product",
+    "town": "Town",
+    "storeInfo": "Hello! I'd like information about the {city} shop.",
+    "jobsIntro": "Hello! I'd like to send you my application."
   }
 }

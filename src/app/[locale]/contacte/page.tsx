@@ -27,6 +27,7 @@ export default async function ContactPage() {
   const t = await getTranslations("CtaVisita");
   const tl = await getTranslations("Locations");
   const tn = await getTranslations("Navigation");
+  const tw = await getTranslations("Whatsapp");
 
   return (
     <section className="pt-40 md:pt-48 pb-section bg-canvas" aria-label={t("ariaLabel")}>
@@ -44,7 +45,7 @@ export default async function ContactPage() {
 
             <div className="flex flex-col gap-3">
               <a
-                href={whatsappUrl()}
+                href={whatsappUrl(tw("budgetIntro"))}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#25D366] text-white font-sans text-body-md font-semibold hover:brightness-95 transition-all"

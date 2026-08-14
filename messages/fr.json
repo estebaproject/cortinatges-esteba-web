@@ -747,5 +747,13 @@
     "deliveryFast": "Livraison à domicile",
     "category": "Catégorie",
     "reference": "Référence"
+  },
+  "Whatsapp": {
+    "budgetIntro": "Bonjour ! Je souhaiterais demander un devis.",
+    "productIntro": "Bonjour ! Je souhaiterais demander un devis :",
+    "product": "Produit",
+    "town": "Ville",
+    "storeInfo": "Bonjour ! Je souhaiterais des informations sur la boutique de {city}.",
+    "jobsIntro": "Bonjour ! Je souhaiterais vous envoyer ma candidature."
   }
 }

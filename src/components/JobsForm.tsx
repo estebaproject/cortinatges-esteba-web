@@ -24,6 +24,7 @@ import {
  */
 export default function JobsForm() {
   const t = useTranslations("FormJobs");
+  const tw = useTranslations("Whatsapp");
   const { state, submit, honeypot, setHoneypot } = useLeadSubmit("jobs");
 
   const [form, setForm] = useState({ nom: "", telefon: "", email: "", missatge: "" });
@@ -35,7 +36,7 @@ export default function JobsForm() {
       setForm({ ...form, [k]: e.target.value });
 
   const waMessage =
-    `Hola! ${t("title")}.\n\n` +
+    `${tw("jobsIntro")}\n\n` +
     `${t("nom")}: ${form.nom}\n${t("telefon")}: ${form.telefon}\n` +
     `${t("email")}: ${form.email}\n` +
     (form.missatge ? `${t("comentaris")}: ${form.missatge}` : "");
