@@ -144,6 +144,38 @@ Falta també definir a Vercel (entorn Production): `RESEND_API_KEY` (secreta),
 `LEAD_TO_EMAIL=info@cortinatgesesteba.com` i
 `LEAD_FROM_EMAIL=web@send.cortinatgesesteba.com`.
 
+**El `from` ha de ser del domini VERIFICAT.** Si a Resend s'ha verificat
+`send.cortinatgesesteba.com`, el remitent ha de ser `algú@send.cortinatgesesteba.com`.
+Amb `web@cortinatgesesteba.com` (sense el `send.`) Resend rebutja l'enviament.
+
+### Si el formulari falla: com diagnosticar-ho
+
+Els codis ja separen els dos casos:
+
+| Codi | Què vol dir |
+|---|---|
+| **500** | Falta configuració (alguna de les tres variables no arriba) |
+| **502** | Les variables hi són; **Resend rebutja l'enviament** |
+
+Per a veure el motiu exacte sense entrar als logs, definiu `LEAD_DEBUG=1` a
+Production (no la marqueu com a Sensitive: és un interruptor) i llanceu:
+
+```bash
+curl -s -X POST https://cortinatgesesteba.com/api/lead \
+  -H 'Content-Type: application/json' \
+  -H 'Origin: https://cortinatgesesteba.com' \
+  -d '{"type":"budget","nom":"Prova","telefon":"972203423",
+       "email":"p@example.com","producte":"tendals","consent":true,
+       "renderedAt":'"$(( $(date +%s) * 1000 - 9000 ))"'}'
+```
+
+La resposta portarà `detail` amb el missatge de Resend, i el `from`/`to` en
+joc. **Esborreu `LEAD_DEBUG` quan acabeu.**
+
+> ⚠️ **Parany:** canviar una variable d'entorn exigeix un desplegament nou.
+> Si es fa *Redeploy* sobre un desplegament ANTERIOR, es promociona aquell
+> codi antic. Cal redesplegar l'últim commit, no un de vell.
+
 ---
 
 ## Pas 1 — Apuntar el domini a Vercel
