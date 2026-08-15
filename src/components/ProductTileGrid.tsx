@@ -74,20 +74,22 @@ export default async function ProductTileGrid() {
     );
   };
 
+  // Aquí hi havia un bloc d'eslògan entre el hero i la graella: "Des de 1961",
+  // la frase "trobaràs molt més que cortines" i una ratlla daurada. Fora. Era
+  // palla de plantilla: no deia res que el client pugui fer servir i endarreria
+  // l'arribada als productes, que és l'única cosa que ha vingut a buscar.
+  //
+  // A més portava un h1, i el hero ja en té un altre: la portada en tenia DOS.
+  // Ara només queda el del hero.
+  //
+  // El `tagline` es manté com a aria-label de la secció: no es veu, però dona
+  // nom al landmark per a qui navega amb lector de pantalla.
   return (
     <section className="bg-canvas" aria-label={tg("tagline")}>
-      {/* Eslògan */}
-      <div className="max-w-layout mx-auto px-6 lg:px-12 pt-6 pb-10 md:pt-8 md:pb-12 text-center animate-fade-up">
-        <p className="font-sans text-eyebrow text-accent-deep uppercase mb-4">
-          Des de 1961
-        </p>
-        <h1 className="font-serif text-display-md text-ink max-w-2xl mx-auto leading-snug">
-          {tg("tagline")}
-        </h1>
-        <span className="block mx-auto mt-6 w-16 h-px bg-sand-dark" aria-hidden="true" />
-      </div>
-
-      {/* Graella de blocs arena */}
+      {/* Sense coixí superior a propòsit: el `pt-12 md:pt-16` que ja hi ha a
+          l'embolcall de la portada (page.tsx) fa aquesta feina. Posant-ne un
+          aquí també, quedaven 112px de blanc buit entre la franja d'obertura i
+          la primera targeta — i ara allà no hi ha res que l'ompli. */}
       <div id="productes" className="max-w-layout mx-auto px-6 lg:px-12 pb-section scroll-mt-32">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8">
           {allTiles.slice(0, splitAt).map((tile, i) => (

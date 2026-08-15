@@ -64,11 +64,15 @@ export default async function ServicesGrid({ compact = false }: { compact?: bool
     ? ["assessorament", "mides", "confeccio", "installacio"]
     : ["assessorament", "disseny", "mides", "confeccio", "installacio"];
 
+  // Espaiat de la versió compacta (portada) retallat: `py-section` són 96px a
+  // dalt i 96 a baix per a quatre icones amb una paraula sota. Ara 48 en mòbil
+  // i 64 en escriptori, i la capçalera de la secció baixa de 48px de separació
+  // a 32/40. La versió amb fotos de /serveis no es toca.
   return (
-    <section className={compact ? "py-section bg-canvas-warm" : "pb-section bg-canvas"} aria-label={t("title")}>
+    <section className={compact ? "py-12 md:py-16 bg-canvas-warm" : "pb-section bg-canvas"} aria-label={t("title")}>
       <div className="max-w-layout mx-auto px-6 lg:px-12">
         {compact && (
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 md:mb-10">
             <p className="font-sans text-eyebrow text-accent-deep uppercase mb-3">
               {t("eyebrow")}
             </p>
@@ -76,13 +80,13 @@ export default async function ServicesGrid({ compact = false }: { compact?: bool
           </div>
         )}
         <ul
-          className={`grid gap-6 ${compact ? "grid-cols-2 lg:grid-cols-4" : "grid-cols-2 lg:grid-cols-5"}`}
+          className={`grid ${compact ? "grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10" : "grid-cols-2 lg:grid-cols-5 gap-6"}`}
           role="list"
         >
           {keys.map((key) =>
             compact ? (
               <li key={key} className="text-center">
-                <span className="inline-flex items-center justify-center mb-4 text-accent-deep w-12 h-12">
+                <span className="inline-flex items-center justify-center mb-3 text-accent-deep w-12 h-12">
                   <svg
                     className="w-full h-full"
                     fill="none"
@@ -99,6 +103,18 @@ export default async function ServicesGrid({ compact = false }: { compact?: bool
                 <h3 className="font-serif text-lg text-ink tracking-wide uppercase">
                   {t(`items.${key}.name` as Parameters<typeof t>[0])}
                 </h3>
+                {/* Línia curta sota cada servei. Es pinta NOMÉS si la clau
+                    `items.{key}.short` existeix al fitxer d'idioma, de manera
+                    que fins que no s'escriguin els textos aquí no hi surt res
+                    ni queda cap forat: la secció es veu exactament com abans.
+                    Quan s'afegeixi la clau en un idioma, hi apareix; i si en
+                    algun idioma encara no hi és, aquell idioma se la salta
+                    sense trencar-se. */}
+                {t.has(`items.${key}.short` as Parameters<typeof t.has>[0]) && (
+                  <p className="mt-2 font-sans text-body-sm text-ink-muted leading-snug max-w-[22ch] mx-auto">
+                    {t(`items.${key}.short` as Parameters<typeof t>[0])}
+                  </p>
+                )}
               </li>
             ) : (
               <li key={key} className="group flex flex-col">

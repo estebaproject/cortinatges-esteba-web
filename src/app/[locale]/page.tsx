@@ -27,8 +27,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function HomePage() {
   return (
     <div>
-      {/* El Hero va a sang, sense el padding superior que compensava la
-          capçalera fixa: la imatge ha d'arrencar dalt de tot. */}
+      {/* La franja d'obertura porta el seu propi coixí superior, calculat sobre
+          l'alçada real de la capçalera fixa a cada breakpoint. Per això va fora
+          del `pt` de sota: si hi entrés, el coixí es comptaria dues vegades. */}
       <Hero />
       <div className="pt-12 md:pt-16">
         <ProductTileGrid />

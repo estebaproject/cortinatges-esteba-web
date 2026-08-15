@@ -99,14 +99,6 @@ export default function Header() {
 
             {/* Accions dreta */}
             <div className="flex items-center justify-end gap-3 md:gap-4">
-              {/* Selector d'idioma, NOMÉS en mòbil. A partir de `sm` torna a
-                  ser a la franja blava de dalt, que és on ha estat sempre.
-                  Aquest component no surt enlloc més del lloc: sense aquesta
-                  còpia, amagar la franja deixaria un web de quatre idiomes
-                  sense manera de canviar-lo des del mòbil. */}
-              <div className="sm:hidden">
-                <LocaleSwitcher />
-              </div>
               {/* Accés a la botiga: amagat mentre no es publiqui (Shopify).
                   Governat per la MATEIXA palanca que robots.txt i el noindex,
                   a src/lib/shop-visibility.ts. Enllaçar-la mentre està en
@@ -227,6 +219,16 @@ export default function Header() {
             >
               {t("contact")}
             </Link>
+
+            {/* Canvi d'idioma dins del menú.
+                Havia provat de posar-lo a la barra blanca al costat del logo,
+                però allà no hi cap: el logo fa 191px i parteix en dues línies
+                per sota de 640px, i mesurat es trepitjaven 27px a 390, 57 a 360
+                i 97 a 320. Aquí no compensa amb res i s'hi arriba amb el mateix
+                toc que la resta de la navegació. */}
+            <div className="pt-5 mt-1 border-t border-linen">
+              <LocaleSwitcher />
+            </div>
           </nav>
         </div>
       )}
