@@ -1,0 +1,363 @@
+{
+  "meta": {
+    "titleTemplate": "%s | Cortinatges Esteba",
+    "homeTitle": "Made-to-measure curtains and blinds in Girona, Blanes and Palamós",
+    "homeDescription": "Our own workshop since 1961. Measuring at your home, handcrafted making and installation by our own team. Free quote, with no obligation.",
+    "prototypeBadge": "Prototype v2",
+    "prototypeNote": "This is a test version. The published site is still at the root of the domain."
+  },
+
+  "nav": {
+    "collections": "Collections",
+    "rooms": "By room",
+    "process": "How we work",
+    "services": "Services",
+    "stores": "Stores",
+    "about": "The workshop",
+    "shop": "Online shop",
+    "contact": "Contact",
+    "cta": "Request a quote",
+    "menuOpen": "Open the menu",
+    "menuClose": "Close the menu",
+    "skip": "Skip to content",
+    "home": "Cortinatges Esteba — home"
+  },
+
+  "cta": {
+    "budget": "Request a free quote",
+    "budgetShort": "Quote",
+    "call": "Call us",
+    "callShort": "Call",
+    "whatsapp": "WhatsApp",
+    "stores": "Find your nearest store",
+    "directions": "Get directions",
+    "seeCollection": "View the details",
+    "seeAll": "View them all",
+    "discover": "Discover",
+    "count": "{n} lines"
+  },
+
+  "ctaBlock": {
+    "headline": "Shall we talk about your space?",
+    "lead": "Visit, measuring and a fixed quote. Free and with no obligation."
+  },
+
+  "home": {
+    "hero": {
+      "eyebrow": "Our own workshop since 1961",
+      "headline": "Every window has its curtain. We sew it.",
+      "lead": "Measuring at your home, making in our Girona workshop and installation by our own team. One point of contact, from the first visit to the last ring.",
+      "imageAlt": "Living room with made-to-measure curtains by Cortinatges Esteba",
+      "ariaLabel": "Introduction"
+    },
+
+    "trust": {
+      "yearsValue": "{years} years",
+      "yearsLabel": "of the craft, since 1961",
+      "workshopValue": "Our own workshop",
+      "workshopLabel": "we sew it ourselves in Girona",
+      "storesValue": "3 stores",
+      "storesLabel": "Girona · Blanes · Palamós",
+      "quoteValue": "Free quote",
+      "quoteLabel": "and with no obligation"
+    },
+
+    "paths": {
+      "eyebrow": "Where to start",
+      "headline": "Tell us what you are after and we will take you straight there.",
+      "cortines": {
+        "title": "Curtains",
+        "desc": "Editorial fabrics, studied drape and ten different types of construction."
+      },
+      "estors": {
+        "title": "Blinds and Venetian blinds",
+        "desc": "Precise light control, from the screen that lets you see out to the blackout that darkens the room completely."
+      },
+      "complements": {
+        "title": "Motorisation and accessories",
+        "desc": "Curtains that rise on their own with a single gesture, and insect screens made to the size of your window."
+      }
+    },
+
+    "rooms": {
+      "eyebrow": "By room",
+      "headline": "Every room asks for a different light.",
+      "lead": "Start with the space you want to dress. We will tell you what fits and, above all, why.",
+      "items": {
+        "sala": { "title": "Living room", "desc": "Warm light without losing the view" },
+        "dormitori": { "title": "Bedroom", "desc": "Real darkness when you want it, privacy always" },
+        "cuina": { "title": "Kitchen and bathroom", "desc": "Easy to clean, stands up to damp" },
+        "exterior": { "title": "Terrace and porch", "desc": "Ventilation without insects, shade when the sun bites" },
+        "oficina": { "title": "Home office", "desc": "Natural light without glare on the screen" }
+      }
+    },
+
+    "families": {
+      "eyebrow": "Collections",
+      "headline": "Eleven lines. One craft.",
+      "lead": "All made to measure and sewn in our workshop. Choose the family first, then the piece.",
+      "cortines": "Curtains",
+      "estors": "Blinds and Venetian blinds",
+      "complements": "Motorisation and accessories",
+      "exterior": {
+        "title": "And for outside the house",
+        "desc": "Awnings, pergolas and upholstery we make through Decoresteba, our outdoor brand.",
+        "cta": "Go to Decoresteba"
+      }
+    },
+
+    "process": {
+      "eyebrow": "How we work",
+      "headline": "Four steps. No surprises.",
+      "lead": "What everyone worries about with a made-to-measure product is how much hassle it will be. This is the whole route, with the real timings.",
+      "steps": {
+        "mides": {
+          "title": "Visit and measuring",
+          "desc": "You come to the store or we come to you with the sample book. We measure the window and look at the light it gets at each hour of the day.",
+          "time": "The same week"
+        },
+        "pressupost": {
+          "title": "Advice and quote",
+          "desc": "We propose the fabric, the type of construction and the system. You get a fixed, itemised quote, with no obligation.",
+          "time": "48 – 72 hours"
+        },
+        "taller": {
+          "title": "Making in the workshop",
+          "desc": "We sew every piece in our Girona workshop. Nothing subcontracted, nothing pulled off a standard shelf.",
+          "time": "2 – 3 weeks"
+        },
+        "installacio": {
+          "title": "Installation",
+          "desc": "Our own team fits the rods, tracks and motors, leaves everything ready and takes all the packaging away.",
+          "time": "One morning"
+        }
+      },
+      "note": "Timings are indicative: we confirm them in writing on the quote.",
+      "stepLabel": "Step {n}"
+    },
+
+    "proof": {
+      "eyebrow": "Work done",
+      "headline": "Sixty-five years of windows dressed.",
+      "lead": "In the workshop we do not make a catalogue: we make the piece you are missing. These are real installations of ours.",
+      "instagramTitle": "Follow the workshop",
+      "instagramCta": "View profile",
+      "handle": "@cortinatgesesteba"
+    },
+
+    "brands": {
+      "headline": "We work with the great textile houses",
+      "lead": "Designers Guild, Romo, Bandalux, Somfy and twenty more. The fabric we propose does not come out of a generic catalogue."
+    },
+
+    "workshop": {
+      "eyebrow": "The workshop",
+      "headline": "Three generations on the same street.",
+      "paragraph1": "In 1961 the Esteba family opened the first store on carrer de la Rutlla in Girona. Sixty-five years on we are still there, with the same workshop and the third generation behind the counter.",
+      "paragraph2": "We do one thing and we do it well: dressing homes with made-to-measure textiles. Every project starts with a conversation and ends with an installation carried out by our own team.",
+      "imageAlt": "Sixty years of Cortinatges Esteba",
+      "stats": {
+        "years": "years of the craft",
+        "stores": "stores open",
+        "generations": "generations of the family"
+      },
+      "cta": "Get to know the house"
+    },
+
+    "shop": {
+      "eyebrow": "Online shop",
+      "headline": "Rugs and furniture, to take away.",
+      "lead": "Everything that needs no measuring you can buy directly, with delivery across Spain.",
+      "catifes": "View rugs",
+      "mobiliari": "View furniture"
+    },
+
+    "stores": {
+      "eyebrow": "Stores",
+      "headline": "Come and feel the fabric.",
+      "lead": "A photo tells you nothing about the weight of a cloth or how it filters the light. Drop in to any of our stores.",
+      "scheduleLabel": "Opening hours",
+      "schedule": "Mon–Fri 9.30–13.30 & 16.30–20.00 · Sat 10.00–13.30",
+      "mattressNote": "Mattress shop, just opposite our Girona store.",
+      "mapAlt": "Map showing the Cortinatges Esteba stores"
+    },
+
+    "faq": {
+      "eyebrow": "Questions",
+      "headline": "What we get asked every day.",
+      "items": {
+        "cost": {
+          "q": "Does the quote cost anything?",
+          "a": "No. Measuring in store and the quote are free and carry no obligation whatsoever. The only service with a fee is the home advisory visit with the sample book, and we deduct it from the order if you go ahead."
+        },
+        "termini": {
+          "q": "How long from the moment I say yes?",
+          "a": "Between two and three weeks of making, plus the installation day. If you have a fixed date — a move, the start of a rental season — say so from the outset and we will work to it."
+        },
+        "domicili": {
+          "q": "Do you come to the house to measure?",
+          "a": "Yes. We bring the sample book so you can see the fabrics in your own space and your own light, which is where it is really decided. That is the home advisory service."
+        },
+        "installacio": {
+          "q": "Who does the installation?",
+          "a": "Our own team. We do not subcontract the fitting: whoever takes the measurements and whoever hangs the curtain work for the same house, and that is why the measurements add up."
+        },
+        "zona": {
+          "q": "How far do you go?",
+          "a": "The whole province of Girona and the Costa Brava, from our stores in Girona, Blanes and Palamós. If you are outside that area, ask anyway."
+        },
+        "garantia": {
+          "q": "And if something goes wrong later?",
+          "a": "We take care of it ourselves. We have been on the same street for sixty-five years, and the customer who comes back is exactly what keeps us open."
+        }
+      }
+    },
+
+    "closing": {
+      "eyebrow": "No obligation",
+      "headline": "Tell us about your window.",
+      "lead": "Four fields, that is all. We reply during shop hours, usually the same day.",
+      "orCall": "Or, if you prefer, call us directly:"
+    }
+  },
+
+  "form": {
+    "name": "Name",
+    "namePlaceholder": "What you are called",
+    "phone": "Phone",
+    "phonePlaceholder": "So we can call you back",
+    "email": "Email address",
+    "emailPlaceholder": "where@we.reply",
+    "product": "What you need",
+    "productPlaceholder": "Select an option",
+    "message": "Tell us about it",
+    "messagePlaceholder": "How many windows, in which room, whether you have a date…",
+    "optional": "optional",
+    "consent": "I have read and accept the <link>privacy policy</link>.",
+    "consentNote": "We process your data in order to reply to you. It is not shared with third parties.",
+    "submit": "Send the request",
+    "submitting": "Sending…",
+    "required": "This field is required.",
+    "successTitle": "Received. Thank you.",
+    "successBody": "We will reply during shop hours. If you are in a hurry, message us on WhatsApp and we will be quicker.",
+    "errorTitle": "We could not send the form",
+    "errorBody": "Try again in a moment. What you wrote has not been lost. If it keeps failing, call us or message us on WhatsApp."
+  },
+
+  "collections": {
+    "metaTitle": "Collections — made-to-measure curtains, blinds and Venetian blinds",
+    "metaDescription": "Eleven product lines made to measure and sewn in our Girona workshop: traditional curtains, blinds, Japanese panels, Venetian blinds and motorisation.",
+    "eyebrow": "Collections",
+    "headline": "Eleven lines. One craft.",
+    "lead": "Every space calls for a different answer. These are the lines we work with, all made to measure and sewn in our workshop since 1961.",
+    "brandsLabel": "Brands"
+  },
+
+  "collection": {
+    "backToAll": "All collections",
+    "featuresTitle": "What you should know",
+    "notesTitle": "Workshop tips",
+    "galleryTitle": "Gallery",
+    "ctaTitle": "Do you like this line?",
+    "ctaLead": "Tell us the approximate size of the window and we will prepare a fixed quote for you, with no obligation.",
+    "relatedTitle": "Other lines that might suit you"
+  },
+
+  "services": {
+    "metaTitle": "Services — advice, measuring, making and installation",
+    "metaDescription": "Advice, interior design, measuring at your home, making in our workshop and our own installation in Girona, Blanes and Palamós.",
+    "eyebrow": "Services",
+    "headline": "We are with you from the first visit to the last ring.",
+    "lead": "We do not pass you from one department to the next. The same house measures, designs, sews and installs — and that is why things add up."
+  },
+
+  "stores": {
+    "metaTitle": "Stores in Girona, Blanes and Palamós",
+    "metaDescription": "Three stores and a mattress shop in the province of Girona. Addresses, phone numbers and opening hours for Cortinatges Esteba.",
+    "eyebrow": "Stores",
+    "headline": "You will find us at three points in the province.",
+    "lead": "Drop in whenever you like, no appointment needed. If you would rather we were expecting you, call ahead and we will keep some time free."
+  },
+
+  "about": {
+    "metaTitle": "The workshop — three generations since 1961",
+    "metaDescription": "The story of Cortinatges Esteba: our own making workshop since 1961, three generations and three stores in the province of Girona.",
+    "eyebrow": "The workshop",
+    "headline": "Three generations on the same street.",
+    "lead": "Since 1961 we have done one thing and done it well: dressing homes with made-to-measure textiles, with taste and with craft.",
+    "valuesTitle": "What sets us apart",
+    "values": {
+      "confeccio": {
+        "title": "Our own workshop",
+        "desc": "We sew every piece ourselves, entirely to measure. Nothing arrives ready-made."
+      },
+      "atencio": {
+        "title": "One person throughout",
+        "desc": "The same contact from the first visit right through to installation."
+      },
+      "installacio": {
+        "title": "We fit it ourselves",
+        "desc": "Our own team does the fitting. Never a subcontractor."
+      },
+      "generacions": {
+        "title": "Three generations",
+        "desc": "Same workshop, same street, passed from parent to child since 1961."
+      }
+    },
+    "timelineTitle": "How we got here",
+    "timeline": {
+      "1961": "The first store opens on carrer de la Rutlla in Girona.",
+      "1990": "The Blanes store opens and the making workshop grows.",
+      "2005": "The Palamós store arrives and the third generation joins the house.",
+      "2021": "Sixty years. The mattress shop opens opposite the Girona store.",
+      "2026": "Online shop for rugs and furniture, and this new website."
+    },
+    "timelineNote": "Years are indicative: to be confirmed with the family."
+  },
+
+  "budget": {
+    "metaTitle": "Request a quote — free and with no obligation",
+    "metaDescription": "Tell us what you need and we will prepare a fixed quote for made-to-measure curtains, blinds and textiles. Free and with no obligation.",
+    "eyebrow": "Quote",
+    "headline": "Tell us about your window.",
+    "lead": "Four fields, that is all. We reply during shop hours, usually the same day.",
+    "asideTitle": "What happens next",
+    "asideSteps": {
+      "one": "We read your request and, if we need to, call you to pin things down.",
+      "two": "We arrange the visit: in store or at your home with the sample book.",
+      "three": "We take the measurements and send you a fixed quote, in writing."
+    },
+    "asideNote": "Free and with no obligation. We will not push and we will not call you every week.",
+    "urgentTitle": "In a hurry?"
+  },
+
+  "contact": {
+    "metaTitle": "Contact — request a quote with no obligation",
+    "metaDescription": "Write to us, call us or drop in to any of our stores. Free quote for made-to-measure curtains, blinds and textiles.",
+    "eyebrow": "Contact",
+    "headline": "Let's talk.",
+    "lead": "Fill in the form, call us or message us on WhatsApp. Whichever suits you best.",
+    "directTitle": "Direct",
+    "formTitle": "Or write to us here"
+  },
+
+  "footer": {
+    "tagline": "Curtains, blinds and home textiles made to measure. Making and installation by us since 1961.",
+    "explore": "Explore",
+    "company": "The house",
+    "legal": "Legal",
+    "contact": "Contact",
+    "privacy": "Privacy policy",
+    "cookies": "Cookie policy",
+    "notice": "Legal notice",
+    "jobs": "Work with us",
+    "rights": "All rights reserved.",
+    "follow": "Follow us"
+  },
+
+  "mobilebar": {
+    "call": "Call",
+    "whatsapp": "WhatsApp",
+    "budget": "Quote"
+  }
+}

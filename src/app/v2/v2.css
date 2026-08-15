@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Fulla d'estils del PROTOTIP v2. És un fitxer a part de src/app/globals.css a
+ * propòsit: la web actual i la v2 tenen arrels (`<html>`) diferents i cadascuna
+ * carrega la seva. Res del que hi ha aquí pot arribar a la web de producció.
+ */
+
+@layer base {
+  html {
+    font-family: var(--font-hanken), system-ui, sans-serif;
+    background-color: theme("colors.v2-paper");
+    color: theme("colors.v2-ink");
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* La barra fixa de mòbil tapa el peu; s'hi compensa amb padding al body. */
+    text-size-adjust: 100%;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  :focus-visible {
+    outline: 2px solid theme("colors.v2-brass");
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background-color: theme("colors.v2-brass");
+    color: theme("colors.v2-paper");
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Fraunces és variable: aquí es fixa l'eix `SOFT` i `WONK` als titulars
+     perquè tinguin el caràcter de serif editorial i no el de serif de sistema. */
+  .font-v2-display {
+    font-variation-settings: "SOFT" 20, "WONK" 1, "opsz" 40;
+  }
+}
+
+@layer utilities {
+  /*
+   * Aparició en scroll. NO és una animació decorativa: serveix per marcar el
+   * ritme de lectura secció a secció. L'element arrenca ocult i el component
+   * <Reveal> li afegeix .is-visible quan entra a viewport.
+   *
+   * Si el JS no arriba a executar-se, `.reveal` sense `.is-visible` deixaria el
+   * contingut invisible per sempre. Per això el valor per defecte és VISIBLE i
+   * l'ocultació només s'aplica quan el document té la classe `js`, que posa el
+   * propi <Reveal> al muntar-se.
+   */
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  .js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.8s cubic-bezier(0.22, 0.61, 0.36, 1),
+      transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  /* Filet de llautó: separador curt que substitueix les línies a tot l'ample. */
+  .rule-brass::after {
+    content: "";
+    display: block;
+    width: 2.5rem;
+    height: 2px;
+    background-color: theme("colors.v2-brass");
+    margin-top: 1.5rem;
+  }
+
+  /* Trama de teixit molt subtil per als blocs foscos: dona textura sense pes. */
+  .weave {
+    background-image:
+      repeating-linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.035) 0 1px,
+        transparent 1px 7px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.035) 0 1px,
+        transparent 1px 7px
+      );
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal,
+  .js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

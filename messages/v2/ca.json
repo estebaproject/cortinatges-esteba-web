@@ -1,0 +1,363 @@
+{
+  "meta": {
+    "titleTemplate": "%s | Cortinatges Esteba",
+    "homeTitle": "Cortines i estors a mida a Girona, Blanes i Palamós",
+    "homeDescription": "Taller propi des de 1961. Presa de mides a domicili, confecció artesanal i instal·lació pel nostre equip. Pressupost gratuït i sense compromís.",
+    "prototypeBadge": "Prototip v2",
+    "prototypeNote": "Aquesta és una versió de prova. La web publicada continua a l'arrel del domini."
+  },
+
+  "nav": {
+    "collections": "Col·leccions",
+    "rooms": "Per estances",
+    "process": "Com treballem",
+    "services": "Serveis",
+    "stores": "Botigues",
+    "about": "El taller",
+    "shop": "Botiga online",
+    "contact": "Contacte",
+    "cta": "Demana pressupost",
+    "menuOpen": "Obre el menú",
+    "menuClose": "Tanca el menú",
+    "skip": "Salta al contingut",
+    "home": "Cortinatges Esteba — inici"
+  },
+
+  "cta": {
+    "budget": "Demana pressupost gratuït",
+    "budgetShort": "Pressupost",
+    "call": "Truca'ns",
+    "callShort": "Trucar",
+    "whatsapp": "WhatsApp",
+    "stores": "Troba la botiga més propera",
+    "directions": "Com arribar",
+    "seeCollection": "Veure la fitxa",
+    "seeAll": "Veure-les totes",
+    "discover": "Descobrir",
+    "count": "{n} línies"
+  },
+
+  "ctaBlock": {
+    "headline": "Parlem del teu espai?",
+    "lead": "Visita, presa de mides i pressupost tancat. Gratuït i sense compromís."
+  },
+
+  "home": {
+    "hero": {
+      "eyebrow": "Taller propi des de 1961",
+      "headline": "Cada finestra té la seva cortina. Nosaltres la cosim.",
+      "lead": "Presa de mides a casa teva, confecció al nostre taller de Girona i instal·lació pel nostre equip. Un sol interlocutor de la primera visita a l'última anella.",
+      "imageAlt": "Sala d'estar amb cortines a mida de Cortinatges Esteba",
+      "ariaLabel": "Presentació"
+    },
+
+    "trust": {
+      "yearsValue": "{years} anys",
+      "yearsLabel": "d'ofici, des de 1961",
+      "workshopValue": "Taller propi",
+      "workshopLabel": "cosim nosaltres a Girona",
+      "storesValue": "3 botigues",
+      "storesLabel": "Girona · Blanes · Palamós",
+      "quoteValue": "Pressupost gratuït",
+      "quoteLabel": "i sense compromís"
+    },
+
+    "paths": {
+      "eyebrow": "Per on comences",
+      "headline": "Digues què busques i t'hi portem directe.",
+      "cortines": {
+        "title": "Cortines",
+        "desc": "Teixits editorials, caiguda estudiada i deu tipus de confecció diferents."
+      },
+      "estors": {
+        "title": "Estors i venecianes",
+        "desc": "Control precís de la llum, del screen que deixa veure al blackout que enfosqueix del tot."
+      },
+      "complements": {
+        "title": "Motorització i complements",
+        "desc": "Cortines que pugen soles amb un gest, i mosquiteres fetes a la mida de la teva finestra."
+      }
+    },
+
+    "rooms": {
+      "eyebrow": "Per estances",
+      "headline": "Cada habitació demana una llum diferent.",
+      "lead": "Comença per l'espai que vols vestir. Et diem què hi encaixa i, sobretot, per què.",
+      "items": {
+        "sala": { "title": "Sala d'estar", "desc": "Llum càlida sense perdre les vistes" },
+        "dormitori": { "title": "Dormitori", "desc": "Foscor real quan la vols, privacitat sempre" },
+        "cuina": { "title": "Cuina i bany", "desc": "Fàcil de netejar, aguanta la humitat" },
+        "exterior": { "title": "Terrassa i porxo", "desc": "Ventilar sense insectes, ombra quan pica" },
+        "oficina": { "title": "Despatx", "desc": "Llum natural sense reflexos a la pantalla" }
+      }
+    },
+
+    "families": {
+      "eyebrow": "Col·leccions",
+      "headline": "Onze línies. Un sol ofici.",
+      "lead": "Totes fetes a mida i cosides al taller. Tria primer la família i després la peça.",
+      "cortines": "Cortines",
+      "estors": "Estors i venecianes",
+      "complements": "Motorització i complements",
+      "exterior": {
+        "title": "I per a fora de casa",
+        "desc": "Tendals, pèrgoles i tapisseria els fem des de Decoresteba, la nostra marca d'exterior.",
+        "cta": "Anar a Decoresteba"
+      }
+    },
+
+    "process": {
+      "eyebrow": "Com treballem",
+      "headline": "Quatre passos. Cap sorpresa.",
+      "lead": "El dubte de tothom davant d'un producte a mida és quant embolic serà. Aquest és el camí sencer, amb els terminis reals.",
+      "steps": {
+        "mides": {
+          "title": "Visita i presa de mides",
+          "desc": "Vens a botiga o venim nosaltres amb el mostrari. Mesurem la finestra i mirem quina llum hi entra a cada hora del dia.",
+          "time": "La mateixa setmana"
+        },
+        "pressupost": {
+          "title": "Assessorament i pressupost",
+          "desc": "Et proposem teixit, tipus de confecció i sistema. Reps un pressupost tancat i detallat, sense compromís.",
+          "time": "48 – 72 hores"
+        },
+        "taller": {
+          "title": "Confecció al taller",
+          "desc": "Cosim cada peça al nostre taller de Girona. Res subcontractat, res tret d'un estoc estàndard.",
+          "time": "2 – 3 setmanes"
+        },
+        "installacio": {
+          "title": "Instal·lació",
+          "desc": "El nostre equip munta barres, riells i motors, ho deixa a punt i s'emporta tot l'embalatge.",
+          "time": "Un matí"
+        }
+      },
+      "note": "Terminis orientatius: te'ls confirmem per escrit al pressupost.",
+      "stepLabel": "Pas {n}"
+    },
+
+    "proof": {
+      "eyebrow": "Feina feta",
+      "headline": "Seixanta-cinc anys de finestres vestides.",
+      "lead": "Al taller no fem catàleg: fem la peça que et falta. Aquestes són instal·lacions reals de casa nostra.",
+      "instagramTitle": "Segueix el taller",
+      "instagramCta": "Veure el perfil",
+      "handle": "@cortinatgesesteba"
+    },
+
+    "brands": {
+      "headline": "Treballem amb les cases del tèxtil",
+      "lead": "Designers Guild, Romo, Bandalux, Somfy i vint més. El teixit que et proposem no surt d'un catàleg genèric."
+    },
+
+    "workshop": {
+      "eyebrow": "El taller",
+      "headline": "Tres generacions al mateix carrer.",
+      "paragraph1": "El 1961 la família Esteba va obrir la primera botiga al carrer de la Rutlla de Girona. Seixanta-cinc anys després hi continuem, amb el mateix taller i la tercera generació al taulell.",
+      "paragraph2": "Fem una sola cosa i la fem bé: vestir cases amb tèxtils a mida. Cada projecte comença amb una conversa i s'acaba amb una instal·lació feta pel nostre equip.",
+      "imageAlt": "Seixanta anys de Cortinatges Esteba",
+      "stats": {
+        "years": "anys d'ofici",
+        "stores": "botigues obertes",
+        "generations": "generacions de la família"
+      },
+      "cta": "Coneix la casa"
+    },
+
+    "shop": {
+      "eyebrow": "Botiga online",
+      "headline": "Catifes i mobiliari, per emportar.",
+      "lead": "Tot el que no necessita mides el pots comprar directament, amb enviament a tot Espanya.",
+      "catifes": "Veure catifes",
+      "mobiliari": "Veure mobiliari"
+    },
+
+    "stores": {
+      "eyebrow": "Botigues",
+      "headline": "Vine a tocar el teixit.",
+      "lead": "Una foto no diu res del pes d'una tela ni de com filtra la llum. Passa per qualsevol de les nostres botigues.",
+      "scheduleLabel": "Horari",
+      "schedule": "Dilluns a divendres 9.30–13.30 i 16.30–20.00 · Dissabte 10.00–13.30",
+      "mattressNote": "Local de matalassos, just davant de la botiga de Girona.",
+      "mapAlt": "Mapa amb les botigues de Cortinatges Esteba"
+    },
+
+    "faq": {
+      "eyebrow": "Dubtes",
+      "headline": "El que ens pregunten cada dia.",
+      "items": {
+        "cost": {
+          "q": "El pressupost té cost?",
+          "a": "No. La presa de mides a botiga i el pressupost són gratuïts i sense cap compromís. L'únic servei amb cost és l'assessorament a domicili amb mostrari, i te'l descomptem de la comanda si finalment la fas."
+        },
+        "termini": {
+          "q": "Quant es triga des que dic que sí?",
+          "a": "Entre dues i tres setmanes de confecció, més el dia d'instal·lació. Si tens una data tancada —una mudança, l'inici de temporada d'un lloguer— digues-ho des del principi i ho ajustem."
+        },
+        "domicili": {
+          "q": "Veniu a casa a prendre mides?",
+          "a": "Sí. Hi anem amb el mostrari perquè vegis els teixits al teu espai i amb la teva llum, que és on es decideix de veritat. És el servei d'assessorament a domicili."
+        },
+        "installacio": {
+          "q": "Qui fa la instal·lació?",
+          "a": "El nostre propi equip. No subcontractem el muntatge: qui pren les mides i qui penja la cortina treballen a la mateixa casa, i per això les mides quadren."
+        },
+        "zona": {
+          "q": "Fins on arribeu?",
+          "a": "Tota la província de Girona i la Costa Brava, des de les botigues de Girona, Blanes i Palamós. Si ets fora d'aquesta zona, pregunta-ho igualment."
+        },
+        "garantia": {
+          "q": "I si després alguna cosa falla?",
+          "a": "Ens en fem càrrec nosaltres. Portem seixanta-cinc anys al mateix carrer i el client que torna és exactament el que ens manté oberts."
+        }
+      }
+    },
+
+    "closing": {
+      "eyebrow": "Sense compromís",
+      "headline": "Explica'ns la teva finestra.",
+      "lead": "Quatre camps i prou. Et responem en horari de botiga, normalment el mateix dia.",
+      "orCall": "O si ho prefereixes, truca'ns directament:"
+    }
+  },
+
+  "form": {
+    "name": "Nom",
+    "namePlaceholder": "Com et dius",
+    "phone": "Telèfon",
+    "phonePlaceholder": "Per poder-te trucar",
+    "email": "Correu electrònic",
+    "emailPlaceholder": "on@et.responem",
+    "product": "Què necessites",
+    "productPlaceholder": "Tria una opció",
+    "message": "Explica'ns-ho",
+    "messagePlaceholder": "Quantes finestres, a quina estança, si tens data…",
+    "optional": "opcional",
+    "consent": "He llegit i accepto la <link>política de privacitat</link>.",
+    "consentNote": "Tractem les teves dades per respondre't. No es cedeixen a tercers.",
+    "submit": "Enviar la petició",
+    "submitting": "Enviant…",
+    "required": "Aquest camp és obligatori.",
+    "successTitle": "Rebut. Gràcies.",
+    "successBody": "Et responem en horari de botiga. Si tens pressa, escriu-nos per WhatsApp i anem més ràpid.",
+    "errorTitle": "No s'ha pogut enviar",
+    "errorBody": "Torna-ho a provar en un moment. El que has escrit no s'ha perdut. Si continua fallant, truca'ns o escriu-nos per WhatsApp."
+  },
+
+  "collections": {
+    "metaTitle": "Col·leccions — cortines, estors i venecianes a mida",
+    "metaDescription": "Onze línies de producte fetes a mida i cosides al nostre taller de Girona: cortina tradicional, estors, panells japonesos, venecianes i motorització.",
+    "eyebrow": "Col·leccions",
+    "headline": "Onze línies. Un sol ofici.",
+    "lead": "Cada espai demana una resposta diferent. Aquestes són les línies que treballem, totes a mida i cosides al taller des de 1961.",
+    "brandsLabel": "Marques"
+  },
+
+  "collection": {
+    "backToAll": "Totes les col·leccions",
+    "featuresTitle": "Què has de saber",
+    "notesTitle": "Consells del taller",
+    "galleryTitle": "Galeria",
+    "ctaTitle": "T'agrada aquesta línia?",
+    "ctaLead": "Diguen's la mida aproximada de la finestra i et preparem un pressupost tancat, sense compromís.",
+    "relatedTitle": "Altres línies que et poden servir"
+  },
+
+  "services": {
+    "metaTitle": "Serveis — assessorament, mides, confecció i instal·lació",
+    "metaDescription": "Assessorament, disseny interior, presa de mides a domicili, confecció al taller i instal·lació pròpia a Girona, Blanes i Palamós.",
+    "eyebrow": "Serveis",
+    "headline": "T'acompanyem de la primera visita a l'última anella.",
+    "lead": "No et passem d'un departament a un altre. La mateixa casa mesura, dissenya, cus i instal·la — i per això les coses quadren."
+  },
+
+  "stores": {
+    "metaTitle": "Botigues a Girona, Blanes i Palamós",
+    "metaDescription": "Tres botigues i una matalasseria a la província de Girona. Adreces, telèfons i horaris de Cortinatges Esteba.",
+    "eyebrow": "Botigues",
+    "headline": "Som a tres punts de la província.",
+    "lead": "Passa quan vulguis, sense cita. Si prefereixes que t'esperem, truca abans i et guardem una estona."
+  },
+
+  "about": {
+    "metaTitle": "El taller — tres generacions des de 1961",
+    "metaDescription": "La història de Cortinatges Esteba: taller propi de confecció des de 1961, tres generacions i tres botigues a la província de Girona.",
+    "eyebrow": "El taller",
+    "headline": "Tres generacions al mateix carrer.",
+    "lead": "Des de 1961 fem una sola cosa i la fem bé: vestir cases amb tèxtils a mida, amb criteri i amb ofici.",
+    "valuesTitle": "El que ens fa diferents",
+    "values": {
+      "confeccio": {
+        "title": "Confecció pròpia",
+        "desc": "Cosim cada peça al nostre taller, totalment a mida. Res ve fet de fora."
+      },
+      "atencio": {
+        "title": "Atenció personalitzada",
+        "desc": "El mateix interlocutor de la primera visita fins a la instal·lació."
+      },
+      "installacio": {
+        "title": "Instal·lació pròpia",
+        "desc": "El muntatge el fa el nostre equip, no un subcontractat."
+      },
+      "generacions": {
+        "title": "Tres generacions",
+        "desc": "Al mateix taller i al mateix carrer, de pares a fills, des de 1961."
+      }
+    },
+    "timelineTitle": "Com hem arribat fins aquí",
+    "timeline": {
+      "1961": "Obre la primera botiga al carrer de la Rutlla de Girona.",
+      "1990": "S'obre la botiga de Blanes i el taller de confecció es fa gran.",
+      "2005": "Arriba la botiga de Palamós i la tercera generació entra a la casa.",
+      "2021": "Seixanta anys. S'obre el local de matalasseria davant de Girona.",
+      "2026": "Botiga online de catifes i mobiliari, i aquesta web nova."
+    },
+    "timelineNote": "Anys orientatius: pendents de confirmar amb la família."
+  },
+
+  "budget": {
+    "metaTitle": "Demana pressupost — gratuït i sense compromís",
+    "metaDescription": "Explica'ns què necessites i et preparem un pressupost tancat per a cortines, estors i tèxtil a mida. Gratuït i sense compromís.",
+    "eyebrow": "Pressupost",
+    "headline": "Explica'ns la teva finestra.",
+    "lead": "Quatre camps i prou. Et responem en horari de botiga, normalment el mateix dia.",
+    "asideTitle": "Què passa després",
+    "asideSteps": {
+      "one": "Llegim la teva petició i, si cal, et truquem per acabar de situar-ho.",
+      "two": "Concertem la visita: a botiga o a casa teva amb el mostrari.",
+      "three": "Prenem mides i et passem un pressupost tancat, per escrit."
+    },
+    "asideNote": "Gratuït i sense compromís. Ni insistim ni et truquem cada setmana.",
+    "urgentTitle": "Tens pressa?"
+  },
+
+  "contact": {
+    "metaTitle": "Contacte — demana pressupost sense compromís",
+    "metaDescription": "Escriu-nos, truca'ns o passa per qualsevol de les nostres botigues. Pressupost gratuït per a cortines, estors i tèxtil a mida.",
+    "eyebrow": "Contacte",
+    "headline": "Parlem-ne.",
+    "lead": "Omple el formulari, truca'ns o escriu-nos per WhatsApp. El que et vagi millor.",
+    "directTitle": "Directe",
+    "formTitle": "O escriu-nos aquí"
+  },
+
+  "footer": {
+    "tagline": "Cortines, estors i tèxtil de la llar a mida. Confecció i instal·lació pròpies des de 1961.",
+    "explore": "Explora",
+    "company": "La casa",
+    "legal": "Legal",
+    "contact": "Contacte",
+    "privacy": "Política de privacitat",
+    "cookies": "Política de cookies",
+    "notice": "Avís legal",
+    "jobs": "Treballa amb nosaltres",
+    "rights": "Tots els drets reservats.",
+    "follow": "Segueix-nos"
+  },
+
+  "mobilebar": {
+    "call": "Trucar",
+    "whatsapp": "WhatsApp",
+    "budget": "Pressupost"
+  }
+}

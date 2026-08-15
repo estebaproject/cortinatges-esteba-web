@@ -40,6 +40,23 @@ const config: Config = {
         "kave-line": "#E2DFD8",     // hairlines i vores
         "kave-red": "#C8102E",      // preu rebaixat (vermell)
         "kave-tag": "#C2A468",      // accent (daurat beix clar)
+
+        // --- Tema "v2" (prototip de la web nova, només sota /v2) -----------
+        // Prefix v2- per no tocar CAP token de la web actual. La paleta surt
+        // dels materials del negoci: lli cru (fons), llana i fusta (superfícies),
+        // llautó de les barres de cortina (accent) i el blau Esteba portat a un
+        // to més profund perquè aguanti blocs sencers de color.
+        "v2-paper": "#FBF8F3",      // fons de pàgina — lli cru, mai blanc pur
+        "v2-paper-2": "#F3EDE3",    // seccions alternes
+        "v2-linen": "#EAE1D4",      // superfícies i cards
+        "v2-bone": "#DAD0C0",       // hairlines i vores
+        "v2-ink": "#131E33",        // blau profund — text i blocs foscos
+        "v2-ink-2": "#3A4661",      // text secundari
+        "v2-ink-3": "#78839A",      // text terciari
+        "v2-brass": "#A98A4F",      // accent — llautó de les barres
+        "v2-brass-2": "#8B7040",    // accent hover
+        "v2-clay": "#96513A",       // alerta / rebaixes, ús molt puntual
+        "v2-green": "#25D366",      // WhatsApp
       },
       fontFamily: {
         serif: ["var(--font-archivo-narrow)", "Archivo Narrow", "sans-serif"],
@@ -47,6 +64,11 @@ const config: Config = {
         // Tipografies del tema Kave (carregades global, usades només a botiga).
         display: ["var(--font-fraunces)", "Georgia", "serif"],
         grotesque: ["var(--font-hanken)", "system-ui", "sans-serif"],
+        // Tema v2. Fraunces (serif editorial amb eix òptic) per als titulars i
+        // Hanken Grotesk per al text. Substitueix Archivo Narrow + Roboto, que
+        // és el pack per defecte de qualsevol plantilla i no diu res de l'ofici.
+        "v2-display": ["var(--font-fraunces)", "Georgia", "serif"],
+        "v2-sans": ["var(--font-hanken)", "system-ui", "sans-serif"],
       },
       fontSize: {
         "display-xl": ["clamp(2.25rem, 3.5vw, 3.5rem)", { lineHeight: "1.12", letterSpacing: "-0.01em" }],
@@ -56,10 +78,28 @@ const config: Config = {
         "body-md": ["1rem", { lineHeight: "1.7" }],
         "body-sm": ["0.875rem", { lineHeight: "1.65" }],
         "eyebrow": ["0.75rem", { lineHeight: "1.4", letterSpacing: "0.18em" }],
+
+        // --- Escala del tema v2 --------------------------------------------
+        // Molt més contrastada que l'actual (que va de 1,375rem a 3,5rem i fa
+        // que titulars i cos es confonguin). Aquí el titular d'obertura arriba
+        // a 5,75rem en desktop: la jerarquia es veu abans de llegir.
+        "v2-hero": ["clamp(2.75rem, 6.2vw, 5.75rem)", { lineHeight: "0.98", letterSpacing: "-0.025em" }],
+        "v2-h1": ["clamp(2.25rem, 4.6vw, 4rem)", { lineHeight: "1.04", letterSpacing: "-0.02em" }],
+        "v2-h2": ["clamp(1.75rem, 3.2vw, 2.875rem)", { lineHeight: "1.1", letterSpacing: "-0.018em" }],
+        "v2-h3": ["clamp(1.25rem, 1.9vw, 1.625rem)", { lineHeight: "1.22", letterSpacing: "-0.01em" }],
+        "v2-lead": ["clamp(1.0625rem, 1.35vw, 1.3125rem)", { lineHeight: "1.6" }],
+        "v2-body": ["1.0625rem", { lineHeight: "1.72" }],
+        "v2-sm": ["0.9375rem", { lineHeight: "1.6" }],
+        "v2-xs": ["0.8125rem", { lineHeight: "1.5" }],
+        "v2-eyebrow": ["0.6875rem", { lineHeight: "1.4", letterSpacing: "0.22em" }],
       },
       spacing: {
         "section": "6rem",
         "section-sm": "4rem",
+        // Tema v2: ritme vertical fluid. La web actual usa 6rem fixos, que en
+        // mòbil és massa i en un monitor gran es queda curt.
+        "v2-section": "clamp(4.5rem, 9vw, 9rem)",
+        "v2-section-sm": "clamp(3rem, 6vw, 5.5rem)",
       },
       maxWidth: {
         "prose-editorial": "68ch",
@@ -73,6 +113,13 @@ const config: Config = {
         // 1280 menys el padding lateral (px-6 lg:px-12 = 96px) deixa 1184px
         // de contingut, pràcticament el mateix que el WordPress.
         "layout": "1280px",
+
+        // Tema v2: més ample que la web actual (1280) perquè la graella
+        // editorial necessita aire lateral, però amb gutters grans perquè el
+        // text mai s'acosti a la vora.
+        "v2-layout": "1440px",
+        "v2-prose": "62ch",
+        "v2-narrow": "46ch",
       },
       transitionTimingFunction: {
         "editorial": "cubic-bezier(0.25, 0.1, 0.25, 1)",

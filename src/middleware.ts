@@ -1,5 +1,5 @@
 import createMiddleware from "next-intl/middleware";
-import type { NextRequest } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 import { routing } from "./routing";
 
 const intlMiddleware = createMiddleware(routing);
@@ -17,9 +17,35 @@ const intlMiddleware = createMiddleware(routing);
  * que la capçalera sempre correspon a l'entorn on s'està servint de veritat.
  */
 export default function middleware(request: NextRequest) {
-  const response = intlMiddleware(request);
+  const { pathname } = request.nextUrl;
+
+  /*
+   * PROTOTIP v2 (/v2/...) — no passa per next-intl.
+   *
+   * El middleware de next-intl reescriu tota ruta que no comenci per un idioma
+   * conegut. Amb /v2/ca veuria "v2" al primer segment, conclouria que hi falta
+   * l'idioma i acabaria servint /ca/v2/ca, que no existeix. El prototip resol
+   * l'idioma pel segment [locale] de la seva pròpia ruta (src/app/v2/[locale]),
+   * així que aquí només cal deixar-lo passar.
+   *
+   * Es fa amb una comprovació de ruta i NO traient /v2 del matcher perquè així
+   * la capçalera de noindex de sota el segueix cobrint.
+   */
+  if (pathname === "/v2" || pathname === "/v2/") {
+    return NextResponse.redirect(new URL("/v2/ca", request.url));
+  }
+
+  const response = pathname.startsWith("/v2/")
+    ? NextResponse.next()
+    : intlMiddleware(request);
 
   if (process.env.VERCEL_ENV !== "production") {
+    response.headers.set("X-Robots-Tag", "noindex, nofollow");
+  }
+
+  // El prototip no s'ha d'indexar MAI, ni tan sols si algun dia es desplega a
+  // producció per ensenyar-lo al client.
+  if (pathname.startsWith("/v2")) {
     response.headers.set("X-Robots-Tag", "noindex, nofollow");
   }
 

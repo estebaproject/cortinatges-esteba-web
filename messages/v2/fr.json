@@ -1,0 +1,363 @@
+{
+  "meta": {
+    "titleTemplate": "%s | Cortinatges Esteba",
+    "homeTitle": "Rideaux et stores sur mesure à Girona, Blanes et Palamós",
+    "homeDescription": "Atelier maison depuis 1961. Prise de mesures à domicile, confection artisanale et installation par notre équipe. Devis gratuit et sans engagement.",
+    "prototypeBadge": "Prototype v2",
+    "prototypeNote": "Ceci est une version de test. Le site publié reste à la racine du domaine."
+  },
+
+  "nav": {
+    "collections": "Collections",
+    "rooms": "Par pièce",
+    "process": "Comment nous travaillons",
+    "services": "Services",
+    "stores": "Boutiques",
+    "about": "L'atelier",
+    "shop": "Boutique en ligne",
+    "contact": "Contact",
+    "cta": "Demander un devis",
+    "menuOpen": "Ouvrir le menu",
+    "menuClose": "Fermer le menu",
+    "skip": "Aller au contenu",
+    "home": "Cortinatges Esteba — accueil"
+  },
+
+  "cta": {
+    "budget": "Demander un devis gratuit",
+    "budgetShort": "Devis",
+    "call": "Appelez-nous",
+    "callShort": "Appeler",
+    "whatsapp": "WhatsApp",
+    "stores": "Trouver la boutique la plus proche",
+    "directions": "Comment venir",
+    "seeCollection": "Voir la fiche",
+    "seeAll": "Les voir toutes",
+    "discover": "Découvrir",
+    "count": "{n} lignes"
+  },
+
+  "ctaBlock": {
+    "headline": "On parle de votre espace ?",
+    "lead": "Visite, prise de mesures et devis ferme. Gratuit et sans engagement."
+  },
+
+  "home": {
+    "hero": {
+      "eyebrow": "Atelier maison depuis 1961",
+      "headline": "Chaque fenêtre a son rideau. C'est nous qui le cousons.",
+      "lead": "Prise de mesures chez vous, confection dans notre atelier de Girona et installation par notre équipe. Un seul interlocuteur, de la première visite au dernier anneau.",
+      "imageAlt": "Salon avec des rideaux sur mesure de Cortinatges Esteba",
+      "ariaLabel": "Présentation"
+    },
+
+    "trust": {
+      "yearsValue": "{years} ans",
+      "yearsLabel": "de métier, depuis 1961",
+      "workshopValue": "Atelier maison",
+      "workshopLabel": "nous cousons nous-mêmes à Girona",
+      "storesValue": "3 boutiques",
+      "storesLabel": "Girona · Blanes · Palamós",
+      "quoteValue": "Devis gratuit",
+      "quoteLabel": "et sans engagement"
+    },
+
+    "paths": {
+      "eyebrow": "Par où commencer",
+      "headline": "Dites-nous ce que vous cherchez, on vous y emmène directement.",
+      "cortines": {
+        "title": "Rideaux",
+        "desc": "Tissus éditoriaux, tombé étudié et dix types de confection différents."
+      },
+      "estors": {
+        "title": "Stores et vénitiens",
+        "desc": "Contrôle précis de la lumière, du tissu écran qui laisse voir dehors à l'occultant qui plonge la pièce dans le noir."
+      },
+      "complements": {
+        "title": "Motorisation et accessoires",
+        "desc": "Des rideaux qui montent seuls d'un geste, et des moustiquaires faites à la mesure de votre fenêtre."
+      }
+    },
+
+    "rooms": {
+      "eyebrow": "Par pièce",
+      "headline": "Chaque pièce demande une lumière différente.",
+      "lead": "Commencez par l'espace que vous voulez habiller. Nous vous disons ce qui y convient et, surtout, pourquoi.",
+      "items": {
+        "sala": { "title": "Salon", "desc": "Une lumière chaude sans perdre la vue" },
+        "dormitori": { "title": "Chambre", "desc": "Le noir complet quand vous le voulez, l'intimité toujours" },
+        "cuina": { "title": "Cuisine et salle de bains", "desc": "Facile à nettoyer, résiste à l'humidité" },
+        "exterior": { "title": "Terrasse et porche", "desc": "Aérer sans les insectes, de l'ombre quand ça tape" },
+        "oficina": { "title": "Bureau", "desc": "La lumière naturelle sans reflets sur l'écran" }
+      }
+    },
+
+    "families": {
+      "eyebrow": "Collections",
+      "headline": "Onze lignes. Un seul métier.",
+      "lead": "Toutes sur mesure et cousues dans notre atelier. Choisissez d'abord la famille, puis la pièce.",
+      "cortines": "Rideaux",
+      "estors": "Stores et vénitiens",
+      "complements": "Motorisation et accessoires",
+      "exterior": {
+        "title": "Et pour l'extérieur",
+        "desc": "Les stores bannes, les pergolas et la tapisserie, nous les faisons depuis Decoresteba, notre marque d'extérieur.",
+        "cta": "Aller sur Decoresteba"
+      }
+    },
+
+    "process": {
+      "eyebrow": "Comment nous travaillons",
+      "headline": "Quatre étapes. Aucune surprise.",
+      "lead": "Devant un produit sur mesure, tout le monde se demande à quel point ça va être compliqué. Voici le parcours complet, avec les délais réels.",
+      "steps": {
+        "mides": {
+          "title": "Visite et prise de mesures",
+          "desc": "Vous passez en boutique ou nous venons chez vous avec les échantillons. Nous mesurons la fenêtre et regardons quelle lumière y entre à chaque heure de la journée.",
+          "time": "Dans la semaine"
+        },
+        "pressupost": {
+          "title": "Conseil et devis",
+          "desc": "Nous vous proposons un tissu, un type de confection et un système. Vous recevez un devis ferme et détaillé, sans engagement.",
+          "time": "48 – 72 heures"
+        },
+        "taller": {
+          "title": "Confection à l'atelier",
+          "desc": "Nous cousons chaque pièce dans notre atelier de Girona. Rien de sous-traité, rien sorti d'un stock standard.",
+          "time": "2 – 3 semaines"
+        },
+        "installacio": {
+          "title": "Installation",
+          "desc": "Notre équipe monte les tringles, les rails et les moteurs, met tout en place et repart avec les emballages.",
+          "time": "Une matinée"
+        }
+      },
+      "note": "Délais indicatifs : nous vous les confirmons par écrit sur le devis.",
+      "stepLabel": "Étape {n}"
+    },
+
+    "proof": {
+      "eyebrow": "Du travail livré",
+      "headline": "Soixante-cinq ans de fenêtres habillées.",
+      "lead": "À l'atelier, nous ne faisons pas du catalogue : nous faisons la pièce qui vous manque. Voici des installations réelles, les nôtres.",
+      "instagramTitle": "Suivez l'atelier",
+      "instagramCta": "Voir le profil",
+      "handle": "@cortinatgesesteba"
+    },
+
+    "brands": {
+      "headline": "Nous travaillons avec les maisons d'édition textile",
+      "lead": "Designers Guild, Romo, Bandalux, Somfy et vingt autres. Le tissu que nous vous proposons ne sort pas d'un catalogue générique."
+    },
+
+    "workshop": {
+      "eyebrow": "L'atelier",
+      "headline": "Trois générations dans la même rue.",
+      "paragraph1": "En 1961, la famille Esteba a ouvert sa première boutique rue de la Rutlla, à Girona. Soixante-cinq ans plus tard, nous y sommes toujours, avec le même atelier et la troisième génération derrière le comptoir.",
+      "paragraph2": "Nous faisons une seule chose et nous la faisons bien : habiller les foyers de textiles sur mesure. Chaque projet commence par une conversation et s'achève par une installation réalisée par notre équipe.",
+      "imageAlt": "Soixante ans de Cortinatges Esteba",
+      "stats": {
+        "years": "ans de métier",
+        "stores": "boutiques ouvertes",
+        "generations": "générations de la famille"
+      },
+      "cta": "Découvrir la maison"
+    },
+
+    "shop": {
+      "eyebrow": "Boutique en ligne",
+      "headline": "Tapis et mobilier, à emporter.",
+      "lead": "Tout ce qui ne demande pas de mesures s'achète directement, avec livraison dans toute l'Espagne.",
+      "catifes": "Voir les tapis",
+      "mobiliari": "Voir le mobilier"
+    },
+
+    "stores": {
+      "eyebrow": "Boutiques",
+      "headline": "Venez toucher le tissu.",
+      "lead": "Une photo ne dit rien du poids d'une étoffe ni de la façon dont elle filtre la lumière. Passez dans l'une de nos boutiques.",
+      "scheduleLabel": "Horaires",
+      "schedule": "Lundi au vendredi 9.30–13.30 et 16.30–20.00 · Samedi 10.00–13.30",
+      "mattressNote": "Local de literie, juste en face de notre boutique de Girona.",
+      "mapAlt": "Carte des boutiques de Cortinatges Esteba"
+    },
+
+    "faq": {
+      "eyebrow": "Questions",
+      "headline": "Ce qu'on nous demande tous les jours.",
+      "items": {
+        "cost": {
+          "q": "Le devis est-il payant ?",
+          "a": "Non. La prise de mesures en boutique et le devis sont gratuits et sans aucun engagement. Le seul service payant est le conseil à domicile avec les échantillons, et nous le déduisons de la commande si vous la passez."
+        },
+        "termini": {
+          "q": "Combien de temps une fois que j'ai dit oui ?",
+          "a": "Entre deux et trois semaines de confection, plus la journée d'installation. Si vous avez une date ferme — un déménagement, le début de saison d'une location —, dites-le dès le départ et nous nous adaptons."
+        },
+        "domicili": {
+          "q": "Vous venez prendre les mesures à domicile ?",
+          "a": "Oui. Nous venons avec les échantillons pour que vous voyiez les tissus dans votre espace et avec votre lumière, car c'est là que tout se décide vraiment. C'est le service de conseil à domicile."
+        },
+        "installacio": {
+          "q": "Qui réalise l'installation ?",
+          "a": "Notre propre équipe. Nous ne sous-traitons pas le montage : celui qui prend les mesures et celui qui pose le rideau travaillent dans la même maison, et c'est pour ça que les mesures tombent juste."
+        },
+        "zona": {
+          "q": "Jusqu'où vous déplacez-vous ?",
+          "a": "Toute la province de Girona et la Costa Brava, depuis nos boutiques de Girona, Blanes et Palamós. Si vous êtes en dehors de cette zone, demandez quand même."
+        },
+        "garantia": {
+          "q": "Et si quelque chose ne va pas ensuite ?",
+          "a": "Nous nous en occupons. Cela fait soixante-cinq ans que nous sommes dans la même rue, et le client qui revient est exactement ce qui nous garde ouverts."
+        }
+      }
+    },
+
+    "closing": {
+      "eyebrow": "Sans engagement",
+      "headline": "Parlez-nous de votre fenêtre.",
+      "lead": "Quatre champs, pas plus. Nous vous répondons aux heures d'ouverture, en général le jour même.",
+      "orCall": "Ou, si vous préférez, appelez-nous directement :"
+    }
+  },
+
+  "form": {
+    "name": "Nom",
+    "namePlaceholder": "Votre nom",
+    "phone": "Téléphone",
+    "phonePlaceholder": "Pour pouvoir vous appeler",
+    "email": "Adresse e-mail",
+    "emailPlaceholder": "ou@nous.repondons",
+    "product": "Ce dont vous avez besoin",
+    "productPlaceholder": "Sélectionnez une option",
+    "message": "Racontez-nous",
+    "messagePlaceholder": "Combien de fenêtres, dans quelle pièce, si vous avez une date…",
+    "optional": "facultatif",
+    "consent": "J'ai lu et j'accepte la <link>politique de confidentialité</link>.",
+    "consentNote": "Nous traitons vos données pour vous répondre. Elles ne sont pas cédées à des tiers.",
+    "submit": "Envoyer la demande",
+    "submitting": "Envoi…",
+    "required": "Ce champ est obligatoire.",
+    "successTitle": "Bien reçu. Merci.",
+    "successBody": "Nous vous répondons aux heures d'ouverture. Si vous êtes pressé, écrivez-nous sur WhatsApp, c'est plus rapide.",
+    "errorTitle": "Nous n'avons pas pu envoyer",
+    "errorBody": "Réessayez dans un instant. Ce que vous avez écrit n'a pas été perdu. Si le problème persiste, appelez-nous ou écrivez-nous sur WhatsApp."
+  },
+
+  "collections": {
+    "metaTitle": "Collections — rideaux, stores et vénitiens sur mesure",
+    "metaDescription": "Onze lignes de produits réalisées sur mesure et cousues dans notre atelier de Girona : rideau traditionnel, stores, panneaux japonais, vénitiens et motorisation.",
+    "eyebrow": "Collections",
+    "headline": "Onze lignes. Un seul métier.",
+    "lead": "Chaque espace demande une réponse différente. Voici les lignes que nous travaillons, toutes sur mesure et cousues dans notre atelier depuis 1961.",
+    "brandsLabel": "Marques"
+  },
+
+  "collection": {
+    "backToAll": "Toutes les collections",
+    "featuresTitle": "Ce qu'il faut savoir",
+    "notesTitle": "Les conseils de l'atelier",
+    "galleryTitle": "Galerie",
+    "ctaTitle": "Cette ligne vous plaît ?",
+    "ctaLead": "Donnez-nous la dimension approximative de la fenêtre et nous vous préparons un devis ferme, sans engagement.",
+    "relatedTitle": "D'autres lignes qui peuvent vous convenir"
+  },
+
+  "services": {
+    "metaTitle": "Services — conseil, prise de mesures, confection et installation",
+    "metaDescription": "Conseil, design d'intérieur, prise de mesures à domicile, confection à l'atelier et installation par nos soins à Girona, Blanes et Palamós.",
+    "eyebrow": "Services",
+    "headline": "Nous vous accompagnons de la première visite au dernier anneau.",
+    "lead": "Nous ne vous passons pas d'un service à l'autre. La même maison mesure, conçoit, coud et installe — et c'est pour ça que tout tombe juste."
+  },
+
+  "stores": {
+    "metaTitle": "Boutiques à Girona, Blanes et Palamós",
+    "metaDescription": "Trois boutiques et un local de literie dans la province de Girona. Adresses, téléphones et horaires de Cortinatges Esteba.",
+    "eyebrow": "Boutiques",
+    "headline": "Nous sommes à trois points de la province.",
+    "lead": "Passez quand vous voulez, sans rendez-vous. Si vous préférez qu'on vous attende, appelez avant et nous vous réservons un moment."
+  },
+
+  "about": {
+    "metaTitle": "L'atelier — trois générations depuis 1961",
+    "metaDescription": "L'histoire de Cortinatges Esteba : atelier de confection maison depuis 1961, trois générations et trois boutiques dans la province de Girona.",
+    "eyebrow": "L'atelier",
+    "headline": "Trois générations dans la même rue.",
+    "lead": "Depuis 1961, nous faisons une seule chose et nous la faisons bien : habiller les foyers de textiles sur mesure, avec goût et savoir-faire.",
+    "valuesTitle": "Ce qui nous rend différents",
+    "values": {
+      "confeccio": {
+        "title": "Confection maison",
+        "desc": "Nous cousons chaque pièce dans notre atelier, entièrement sur mesure. Rien n'arrive tout fait."
+      },
+      "atencio": {
+        "title": "Un seul interlocuteur",
+        "desc": "Le même interlocuteur de la première visite jusqu'à la pose."
+      },
+      "installacio": {
+        "title": "Pose par nos soins",
+        "desc": "C'est notre équipe qui pose. Jamais un sous-traitant."
+      },
+      "generacions": {
+        "title": "Trois générations",
+        "desc": "Le même atelier, la même rue, de père en fils depuis 1961."
+      }
+    },
+    "timelineTitle": "Comment nous sommes arrivés jusqu'ici",
+    "timeline": {
+      "1961": "Ouverture de la première boutique rue de la Rutlla, à Girona.",
+      "1990": "Ouverture de la boutique de Blanes et agrandissement de l'atelier de confection.",
+      "2005": "Arrivée de la boutique de Palamós et entrée de la troisième génération dans la maison.",
+      "2021": "Soixante ans. Ouverture du local de literie en face de la boutique de Girona.",
+      "2026": "Boutique en ligne de tapis et de mobilier, et ce nouveau site."
+    },
+    "timelineNote": "Années indicatives : à confirmer avec la famille."
+  },
+
+  "budget": {
+    "metaTitle": "Demander un devis — gratuit et sans engagement",
+    "metaDescription": "Expliquez-nous ce dont vous avez besoin et nous vous préparons un devis ferme pour des rideaux, des stores et du textile sur mesure. Gratuit et sans engagement.",
+    "eyebrow": "Devis",
+    "headline": "Parlez-nous de votre fenêtre.",
+    "lead": "Quatre champs, pas plus. Nous vous répondons aux heures d'ouverture, en général le jour même.",
+    "asideTitle": "Ce qui se passe ensuite",
+    "asideSteps": {
+      "one": "Nous lisons votre demande et, si besoin, nous vous appelons pour finir de situer les choses.",
+      "two": "Nous fixons la visite : en boutique ou chez vous avec les échantillons.",
+      "three": "Nous prenons les mesures et nous vous remettons un devis ferme, par écrit."
+    },
+    "asideNote": "Gratuit et sans engagement. Nous n'insistons pas et nous ne vous appelons pas toutes les semaines.",
+    "urgentTitle": "Vous êtes pressé ?"
+  },
+
+  "contact": {
+    "metaTitle": "Contact — demandez un devis sans engagement",
+    "metaDescription": "Écrivez-nous, appelez-nous ou passez dans l'une de nos boutiques. Devis gratuit pour des rideaux, des stores et du textile sur mesure.",
+    "eyebrow": "Contact",
+    "headline": "Parlons-en.",
+    "lead": "Remplissez le formulaire, appelez-nous ou écrivez-nous sur WhatsApp. Comme vous préférez.",
+    "directTitle": "Contact direct",
+    "formTitle": "Ou écrivez-nous ici"
+  },
+
+  "footer": {
+    "tagline": "Rideaux, stores et linge de maison sur mesure. Confection et installation par nos soins depuis 1961.",
+    "explore": "Explorer",
+    "company": "La maison",
+    "legal": "Légal",
+    "contact": "Contact",
+    "privacy": "Politique de confidentialité",
+    "cookies": "Politique de cookies",
+    "notice": "Mentions légales",
+    "jobs": "Travailler avec nous",
+    "rights": "Tous droits réservés.",
+    "follow": "Suivez-nous"
+  },
+
+  "mobilebar": {
+    "call": "Appeler",
+    "whatsapp": "WhatsApp",
+    "budget": "Devis"
+  }
+}

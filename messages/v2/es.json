@@ -1,0 +1,363 @@
+{
+  "meta": {
+    "titleTemplate": "%s | Cortinatges Esteba",
+    "homeTitle": "Cortinas y estores a medida en Girona, Blanes y Palamós",
+    "homeDescription": "Taller propio desde 1961. Toma de medidas a domicilio, confección artesanal e instalación por nuestro equipo. Presupuesto gratuito y sin compromiso.",
+    "prototypeBadge": "Prototipo v2",
+    "prototypeNote": "Esta es una versión de prueba. La web publicada sigue en la raíz del dominio."
+  },
+
+  "nav": {
+    "collections": "Colecciones",
+    "rooms": "Por estancias",
+    "process": "Cómo trabajamos",
+    "services": "Servicios",
+    "stores": "Tiendas",
+    "about": "El taller",
+    "shop": "Tienda online",
+    "contact": "Contacto",
+    "cta": "Pide presupuesto",
+    "menuOpen": "Abrir el menú",
+    "menuClose": "Cerrar el menú",
+    "skip": "Saltar al contenido",
+    "home": "Cortinatges Esteba — inicio"
+  },
+
+  "cta": {
+    "budget": "Pide presupuesto gratuito",
+    "budgetShort": "Presupuesto",
+    "call": "Llámanos",
+    "callShort": "Llamar",
+    "whatsapp": "WhatsApp",
+    "stores": "Encuentra la tienda más cercana",
+    "directions": "Cómo llegar",
+    "seeCollection": "Ver la ficha",
+    "seeAll": "Verlas todas",
+    "discover": "Descubrir",
+    "count": "{n} líneas"
+  },
+
+  "ctaBlock": {
+    "headline": "¿Hablamos de tu espacio?",
+    "lead": "Visita, toma de medidas y presupuesto cerrado. Gratuito y sin compromiso."
+  },
+
+  "home": {
+    "hero": {
+      "eyebrow": "Taller propio desde 1961",
+      "headline": "Cada ventana tiene su cortina. Nosotros la cosemos.",
+      "lead": "Toma de medidas en tu casa, confección en nuestro taller de Girona e instalación por nuestro equipo. Un solo interlocutor desde la primera visita hasta la última anilla.",
+      "imageAlt": "Salón con cortinas a medida de Cortinatges Esteba",
+      "ariaLabel": "Presentación"
+    },
+
+    "trust": {
+      "yearsValue": "{years} años",
+      "yearsLabel": "de oficio, desde 1961",
+      "workshopValue": "Taller propio",
+      "workshopLabel": "cosemos nosotros en Girona",
+      "storesValue": "3 tiendas",
+      "storesLabel": "Girona · Blanes · Palamós",
+      "quoteValue": "Presupuesto gratuito",
+      "quoteLabel": "y sin compromiso"
+    },
+
+    "paths": {
+      "eyebrow": "Por dónde empiezas",
+      "headline": "Dinos qué buscas y te llevamos directo.",
+      "cortines": {
+        "title": "Cortinas",
+        "desc": "Telas editoriales, caída estudiada y diez tipos de confección diferentes."
+      },
+      "estors": {
+        "title": "Estores y venecianas",
+        "desc": "Control preciso de la luz, del screen que deja ver al blackout que oscurece del todo."
+      },
+      "complements": {
+        "title": "Motorización y complementos",
+        "desc": "Cortinas que suben solas con un gesto, y mosquiteras hechas a la medida de tu ventana."
+      }
+    },
+
+    "rooms": {
+      "eyebrow": "Por estancias",
+      "headline": "Cada habitación pide una luz diferente.",
+      "lead": "Empieza por el espacio que quieres vestir. Te decimos qué encaja y, sobre todo, por qué.",
+      "items": {
+        "sala": { "title": "Salón", "desc": "Luz cálida sin perder las vistas" },
+        "dormitori": { "title": "Dormitorio", "desc": "Oscuridad real cuando la quieres, privacidad siempre" },
+        "cuina": { "title": "Cocina y baño", "desc": "Fácil de limpiar, aguanta la humedad" },
+        "exterior": { "title": "Terraza y porche", "desc": "Ventilar sin insectos, sombra cuando aprieta" },
+        "oficina": { "title": "Despacho", "desc": "Luz natural sin reflejos en la pantalla" }
+      }
+    },
+
+    "families": {
+      "eyebrow": "Colecciones",
+      "headline": "Once líneas. Un solo oficio.",
+      "lead": "Todas hechas a medida y cosidas en el taller. Elige primero la familia y después la pieza.",
+      "cortines": "Cortinas",
+      "estors": "Estores y venecianas",
+      "complements": "Motorización y complementos",
+      "exterior": {
+        "title": "Y para fuera de casa",
+        "desc": "Toldos, pérgolas y tapicería los hacemos desde Decoresteba, nuestra marca de exterior.",
+        "cta": "Ir a Decoresteba"
+      }
+    },
+
+    "process": {
+      "eyebrow": "Cómo trabajamos",
+      "headline": "Cuatro pasos. Cero sorpresas.",
+      "lead": "La duda de todo el mundo ante un producto a medida es cuánto lío será. Este es el camino entero, con los plazos reales.",
+      "steps": {
+        "mides": {
+          "title": "Visita y toma de medidas",
+          "desc": "Vienes a la tienda o vamos nosotros con el muestrario. Medimos la ventana y miramos qué luz entra a cada hora del día.",
+          "time": "La misma semana"
+        },
+        "pressupost": {
+          "title": "Asesoramiento y presupuesto",
+          "desc": "Te proponemos tela, tipo de confección y sistema. Recibes un presupuesto cerrado y detallado, sin compromiso.",
+          "time": "48 – 72 horas"
+        },
+        "taller": {
+          "title": "Confección en el taller",
+          "desc": "Cosemos cada pieza en nuestro taller de Girona. Nada subcontratado, nada sacado de un stock estándar.",
+          "time": "2 – 3 semanas"
+        },
+        "installacio": {
+          "title": "Instalación",
+          "desc": "Nuestro equipo monta barras, rieles y motores, lo deja a punto y se lleva todo el embalaje.",
+          "time": "Una mañana"
+        }
+      },
+      "note": "Plazos orientativos: te los confirmamos por escrito en el presupuesto.",
+      "stepLabel": "Paso {n}"
+    },
+
+    "proof": {
+      "eyebrow": "Trabajo hecho",
+      "headline": "Sesenta y cinco años de ventanas vestidas.",
+      "lead": "En el taller no hacemos catálogo: hacemos la pieza que te falta. Estas son instalaciones reales nuestras.",
+      "instagramTitle": "Sigue el taller",
+      "instagramCta": "Ver el perfil",
+      "handle": "@cortinatgesesteba"
+    },
+
+    "brands": {
+      "headline": "Trabajamos con las casas del textil",
+      "lead": "Designers Guild, Romo, Bandalux, Somfy y veinte más. La tela que te proponemos no sale de un catálogo genérico."
+    },
+
+    "workshop": {
+      "eyebrow": "El taller",
+      "headline": "Tres generaciones en la misma calle.",
+      "paragraph1": "En 1961 la familia Esteba abrió la primera tienda en la calle de la Rutlla de Girona. Sesenta y cinco años después seguimos ahí, con el mismo taller y la tercera generación en el mostrador.",
+      "paragraph2": "Hacemos una sola cosa y la hacemos bien: vestir casas con textiles a medida. Cada proyecto empieza con una conversación y termina con una instalación hecha por nuestro equipo.",
+      "imageAlt": "Sesenta años de Cortinatges Esteba",
+      "stats": {
+        "years": "años de oficio",
+        "stores": "tiendas abiertas",
+        "generations": "generaciones de la familia"
+      },
+      "cta": "Conoce la casa"
+    },
+
+    "shop": {
+      "eyebrow": "Tienda online",
+      "headline": "Alfombras y mobiliario, para llevar.",
+      "lead": "Todo lo que no necesita medidas lo puedes comprar directamente, con envío a toda España.",
+      "catifes": "Ver alfombras",
+      "mobiliari": "Ver mobiliario"
+    },
+
+    "stores": {
+      "eyebrow": "Tiendas",
+      "headline": "Ven a tocar la tela.",
+      "lead": "Una foto no dice nada del peso de una tela ni de cómo filtra la luz. Pásate por cualquiera de nuestras tiendas.",
+      "scheduleLabel": "Horario",
+      "schedule": "Lunes a viernes 9.30–13.30 y 16.30–20.00 · Sábado 10.00–13.30",
+      "mattressNote": "Local de colchones, justo enfrente de la tienda de Girona.",
+      "mapAlt": "Mapa con las tiendas de Cortinatges Esteba"
+    },
+
+    "faq": {
+      "eyebrow": "Dudas",
+      "headline": "Lo que nos preguntan cada día.",
+      "items": {
+        "cost": {
+          "q": "¿El presupuesto tiene coste?",
+          "a": "No. La toma de medidas en tienda y el presupuesto son gratuitos y sin ningún compromiso. El único servicio con coste es el asesoramiento a domicilio con muestrario, y te lo descontamos del pedido si finalmente lo haces."
+        },
+        "termini": {
+          "q": "¿Cuánto se tarda desde que digo que sí?",
+          "a": "Entre dos y tres semanas de confección, más el día de instalación. Si tienes una fecha cerrada —una mudanza, el inicio de temporada de un alquiler— dilo desde el principio y lo ajustamos."
+        },
+        "domicili": {
+          "q": "¿Venís a casa a tomar medidas?",
+          "a": "Sí. Vamos con el muestrario para que veas los tejidos en tu espacio y con tu luz, que es donde se decide de verdad. Es el servicio de asesoramiento a domicilio."
+        },
+        "installacio": {
+          "q": "¿Quién hace la instalación?",
+          "a": "Nuestro propio equipo. No subcontratamos el montaje: quien toma las medidas y quien cuelga la cortina trabajan en la misma casa, y por eso las medidas cuadran."
+        },
+        "zona": {
+          "q": "¿Hasta dónde llegáis?",
+          "a": "Toda la provincia de Girona y la Costa Brava, desde las tiendas de Girona, Blanes y Palamós. Si estás fuera de esa zona, pregúntalo igualmente."
+        },
+        "garantia": {
+          "q": "¿Y si después algo falla?",
+          "a": "Nos hacemos cargo nosotros. Llevamos sesenta y cinco años en la misma calle y el cliente que vuelve es exactamente lo que nos mantiene abiertos."
+        }
+      }
+    },
+
+    "closing": {
+      "eyebrow": "Sin compromiso",
+      "headline": "Cuéntanos tu ventana.",
+      "lead": "Cuatro campos y ya está. Te respondemos en horario de tienda, normalmente el mismo día.",
+      "orCall": "O si lo prefieres, llámanos directamente:"
+    }
+  },
+
+  "form": {
+    "name": "Nombre",
+    "namePlaceholder": "Cómo te llamas",
+    "phone": "Teléfono",
+    "phonePlaceholder": "Para poder llamarte",
+    "email": "Correo electrónico",
+    "emailPlaceholder": "donde@te.respondemos",
+    "product": "Qué necesitas",
+    "productPlaceholder": "Selecciona una opción",
+    "message": "Cuéntanoslo",
+    "messagePlaceholder": "Cuántas ventanas, en qué estancia, si tienes fecha…",
+    "optional": "opcional",
+    "consent": "He leído y acepto la <link>política de privacidad</link>.",
+    "consentNote": "Tratamos tus datos para responderte. No se ceden a terceros.",
+    "submit": "Enviar la petición",
+    "submitting": "Enviando…",
+    "required": "Este campo es obligatorio.",
+    "successTitle": "Recibido. Gracias.",
+    "successBody": "Te respondemos en horario de tienda. Si tienes prisa, escríbenos por WhatsApp y vamos más rápido.",
+    "errorTitle": "No se ha podido enviar",
+    "errorBody": "Vuelve a intentarlo en un momento. Lo que has escrito no se ha perdido. Si sigue fallando, llámanos o escríbenos por WhatsApp."
+  },
+
+  "collections": {
+    "metaTitle": "Colecciones — cortinas, estores y venecianas a medida",
+    "metaDescription": "Once líneas de producto hechas a medida y cosidas en nuestro taller de Girona: cortina tradicional, estores, paneles japoneses, venecianas y motorización.",
+    "eyebrow": "Colecciones",
+    "headline": "Once líneas. Un solo oficio.",
+    "lead": "Cada espacio pide una respuesta diferente. Estas son las líneas que trabajamos, todas a medida y cosidas en el taller desde 1961.",
+    "brandsLabel": "Marcas"
+  },
+
+  "collection": {
+    "backToAll": "Todas las colecciones",
+    "featuresTitle": "Qué tienes que saber",
+    "notesTitle": "Consejos del taller",
+    "galleryTitle": "Galería",
+    "ctaTitle": "¿Te gusta esta línea?",
+    "ctaLead": "Dinos la medida aproximada de la ventana y te preparamos un presupuesto cerrado, sin compromiso.",
+    "relatedTitle": "Otras líneas que te pueden servir"
+  },
+
+  "services": {
+    "metaTitle": "Servicios — asesoramiento, medidas, confección e instalación",
+    "metaDescription": "Asesoramiento, diseño interior, toma de medidas a domicilio, confección en el taller e instalación propia en Girona, Blanes y Palamós.",
+    "eyebrow": "Servicios",
+    "headline": "Te acompañamos desde la primera visita hasta la última anilla.",
+    "lead": "No te pasamos de un departamento a otro. La misma casa mide, diseña, cose e instala — y por eso las cosas cuadran."
+  },
+
+  "stores": {
+    "metaTitle": "Tiendas en Girona, Blanes y Palamós",
+    "metaDescription": "Tres tiendas y una colchonería en la provincia de Girona. Direcciones, teléfonos y horarios de Cortinatges Esteba.",
+    "eyebrow": "Tiendas",
+    "headline": "Estamos en tres puntos de la provincia.",
+    "lead": "Pásate cuando quieras, sin cita. Si prefieres que te esperemos, llama antes y te guardamos un rato."
+  },
+
+  "about": {
+    "metaTitle": "El taller — tres generaciones desde 1961",
+    "metaDescription": "La historia de Cortinatges Esteba: taller propio de confección desde 1961, tres generaciones y tres tiendas en la provincia de Girona.",
+    "eyebrow": "El taller",
+    "headline": "Tres generaciones en la misma calle.",
+    "lead": "Desde 1961 hacemos una sola cosa y la hacemos bien: vestir casas con textiles a medida, con criterio y con oficio.",
+    "valuesTitle": "Lo que nos hace diferentes",
+    "values": {
+      "confeccio": {
+        "title": "Confección propia",
+        "desc": "Cosemos cada pieza en nuestro taller, totalmente a medida. Nada viene hecho de fuera."
+      },
+      "atencio": {
+        "title": "Atención personalizada",
+        "desc": "El mismo interlocutor desde la primera visita hasta la instalación."
+      },
+      "installacio": {
+        "title": "Instalación propia",
+        "desc": "El montaje lo hace nuestro equipo, no un subcontratado."
+      },
+      "generacions": {
+        "title": "Tres generaciones",
+        "desc": "En el mismo taller y en la misma calle, de padres a hijos, desde 1961."
+      }
+    },
+    "timelineTitle": "Cómo hemos llegado hasta aquí",
+    "timeline": {
+      "1961": "Abre la primera tienda en la calle de la Rutlla de Girona.",
+      "1990": "Se abre la tienda de Blanes y el taller de confección se hace grande.",
+      "2005": "Llega la tienda de Palamós y la tercera generación entra en la casa.",
+      "2021": "Sesenta años. Se abre el local de colchonería enfrente de Girona.",
+      "2026": "Tienda online de alfombras y mobiliario, y esta web nueva."
+    },
+    "timelineNote": "Años orientativos: pendientes de confirmar con la familia."
+  },
+
+  "budget": {
+    "metaTitle": "Pide presupuesto — gratuito y sin compromiso",
+    "metaDescription": "Cuéntanos qué necesitas y te preparamos un presupuesto cerrado para cortinas, estores y textil a medida. Gratuito y sin compromiso.",
+    "eyebrow": "Presupuesto",
+    "headline": "Cuéntanos tu ventana.",
+    "lead": "Cuatro campos y ya está. Te respondemos en horario de tienda, normalmente el mismo día.",
+    "asideTitle": "Qué pasa después",
+    "asideSteps": {
+      "one": "Leemos tu petición y, si hace falta, te llamamos para acabar de situarlo.",
+      "two": "Concertamos la visita: en tienda o en tu casa con el muestrario.",
+      "three": "Tomamos medidas y te pasamos un presupuesto cerrado, por escrito."
+    },
+    "asideNote": "Gratuito y sin compromiso. Ni insistimos ni te llamamos cada semana.",
+    "urgentTitle": "¿Tienes prisa?"
+  },
+
+  "contact": {
+    "metaTitle": "Contacto — pide presupuesto sin compromiso",
+    "metaDescription": "Escríbenos, llámanos o pásate por cualquiera de nuestras tiendas. Presupuesto gratuito para cortinas, estores y textil a medida.",
+    "eyebrow": "Contacto",
+    "headline": "Hablémoslo.",
+    "lead": "Rellena el formulario, llámanos o escríbenos por WhatsApp. Lo que mejor te vaya.",
+    "directTitle": "Directo",
+    "formTitle": "O escríbenos aquí"
+  },
+
+  "footer": {
+    "tagline": "Cortinas, estores y textil del hogar a medida. Confección e instalación propias desde 1961.",
+    "explore": "Explora",
+    "company": "La casa",
+    "legal": "Legal",
+    "contact": "Contacto",
+    "privacy": "Política de privacidad",
+    "cookies": "Política de cookies",
+    "notice": "Aviso legal",
+    "jobs": "Trabaja con nosotros",
+    "rights": "Todos los derechos reservados.",
+    "follow": "Síguenos"
+  },
+
+  "mobilebar": {
+    "call": "Llamar",
+    "whatsapp": "WhatsApp",
+    "budget": "Presupuesto"
+  }
+}
