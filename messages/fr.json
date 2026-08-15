@@ -185,7 +185,7 @@
       "assessorament": {
         "name": "Conseil",
         "desc": "Nous offrons un service client personnalisé, fondé sur notre vaste expérience dans le secteur de la décoration. Nous travaillons avec les meilleures marques actuelles pour offrir un conseil sur mesure.",
-        "short": "Conseil personnalisé pour votre projet"
+        "short": "Conseil sur mesure pour votre projet"
       },
       "disseny": {
         "name": "Design d'intérieur",
@@ -222,16 +222,16 @@
     "producte": "Type de produit",
     "productePlaceholder": "Sélectionne une option",
     "mides": "Dimensions approximatives",
-    "midesHint": "Facultatif. Si tu n'as pas encore mesuré, laisse ce champ vide.",
+    "midesHint": "Facultatif. Si vous n'avez pas encore mesuré, laissez ce champ vide.",
     "missatge": "Message",
     "opcional": "Facultatif",
     "consent": "J'ai lu et j'accepte la <link>politique de confidentialité</link>.",
-    "consentNote": "Tes données sont traitées par Cortinatges Esteba S.L. pour répondre à ta demande. Elles ne sont pas cédées à des tiers.",
+    "consentNote": "Vos données sont traitées par Cortinatges Esteba S.L. pour répondre à votre demande. Elles ne sont pas cédées à des tiers.",
     "submitting": "Envoi…",
-    "successTitle": "Nous avons bien reçu ta demande",
-    "successBody": "Nous te répondons dès que possible, aux heures d'ouverture. Si tu es pressé, écris-nous sur WhatsApp.",
+    "successTitle": "Nous avons bien reçu votre demande",
+    "successBody": "Nous vous répondons dès que possible, aux heures d'ouverture. Si vous êtes pressé, écrivez-nous sur WhatsApp.",
     "errorTitle": "Nous n'avons pas pu envoyer le formulaire",
-    "errorBody": "Réessaie dans un instant. Si le problème persiste, écris-nous sur WhatsApp ou appelle-nous : ce que tu as écrit n'a pas été perdu.",
+    "errorBody": "Réessayez dans un instant. Si le problème persiste, écrivez-nous sur WhatsApp ou appelez-nous : ce que vous avez écrit n'a pas été perdu.",
     "whatsapp": "Écrire sur WhatsApp",
     "required": "Ce champ est obligatoire.",
     "products": {
@@ -268,12 +268,12 @@
     "missatge": "Message",
     "opcional": "Facultatif",
     "consent": "J'ai lu et j'accepte la <link>politique de confidentialité</link>.",
-    "consentNote": "Tes données sont traitées par Cortinatges Esteba S.L. pour répondre à ta demande. Elles ne sont pas cédées à des tiers.",
+    "consentNote": "Vos données sont traitées par Cortinatges Esteba S.L. pour répondre à votre demande. Elles ne sont pas cédées à des tiers.",
     "submitting": "Envoi…",
-    "successTitle": "Nous avons bien reçu ta demande",
-    "successBody": "Nous te répondons dès que possible, aux heures d'ouverture. Si tu es pressé, écris-nous sur WhatsApp.",
+    "successTitle": "Nous avons bien reçu votre demande",
+    "successBody": "Nous vous répondons dès que possible, aux heures d'ouverture. Si vous êtes pressé, écrivez-nous sur WhatsApp.",
     "errorTitle": "Nous n'avons pas pu envoyer le formulaire",
-    "errorBody": "Réessaie dans un instant. Si le problème persiste, écris-nous sur WhatsApp ou appelle-nous : ce que tu as écrit n'a pas été perdu.",
+    "errorBody": "Réessayez dans un instant. Si le problème persiste, écrivez-nous sur WhatsApp ou appelez-nous : ce que vous avez écrit n'a pas été perdu.",
     "whatsapp": "Écrire sur WhatsApp",
     "required": "Ce champ est obligatoire."
   },

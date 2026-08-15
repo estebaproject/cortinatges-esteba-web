@@ -185,7 +185,7 @@
       "assessorament": {
         "name": "Advice",
         "desc": "We offer personalised customer service, drawing on our broad experience in the decoration sector. We work with the finest current brands to provide tailored advice.",
-        "short": "Personalised advice for your project"
+        "short": "Advice tailored to your project"
       },
       "disseny": {
         "name": "Interior design",
@@ -194,7 +194,7 @@
       "mides": {
         "name": "Measuring",
         "desc": "We take all the measurements needed for making and the subsequent fitting.",
-        "short": "Measurements taken at the client’s home"
+        "short": "Measurements taken at the client's home"
       },
       "confeccio": {
         "name": "Making",
