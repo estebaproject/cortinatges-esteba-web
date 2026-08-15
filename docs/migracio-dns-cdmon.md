@@ -10,7 +10,11 @@ revertir en un quart d'hora.
 
 ---
 
-## Estat de partida (verificat el 10/08/2026)
+## Estat de partida (reverificat el 15/08/2026)
+
+> Tota la taula de sota s'ha tornat a comprovar amb `dig` el 15/08/2026 i
+> **no ha canviat res** respecte del 10/08. El comodí hi segueix, el correu
+> també, i l'apex encara apunta al WordPress.
 
 | Registre | Tipus | Valor | Comentari |
 |---|---|---|---|
@@ -22,7 +26,7 @@ revertir en un quart d'hora.
 | `autodiscover` | A | `185.42.104.42` | Registre propi |
 | `ftp` | CNAME | `cortinatgesesteba.com.` | ⚠️ Segueix l'apex |
 | `cpanel` | CNAME | `cortinatgesesteba.com.` | ⚠️ Segueix l'apex |
-| `@` | TXT | `v=spf1 include:_spf.srv.cat include:_spf.odoo.com ~all` | SPF del correu |
+| `@` | TXT | `v=spf1 include:_spf.srv.cat include:_spf.odoo.com ~all` | SPF del correu. Hi ha **13 registres TXT** a l'apex; els altres 12 són tokens de verificació. Comprovat que només UN porta `v=spf1` i que va en una sola cadena, sense trossejar |
 | `_dmarc` | TXT | `v=DMARC1; p=quarantine; aspf=s; adkim=r` | ⚠️ Vegeu la nota |
 | `*` | CNAME | `cortinatgesesteba.com.` | ⚠️ **Comodí**, vegeu avall |
 
@@ -34,16 +38,33 @@ revertir en un quart d'hora.
 
 **Registre que dona Vercel:** `A` / `@` / `216.198.79.1`
 
+> **El WordPress d'avui redirigeix l'arrel a `/ca/`.** `https://cortinatgesesteba.com/`
+> fa un 302 cap a `https://cortinatgesesteba.com/ca/`. La web nova serveix el
+> català a l'arrel, sense prefix, i `/ca/` hi entra per redirecció (`/ca/` →
+> `/ca` → `/`, acabant en 200). O sigui que el dia del canvi la portada deixa
+> de fer aquell salt. Comprovat: cap de les 60 URLs del sitemap del WordPress
+> es perd.
+
 ---
 
 ## Abans de començar
 
 - [ ] El deploy de **producció** a Vercel està en verd i verificat
       (`X-Robots-Tag` absent, redireccions, canonicals en no-www).
-- [ ] A Vercel, Settings → Domains, hi ha els dos dominis:
+- [x] A Vercel, Settings → Domains, hi ha els dos dominis:
       `cortinatgesesteba.com` (Production) i `www.cortinatgesesteba.com`
       (308 cap a l'arrel). Sortiran com a *Invalid Configuration* fins que
       el DNS apunti: és normal.
+      **Verificat el 15/08/2026 sense tocar el DNS**, demanant a la IP de
+      Vercel amb la capçalera `Host` de cada domini:
+      ```bash
+      curl -sI -H "Host: cortinatgesesteba.com"     http://216.198.79.1/   # 200
+      curl -sI -H "Host: www.cortinatgesesteba.com" http://216.198.79.1/   # 308 → https://cortinatgesesteba.com/
+      curl -sI -H "Host: inventat.com"              http://216.198.79.1/   # 404 (control)
+      ```
+      Va per HTTP a propòsit: per HTTPS el certificat encara no existeix i
+      la connexió falla abans de respondre. El 404 del domini inventat és el
+      control que demostra que la prova distingeix de veritat.
 - [ ] Fes una **captura de pantalla de la zona DNS sencera** al panell de
       cdmon. És la teva xarxa de seguretat real: si cal revertir, vols saber
       exactament com estava, no reconstruir-ho de memòria.
@@ -100,21 +121,26 @@ dig +short A     cpanel.cortinatgesesteba.com  # 185.42.104.42
 
 ---
 
-## Pas 0 bis — Registres de Resend (formularis)
+## Pas 0 bis — Registres de Resend (formularis) ✅ JA FET
 
-**És INDEPENDENT del canvi de l'apex.** Es pot fer abans, després o el mateix
-dia: són registres a `send.`, i el canvi de l'apex és un registre `A` a `@`.
-Ni el tipus ni el nom coincideixen.
+> **Aquest pas ja està fet i verificat el 15/08/2026.** Es deixa documentat pel
+> valor de saber què hi ha a la zona i per si algun dia cal refer-ho.
 
-Els valors EXACTES els dona el panell de Resend en donar d'alta el domini
-`send.cortinatgesesteba.com` (la clau DKIM és única i no es pot saber abans).
-Els tipus i els noms són aquests:
+**És INDEPENDENT del canvi de l'apex.** Són registres a `send.`, i el canvi de
+l'apex és un registre `A` a `@`. Ni el tipus ni el nom coincideixen, o sigui
+que el canvi de DNS del Pas 1 no els toca.
 
-| Registre | Tipus | Nom | Valor |
+Valors que hi ha ARA a la zona, comprovats amb `dig`:
+
+| Registre | Tipus | Nom | Valor verificat |
 |---|---|---|---|
-| Rebots | MX | `send` | `feedback-smtp.<regió>.amazonses.com` · prioritat 10 |
-| SPF | TXT | `send` | `v=spf1 include:amazonses.com ~all` |
-| DKIM | TXT | `resend._domainkey.send` | la clau llarga que dona Resend |
+| Rebots | MX | `send` | `10 feedback-smtp.eu-west-1.amazonses.com.` ✅ |
+| SPF | TXT | `send` | `v=spf1 include:amazonses.com ~all` ✅ |
+| DKIM | TXT | `resend._domainkey.send` | `p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDDq9Dg…` ✅ |
+
+Les tres variables d'entorn també hi són (Vercel → Production): `RESEND_API_KEY`,
+`LEAD_TO_EMAIL` i `LEAD_FROM_EMAIL`. I `LEAD_DEBUG` **ja s'ha esborrat**, que
+era el que quedava pendent.
 
 **Per què a un subdomini i no a l'arrel:** així el SPF del domini principal
 (`_spf.srv.cat` i `_spf.odoo.com`) NO es toca. Només pot haver-hi un SPF per
@@ -231,6 +257,15 @@ curl -s -o /dev/null -w "%{http_code}\n" https://cortinatgesesteba.com/en/tradit
 # 5) Una redirecció del WordPress vell (ha d'acabar en 200)
 curl -sIL https://cortinatgesesteba.com/ca/serveis/ | rg -i "^HTTP"
 
+# 5 bis) O totes de cop, contra el sitemap del WordPress. Aquesta comprovació
+#        ja s'ha passat el 15/08 contra el desplegament de Vercel: les 60 URLs
+#        del sitemap acaben en 200, cap perduda. Val la pena repetir-la un cop
+#        el domini ja apunti a Vercel.
+curl -s https://cortinatgesesteba.com/page-sitemap.xml > /tmp/wpsm.xml
+rg -o '<loc>[^<]*</loc>' /tmp/wpsm.xml | sd '</?loc>' '' | while read -r u; do
+  printf '%s %s\n' "$(curl -sIL -o /dev/null -w '%{http_code}' "$u")" "$u"
+done | rg -v '^200 ' || echo "totes en 200"
+
 # 6) Canonical i sitemap en no-www
 curl -s https://cortinatgesesteba.com/ | rg -o '<link rel="canonical"[^>]*>'
 curl -s https://cortinatgesesteba.com/robots.txt | rg -i "sitemap|host"
@@ -285,5 +320,14 @@ correu per a migrar.
   Vegeu el bloc marcat `⚠️ TEMPORAL` a `next.config.ts`.
 - Les **fotos del WordPress** pendents de revisar a
   `~/Desktop/fotos-wordpress-per-revisar/`.
-- Els **formularis** no registren cap lead: només obren WhatsApp o el client
-  de correu. Vegeu `auditoria-contingut-2026-08-10.md`, §4.
+- Els **formularis** SÍ que envien: van per servidor (`/api/lead` → Resend →
+  `info@`), amb WhatsApp com a botó secundari. El que NO fan és **desar** el
+  lead enlloc: si el correu es perd, el lead es perd. No hi ha ni històric ni
+  mètriques. Això no bloqueja el DNS, però val la pena posar-hi persistència
+  abans no entri volum de veritat.
+
+- Les **fotos de ContentRows** a la portada es queden curtes de resolució en
+  pantalles retina: el forat demana 1136px d'ample i `tradicional_8.jpg` en té
+  768 i `img_descans.webp` 726. La primera, a més, és vertical (768x1024) i
+  perd el 44% en retallar-se a 4/3. `roba_de_casa.jpg` (1038px) va bé. Es
+  resol amb fotos noves, no amb codi.
