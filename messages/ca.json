@@ -184,7 +184,8 @@
     "items": {
       "assessorament": {
         "name": "Assessorament",
-        "desc": "Oferim una atenció al client personalitzada, basada en la nostra àmplia experiència dins el sector de la decoració. Treballem amb les millors marques actuals per oferir un assessorament a mida."
+        "desc": "Oferim una atenció al client personalitzada, basada en la nostra àmplia experiència dins el sector de la decoració. Treballem amb les millors marques actuals per oferir un assessorament a mida.",
+        "short": "Assessorament personalitzat al teu projecte"
       },
       "disseny": {
         "name": "Disseny interior",
@@ -192,15 +193,18 @@
       },
       "mides": {
         "name": "Presa de mides",
-        "desc": "Prenem totes les mesures necessàries per a la confecció i el posterior muntatge."
+        "desc": "Prenem totes les mesures necessàries per a la confecció i el posterior muntatge.",
+        "short": "Presa de mides al domicili del client"
       },
       "confeccio": {
         "name": "Confecció",
-        "desc": "Creem i confeccionem productes a mida, totalment personalitzats a les necessitats del client."
+        "desc": "Creem i confeccionem productes a mida, totalment personalitzats a les necessitats del client.",
+        "short": "Confecció pròpia al nostre taller"
       },
       "installacio": {
         "name": "Instal·lació",
-        "desc": "Oferim servei d'instal·lació i muntatge de tots els nostres productes."
+        "desc": "Oferim servei d'instal·lació i muntatge de tots els nostres productes.",
+        "short": "Instal·lació a càrrec del nostre equip"
       }
     }
   },

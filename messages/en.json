@@ -184,7 +184,8 @@
     "items": {
       "assessorament": {
         "name": "Advice",
-        "desc": "We offer personalised customer service, drawing on our broad experience in the decoration sector. We work with the finest current brands to provide tailored advice."
+        "desc": "We offer personalised customer service, drawing on our broad experience in the decoration sector. We work with the finest current brands to provide tailored advice.",
+        "short": "Personalised advice for your project"
       },
       "disseny": {
         "name": "Interior design",
@@ -192,15 +193,18 @@
       },
       "mides": {
         "name": "Measuring",
-        "desc": "We take all the measurements needed for making and the subsequent fitting."
+        "desc": "We take all the measurements needed for making and the subsequent fitting.",
+        "short": "Measurements taken at the client’s home"
       },
       "confeccio": {
         "name": "Making",
-        "desc": "We create and make custom products, fully tailored to the client's needs."
+        "desc": "We create and make custom products, fully tailored to the client's needs.",
+        "short": "Made in our own workshop"
       },
       "installacio": {
         "name": "Installation",
-        "desc": "We offer an installation and fitting service for all our products."
+        "desc": "We offer an installation and fitting service for all our products.",
+        "short": "Installed by our own team"
       }
     }
   },

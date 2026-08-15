@@ -184,7 +184,8 @@
     "items": {
       "assessorament": {
         "name": "Asesoramiento",
-        "desc": "Ofrecemos una atención al cliente personalizada, basada en nuestra amplia experiencia dentro del sector de la decoración. Trabajamos con las mejores marcas actuales para ofrecer un asesoramiento a medida."
+        "desc": "Ofrecemos una atención al cliente personalizada, basada en nuestra amplia experiencia dentro del sector de la decoración. Trabajamos con las mejores marcas actuales para ofrecer un asesoramiento a medida.",
+        "short": "Asesoramiento personalizado para tu proyecto"
       },
       "disseny": {
         "name": "Diseño interior",
@@ -192,15 +193,18 @@
       },
       "mides": {
         "name": "Toma de medidas",
-        "desc": "Tomamos todas las medidas necesarias para la confección y el posterior montaje."
+        "desc": "Tomamos todas las medidas necesarias para la confección y el posterior montaje.",
+        "short": "Toma de medidas en el domicilio del cliente"
       },
       "confeccio": {
         "name": "Confección",
-        "desc": "Creamos y confeccionamos productos a medida, totalmente personalizados a las necesidades del cliente."
+        "desc": "Creamos y confeccionamos productos a medida, totalmente personalizados a las necesidades del cliente.",
+        "short": "Confección propia en nuestro taller"
       },
       "installacio": {
         "name": "Instalación",
-        "desc": "Ofrecemos servicio de instalación y montaje de todos nuestros productos."
+        "desc": "Ofrecemos servicio de instalación y montaje de todos nuestros productos.",
+        "short": "Instalación a cargo de nuestro equipo"
       }
     }
   },

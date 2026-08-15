@@ -104,14 +104,17 @@ export default async function ServicesGrid({ compact = false }: { compact?: bool
                   {t(`items.${key}.name` as Parameters<typeof t>[0])}
                 </h3>
                 {/* Línia curta sota cada servei. Es pinta NOMÉS si la clau
-                    `items.{key}.short` existeix al fitxer d'idioma, de manera
-                    que fins que no s'escriguin els textos aquí no hi surt res
-                    ni queda cap forat: la secció es veu exactament com abans.
-                    Quan s'afegeixi la clau en un idioma, hi apareix; i si en
-                    algun idioma encara no hi és, aquell idioma se la salta
-                    sense trencar-se. */}
+                    `items.{key}.short` existeix al fitxer d'idioma: així un
+                    idioma que encara no la tingui se la salta sense trencar-se
+                    i sense deixar cap forat.
+
+                    Va SENSE tope d'amplada a propòsit: la columna ja el posa.
+                    Hi havia un `max-w-[22ch]` que deixava el text en 173px quan
+                    la columna en fa 278 a partir de 1024px, i això sol feia que
+                    el francès es partís en tres línies en un monitor gran, amb
+                    105px lliures al costat sense fer res. */}
                 {t.has(`items.${key}.short` as Parameters<typeof t.has>[0]) && (
-                  <p className="mt-2 font-sans text-body-sm text-ink-muted leading-snug max-w-[22ch] mx-auto">
+                  <p className="mt-2 font-sans text-body-sm text-ink-muted leading-snug">
                     {t(`items.${key}.short` as Parameters<typeof t>[0])}
                   </p>
                 )}

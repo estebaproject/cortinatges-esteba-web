@@ -184,7 +184,8 @@
     "items": {
       "assessorament": {
         "name": "Conseil",
-        "desc": "Nous offrons un service client personnalisé, fondé sur notre vaste expérience dans le secteur de la décoration. Nous travaillons avec les meilleures marques actuelles pour offrir un conseil sur mesure."
+        "desc": "Nous offrons un service client personnalisé, fondé sur notre vaste expérience dans le secteur de la décoration. Nous travaillons avec les meilleures marques actuelles pour offrir un conseil sur mesure.",
+        "short": "Conseil personnalisé pour votre projet"
       },
       "disseny": {
         "name": "Design d'intérieur",
@@ -192,15 +193,18 @@
       },
       "mides": {
         "name": "Prise de mesures",
-        "desc": "Nous prenons toutes les mesures nécessaires pour la confection et le montage ultérieur."
+        "desc": "Nous prenons toutes les mesures nécessaires pour la confection et le montage ultérieur.",
+        "short": "Prise de mesures au domicile du client"
       },
       "confeccio": {
         "name": "Confection",
-        "desc": "Nous créons et confectionnons des produits sur mesure, entièrement personnalisés selon les besoins du client."
+        "desc": "Nous créons et confectionnons des produits sur mesure, entièrement personnalisés selon les besoins du client.",
+        "short": "Confection réalisée dans notre atelier"
       },
       "installacio": {
         "name": "Installation",
-        "desc": "Nous proposons un service d'installation et de montage de tous nos produits."
+        "desc": "Nous proposons un service d'installation et de montage de tous nos produits.",
+        "short": "Installation assurée par notre équipe"
       }
     }
   },
