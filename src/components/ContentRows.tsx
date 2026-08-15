@@ -17,10 +17,16 @@ export default async function ContentRows() {
   return (
     <section className="py-section bg-canvas">
       <div className="max-w-layout mx-auto px-6 lg:px-12 flex flex-col gap-12 lg:gap-16">
+        {/* `items-start`, no `items-center`: el títol arrenca exactament on
+            arrenca la foto. Centrat, el bloc de text (163-193px) surava enmig
+            d'una foto de 426px i deixava 117px morts a sobre del títol i 117
+            a sota de l'enllaç — es llegia com un descuadre, no com aire.
+            Ara el sobrant cau tot a sota, que sí que es llegeix com a aire.
+            En mòbil no hi fa res: una sola columna. */}
         {rows.map((row, i) => (
           <article
             key={row.key}
-            className={`grid md:grid-cols-2 gap-8 lg:gap-12 items-center ${
+            className={`grid md:grid-cols-2 gap-8 lg:gap-12 items-start ${
               i % 2 === 1 ? "md:[&>figure]:order-2" : ""
             }`}
           >
