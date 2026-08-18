@@ -3,40 +3,40 @@ import { getTranslations } from "next-intl/server";
 /**
  * Secció "El nostre ofici" de la portada.
  *
- * Se n'han tret dues coses que envellien soles:
+ * Aquesta secció s'ha menjat la franja blava (`ArtisanBand`) que anava just a
+ * sobre. No era una fusió de textos sinó una neteja: de les dues frases de la
+ * franja, una era EXACTAMENT la mateixa que `paragraph2` d'aquí
+ * ("Apostem per una atenció personalitzada…") i l'altra deia el mateix que
+ * `paragraph1` amb altres paraules ("des de 1961"). Dues seccions seguides
+ * repetint-se.
  *
- * 1. La imatge `60_anys.webp`: era el cartell de la felicitació dels 60 anys,
- *    del 2021. Estem al 2026 i allò ja no és una foto del taller, és una
- *    efemèride passada.
- * 2. El comptador de tres xifres (60 anys · 3 botigues · 3 generacions). El
- *    "60" s'havia de tocar a mà cada any o mentia, i les altres dues xifres ja
- *    es diuen millor en text: les generacions al titular i les botigues a la
- *    secció de botigues, amb adreça i telèfon.
+ * El que sí que valia la pena de la franja era el pes visual: era l'únic bloc
+ * de color d'aquella part de la portada. Per això aquesta secció passa de fons
+ * càlid a blau i es queda el paper que feia la franja, sense repetir res.
  *
- * El bloc es queda NOMÉS amb text. No s'hi ha posat cap altra foto a propòsit:
- * les que hi ha del taller són les de la pàgina de serveis, i repetir-les aquí
- * seria omplir per omplir. Quan hi hagi una foto de debò del taller, aquest és
- * el lloc.
+ * Abans també tenia una foto (el cartell dels 60 anys, del 2021) i un comptador
+ * de tres xifres; tots dos fora. Quan hi hagi una foto de debò del taller,
+ * aquest és el lloc.
  */
 export default async function SectionOfici() {
   const t = await getTranslations("SectionOfici");
 
   return (
-    <section className="py-section bg-canvas-warm" aria-label={t("ariaLabel")}>
-      {/* Sense la foto, la graella de dues columnes ja no té sentit: el text
-          es queda en una sola columna centrada, amb l'amplada de lectura
-          màxima perquè les línies no es facin inabastables en un monitor gran. */}
+    <section className="py-section bg-ink text-canvas" aria-label={t("ariaLabel")}>
       <div className="max-w-layout mx-auto px-6 lg:px-12">
         <div className="max-w-prose-editorial mx-auto text-center">
-          <p className="font-sans text-body-sm text-accent-deep tracking-widest uppercase mb-4">
+          <p className="font-sans text-body-sm text-sand tracking-widest uppercase mb-4">
             {t("eyebrow")}
           </p>
-          <h2 className="font-serif text-display-md text-ink mb-8">
+          <h2 className="font-serif text-display-md text-canvas mb-8">
             {t("headline")}
           </h2>
-          <p className="font-sans text-body-lg text-ink-muted mb-5">{t("paragraph1")}</p>
-          <p className="font-sans text-body-lg text-ink-muted mb-5">{t("paragraph2")}</p>
-          <p className="font-sans text-body-lg text-ink-muted">{t("paragraph3")}</p>
+          {/* El text va al 80% de blanc, no al 100%: sobre blau, el blanc pur a
+              mida de paràgraf enlluerna. El titular sí que va sencer, que és qui
+              ha de manar. */}
+          <p className="font-sans text-body-lg text-canvas/80 mb-5">{t("paragraph1")}</p>
+          <p className="font-sans text-body-lg text-canvas/80 mb-5">{t("paragraph2")}</p>
+          <p className="font-sans text-body-lg text-canvas/80">{t("paragraph3")}</p>
         </div>
       </div>
     </section>

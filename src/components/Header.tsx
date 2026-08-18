@@ -212,10 +212,24 @@ export default function Header() {
                 ESTEBA
               </Link>
             )}
+            {/* "Demana pressupost" com a acció principal del menú.
+                A la franja blava ja hi era, però la franja està amagada per
+                sota de `sm`: en mòbil, l'única acció que hi havia era
+                "Contacte". Amb la franja d'obertura de la portada treta, aquest
+                enllaç s'hauria quedat sense cap lloc visible en un telèfon —
+                i en un negoci de fer a mida, demanar pressupost és l'acció que
+                paga les factures. */}
+            <Link
+              href={publicPath("/demana-pressupost", locale)}
+              onClick={() => setMenuOpen(false)}
+              className="inline-flex items-center justify-center px-5 py-3 bg-sand text-ink font-sans text-xs font-medium tracking-widest uppercase"
+            >
+              {tb("title")}
+            </Link>
             <Link
               href={publicPath("/contacte", locale)}
               onClick={() => setMenuOpen(false)}
-              className="inline-flex items-center justify-center px-5 py-3 bg-sand text-ink font-sans text-xs tracking-widest uppercase"
+              className="inline-flex items-center justify-center px-5 py-3 border border-ink/25 text-ink font-sans text-xs tracking-widest uppercase"
             >
               {t("contact")}
             </Link>

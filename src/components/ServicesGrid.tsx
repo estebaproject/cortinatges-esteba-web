@@ -1,5 +1,7 @@
 import Image from "next/image";
-import { getTranslations } from "next-intl/server";
+import Link from "next/link";
+import { getTranslations, getLocale } from "next-intl/server";
+import { publicPath } from "@/lib/site";
 
 type IconKey = "assessorament" | "disseny" | "mides" | "confeccio" | "installacio";
 
@@ -46,19 +48,30 @@ const ICON_SVG: Record<IconKey, React.ReactNode> = {
       <line x1="8.12" y1="8.12" x2="12" y2="12" />
     </>
   ),
-  // Instalación → taladro
+  // Instal·lació → trepant.
+  // El dibuix anterior es llegia com un rectangle amb ratlles a 28px: el cos
+  // feia 8x5,5 dins d'un viewBox de 24, el mànec era una L prima i el mandrí i
+  // la broca es confonien en una sola línia trencada.
+  // Aquest té el cos més gran i arrodonit, el mandrí com a peça pròpia, la
+  // broca sortint neta cap a la dreta i un mànec de pistola que es tanca en
+  // corba — que és el que fa que es reconegui d'una ullada.
   installacio: (
     <>
-      <rect x="3" y="8.5" width="8" height="5.5" rx="1.5" />
-      <path d="M11 10.2h3v4h-3" />
-      <path d="M14 12.2h6" />
-      <path d="M6 14v2.5A1.5 1.5 0 0 0 7.5 18H9v-4" />
+      <g transform="rotate(-32 12 12)">
+        <rect x="3.4" y="8.6" width="11" height="7" rx="2.4" />
+        <path d="M14.4 10.4h2.4v3.4h-2.4" />
+        <path d="M16.8 12.1h4.4" />
+        <path d="M7 15.6l-.9 4.3a1.85 1.85 0 0 0 3.6.5l.7-4.8" />
+      </g>
     </>
   ),
 };
 
 export default async function ServicesGrid({ compact = false }: { compact?: boolean }) {
   const t = await getTranslations("Serveis");
+  // Només per a la portada: el titular d'aquesta secció ara és el de l'ofici.
+  const to = await getTranslations("SectionOfici");
+  const locale = await getLocale();
   // Home (icones): sense "disseny". Pàgina /serveis (amb fotos): tots 5.
   const keys: IconKey[] = compact
     ? ["assessorament", "mides", "confeccio", "installacio"]
@@ -72,11 +85,22 @@ export default async function ServicesGrid({ compact = false }: { compact?: bool
     <section className={compact ? "py-12 md:py-16 bg-canvas-warm" : "pb-section bg-canvas"} aria-label={t("title")}>
       <div className="max-w-layout mx-auto px-6 lg:px-12">
         {compact && (
-          <div className="text-center mb-8 md:mb-10">
+          <div className="text-center mb-10 md:mb-12">
+            {/* Aquesta capçalera ve de "El nostre ofici", que era una secció a
+                part just a sobre. Eren dos blocs seguits de prosa centrada, 838px
+                sense ni una imatge i amb 160px de blanc entremig — i els seus
+                tres paràgrafs deien, pitjor, el que /nosaltres ja explica: un
+                d'ells és gairebé la mateixa frase que `About.story3`.
+                Ara el que aporta l'ofici (el titular: tres generacions, un sol
+                ofici) encapçala els quatre passos, que és on es demostra. La
+                història sencera es queda a /nosaltres, que és a la navegació. */}
             <p className="font-sans text-eyebrow text-accent-deep uppercase mb-3">
-              {t("eyebrow")}
+              {to("eyebrow")}
             </p>
-            <h2 className="font-serif text-display-md text-ink">{t("title")}</h2>
+            <h2 className="font-serif text-display-md text-ink mb-4">{to("headline")}</h2>
+            <p className="font-sans text-body-lg text-ink-muted max-w-prose-editorial mx-auto">
+              {t("intro")}
+            </p>
           </div>
         )}
         <ul
@@ -85,39 +109,48 @@ export default async function ServicesGrid({ compact = false }: { compact?: bool
         >
           {keys.map((key) =>
             compact ? (
-              <li key={key} className="text-center">
-                <span className="inline-flex items-center justify-center mb-3 text-accent-deep w-12 h-12">
-                  <svg
-                    className="w-full h-full"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={1.3}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
-                    {ICON_SVG[key]}
-                  </svg>
-                </span>
-                <h3 className="font-serif text-lg text-ink tracking-wide uppercase">
-                  {t(`items.${key}.name` as Parameters<typeof t>[0])}
-                </h3>
-                {/* Línia curta sota cada servei. Es pinta NOMÉS si la clau
-                    `items.{key}.short` existeix al fitxer d'idioma: així un
-                    idioma que encara no la tingui se la salta sense trencar-se
-                    i sense deixar cap forat.
+              /* LLISTA de serveis, no recorregut numerat.
+                 Ho havia muntat com un camí 01→02→03→04, i estava malament de
+                 fons: numerar-los promet que TOTS els encàrrecs passen pels
+                 quatre, i no és cert — hi ha producte que es compra acabat i va
+                 directe a muntatge, sense passar per confecció. Com a servei,
+                 "Confecció" és veritat; com a pas obligatori, no.
+                 Sense numeració el problema desapareix i no cal tocar cap text.
 
-                    Va SENSE tope d'amplada a propòsit: la columna ja el posa.
-                    Hi havia un `max-w-[22ch]` que deixava el text en 173px quan
-                    la columna en fa 278 a partir de 1024px, i això sol feia que
-                    el francès es partís en tres línies en un monitor gran, amb
-                    105px lliures al costat sense fer res. */}
-                {t.has(`items.${key}.short` as Parameters<typeof t.has>[0]) && (
-                  <p className="mt-2 font-sans text-body-sm text-ink-muted leading-snug">
-                    {t(`items.${key}.short` as Parameters<typeof t>[0])}
-                  </p>
-                )}
+                 Les icones tornen, però amb cos: abans eren traç d'1,3 sense
+                 fons ni vora ni hover, i sobretot NO eren enllaços — semblaven
+                 tocables sense ser-ho. Ara van dins d'un cercle d'arena, el
+                 mateix color dels botons de la casa, i tota la targeta porta a
+                 /serveis. */
+              <li key={key}>
+                <Link href={publicPath("/serveis", locale)} className="group block text-center">
+                  <span className="inline-flex items-center justify-center w-14 h-14 mb-4 rounded-full bg-sand text-ink group-hover:bg-sand-dark transition-colors">
+                    <svg
+                      className="w-7 h-7"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={1.75}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      {ICON_SVG[key]}
+                    </svg>
+                  </span>
+                  <h3 className="font-serif text-lg text-ink tracking-wide uppercase group-hover:text-accent-deep transition-colors">
+                    {t(`items.${key}.name` as Parameters<typeof t>[0])}
+                  </h3>
+                  {/* Línia curta sota cada servei. Es pinta NOMÉS si la clau
+                      `items.{key}.short` existeix al fitxer d'idioma: així un
+                      idioma que encara no la tingui se la salta sense
+                      trencar-se i sense deixar cap forat. */}
+                  {t.has(`items.${key}.short` as Parameters<typeof t.has>[0]) && (
+                    <p className="mt-2 font-sans text-body-sm text-ink-muted leading-snug">
+                      {t(`items.${key}.short` as Parameters<typeof t>[0])}
+                    </p>
+                  )}
+                </Link>
               </li>
             ) : (
               <li key={key} className="group flex flex-col">

@@ -3,6 +3,10 @@ import Link from "next/link";
 import { getTranslations, getLocale } from "next-intl/server";
 import { publicPath } from "@/lib/site";
 
+// Coixí i separació retallats, com a la resta de seccions de la portada:
+// `py-section` són 96px a dalt i 96 a baix, i entre files n'hi havia 48 o 64
+// més. Amb tres files, gairebé 300px de blanc en una secció que ja era la
+// segona més llarga de la pàgina.
 export default async function ContentRows() {
   const t = await getTranslations("HomeSections");
   const locale = await getLocale();
@@ -15,22 +19,27 @@ export default async function ContentRows() {
   ];
 
   return (
-    <section className="py-section bg-canvas">
-      <div className="max-w-layout mx-auto px-6 lg:px-12 flex flex-col gap-12 lg:gap-16">
-        {/* `items-start`, no `items-center`: el títol arrenca exactament on
-            arrenca la foto. Centrat, el bloc de text (163-193px) surava enmig
-            d'una foto de 426px i deixava 117px morts a sobre del títol i 117
-            a sota de l'enllaç — es llegia com un descuadre, no com aire.
-            Ara el sobrant cau tot a sota, que sí que es llegeix com a aire.
-            En mòbil no hi fa res: una sola columna. */}
+    <section className="py-12 md:py-16 bg-canvas">
+      <div className="max-w-layout mx-auto px-6 lg:px-12 flex flex-col gap-10 lg:gap-12">
+        {/* Foto i text a la MATEIXA alçada, perquè la fila es llegeixi com un
+            bloc i no com dues coses una al costat de l'altra.
+            Abans la foto feia 426px i el text 193: la meitat de baix de la fila
+            era només foto, i l'ull havia de recórrer 233px buits per arribar a
+            la següent. Mesurat, això feia que en només el 40% de les posicions
+            de scroll es veiés una fila sencera — dues de cada tres vegades que
+            paraves, estaves veient el final d'una i el principi de l'altra.
+            Ara la fila té un terra de 280px i la foto l'omple amb `h-full`, o
+            sigui que les dues columnes acaben on mateix.
+            En mòbil, que va en una sola columna, el que compacta és la
+            proporció de la foto: de 4/3 (257px) a 16/10 (214px). */}
         {rows.map((row, i) => (
           <article
             key={row.key}
-            className={`grid md:grid-cols-2 gap-8 lg:gap-12 items-start ${
+            className={`grid md:grid-cols-2 gap-8 lg:gap-12 items-stretch md:min-h-[280px] ${
               i % 2 === 1 ? "md:[&>figure]:order-2" : ""
             }`}
           >
-            <figure className="relative aspect-[4/3] overflow-hidden bg-linen">
+            <figure className="relative aspect-[16/10] md:aspect-auto md:h-full overflow-hidden bg-linen">
               <Image
                 src={row.image}
                 alt={row.title}

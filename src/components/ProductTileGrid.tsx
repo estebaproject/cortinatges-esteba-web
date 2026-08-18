@@ -17,6 +17,7 @@ type Tile = {
 export default async function ProductTileGrid() {
   const tp = await getTranslations("Products");
   const tg = await getTranslations("HomeGrid");
+  const th = await getTranslations("Hero");
   const locale = await getLocale();
 
 
@@ -86,6 +87,15 @@ export default async function ProductTileGrid() {
   // nom al landmark per a qui navega amb lector de pantalla.
   return (
     <section className="bg-canvas" aria-label={tg("tagline")}>
+      {/* El h1 de la portada. Va amagat a la vista però no als cercadors ni als
+          lectors de pantalla.
+          Vivia a la franja d'obertura, i en treure-la la pàgina s'hauria quedat
+          SENSE cap h1 — la parrilla no en tenia, i el titular que hi havia
+          abans d'ella el vam treure per repetit. Una portada sense h1 és un
+          forat gratuït, tant per a Google com per a qui navega amb lector.
+          El text és el mateix que ja hi havia i ja està traduït als quatre
+          idiomes: no s'inventa res. */}
+      <h1 className="sr-only">{th("headline")}</h1>
       {/* Sense coixí superior a propòsit: el `pt-12 md:pt-16` que ja hi ha a
           l'embolcall de la portada (page.tsx) fa aquesta feina. Posant-ne un
           aquí també, quedaven 112px de blanc buit entre la franja d'obertura i
