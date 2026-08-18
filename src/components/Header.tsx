@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
+import { usePathname } from "@/navigation";
 import LocaleSwitcher from "./LocaleSwitcher";
 import CartIndicator from "./cart/CartIndicator";
 import { publicPath } from "@/lib/site";
@@ -15,6 +16,23 @@ export default function Header() {
   const tb = useTranslations("FormBudget");
   const locale = useLocale();
   const [menuOpen, setMenuOpen] = useState(false);
+
+  /*
+   * A la PORTADA la capçalera no repeteix les crides a l'acció.
+   *
+   * Allà la franja d'obertura ja porta "Demana pressupost" en gran i just a
+   * sota del logo, i entre la franja blava i la barra blanca en sortien dues
+   * més: "Demana pressupost" un altre cop i "Contacte". Tres a la primera
+   * pantalla, dues d'elles duplicades i separades per 200px.
+   *
+   * A la resta de pàgines SÍ que hi són, perquè allà no hi ha cap franja i la
+   * capçalera és l'únic accés directe.
+   *
+   * `usePathname` de next-intl retorna la ruta SENSE el prefix d'idioma, o
+   * sigui que la portada és "/" en els quatre idiomes i no cal comparar-ho amb
+   * cap llista de rutes traduïdes.
+   */
+  const esPortada = usePathname() === "/";
 
   const home = publicPath("/", locale);
 
@@ -41,12 +59,14 @@ export default function Header() {
         <div className="max-w-layout mx-auto px-6 lg:px-12 flex items-center justify-between h-9 text-xs tracking-widest uppercase">
           <span className="font-sans text-canvas/70">Des de 1961</span>
           <div className="flex items-center gap-5">
-            <Link
-              href={publicPath("/demana-pressupost", locale)}
-              className="hidden sm:inline text-canvas/80 hover:text-canvas transition-colors"
-            >
-              {tb("title")}
-            </Link>
+            {!esPortada && (
+              <Link
+                href={publicPath("/demana-pressupost", locale)}
+                className="hidden sm:inline text-canvas/80 hover:text-canvas transition-colors"
+              >
+                {tb("title")}
+              </Link>
+            )}
             <a
               href="https://www.instagram.com/cortinatgesesteba/"
               target="_blank"
@@ -119,12 +139,14 @@ export default function Header() {
                   </Link>
                 </>
               )}
-              <Link
-                href={publicPath("/contacte", locale)}
-                className="hidden md:inline-flex items-center px-6 py-2.5 bg-sand text-ink font-sans text-xs font-medium tracking-widest uppercase hover:bg-sand-dark transition-colors"
-              >
-                {t("contact")}
-              </Link>
+              {!esPortada && (
+                <Link
+                  href={publicPath("/contacte", locale)}
+                  className="hidden md:inline-flex items-center px-6 py-2.5 bg-sand text-ink font-sans text-xs font-medium tracking-widest uppercase hover:bg-sand-dark transition-colors"
+                >
+                  {t("contact")}
+                </Link>
+              )}
               <button
                 className="md:hidden p-2 text-ink"
                 onClick={() => setMenuOpen(!menuOpen)}

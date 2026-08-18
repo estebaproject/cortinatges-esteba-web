@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
+import Hero from "@/components/Hero";
 import ProductTileGrid from "@/components/ProductTileGrid";
 import ServicesGrid from "@/components/ServicesGrid";
 import ContentRows from "@/components/ContentRows";
@@ -45,14 +46,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function HomePage() {
   return (
     <div>
-      {/* El coixí de dalt és obligatori i no és decoració: la capçalera és fixa
-          i OPACA, i sense això la primera fila de categories li quedaria
-          al darrere. És la seva alçada real a cada breakpoint més aire — 81px
-          en mòbil, 117 a partir de `sm` (hi torna la franja blava) i 161 a
-          partir de `md` (s'hi suma la fila de navegació).
-          Abans aquesta feina la feia la franja d'obertura amb el seu propi
-          coixí; en marxar, passa aquí. */}
-      <div className="pt-[97px] sm:pt-[133px] md:pt-[177px]">
+      {/* La franja d'obertura porta el seu propi coixí superior, calculat sobre
+          l'alçada real de la capçalera fixa a cada breakpoint. Per això va fora
+          del `pt` de sota: si hi entrés, el coixí es comptaria dues vegades. */}
+      <Hero />
+      <div className="pt-10 md:pt-12">
         <ProductTileGrid />
         <ServicesGrid compact />
         <ContentRows />
