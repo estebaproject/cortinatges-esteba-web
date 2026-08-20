@@ -29,15 +29,18 @@ const BRANDS = [
   { name: "Scenes", file: "scenes.jpg" },
   { name: "B·Sensible", file: "Visensible.png" },
   { name: "Yutes", file: "yutes.jpg" },
+  // Recuperada del WordPress: era l'única marca de la seva secció que no
+  // teníem al projecte.
+  { name: "Ma Salgueiro", file: "ma-salgueiro.jpg" },
 ];
 
 export default async function BrandsStrip() {
   const t = await getTranslations("HomeGrid");
 
   return (
-    <section className="py-section bg-canvas border-t border-linen" aria-label={t("brandsHeading")}>
+    <section className="py-12 md:py-16 bg-canvas border-t border-linen" aria-label={t("brandsHeading")}>
       <div className="max-w-layout mx-auto px-6 lg:px-12">
-        <h2 className="text-center font-sans text-eyebrow text-ink-muted uppercase mb-12">
+        <h2 className="text-center font-sans text-eyebrow text-ink-muted uppercase mb-8 md:mb-10">
           {t("brandsHeading")}
         </h2>
         <Slider

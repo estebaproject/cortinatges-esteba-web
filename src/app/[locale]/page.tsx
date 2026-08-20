@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import ProductTileGrid from "@/components/ProductTileGrid";
 import ServicesGrid from "@/components/ServicesGrid";
 import ContentRows from "@/components/ContentRows";
+import BrandsStrip from "@/components/BrandsStrip";
 import LocationsSection from "@/components/LocationsSection";
 
 type Props = {
@@ -65,6 +66,14 @@ export default async function HomePage() {
       <div className="pt-10 md:pt-12">
         <ProductTileGrid />
         <ContentRows />
+        {/* Les marques van AQUÍ i no més amunt. Són una prova, no un argument:
+            valen quan ja has vist el producte i just abans que et demanem que
+            vinguis a la botiga. Posades entre els serveis i les categories
+            tallarien el fil de "què fem → què venem" amb una fila de logos de
+            tercers.
+            Fins ara només es veien a /nosaltres, o sigui que treballar amb
+            Bandalux, Designers Guild o Romo només ho sabia qui hi entrava. */}
+        <BrandsStrip />
         <LocationsSection />
       </div>
     </div>
