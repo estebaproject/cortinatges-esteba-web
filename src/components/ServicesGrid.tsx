@@ -78,11 +78,17 @@ export default async function ServicesGrid({ compact = false }: { compact?: bool
     : ["assessorament", "disseny", "mides", "confeccio", "installacio"];
 
   // Espaiat de la versió compacta (portada) retallat: `py-section` són 96px a
-  // dalt i 96 a baix per a quatre icones amb una paraula sota. Ara 48 en mòbil
-  // i 64 en escriptori, i la capçalera de la secció baixa de 48px de separació
-  // a 32/40. La versió amb fotos de /serveis no es toca.
+  // dalt i 96 a baix per a quatre icones amb una paraula sota. A baix en són 48
+  // en mòbil i 64 en escriptori, i la capçalera de la secció baixa de 48px de
+  // separació a 32/40. La versió amb fotos de /serveis no es toca.
+  //
+  // A dalt sí que n'hi ha més (64 i 96): aquesta secció comparteix el fons
+  // càlid amb la franja d'obertura, o sigui que no hi ha cap canvi de color
+  // que les separi i el titular de l'ofici quedava enganxat al que té just a
+  // sobre. Aquest coixí no es llegeix com una banda buida — es llegeix com
+  // l'aire que li faltava.
   return (
-    <section className={compact ? "py-12 md:py-16 bg-canvas-warm" : "pb-section bg-canvas"} aria-label={t("title")}>
+    <section className={compact ? "pt-16 pb-12 md:pt-24 md:pb-16 bg-canvas-warm" : "pb-section bg-canvas"} aria-label={t("title")}>
       <div className="max-w-layout mx-auto px-6 lg:px-12">
         {compact && (
           <div className="text-center mb-10 md:mb-12">
