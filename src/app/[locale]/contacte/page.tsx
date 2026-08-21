@@ -3,13 +3,13 @@ import { getTranslations } from "next-intl/server";
 import { whatsappUrl } from "@/lib/whatsapp";
 import CopyEmail from "@/components/CopyEmail";
 import StoresMap from "@/components/StoresMap";
+import { STORE_KEYS, urlGoogleMaps, urlEscriuRessenya } from "@/lib/botigues";
 import { localizedAlternatesFor, openGraphFor } from "@/lib/site";
 
 type Props = {
   params: Promise<{ locale: string }>;
 };
 
-const STORE_KEYS = ["girona", "blanes", "palamos", "matalasseria"] as const;
 const EMAIL = "info@cortinatgesesteba.com";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -72,17 +72,11 @@ export default async function ContactPage() {
                 const phone = tl(`stores.${key}.phone` as Parameters<typeof tl>[0]);
                 const city = tl(`stores.${key}.city` as Parameters<typeof tl>[0]);
                 const address = tl(`stores.${key}.address` as Parameters<typeof tl>[0]);
-                const mapQuery = encodeURIComponent(
-                  `Cortinatges Esteba, ${address.replace(/·/g, ",")}`,
-                );
                 return (
                   <li key={key} className="py-6 first:pt-0">
                     <h2 className="font-serif text-display-md text-ink mb-1">{city}</h2>
                     <p className="font-sans text-body-md text-ink-muted mb-1">{address}</p>
-                    {/* Nota opcional (només la Matalasseria en té). Va a part
-                        de `address` A PROPÒSIT: l'adreça alimenta la consulta
-                        del mapa, i barrejar-hi "davant de la botiga de Girona"
-                        faria que Google Maps busqués això literalment. */}
+                    {/* Nota opcional (només la Matalasseria en té). */}
                     {tl.has(`stores.${key}.note` as Parameters<typeof tl>[0]) && (
                       <p className="font-sans text-body-sm text-ink-faint mb-1">
                         {tl(`stores.${key}.note` as Parameters<typeof tl>[0])}
@@ -97,19 +91,63 @@ export default async function ContactPage() {
                     >
                       {phone}
                     </a>
-                    {/* El mapa de cada botiga carregava Google (scripts i
-                        cookies) en renderitzar, ABANS que l'usuari toqués el
-                        banner de cookies. Ara passa pel mateix control de
-                        consentiment que la resta. */}
-                    <StoresMap
-                      className="mt-4"
-                      query={mapQuery}
-                      stores={[{ city, address }]}
-                    />
+                    {/* Enllaços a la fitxa de Google, un per botiga.
+                        NO fem servir l'API de ressenyes: exigeix compte de
+                        FACTURACIÓ encara que no en surtis del tram gratuït, i
+                        el camp `reviews` puja la crida al SKU més car. Per a
+                        quatre botigues locals no compensa. Un enllaç fa la
+                        mateixa feina, sense clau, sense cost i sense caducar.
+
+                        El botó d'ESCRIURE ressenya només surt quan tenim el
+                        Place ID d'aquella botiga: val més no ensenyar-lo que
+                        ensenyar-ne un que no porta enlloc. */}
+                    <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
+                      <a
+                        href={urlGoogleMaps(key)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-sans text-body-sm text-accent-deep hover:text-ink transition-colors underline underline-offset-4"
+                      >
+                        {tl("veureGoogle")}
+                      </a>
+                      {urlEscriuRessenya(key) && (
+                        <a
+                          href={urlEscriuRessenya(key)!}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-sans text-body-sm text-accent-deep hover:text-ink transition-colors underline underline-offset-4"
+                        >
+                          {tl("escriuRessenya")}
+                        </a>
+                      )}
+                    </div>
                   </li>
                 );
               })}
             </ul>
+
+            {/* UN mapa per a les quatre botigues, no un per botiga.
+                Abans n'hi havia QUATRE, un dins de cada element de la llista:
+                quatre iframes de Google a la mateixa pàgina, i cada botiga
+                semblava un apartat solt en lloc de quatre punts d'una mateixa
+                casa.
+
+                LIMITACIÓ CONEGUDA, i no és nostra: aquest embed és una CERCA
+                (`?q=…&output=embed`), i Google la resol sempre a UNA fitxa —
+                la de Girona. Provat amb tres consultes diferents. Per a veure
+                els quatre punts alhora cal o bé un mapa de Google My Maps amb
+                els quatre pins (gratuït, però l'ha de crear el client al seu
+                compte i passar-nos l'identificador), o bé un mapa propi amb
+                tessel·les obertes. Mentrestant, cada botiga té el seu enllaç
+                a Google just a sobre, que hi porta directament. */}
+            <StoresMap
+              className="mt-10"
+              query="Cortinatges Esteba"
+              stores={STORE_KEYS.map((key) => ({
+                city: tl(`stores.${key}.city` as Parameters<typeof tl>[0]),
+                address: tl(`stores.${key}.address` as Parameters<typeof tl>[0]),
+              }))}
+            />
           </div>
         </div>
       </div>

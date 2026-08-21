@@ -8,7 +8,10 @@ import {
   PRODUCT_OPTIONS,
   type LeadPayload,
   type LeadResponse,
+  citaValida,
+  HORARI,
 } from "@/lib/lead";
+import { STORE_KEYS } from "@/lib/botigues";
 import { LEGAL_TEXTS_VERSION } from "@/lib/consent";
 import { SITE_URL } from "@/lib/site";
 
@@ -121,6 +124,24 @@ function escapaHtml(v: string): string {
     .replace(/"/g, "&quot;");
 }
 
+/** Nom de cada botiga al correu. En català: el correu el llegiu vosaltres. */
+const BOTIGUES: Record<string, string> = {
+  girona: "Girona — C/ Rutlla, 11",
+  blanes: "Blanes — Rambla Joaquim Ruyra, 59",
+  palamos: "Palamós — C/ Miguel de Cervantes, 35",
+  matalasseria: "Matalasseria de Girona — C/ Rutlla, 20",
+};
+
+/** "2026-08-24" → "dilluns 24/08/2026". Es munta a mà per no dependre de cap
+ *  zona horària: els tres números ja vénen validats del client i del servidor. */
+function dataLlegible(iso: string): string {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+  if (!m) return iso;
+  const d = new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]));
+  const dies = ["diumenge", "dilluns", "dimarts", "dimecres", "dijous", "divendres", "dissabte"];
+  return `${dies[d.getDay()]} ${m[3]}/${m[2]}/${m[1]}`;
+}
+
 export async function POST(req: NextRequest): Promise<NextResponse<LeadResponse>> {
   if (!originValid(req)) {
     return NextResponse.json({ ok: false, error: "invalid" }, { status: 403 });
@@ -153,6 +174,9 @@ export async function POST(req: NextRequest): Promise<NextResponse<LeadResponse>
   const mides = net(body.mides, LIMITS.mides);
   const missatge = net(body.missatge, LIMITS.missatge);
   const producte = net(body.producte, 60);
+  const botiga = net(body.botiga, 40);
+  const data = net(body.data, 10);
+  const franja = net(body.franja, 10);
   const locale = ["ca", "es", "en", "fr"].includes(String(body.locale))
     ? String(body.locale)
     : "ca";
@@ -163,7 +187,12 @@ export async function POST(req: NextRequest): Promise<NextResponse<LeadResponse>
     telefonValid(telefon) &&
     emailValid(email) &&
     body.consent === true &&
-    (type !== "budget" || PRODUCT_OPTIONS.includes(producte as never));
+    (type !== "budget" || PRODUCT_OPTIONS.includes(producte as never)) &&
+    // La cita es revalida AQUÍ, no només al navegador: el desplegable del
+    // client és comoditat, això és el que impedeix que entrin diumenges,
+    // dissabtes a la tarda, dates passades o dies que no existeixen.
+    (type !== "cita" ||
+      (STORE_KEYS.includes(botiga as never) && citaValida(data, franja)));
 
   if (!obligatorisOk || massaEnllacos(missatge)) {
     return NextResponse.json({ ok: false, error: "invalid" }, { status: 400 });
@@ -194,8 +223,14 @@ export async function POST(req: NextRequest): Promise<NextResponse<LeadResponse>
 
   // Prefix FIX en català sigui quin sigui l'idioma del client: així el filtre
   // de Gmail no depèn de l'idioma i els dos tipus se separen d'un cop d'ull.
-  const prefix = type === "budget" ? "[Pressupost]" : "[Currículum]";
-  const subject = `${prefix} ${nom} · ${telefon}`;
+  const prefix =
+    type === "budget" ? "[Pressupost]" : type === "cita" ? "[Cita]" : "[Currículum]";
+  // A les cites, a la safata hi va la DATA i no el telèfon: és el que permet
+  // ordenar-les i veure d'un cop quina toca abans. El telèfon és a dins.
+  const subject =
+    type === "cita"
+      ? `${prefix} ${nom} · ${dataLlegible(data)} ${HORARI[franja as keyof typeof HORARI] ?? franja}`
+      : `${prefix} ${nom} · ${telefon}`;
 
   const ara = new Date().toLocaleString("ca-ES", { timeZone: "Europe/Madrid" });
   const ip =
@@ -210,9 +245,15 @@ export async function POST(req: NextRequest): Promise<NextResponse<LeadResponse>
     files.push(["Producte", producte]);
     files.push(["Mides", mides || "(no indicades)"]);
   }
+  if (type === "cita") {
+    files.push(["Botiga", BOTIGUES[botiga] ?? botiga]);
+    files.push(["Dia", dataLlegible(data)]);
+    files.push(["Franja", HORARI[franja as keyof typeof HORARI] ?? franja]);
+  }
   files.push(["Idioma", IDIOMES[locale] ?? locale]);
 
-  const etiquetaMissatge = type === "budget" ? "MISSATGE" : "COMENTARIS";
+  const etiquetaMissatge =
+    type === "budget" ? "MISSATGE" : type === "cita" ? "QUÈ NECESSITA" : "COMENTARIS";
   const peu =
     `${SITE_URL}${page}\n${ara} · consentiment acceptat ` +
     `(textos ${LEGAL_TEXTS_VERSION}) · IP ${ip}`;

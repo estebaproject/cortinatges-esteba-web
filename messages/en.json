@@ -23,7 +23,8 @@
     "services": "Services",
     "budget": "Request a quote",
     "jobs": "Work with us",
-    "linksHeading": "Links"
+    "linksHeading": "Links",
+    "instagram": "Follow us on Instagram · @cortinatgesesteba"
   },
   "CookieBanner": {
     "title": "Cookies",
@@ -106,7 +107,9 @@
         "schedule": "Mon–Fri 9.30–13.30 & 16.30–20.00 · Sat 10.00–13.30",
         "note": "Mattress shop, opposite our Girona store."
       }
-    }
+    },
+    "veureGoogle": "View on Google Maps",
+    "escriuRessenya": "Write a review"
   },
   "CtaVisita": {
     "ariaLabel": "Book a consultation",
@@ -749,5 +752,45 @@
     "town": "Town",
     "storeInfo": "Hello! I'd like information about the {city} shop.",
     "jobsIntro": "Hello! I'd like to send you my application."
+  },
+  "FormCita": {
+    "metaTitle": "Book a visit — Cortinatges Esteba",
+    "metaDescription": "Pick a day and a time slot to visit any of our stores. We'll confirm it by email.",
+    "title": "Book a visit",
+    "intro": "Pick the day and slot that suit you, tell us what you need, and we'll confirm the appointment by email.",
+    "horariTitol": "When we can see you",
+    "horariFeiners": "Monday to Friday, {mati} and {tarda}.",
+    "horariDissabte": "Saturday mornings only: {mati}.",
+    "nom": "Full name",
+    "telefon": "Phone",
+    "email": "Email",
+    "botiga": "Which store",
+    "data": "Which day",
+    "franja": "Which slot",
+    "tria": "Choose an option",
+    "triaDiaPrimer": "Pick a day first",
+    "tancat": "We're closed that day. We don't open on Sundays, and Saturdays are mornings only.",
+    "missatge": "What do you need",
+    "opcional": "(optional)",
+    "enviar": "Request the appointment",
+    "enviant": "Sending…",
+    "avis": "This is a request, not a booking. You'll get an email from us confirming the day and time.",
+    "consentNote": "Your data is processed by Cortinatges Esteba S.L. to answer your request. It is not shared with third parties.",
+    "successTitle": "Request received",
+    "successBody": "We'll email you shortly to confirm the day and time. If it's urgent, call the store.",
+    "errorTitle": "It couldn't be sent",
+    "errorBody": "Try again in a moment, or call the store directly.",
+    "franges": {
+      "mati": "Morning",
+      "tarda": "Afternoon"
+    },
+    "botigues": {
+      "girona": "Girona — C/ Rutlla, 11",
+      "blanes": "Blanes — Rambla Joaquim Ruyra, 59",
+      "palamos": "Palamós — C/ Miguel de Cervantes, 35",
+      "matalasseria": "Girona mattress store — C/ Rutlla, 20"
+    },
+    "consent": "I have read and accept the <link>privacy policy</link>.",
+    "required": "This field is required."
   }
 }

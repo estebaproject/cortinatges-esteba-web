@@ -45,7 +45,7 @@ export function ConsentField({
   checked,
   onChange,
 }: {
-  namespace: "FormBudget" | "FormJobs";
+  namespace: "FormBudget" | "FormJobs" | "FormCita";
   checked: boolean;
   onChange: (v: boolean) => void;
 }) {
@@ -85,7 +85,7 @@ export function WhatsappButton({
   namespace,
   message,
 }: {
-  namespace: "FormBudget" | "FormJobs";
+  namespace: "FormBudget" | "FormJobs" | "FormCita";
   message: string;
 }) {
   const t = useTranslations(namespace);
@@ -109,15 +109,18 @@ export function SuccessPanel({
   namespace,
   message,
 }: {
-  namespace: "FormBudget" | "FormJobs";
-  message: string;
+  namespace: "FormBudget" | "FormJobs" | "FormCita";
+  /** Missatge pregenerat de WhatsApp. OPCIONAL: el formulari de cita no en
+   *  porta, perquè una cita es tanca amb dia i franja d'una llista, no
+   *  renegociant-la per xat. Sense missatge, el botó no es pinta. */
+  message?: string;
 }) {
   const t = useTranslations(namespace);
   return (
     <div className="max-w-xl border border-linen bg-canvas-warm p-8" role="status" aria-live="polite">
       <p className="font-serif text-display-md text-ink mb-3">{t("successTitle")}</p>
       <p className="font-sans text-body-md text-ink-muted mb-7">{t("successBody")}</p>
-      <WhatsappButton namespace={namespace} message={message} />
+      {message !== undefined && <WhatsappButton namespace={namespace} message={message} />}
     </div>
   );
 }
@@ -127,8 +130,9 @@ export function ErrorPanel({
   namespace,
   message,
 }: {
-  namespace: "FormBudget" | "FormJobs";
-  message: string;
+  namespace: "FormBudget" | "FormJobs" | "FormCita";
+  /** Vegeu `SuccessPanel`: opcional a propòsit. */
+  message?: string;
 }) {
   const t = useTranslations(namespace);
   return (
@@ -141,9 +145,11 @@ export function ErrorPanel({
         <p className="font-sans text-body-md text-ink font-medium mb-1">{t("errorTitle")}</p>
         <p className="font-sans text-body-sm text-ink-muted">{t("errorBody")}</p>
       </div>
-      <div>
-        <WhatsappButton namespace={namespace} message={message} />
-      </div>
+      {message !== undefined && (
+        <div>
+          <WhatsappButton namespace={namespace} message={message} />
+        </div>
+      )}
     </div>
   );
 }

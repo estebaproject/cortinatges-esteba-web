@@ -23,7 +23,8 @@
     "services": "Services",
     "budget": "Demander un devis",
     "jobs": "Travailler avec nous",
-    "linksHeading": "Liens"
+    "linksHeading": "Liens",
+    "instagram": "Suivez-nous sur Instagram · @cortinatgesesteba"
   },
   "CookieBanner": {
     "title": "Cookies",
@@ -106,7 +107,9 @@
         "schedule": "Lun–Ven 9.30–13.30 et 16.30–20.00 · Sam 10.00–13.30",
         "note": "Local de literie, en face de notre boutique de Gérone."
       }
-    }
+    },
+    "veureGoogle": "Voir sur Google Maps",
+    "escriuRessenya": "Laisser un avis"
   },
   "CtaVisita": {
     "ariaLabel": "Prendre rendez-vous",
@@ -749,5 +752,45 @@
     "town": "Ville",
     "storeInfo": "Bonjour ! Je souhaiterais des informations sur la boutique de {city}.",
     "jobsIntro": "Bonjour ! Je souhaiterais vous envoyer ma candidature."
+  },
+  "FormCita": {
+    "metaTitle": "Prendre rendez-vous — Cortinatges Esteba",
+    "metaDescription": "Choisissez un jour et un créneau pour venir dans l'une de nos boutiques. Nous vous le confirmons par courriel.",
+    "title": "Prendre rendez-vous",
+    "intro": "Choisissez le jour et le créneau qui vous conviennent, dites-nous ce dont vous avez besoin, et nous confirmons le rendez-vous par courriel.",
+    "horariTitol": "Quand nous pouvons vous recevoir",
+    "horariFeiners": "Du lundi au vendredi, {mati} et {tarda}.",
+    "horariDissabte": "Le samedi, uniquement le matin : {mati}.",
+    "nom": "Nom et prénom",
+    "telefon": "Téléphone",
+    "email": "Courriel",
+    "botiga": "Dans quelle boutique",
+    "data": "Quel jour",
+    "franja": "Quel créneau",
+    "tria": "Choisissez une option",
+    "triaDiaPrimer": "Choisissez d'abord le jour",
+    "tancat": "Nous sommes fermés ce jour-là. Nous n'ouvrons pas le dimanche, et le samedi uniquement le matin.",
+    "missatge": "De quoi avez-vous besoin",
+    "opcional": "(facultatif)",
+    "enviar": "Demander le rendez-vous",
+    "enviant": "Envoi…",
+    "avis": "Il s'agit d'une demande, pas d'une réservation. Vous recevrez un courriel de notre part confirmant le jour et l'heure.",
+    "consentNote": "Vos données sont traitées par Cortinatges Esteba S.L. pour répondre à votre demande. Elles ne sont pas cédées à des tiers.",
+    "successTitle": "Demande reçue",
+    "successBody": "Nous vous écrivons prochainement pour confirmer le jour et l'heure. Si c'est urgent, appelez la boutique.",
+    "errorTitle": "L'envoi a échoué",
+    "errorBody": "Réessayez dans un instant, ou appelez directement la boutique.",
+    "franges": {
+      "mati": "Matin",
+      "tarda": "Après-midi"
+    },
+    "botigues": {
+      "girona": "Girona — C/ Rutlla, 11",
+      "blanes": "Blanes — Rambla Joaquim Ruyra, 59",
+      "palamos": "Palamós — C/ Miguel de Cervantes, 35",
+      "matalasseria": "Literie de Girona — C/ Rutlla, 20"
+    },
+    "consent": "J'ai lu et j'accepte la <link>politique de confidentialité</link>.",
+    "required": "Ce champ est obligatoire."
   }
 }

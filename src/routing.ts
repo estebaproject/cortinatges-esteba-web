@@ -34,6 +34,12 @@ export const routing = defineRouting({
       en: "/do-you-want-to-work-with-us",
       fr: "/voulez-vous-travailler-avec-nous",
     },
+    "/concerta-cita": {
+      ca: "/concerta-cita",
+      es: "/concertar-cita",
+      en: "/book-a-visit",
+      fr: "/prendre-rendez-vous",
+    },
     "/botigues": { ca: "/botigues", es: "/tiendas", en: "/stores", fr: "/magasins" },
     "/nosaltres": { ca: "/nosaltres", es: "/nosotros", en: "/about-us", fr: "/a-propos" },
     "/avis-legal": {

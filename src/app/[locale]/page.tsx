@@ -6,6 +6,7 @@ import ServicesGrid from "@/components/ServicesGrid";
 import ContentRows from "@/components/ContentRows";
 import ArtisanBand from "@/components/ArtisanBand";
 import BrandsStrip from "@/components/BrandsStrip";
+import ReelsSection from "@/components/ReelsSection";
 import LocationsSection from "@/components/LocationsSection";
 
 type Props = {
@@ -84,6 +85,15 @@ export default async function HomePage() {
       {/* Les marques són una prova, no un argument: valen quan ja has vist el
           producte i just abans que et demanem que vinguis a la botiga. */}
       <BrandsStrip />
+
+      {/* Els reels PUGEN de /nosaltres a la portada. Eren quatre vídeos
+          propis, allotjats aquí (3,3 MB, `preload="none"`, i només es
+          reprodueix el que està a la vista), en una pàgina on gairebé no entra
+          ningú. Cap embed ni cap agregador: no hi ha scripts de Meta, ni
+          cookies de tercers, ni cap quota mensual. El preu d'això és que els
+          vídeos no s'actualitzen sols — s'han de pujar a mà quan vulgueu
+          canviar-los. */}
+      <ReelsSection />
 
       <LocationsSection />
     </div>

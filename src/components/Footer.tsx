@@ -44,6 +44,18 @@ export default async function Footer() {
             <p className="font-sans text-body-sm text-stone-warm leading-relaxed mt-4">
               {t("tagline")}
             </p>
+            {/* Enllaç amb TEXT, a part de la icona de sota. La icona sola no
+                convida a res: es reconeix, però no diu on porta ni quin és el
+                compte. Amb l'àlies escrit, el peu passa a demanar el seguiment
+                en lloc de només oferir un enllaç. */}
+            <a
+              href="https://www.instagram.com/cortinatgesesteba/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-4 font-sans text-body-sm text-canvas hover:text-sand transition-colors"
+            >
+              {t("instagram")}
+            </a>
             <div className="flex items-center gap-4 mt-6">
               <a
                 href="https://www.instagram.com/cortinatgesesteba/"

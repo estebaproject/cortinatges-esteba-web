@@ -23,7 +23,8 @@
     "services": "Servicios",
     "budget": "Pide presupuesto",
     "jobs": "Trabaja con nosotros",
-    "linksHeading": "Enlaces"
+    "linksHeading": "Enlaces",
+    "instagram": "Síguenos en Instagram · @cortinatgesesteba"
   },
   "CookieBanner": {
     "title": "Cookies",
@@ -106,7 +107,9 @@
         "schedule": "Lunes a viernes 9.30–13.30 y 16.30–20.00 · Sábado 10.00–13.30",
         "note": "Local de colchones, enfrente de la tienda de Girona."
       }
-    }
+    },
+    "veureGoogle": "Ver en Google Maps",
+    "escriuRessenya": "Escribe una reseña"
   },
   "CtaVisita": {
     "ariaLabel": "Concertar una cita",
@@ -749,5 +752,45 @@
     "town": "Población",
     "storeInfo": "¡Hola! Me gustaría información de la tienda de {city}.",
     "jobsIntro": "¡Hola! Me gustaría enviaros mi candidatura."
+  },
+  "FormCita": {
+    "metaTitle": "Concertar una cita — Cortinatges Esteba",
+    "metaDescription": "Pide día y franja para venir a cualquiera de nuestras tiendas. Te la confirmamos nosotros por correo.",
+    "title": "Concertar una cita",
+    "intro": "Elige el día y la franja que te vaya bien, cuéntanos qué necesitas y te confirmamos la cita por correo.",
+    "horariTitol": "Cuándo podemos atenderte",
+    "horariFeiners": "De lunes a viernes, {mati} y {tarda}.",
+    "horariDissabte": "Sábado, solo por la mañana: {mati}.",
+    "nom": "Nombre y apellidos",
+    "telefon": "Teléfono",
+    "email": "Correo electrónico",
+    "botiga": "En qué tienda",
+    "data": "Qué día",
+    "franja": "Qué franja",
+    "tria": "Elige una opción",
+    "triaDiaPrimer": "Elige primero el día",
+    "tancat": "Ese día está cerrado. Los domingos no abrimos y el sábado solo por la mañana.",
+    "missatge": "Qué necesitas",
+    "opcional": "(opcional)",
+    "enviar": "Pedir la cita",
+    "enviant": "Enviando…",
+    "avis": "Esto es una petición, no una reserva. Recibirás un correo nuestro confirmándote el día y la hora.",
+    "consentNote": "Tus datos los trata Cortinatges Esteba S.L. para responder a tu petición. No se ceden a terceros.",
+    "successTitle": "Petición recibida",
+    "successBody": "Te escribimos pronto para confirmarte el día y la hora. Si tienes prisa, llámanos a la tienda.",
+    "errorTitle": "No se ha podido enviar",
+    "errorBody": "Vuelve a intentarlo en un momento, o llámanos directamente a la tienda.",
+    "franges": {
+      "mati": "Mañana",
+      "tarda": "Tarde"
+    },
+    "botigues": {
+      "girona": "Girona — C/ Rutlla, 11",
+      "blanes": "Blanes — Rambla Joaquim Ruyra, 59",
+      "palamos": "Palamós — C/ Miguel de Cervantes, 35",
+      "matalasseria": "Colchonería de Girona — C/ Rutlla, 20"
+    },
+    "consent": "He leído y acepto la <link>política de privacidad</link>.",
+    "required": "Este campo es obligatorio."
   }
 }

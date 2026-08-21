@@ -23,7 +23,8 @@
     "services": "Serveis",
     "budget": "Demana pressupost",
     "jobs": "Treballa amb nosaltres",
-    "linksHeading": "Enllaços"
+    "linksHeading": "Enllaços",
+    "instagram": "Segueix-nos a Instagram · @cortinatgesesteba"
   },
   "CookieBanner": {
     "title": "Cookies",
@@ -106,7 +107,9 @@
         "schedule": "Dilluns a divendres 9.30–13.30 i 16.30–20.00 · Dissabte 10.00–13.30",
         "note": "Local de matalassos, davant de la botiga de Girona."
       }
-    }
+    },
+    "veureGoogle": "Veure a Google Maps",
+    "escriuRessenya": "Escriu una ressenya"
   },
   "CtaVisita": {
     "ariaLabel": "Concerta una cita",
@@ -800,5 +803,45 @@
     "town": "Població",
     "storeInfo": "Hola! Voldria informació de la botiga de {city}.",
     "jobsIntro": "Hola! Voldria enviar-vos la meva candidatura."
+  },
+  "FormCita": {
+    "metaTitle": "Concerta una cita — Cortinatges Esteba",
+    "metaDescription": "Demana dia i franja per venir a qualsevol de les nostres botigues. Te la confirmem nosaltres per correu.",
+    "title": "Concerta una cita",
+    "intro": "Tria el dia i la franja que et vagi bé, digue'ns què necessites i et confirmem la cita per correu.",
+    "horariTitol": "Quan podem atendre't",
+    "horariFeiners": "De dilluns a divendres, {mati} i {tarda}.",
+    "horariDissabte": "Dissabte, només matí: {mati}.",
+    "nom": "Nom i cognoms",
+    "telefon": "Telèfon",
+    "email": "Correu electrònic",
+    "botiga": "A quina botiga",
+    "data": "Quin dia",
+    "franja": "Quina franja",
+    "tria": "Tria una opció",
+    "triaDiaPrimer": "Tria primer el dia",
+    "tancat": "Aquest dia està tancat. Diumenge no obrim i el dissabte només al matí.",
+    "missatge": "Què necessites",
+    "opcional": "(opcional)",
+    "enviar": "Demanar la cita",
+    "enviant": "Enviant…",
+    "avis": "Això és una petició, no una reserva. Rebràs un correu nostre confirmant-te el dia i l'hora.",
+    "consentNote": "Les teves dades les tracta Cortinatges Esteba S.L. per a respondre la teva petició. No se cedeixen a tercers.",
+    "successTitle": "Petició rebuda",
+    "successBody": "T'escrivim aviat per confirmar-te el dia i l'hora. Si et corre pressa, truca'ns a la botiga.",
+    "errorTitle": "No s'ha pogut enviar",
+    "errorBody": "Torna-ho a provar d'aquí a un moment, o truca'ns directament a la botiga.",
+    "franges": {
+      "mati": "Matí",
+      "tarda": "Tarda"
+    },
+    "botigues": {
+      "girona": "Girona — C/ Rutlla, 11",
+      "blanes": "Blanes — Rambla Joaquim Ruyra, 59",
+      "palamos": "Palamós — C/ Miguel de Cervantes, 35",
+      "matalasseria": "Matalasseria de Girona — C/ Rutlla, 20"
+    },
+    "consent": "He llegit i accepto la <link>política de privacitat</link>.",
+    "required": "Aquest camp és obligatori."
   }
 }
