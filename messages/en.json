@@ -111,12 +111,12 @@
   },
   "CtaVisita": {
     "ariaLabel": "Book a consultation",
-    "eyebrow": "No commitment",
+    "eyebrow": "The first step",
     "headline": "Book your visit. We advise you at home or in store.",
-    "body": "We'll welcome you at any of our stores to talk about your project, with no obligation. And if you prefer, we'll come to your home with the sample book — a home advisory service with a fee, to see the fabrics in your own space and light.",
+    "body": "We'll welcome you at any of our stores to talk about your project. And if you prefer, we'll come to your home with the sample book — a home advisory service with a fee, to see the fabrics in your own space and light.",
     "ctaPrimary": "Book a consultation",
     "ctaSecondary": "Find your nearest store",
-    "disclaimer": "No commitment. No sales pressure."
+    "disclaimer": "No commitment, no sales pressure."
   },
   "Home": {
     "metaTitle": "Made-to-measure textiles and sun protection | Cortinatges Esteba",

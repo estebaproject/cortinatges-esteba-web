@@ -27,22 +27,35 @@ export default async function LocationsSection() {
     t(`stores.${k}.city` as Parameters<typeof t>[0]),
   ).join(" · ");
 
+  // ESPAIAT retallat. La secció feia `py-section` (96+96) i per dins una
+  // cascada de marges de 4+5+6+10+8: cinc elements que sumaven 33 unitats de
+  // separació, i cada peça surava sola enmig del blau. Ara el coixí és de 56 i
+  // 80, i els marges baixen un graó cadascun. El bloc es llegeix com UNA crida,
+  // que és el que és, i no com cinc coses posades en columna.
+  //
+  // EL TEXT també ha canviat: "sense compromís" hi sortia TRES vegades — a
+  // l'eyebrow, al mig del cos i al peu. Dir-ho tres vegades no tranquil·litza
+  // ningú; fa pensar que hi ha lletra petita. Ara es diu UNA sola vegada, al
+  // peu, que és on apareix el dubte: just sota els botons, quan ja has decidit
+  // clicar. L'eyebrow passa a situar ("El primer pas") en lloc de repetir.
+  // Compte: aquestes claus són del namespace `CtaVisita` i les comparteixen
+  // /nosaltres i /contacte, o sigui que el canvi els arregla la mateixa pega.
   return (
-    <section className="py-section bg-accent-deep text-center" aria-label={tv("ariaLabel")}>
+    <section className="py-14 md:py-20 bg-accent-deep text-center" aria-label={tv("ariaLabel")}>
       <div className="max-w-layout mx-auto px-6 lg:px-12">
-        <p className="font-sans text-body-sm text-accent-light tracking-widest uppercase mb-4">
+        <p className="font-sans text-body-sm text-accent-light tracking-widest uppercase mb-3">
           {tv("eyebrow")}
         </p>
-        <h2 className="font-serif text-display-lg text-canvas max-w-2xl mx-auto mb-5">
+        <h2 className="font-serif text-display-lg text-canvas max-w-2xl mx-auto mb-4">
           {tv("headline")}
         </h2>
-        <p className="font-sans text-body-lg text-canvas/70 max-w-prose-editorial mx-auto mb-6">
+        <p className="font-sans text-body-lg text-canvas/70 max-w-prose-editorial mx-auto mb-5">
           {tv("body")}
         </p>
         {/* Els tres pobles: no és decoració, és la prova que hi ha botiga on
             anar. Va en serif i amb separadors per a llegir-se d'un cop, no com
             una llista. */}
-        <p className="font-serif text-display-md text-canvas/90 mb-10">{towns}</p>
+        <p className="font-serif text-display-md text-canvas/90 mb-8">{towns}</p>
 
         <div className="flex flex-col sm:flex-row justify-center gap-3">
           <Link
@@ -59,7 +72,7 @@ export default async function LocationsSection() {
           </Link>
         </div>
 
-        <p className="mt-8 font-sans text-body-sm text-canvas/50">{tv("disclaimer")}</p>
+        <p className="mt-6 font-sans text-body-sm text-canvas/50">{tv("disclaimer")}</p>
       </div>
     </section>
   );

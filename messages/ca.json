@@ -111,12 +111,12 @@
   },
   "CtaVisita": {
     "ariaLabel": "Concerta una cita",
-    "eyebrow": "Sense compromís",
+    "eyebrow": "El primer pas",
     "headline": "Demana la teva visita. T'assessorem a casa o a la botiga.",
-    "body": "T'esperem a qualsevol de les nostres botigues per parlar del teu projecte sense compromís. I si ho prefereixes, anem a casa teva amb el mostrari: un servei d'assessorament a domicili amb cost, per veure els teixits al teu espai i amb la teva llum.",
+    "body": "T'esperem a qualsevol de les nostres botigues per parlar del teu projecte. I si ho prefereixes, anem a casa teva amb el mostrari: un servei d'assessorament a domicili amb cost, per veure els teixits al teu espai i amb la teva llum.",
     "ctaPrimary": "Concerta una cita",
     "ctaSecondary": "Troba la botiga més propera",
-    "disclaimer": "Sense compromís. Sense pressió de venda."
+    "disclaimer": "Sense compromís ni pressió de venda."
   },
   "Home": {
     "metaTitle": "Tèxtil i protecció solar a mida a Girona | Cortinatges Esteba",

@@ -111,12 +111,12 @@
   },
   "CtaVisita": {
     "ariaLabel": "Concertar una cita",
-    "eyebrow": "Sin compromiso",
+    "eyebrow": "El primer paso",
     "headline": "Pide tu visita. Te asesoramos en casa o en la tienda.",
-    "body": "Te esperamos en cualquiera de nuestras tiendas para hablar de tu proyecto sin compromiso. Y si lo prefieres, vamos a tu casa con el muestrario: un servicio de asesoramiento a domicilio con coste, para ver los tejidos en tu espacio y con tu luz.",
+    "body": "Te esperamos en cualquiera de nuestras tiendas para hablar de tu proyecto. Y si lo prefieres, vamos a tu casa con el muestrario: un servicio de asesoramiento a domicilio con coste, para ver los tejidos en tu espacio y con tu luz.",
     "ctaPrimary": "Concertar una cita",
     "ctaSecondary": "Encuentra la tienda más cercana",
-    "disclaimer": "Sin compromiso. Sin presión de venta."
+    "disclaimer": "Sin compromiso ni presión de venta."
   },
   "Home": {
     "metaTitle": "Textil y protección solar a medida en Girona | Cortinatges Esteba",

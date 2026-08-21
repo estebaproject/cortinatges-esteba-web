@@ -69,46 +69,27 @@ const ICON_SVG: Record<IconKey, React.ReactNode> = {
 
 export default async function ServicesGrid({ compact = false }: { compact?: boolean }) {
   const t = await getTranslations("Serveis");
-  // Només per a la portada: el titular d'aquesta secció ara és el de l'ofici.
-  const to = await getTranslations("SectionOfici");
   const locale = await getLocale();
   // Home (icones): sense "disseny". Pàgina /serveis (amb fotos): tots 5.
   const keys: IconKey[] = compact
     ? ["assessorament", "mides", "confeccio", "installacio"]
     : ["assessorament", "disseny", "mides", "confeccio", "installacio"];
 
-  // Espaiat de la versió compacta (portada) retallat: `py-section` són 96px a
-  // dalt i 96 a baix per a quatre icones amb una paraula sota. A baix en són 48
-  // en mòbil i 64 en escriptori, i la capçalera de la secció baixa de 48px de
-  // separació a 32/40. La versió amb fotos de /serveis no es toca.
-  //
-  // A dalt sí que n'hi ha més (64 i 96): aquesta secció comparteix el fons
-  // càlid amb la franja d'obertura, o sigui que no hi ha cap canvi de color
-  // que les separi i el titular de l'ofici quedava enganxat al que té just a
-  // sobre. Aquest coixí no es llegeix com una banda buida — es llegeix com
-  // l'aire que li faltava.
+  // Espaiat de la versió compacta (portada). Retallat i asimètric a posta:
+  // poc coixí a dalt perquè les quatre icones pugin i entrin a la primera
+  // pantalla, i més a baix per separar-les de les categories, on sí que hi ha
+  // canvi de fons. La versió amb fotos de /serveis no es toca.
   return (
-    <section className={compact ? "pt-16 pb-12 md:pt-24 md:pb-16 bg-canvas-warm" : "pb-section bg-canvas"} aria-label={t("title")}>
+    <section className={compact ? "pt-6 pb-12 md:pt-8 md:pb-16 bg-canvas-warm" : "pb-section bg-canvas"} aria-label={t("title")}>
       <div className="max-w-layout mx-auto px-6 lg:px-12">
-        {compact && (
-          <div className="text-center mb-10 md:mb-12">
-            {/* Aquesta capçalera ve de "El nostre ofici", que era una secció a
-                part just a sobre. Eren dos blocs seguits de prosa centrada, 838px
-                sense ni una imatge i amb 160px de blanc entremig — i els seus
-                tres paràgrafs deien, pitjor, el que /nosaltres ja explica: un
-                d'ells és gairebé la mateixa frase que `About.story3`.
-                Ara el que aporta l'ofici (el titular: tres generacions, un sol
-                ofici) encapçala els quatre passos, que és on es demostra. La
-                història sencera es queda a /nosaltres, que és a la navegació. */}
-            <p className="font-sans text-eyebrow text-accent-deep uppercase mb-3">
-              {to("eyebrow")}
-            </p>
-            <h2 className="font-serif text-display-md text-ink mb-4">{to("headline")}</h2>
-            <p className="font-sans text-body-lg text-ink-muted max-w-prose-editorial mx-auto">
-              {t("intro")}
-            </p>
-          </div>
-        )}
+        {/* A la portada aquest bloc no porta CAP capçalera: només les quatre
+            icones. Hi havia l'eyebrow "El nostre ofici", el titular "Tres
+            generacions. Un sol ofici." i la frase "Un acompanyament complet…".
+            Tres línies de discurs abans d'arribar a l'única cosa d'aquí que és
+            informació: què fem. Empenyien les icones fora de la primera
+            pantalla i no deien res que el visitant pugui fer servir encara.
+            L'eyebrow i el titular han baixat a `ArtisanBand`, al tancament.
+            La frase d'acompanyament es queda a /serveis, que és casa seva. */}
         <ul
           className={`grid ${compact ? "grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10" : "grid-cols-2 lg:grid-cols-5 gap-6"}`}
           role="list"

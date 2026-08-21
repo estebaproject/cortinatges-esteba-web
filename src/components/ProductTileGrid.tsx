@@ -82,8 +82,15 @@ export default async function ProductTileGrid() {
   // A més portava un h1, i el hero ja en té un altre: la portada en tenia DOS.
   // Ara només queda el del hero.
   //
-  // El `tagline` es manté com a aria-label de la secció: no es veu, però dona
-  // nom al landmark per a qui navega amb lector de pantalla.
+  // El `tagline` torna a VEURE'S. Feia de sola aria-label: el llegia un lector
+  // de pantalla i ningú més. I diu just el que aquesta secció necessita que es
+  // digui abans d'ensenyar onze categories — que aquí hi ha més que cortines —
+  // perquè si no, qui ve buscant cortines no mira les catifes ni els matalassos.
+  //
+  // Va en `<p>`, no en encapçalament. El bloc que hi havia abans en aquest lloc
+  // portava un h1 i el hero ja en té un: la portada n'arribava a tenir DOS.
+  // Com a paràgraf fa la mateixa feina i no toca l'esquema de títols.
+  // Es queda també com a aria-label, que no fa mal a ningú.
   return (
     <section className="bg-canvas" aria-label={tg("tagline")}>
       {/* Sense coixí superior a propòsit: el `pt-12 md:pt-16` que ja hi ha a
@@ -91,6 +98,9 @@ export default async function ProductTileGrid() {
           aquí també, quedaven 112px de blanc buit entre la franja d'obertura i
           la primera targeta — i ara allà no hi ha res que l'ompli. */}
       <div id="productes" className="max-w-layout mx-auto px-6 lg:px-12 pb-section scroll-mt-32">
+        <p className="font-serif text-xl md:text-2xl text-ink text-center max-w-3xl mx-auto leading-snug mb-8 md:mb-10">
+          {tg("tagline")}
+        </p>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8">
           {allTiles.slice(0, splitAt).map((tile, i) => (
             <Tile key={tile.key} tile={tile} priority={i === 0} />

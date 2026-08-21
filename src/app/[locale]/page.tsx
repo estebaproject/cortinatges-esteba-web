@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import ProductTileGrid from "@/components/ProductTileGrid";
 import ServicesGrid from "@/components/ServicesGrid";
 import ContentRows from "@/components/ContentRows";
+import ArtisanBand from "@/components/ArtisanBand";
 import BrandsStrip from "@/components/BrandsStrip";
 import LocationsSection from "@/components/LocationsSection";
 
@@ -24,25 +25,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 /**
  * Portada.
  *
- * De nou seccions a sis. Les tres que han marxat i per què:
+ * ORDRE: obertura → què fem → què venem → què més hi ha → qui som → marques → on som.
  *
- * - `ArtisanBand`: 217px per a dues frases, i una era LITERALMENT la mateixa que
- *   `SectionOfici.paragraph2` — el visitant la llegia dues vegades seguides,
- *   perquè les dues seccions anaven una darrere l'altra. El bloc s'ha fos dins
- *   de "El nostre ofici", que ara és qui porta el blau.
+ * Els quatre serveis es queden a dalt; el TITULAR D'OFICI baixa al final.
+ * Anaven junts i era un mal matrimoni: el titular parlava de tres generacions
+ * — discurs de marca, es llegeix bé al tancament — i empenyia avall les quatre
+ * icones, que són informació pràctica i han de veure's en aterrar. Separats,
+ * cadascun cau on li toca.
  *
- * - `CtaVisita`: 806px, la tercera secció més gran de la portada, per a 66
- *   paraules. Deia el mateix que `LocationsSection`, just a sobre: "vine a
- *   veure'ns" i "demana la teva visita", i totes dues acabaven amb el mateix
- *   botó cap a /botigues. Ara són una sola secció de tancament.
+ * Les tres seccions que en el seu dia van marxar i què n'ha estat:
  *
- * - `EspaisSection`: era una fitxa de producte disfressada de secció. El seu
- *   tema, la motorització, ja té pàgina pròpia amb intro, dos paràgrafs i cinc
- *   característiques — molt més del que deien aquí les seves vint paraules.
+ * - `ArtisanBand`: TORNA. Se'n va anar perquè una de les seves dues frases era
+ *   LITERALMENT la mateixa que `SectionOfici.paragraph2`. Però `SectionOfici`
+ *   ja no es renderitza enlloc — d'aquella secció només se n'aprofiten l'eyebrow
+ *   i el titular, prestats a `ServicesGrid` — o sigui que aquell paràgraf avui
+ *   no es llegeix a cap pàgina i la repetició ja no existeix. Torna avall de
+ *   tot, LLUNY del bloc d'ofici: si es posa just a sota, "atenció
+ *   personalitzada" i "acompanyament complet" es diuen dues vegades seguides
+ *   amb altres paraules, que és la mateixa pega d'abans amb un altre vestit.
  *
- * L'ordre també canvia: l'ofici passa DAVANT dels serveis. Abans es deia què
- * fem abans de dir qui som, i costa més comprar un servei a mida de qui encara
- * no saps qui és.
+ * - `CtaVisita`: segueix fosa dins de `LocationsSection`, que és el tancament.
+ *
+ * - `EspaisSection`: segueix fora. La motorització té fitxa pròpia.
  */
 export default async function HomePage() {
   return (
@@ -51,31 +55,37 @@ export default async function HomePage() {
           l'alçada real de la capçalera fixa a cada breakpoint. Per això va fora
           del `pt` de sota: si hi entrés, el coixí es comptaria dues vegades. */}
       <Hero />
-      {/* Els serveis van DAVANT de les categories: primer què fem, després què
-          venem. Qui arriba aquí ja sap que vol cortines; el que no sap és que
-          les mesurem a casa, les cosim al taller i les instal·lem nosaltres —
-          i això és el que no li dona una botiga en línia.
 
-          I van ENGANXATS a la franja d'obertura, sense el coixí de sota. Totes
-          dues seccions tenen el mateix fons càlid, o sigui que separar-les
-          deixava una banda blanca de 48px entre dos blocs del mateix color: es
-          llegia com un error de maquetació. Junts formen l'obertura, i el
-          coixí passa a davant de les categories, on sí que hi ha canvi de fons.
-          El ritme queda en tres temps: càlid, blanc i blau. */}
+      {/* Els QUATRE SERVEIS es queden aquí dalt, enganxats a la franja
+          d'obertura. És el que ha d'entrar per l'ull en aterrar: que prenem
+          mides a casa, que cosim al taller i que instal·lem nosaltres. Això
+          és el que no dona una botiga en línia, i si cau sota la primera
+          pantalla no ho llegeix ningú.
+
+          El que SÍ que ha baixat és el titular d'ofici ("El nostre ofici",
+          "Tres generacions. Un sol ofici."), que encapçalava aquest bloc i
+          empenyia les icones 150px avall. Ara encapçala `ArtisanBand`, al
+          final: qui som es llegeix bé al tancament; els serveis, no. */}
       <ServicesGrid compact />
+
+      {/* I tot seguit el producte, que és el que s'ha vingut a veure. El coixí
+          va aquí perquè entre la franja càlida de dalt i la graella blanca hi
+          ha canvi de color, i sense aire el tall es llegeix com un error. */}
       <div className="pt-10 md:pt-12">
         <ProductTileGrid />
-        <ContentRows />
-        {/* Les marques van AQUÍ i no més amunt. Són una prova, no un argument:
-            valen quan ja has vist el producte i just abans que et demanem que
-            vinguis a la botiga. Posades entre els serveis i les categories
-            tallarien el fil de "què fem → què venem" amb una fila de logos de
-            tercers.
-            Fins ara només es veien a /nosaltres, o sigui que treballar amb
-            Bandalux, Designers Guild o Romo només ho sabia qui hi entrava. */}
-        <BrandsStrip />
-        <LocationsSection />
       </div>
+
+      <ContentRows />
+
+      {/* La franja d'ofici, al final del recorregut i just abans de les marques:
+          "ho fem nosaltres des de 1961" i tot seguit amb qui ho fem. */}
+      <ArtisanBand />
+
+      {/* Les marques són una prova, no un argument: valen quan ja has vist el
+          producte i just abans que et demanem que vinguis a la botiga. */}
+      <BrandsStrip />
+
+      <LocationsSection />
     </div>
   );
 }

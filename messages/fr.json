@@ -111,12 +111,12 @@
   },
   "CtaVisita": {
     "ariaLabel": "Prendre rendez-vous",
-    "eyebrow": "Sans engagement",
+    "eyebrow": "La première étape",
     "headline": "Demandez votre visite. Nous vous conseillons à domicile ou en boutique.",
-    "body": "Nous vous accueillons dans l'une de nos boutiques pour parler de votre projet, sans engagement. Et si vous préférez, nous venons chez vous avec les échantillons : un service de conseil à domicile payant, pour voir les tissus dans votre espace et votre lumière.",
+    "body": "Nous vous accueillons dans l'une de nos boutiques pour parler de votre projet. Et si vous préférez, nous venons chez vous avec les échantillons : un service de conseil à domicile payant, pour voir les tissus dans votre espace et votre lumière.",
     "ctaPrimary": "Prendre rendez-vous",
     "ctaSecondary": "Trouver la boutique la plus proche",
-    "disclaimer": "Sans engagement. Sans pression commerciale."
+    "disclaimer": "Sans engagement ni pression commerciale."
   },
   "Home": {
     "metaTitle": "Textile et protection solaire sur mesure | Cortinatges Esteba",

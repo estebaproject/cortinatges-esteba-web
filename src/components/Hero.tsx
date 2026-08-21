@@ -7,8 +7,8 @@ import { publicPath } from "@/lib/site";
  *
  * Torna, però compacta. La primera versió tenia foto d'ambient genèrica i es
  * menjava el 52% de la pantalla en mòbil; la segona, ja sense foto, encara en
- * gastava 442px abans d'arribar a cap producte. Aquesta va a l'os: titular,
- * una línia i una acció.
+ * gastava 442px abans d'arribar a cap producte. Aquesta va a l'os: titular
+ * i acció, res més.
  *
  * Té dues feines que abans estaven repartides:
  *
@@ -38,12 +38,17 @@ export default async function Hero() {
       <div className="max-w-layout mx-auto px-6 lg:px-12">
         <div className="md:flex md:items-end md:justify-between md:gap-10">
           <div className="md:max-w-3xl">
-            <h1 className="font-serif text-display-md text-ink mb-2">
+            {/* Sense subtítol. Deia "Prenem mides a casa teva i t'assessorem.
+                Producte a mida, fabricat i instal·lat per nosaltres." — que és
+                exactament el que expliquen, i millor, les quatre icones de just
+                a sota: presa de mides, confecció pròpia, instal·lació pròpia.
+                Dir-ho en prosa i tot seguit en icones és dir-ho dues vegades, i
+                la primera empenyia la segona avall.
+                La frase no es perd: segueix sent la meta-descripció de la
+                portada, que és on treballa de debò. */}
+            <h1 className="font-serif text-display-md text-ink">
               {t("headline")}
             </h1>
-            <p className="font-sans text-body-md text-ink-muted max-w-prose-editorial">
-              {t("subheadline")}
-            </p>
           </div>
           {/* En escriptori el botó va a la dreta, a la mateixa línia de base que
               el text: així la franja es queda en una sola banda i no suma
