@@ -50,12 +50,19 @@ export default async function Hero() {
               {t("headline")}
             </h1>
           </div>
-          {/* En escriptori el botó va a la dreta, a la mateixa línia de base que
-              el text: així la franja es queda en una sola banda i no suma
-              alçada. En mòbil cau a sota, a tot l'ample. */}
+          {/* En escriptori el botó va a la dreta, a la mateixa línia de base
+              que el text: així la franja es queda en una sola banda i no suma
+              alçada. Allà NO es toca res.
+              
+              En MÒBIL era `w-full`: 272x59 a 320px, o sigui 16.099px² contra
+              els 4.358 del logo — el botó pesava 3,7 vegades més que la marca,
+              i a 390 arribava a 4,6. Ara s'ajusta al seu contingut, amb el cos
+              de lletra i el coixí més petits, i conserva els 44px d'alçada
+              tocable via `min-h`: es pot prémer igual de bé, però ja no li
+              menja el protagonisme al logo. */}
           <Link
             href={publicPath("/demana-pressupost", locale)}
-            className="mt-5 md:mt-0 w-full md:w-auto shrink-0 inline-flex items-center justify-center px-8 py-4 bg-sand text-ink font-sans text-body-md font-medium tracking-widest uppercase hover:bg-sand-dark transition-colors"
+            className="mt-5 md:mt-0 w-auto md:w-auto shrink-0 inline-flex min-h-[44px] items-center justify-center px-5 py-3 md:px-8 md:py-4 bg-sand text-ink font-sans text-xs md:text-body-md font-medium tracking-widest uppercase hover:bg-sand-dark transition-colors"
           >
             {t("ctaPrimary")}
           </Link>

@@ -47,7 +47,7 @@ export default function ReelsSection() {
             href={INSTAGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-sans text-body-md text-ink-muted hover:text-ink transition-colors"
+            className="inline-flex min-h-[44px] items-center font-sans text-body-md text-ink-muted hover:text-ink transition-colors"
           >
             {HANDLE}
           </a>

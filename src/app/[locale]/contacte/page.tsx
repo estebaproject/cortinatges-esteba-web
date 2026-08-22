@@ -87,7 +87,7 @@ export default async function ContactPage() {
                     </p>
                     <a
                       href={`tel:+34${phone.replace(/\s/g, "")}`}
-                      className="font-sans text-body-md text-accent-deep font-medium hover:text-ink transition-colors"
+                      className="inline-flex min-h-[44px] items-center -my-2 font-sans text-body-md text-accent-deep font-medium hover:text-ink transition-colors"
                     >
                       {phone}
                     </a>
@@ -106,7 +106,7 @@ export default async function ContactPage() {
                         href={urlGoogleMaps(key)}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-sans text-body-sm text-accent-deep hover:text-ink transition-colors underline underline-offset-4"
+                        className="inline-flex min-h-[44px] items-center -my-2.5 font-sans text-body-sm text-accent-deep hover:text-ink transition-colors underline underline-offset-4"
                       >
                         {tl("veureGoogle")}
                       </a>
@@ -115,7 +115,7 @@ export default async function ContactPage() {
                           href={urlEscriuRessenya(key)!}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="font-sans text-body-sm text-accent-deep hover:text-ink transition-colors underline underline-offset-4"
+                          className="inline-flex min-h-[44px] items-center -my-2.5 font-sans text-body-sm text-accent-deep hover:text-ink transition-colors underline underline-offset-4"
                         >
                           {tl("escriuRessenya")}
                         </a>
