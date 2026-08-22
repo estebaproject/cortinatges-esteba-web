@@ -48,13 +48,13 @@ export default function CookieBanner() {
         <div className="flex items-center gap-3 shrink-0">
           <button
             onClick={() => decide("rejected")}
-            className="px-5 py-2.5 border border-canvas/40 text-canvas font-sans text-xs tracking-widest uppercase hover:border-canvas transition-colors"
+            className="inline-flex min-h-[44px] items-center justify-center px-5 py-2.5 border border-canvas/40 text-canvas font-sans text-xs tracking-widest uppercase hover:border-canvas transition-colors"
           >
             {t("reject")}
           </button>
           <button
             onClick={() => decide("accepted")}
-            className="px-5 py-2.5 bg-sand text-ink font-sans text-xs font-medium tracking-widest uppercase hover:bg-sand-dark transition-colors"
+            className="inline-flex min-h-[44px] items-center justify-center px-5 py-2.5 bg-sand text-ink font-sans text-xs font-medium tracking-widest uppercase hover:bg-sand-dark transition-colors"
           >
             {t("accept")}
           </button>

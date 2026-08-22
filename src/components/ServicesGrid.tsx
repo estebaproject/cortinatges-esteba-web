@@ -91,7 +91,7 @@ export default async function ServicesGrid({ compact = false }: { compact?: bool
             L'eyebrow i el titular han baixat a `ArtisanBand`, al tancament.
             La frase d'acompanyament es queda a /serveis, que és casa seva. */}
         <ul
-          className={`grid ${compact ? "grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10" : "grid-cols-2 lg:grid-cols-5 gap-6"}`}
+          className={`grid ${compact ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10" : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6"}`}
           role="list"
         >
           {keys.map((key) =>

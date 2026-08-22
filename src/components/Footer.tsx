@@ -52,7 +52,7 @@ export default async function Footer() {
               href="https://www.instagram.com/cortinatgesesteba/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block mt-4 font-sans text-body-sm text-canvas hover:text-sand transition-colors"
+              className="inline-flex min-h-[44px] items-center mt-2 font-sans text-body-sm text-canvas hover:text-sand transition-colors"
             >
               {t("instagram")}
             </a>
@@ -62,7 +62,7 @@ export default async function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="text-stone-warm hover:text-canvas transition-colors"
+                className="inline-flex h-11 w-11 -m-3 items-center justify-center text-stone-warm hover:text-canvas transition-colors"
               >
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 4.32a5.52 5.52 0 100 11.04 5.52 5.52 0 000-11.04zm0 9.1a3.58 3.58 0 110-7.16 3.58 3.58 0 010 7.16zm7.03-9.32a1.29 1.29 0 11-2.58 0 1.29 1.29 0 012.58 0z" />
@@ -73,7 +73,7 @@ export default async function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="text-stone-warm hover:text-canvas transition-colors"
+                className="inline-flex h-11 w-11 -m-3 items-center justify-center text-stone-warm hover:text-canvas transition-colors"
               >
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.02 4.39 11.01 10.13 11.93v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88v2.26h3.32l-.53 3.49h-2.79V24C19.61 23.08 24 18.09 24 12.07z" />
@@ -92,7 +92,7 @@ export default async function Footer() {
                 <p className="mt-2">
                   <a
                     href={`tel:${store.phone.replace(/\s/g, "")}`}
-                    className="hover:text-canvas transition-colors"
+                    className="inline-flex min-h-[44px] items-center -my-3 hover:text-canvas transition-colors"
                   >
                     {store.phone}
                   </a>
@@ -111,7 +111,7 @@ export default async function Footer() {
               <li>
                 <Link
                   href={publicPath("/serveis", locale)}
-                  className="font-sans text-body-sm text-stone-warm hover:text-canvas transition-colors"
+                  className="inline-flex min-h-[44px] items-center -my-2.5 font-sans text-body-sm text-stone-warm hover:text-canvas transition-colors"
                 >
                   {t("services")}
                 </Link>
@@ -119,7 +119,7 @@ export default async function Footer() {
               <li>
                 <Link
                   href={publicPath("/demana-pressupost", locale)}
-                  className="font-sans text-body-sm text-stone-warm hover:text-canvas transition-colors"
+                  className="inline-flex min-h-[44px] items-center -my-2.5 font-sans text-body-sm text-stone-warm hover:text-canvas transition-colors"
                 >
                   {t("budget")}
                 </Link>
@@ -127,7 +127,7 @@ export default async function Footer() {
               <li>
                 <Link
                   href={publicPath("/vols-treballar-amb-nosaltres", locale)}
-                  className="font-sans text-body-sm text-stone-warm hover:text-canvas transition-colors"
+                  className="inline-flex min-h-[44px] items-center -my-2.5 font-sans text-body-sm text-stone-warm hover:text-canvas transition-colors"
                 >
                   {t("jobs")}
                 </Link>
@@ -135,7 +135,7 @@ export default async function Footer() {
               <li>
                 <Link
                   href={publicPath("/privacitat", locale)}
-                  className="font-sans text-body-sm text-stone-warm hover:text-canvas transition-colors"
+                  className="inline-flex min-h-[44px] items-center -my-2.5 font-sans text-body-sm text-stone-warm hover:text-canvas transition-colors"
                 >
                   {t("privacy")}
                 </Link>
@@ -143,7 +143,7 @@ export default async function Footer() {
               <li>
                 <Link
                   href={publicPath("/cookies", locale)}
-                  className="font-sans text-body-sm text-stone-warm hover:text-canvas transition-colors"
+                  className="inline-flex min-h-[44px] items-center -my-2.5 font-sans text-body-sm text-stone-warm hover:text-canvas transition-colors"
                 >
                   {t("cookies")}
                 </Link>
@@ -151,7 +151,7 @@ export default async function Footer() {
               <li>
                 <Link
                   href={publicPath("/avis-legal", locale)}
-                  className="font-sans text-body-sm text-stone-warm hover:text-canvas transition-colors"
+                  className="inline-flex min-h-[44px] items-center -my-2.5 font-sans text-body-sm text-stone-warm hover:text-canvas transition-colors"
                 >
                   {t("legal")}
                 </Link>

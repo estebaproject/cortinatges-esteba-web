@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 import { usePathname } from "@/navigation";
 import LocaleSwitcher from "./LocaleSwitcher";
@@ -100,7 +101,7 @@ export default function Header() {
       {/* Barra principal */}
       <div className="bg-canvas border-b border-linen">
         <div className="max-w-layout mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-2 md:grid-cols-3 items-center h-20">
+          <div className="flex items-center justify-between md:grid md:grid-cols-3 h-20">
             {/* Espai buit per centrar el logo — la navegació va a la fila inferior */}
             <div className="hidden md:block" aria-hidden="true" />
 
@@ -110,11 +111,28 @@ export default function Header() {
               className="justify-self-start md:justify-self-center group"
               aria-label="Cortinatges Esteba — inici"
             >
-              <span className="flex items-center leading-none border border-ink/70 px-4 md:px-6 py-3 group-hover:border-ink transition-colors">
-                <span className="font-serif text-xl md:text-2xl text-ink tracking-[0.18em] uppercase font-semibold">
-                  Cortinatges Esteba
-                </span>
-              </span>
+              {/* LOGO NOU, imatge en lloc de text.
+                  Abans era "Cortinatges Esteba" compost amb tipografia dins
+                  d'un requadre dibuixat amb CSS. Es partia en dues línies per
+                  sota de 640px, i mesurat no hi cabia de cap manera: en una
+                  sola línia demanava 254px i a 320 només n'hi ha 190.
+                  El logo de la casa ho resol sol, perquè és un bloc apilat i
+                  no una línia: a 320 es pinta a 89x64 i es llegeix bé.
+
+                  SENSE requadre de CSS: el logo ja porta el seu, el marc en
+                  ziga-zaga. Un dins de l'altre quedaria com un error.
+
+                  L'`alt` va buit a posta — l'enllaç ja té `aria-label`, i si
+                  totes dues coses parlen, un lector de pantalla ho diu dues
+                  vegades seguides. */}
+              <Image
+                src="/images/logo-esteba.webp"
+                alt=""
+                width={560}
+                height={403}
+                priority
+                className="h-14 w-auto md:h-16"
+              />
             </Link>
 
             {/* Accions dreta */}
@@ -148,7 +166,7 @@ export default function Header() {
                 </Link>
               )}
               <button
-                className="md:hidden p-2 text-ink"
+                className="md:hidden inline-flex h-11 w-11 -mr-2 items-center justify-center text-ink"
                 onClick={() => setMenuOpen(!menuOpen)}
                 aria-label={menuOpen ? "Tanca el menú" : "Obre el menú"}
                 aria-expanded={menuOpen}

@@ -194,7 +194,7 @@ export default async function ProductPage({ params }: Props) {
             )}
 
             {notesRaw.length > 0 && (
-              <div className="mt-12 border border-linen bg-canvas-warm p-8">
+              <div className="mt-12 border border-linen bg-canvas-warm p-5 sm:p-8">
                 <h2 className="font-sans text-eyebrow text-accent-deep uppercase mb-6">
                   {t("notesHeading")}
                 </h2>

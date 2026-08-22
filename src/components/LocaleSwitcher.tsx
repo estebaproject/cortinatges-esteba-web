@@ -46,6 +46,7 @@ export default function LocaleSwitcher({ tone = "dark" }: { tone?: Tone }) {
               onClick={() => handleChange(loc)}
               aria-current={loc === locale ? "true" : undefined}
               className={[
+                "inline-flex min-h-[44px] min-w-[36px] items-center justify-center -my-3",
                 "text-body-sm font-sans tracking-wider uppercase transition-colors",
                 loc === locale ? styles.active : styles.idle,
               ].join(" ")}

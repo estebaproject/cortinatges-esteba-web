@@ -50,8 +50,19 @@ export function ConsentField({
   onChange: (v: boolean) => void;
 }) {
   const t = useTranslations(namespace);
+  const tf = useTranslations("Footer");
   const locale = useLocale();
 
+  // L'ENLLAÇ A PRIVACITAT SURT DE DINS DE L'ETIQUETA.
+  //
+  // Abans anava enganxat dins de la frase, i la frase sencera és la zona que
+  // marca la casella. En mòbil, on ocupa dues o tres línies, bona part
+  // d'aquella zona no marcava res: se n'anava a una altra pàgina. Qui només
+  // volia acceptar acabava fora del formulari i perdia el que havia escrit.
+  //
+  // Ara la frase és només text —tocar-la marca la casella, sempre— i l'enllaç
+  // va a sota, sol i amb els seus 44px. S'aprofita "Política de privacitat"
+  // del peu, que ja està traduït als quatre idiomes.
   return (
     <div className="flex flex-col gap-2">
       <label className="flex items-start gap-3 cursor-pointer">
@@ -60,22 +71,19 @@ export function ConsentField({
           required
           checked={checked}
           onChange={(e) => onChange(e.target.checked)}
-          className="mt-1 h-4 w-4 shrink-0 accent-accent-deep"
+          className="mt-0.5 h-5 w-5 shrink-0 accent-accent-deep"
         />
         <span className="font-sans text-body-sm text-ink-muted">
-          {t.rich("consent", {
-            link: (chunks) => (
-              <Link
-                href={publicPath("/privacitat", locale)}
-                className="text-accent-deep underline hover:text-ink"
-              >
-                {chunks}
-              </Link>
-            ),
-          })}
+          {t.rich("consent", { link: (chunks) => <>{chunks}</> })}
         </span>
       </label>
-      <p className="font-sans text-body-sm text-ink-faint pl-7">{t("consentNote")}</p>
+      <p className="font-sans text-body-sm text-ink-faint pl-8">{t("consentNote")}</p>
+      <Link
+        href={publicPath("/privacitat", locale)}
+        className="inline-flex min-h-[44px] w-fit items-center pl-8 font-sans text-body-sm text-accent-deep underline underline-offset-4 hover:text-ink"
+      >
+        {tf("privacy")}
+      </Link>
     </div>
   );
 }
