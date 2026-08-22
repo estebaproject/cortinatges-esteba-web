@@ -75,6 +75,20 @@ export default async function ServicesGrid({ compact = false }: { compact?: bool
     ? ["assessorament", "mides", "confeccio", "installacio"]
     : ["assessorament", "disseny", "mides", "confeccio", "installacio"];
 
+  // DUES columnes a la portada i UNA a /serveis: no és incoherència, són dues
+  // coses diferents. Aquí són icones amb un nom curt; allà, targetes amb foto
+  // i un paràgraf, que és on sortien les tires de 13 caràcters.
+  //
+  // Però amb la línia de descripció, dues columnes tornaven a fer tires:
+  // mesurat als quatre idiomes, la columna cau a 124px a 320 i el text baixa
+  // a 12-13 caràcters per línia (17-18 a 430). Per això la descripció s'amaga
+  // per sota de 640px i queden només la icona i el nom.
+  //
+  // El compte surt a favor: d'una columna amb descripció (629px d'alçada) a
+  // dues sense (240-268px). Són 390px menys de scroll, molt més del que
+  // s'estalviaria només posant dues columnes. I les frases no es perden, que
+  // segueixen senceres a /serveis, que és on s'expliquen.
+  //
   // Espaiat de la versió compacta (portada). Retallat i asimètric a posta:
   // poc coixí a dalt perquè les quatre icones pugin i entrin a la primera
   // pantalla, i més a baix per separar-les de les categories, on sí que hi ha
@@ -91,7 +105,7 @@ export default async function ServicesGrid({ compact = false }: { compact?: bool
             L'eyebrow i el titular han baixat a `ArtisanBand`, al tancament.
             La frase d'acompanyament es queda a /serveis, que és casa seva. */}
         <ul
-          className={`grid ${compact ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10" : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6"}`}
+          className={`grid ${compact ? "grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10" : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6"}`}
           role="list"
         >
           {keys.map((key) =>
@@ -133,7 +147,7 @@ export default async function ServicesGrid({ compact = false }: { compact?: bool
                       idioma que encara no la tingui se la salta sense
                       trencar-se i sense deixar cap forat. */}
                   {t.has(`items.${key}.short` as Parameters<typeof t.has>[0]) && (
-                    <p className="mt-2 font-sans text-body-sm text-ink-muted leading-snug">
+                    <p className="hidden sm:block mt-2 font-sans text-body-sm text-ink-muted leading-snug">
                       {t(`items.${key}.short` as Parameters<typeof t>[0])}
                     </p>
                   )}
