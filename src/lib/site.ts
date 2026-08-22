@@ -13,7 +13,18 @@ export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://cortinatgesesteba.com"
 ).replace(/\/+$/, "");
 export const SITE_NAME = "Cortinatges Esteba";
-export const DEFAULT_OG_IMAGE = "/images/tradicional_8.jpg";
+/**
+ * Imatge que surt quan algú comparteix el web (WhatsApp, Facebook, X…).
+ *
+ * ABANS apuntava a /images/tradicional_8.jpg, que fa 768x1024 —VERTICAL— i es
+ * declarava aquí sota com a 1200x630. Les xarxes es creuen el que se'ls diu:
+ * la targeta sortia retallada o deformada cada vegada que es compartia.
+ *
+ * Ara és una imatge feta a mida, 1200x630 de debò, amb el logo blanc sobre el
+ * blau de la casa. Quan hi hagi una foto horitzontal que valgui la pena,
+ * aquest és el lloc per canviar-la: la mida ja és la bona.
+ */
+export const DEFAULT_OG_IMAGE = "/images/og-cortinatges-esteba.jpg";
 export const CONTACT_EMAIL = "info@cortinatgesesteba.com";
 
 // Feature flag: secció de mantes oculta de tota la UI (dades i rutes intactes).

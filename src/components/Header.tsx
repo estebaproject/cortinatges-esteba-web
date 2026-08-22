@@ -57,8 +57,11 @@ export default function Header() {
           que NOMÉS vivia aquí és el selector d'idioma — per això baixa a la
           barra blanca en mòbil, uns quants elements més avall. */}
       <div className="hidden sm:block bg-ink text-canvas">
-        <div className="max-w-layout mx-auto px-6 lg:px-12 flex items-center justify-between h-9 text-xs tracking-widest uppercase">
-          <span className="font-sans text-canvas/70">Des de 1961</span>
+        {/* "Des de 1961" ja no hi és: ho diu el logo, deu centímetres més
+            avall, i repetit dues vegades no aporta res. Amb la franja buida
+            per l'esquerra, el grup de la dreta passa a `justify-end` — si es
+            quedés amb `justify-between` se n'aniria a l'altre costat. */}
+        <div className="max-w-layout mx-auto px-6 lg:px-12 flex items-center justify-end h-9 text-xs tracking-widest uppercase">
           <div className="flex items-center gap-5">
             {!esPortada && (
               <Link

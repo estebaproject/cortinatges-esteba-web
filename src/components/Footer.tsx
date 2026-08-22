@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getTranslations, getLocale } from "next-intl/server";
 import { publicPath } from "@/lib/site";
 
@@ -36,10 +37,17 @@ export default async function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-12">
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href={home} className="block mb-4" aria-label="Cortinatges Esteba — inici">
-              <span className="font-serif text-xl text-canvas block">Cortinatges Esteba</span>
-              <span className="font-sans text-xs text-stone-warm tracking-widest uppercase">
-                Des de 1961
-              </span>
+              {/* La versió blanca del logo, per al fons blau del peu.
+                   S'ha tret el "Des de 1961" que hi havia a sota: el logo ja
+                   porta el 1961 dins, i dit dues vegades una sobre l'altra
+                   només fa soroll. */}
+              <Image
+                src="/images/logo-esteba-blanc.webp"
+                alt=""
+                width={560}
+                height={403}
+                className="h-16 w-auto"
+              />
             </Link>
             <p className="font-sans text-body-sm text-stone-warm leading-relaxed mt-4">
               {t("tagline")}
