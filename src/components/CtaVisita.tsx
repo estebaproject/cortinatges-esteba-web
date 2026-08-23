@@ -37,7 +37,7 @@ export default async function CtaVisita() {
 
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <Link
-            href={publicPath("/contacte", locale)}
+            href={publicPath("/concerta-cita", locale)}
             className="inline-flex items-center justify-center px-10 py-4 bg-canvas text-ink font-sans text-body-md font-medium hover:bg-accent-light hover:text-ink transition-colors"
           >
             {t("ctaPrimary")}

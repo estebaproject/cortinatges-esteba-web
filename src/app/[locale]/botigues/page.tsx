@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import { whatsappUrl } from "@/lib/whatsapp";
 import { SITE_URL, SITE_NAME, localizedAlternatesFor, openGraphFor } from "@/lib/site";
+import Link from "next/link";
 import StoresMap from "@/components/StoresMap";
+import { publicPath } from "@/lib/site";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -49,6 +51,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function StoresPage() {
   const t = await getTranslations("Locations");
   const tw = await getTranslations("Whatsapp");
+  const tn = await getTranslations("Navigation");
+  const locale = await getLocale();
 
   return (
     <section className="pt-40 md:pt-48 pb-section bg-canvas" aria-label={t("ariaLabel")}>
@@ -119,6 +123,19 @@ export default async function StoresPage() {
             );
           })}
         </ul>
+
+        {/* Aquesta pàgina no tenia CAP crida. És el lloc més natural per a la
+            cita: estàs mirant adreces i horaris, i el següent que vols saber
+            és si t'atendran quan hi vagis. No hi va "Demana pressupost" a
+            posta — qui mira botigues vol venir, no vol un preu per correu. */}
+        <div className="mt-16 text-center">
+          <Link
+            href={publicPath("/concerta-cita", locale)}
+            className="inline-flex min-h-[44px] items-center justify-center px-10 py-4 bg-ink text-canvas font-sans text-body-md font-medium tracking-widest uppercase hover:bg-ink-deep transition-colors"
+          >
+            {tn("cta")}
+          </Link>
+        </div>
       </div>
     </section>
   );

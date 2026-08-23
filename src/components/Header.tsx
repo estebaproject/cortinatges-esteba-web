@@ -243,6 +243,21 @@ export default function Header() {
                 </Link>
               ),
             )}
+            {/* La cita, com una entrada MÉS de la llista i no com un botó.
+                A la barra de dalt no hi va: allà ja hi ha "Demana pressupost"
+                i dos botons daurats de costat es llegirien com a competència.
+                En una llista, en canvi, dues entrades es llegeixen com dues
+                opcions — que és exactament el que són: un preu per correu o
+                una visita amb dia i hora.
+                `Navigation.cta` ja estava escrit i traduït als quatre idiomes
+                i no el feia servir ningú. Aquest era el seu lloc. */}
+            <Link
+              href={publicPath("/concerta-cita", locale)}
+              onClick={() => setMenuOpen(false)}
+              className="font-sans text-body-md text-ink tracking-wide uppercase"
+            >
+              {t("cta")}
+            </Link>
             {SHOP_PUBLISHED && (
               <Link
                 href={`${locale === "ca" ? "" : `/${locale}`}/botiga`}

@@ -58,8 +58,14 @@ export default async function LocationsSection() {
         <p className="font-serif text-display-md text-canvas/90 mb-8">{towns}</p>
 
         <div className="flex flex-col sm:flex-row justify-center gap-3">
+            {/* Aquest botó DIU "Concerta una cita" i portava a /contacte, que és
+                WhatsApp, correu i la llista de botigues. Prometia una cosa i en
+                donava una altra. Ara porta on toca.
+                El secundari es queda a /botigues: o véns amb cita, o mires on
+                som. Són dues sortides diferents i cap de les dues és demanar
+                pressupost, que viu a la franja d'obertura. */}
           <Link
-            href={publicPath("/contacte", locale)}
+            href={publicPath("/concerta-cita", locale)}
             className="inline-flex items-center justify-center px-10 py-4 bg-canvas text-ink font-sans text-body-md font-medium hover:bg-accent-light transition-colors"
           >
             {tv("ctaPrimary")}

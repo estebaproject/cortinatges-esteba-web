@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
+import Link from "next/link";
 import { whatsappUrl } from "@/lib/whatsapp";
 import CopyEmail from "@/components/CopyEmail";
 import StoresMap from "@/components/StoresMap";
 import { STORE_KEYS, urlGoogleMaps, urlEscriuRessenya } from "@/lib/botigues";
-import { localizedAlternatesFor, openGraphFor } from "@/lib/site";
+import { localizedAlternatesFor, openGraphFor, publicPath } from "@/lib/site";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -27,6 +28,7 @@ export default async function ContactPage() {
   const t = await getTranslations("CtaVisita");
   const tl = await getTranslations("Locations");
   const tn = await getTranslations("Navigation");
+  const locale = await getLocale();
   const tw = await getTranslations("Whatsapp");
 
   return (
@@ -59,6 +61,16 @@ export default async function ContactPage() {
                 email={EMAIL}
                 className="inline-flex items-center justify-center px-8 py-4 border border-ink/20 text-ink font-sans text-body-md hover:bg-ink hover:text-canvas transition-colors cursor-pointer"
               />
+              {/* La cita, com un canal MÉS i no com un botó gran: aquesta
+                  pàgina és la llista de maneres d'arribar a vosaltres, i venir
+                  en persona n'és una. Va tercera perquè és la que triga més:
+                  WhatsApp és immediat, el correu quasi, i la cita té dia. */}
+              <Link
+                href={publicPath("/concerta-cita", locale)}
+                className="inline-flex min-h-[44px] items-center justify-center px-8 py-4 border border-ink/20 text-ink font-sans text-body-md hover:bg-ink hover:text-canvas transition-colors"
+              >
+                {tn("cta")}
+              </Link>
             </div>
           </div>
 
