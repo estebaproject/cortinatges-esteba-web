@@ -4,7 +4,7 @@ import Link from "next/link";
 import { whatsappUrl } from "@/lib/whatsapp";
 import CopyEmail from "@/components/CopyEmail";
 import StoresMap from "@/components/StoresMap";
-import { STORE_KEYS, urlGoogleMaps, urlEscriuRessenya } from "@/lib/botigues";
+import { STORE_KEYS, urlGoogleMaps, urlEscriuRessenya, MY_MAPS_ID } from "@/lib/botigues";
 import { localizedAlternatesFor, openGraphFor, publicPath } from "@/lib/site";
 
 type Props = {
@@ -149,7 +149,7 @@ export default async function ContactPage() {
                 Segueix darrere del consentiment de cookies, com abans. */}
             <StoresMap
               className="mt-10"
-              mid="1ukTsFISg2UNqXmBvFaZ-ZiY038YDb3E"
+              mid={MY_MAPS_ID}
               query="Cortinatges Esteba"
               stores={STORE_KEYS.map((key) => ({
                 city: tl(`stores.${key}.city` as Parameters<typeof tl>[0]),

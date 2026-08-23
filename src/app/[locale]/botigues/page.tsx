@@ -4,6 +4,7 @@ import { whatsappUrl } from "@/lib/whatsapp";
 import { SITE_URL, SITE_NAME, localizedAlternatesFor, openGraphFor } from "@/lib/site";
 import Link from "next/link";
 import StoresMap from "@/components/StoresMap";
+import { MY_MAPS_ID } from "@/lib/botigues";
 import { publicPath } from "@/lib/site";
 
 type Props = {
@@ -68,10 +69,12 @@ export default async function StoresPage() {
           <h1 className="font-serif text-display-lg text-ink">{t("headline")}</h1>
         </header>
 
-        {/* Mapa únic amb els quatre punts de venda. Fins ara aquesta pàgina
-            no en tenia cap: les adreces només sortien en text. */}
+        {/* El mateix mapa de My Maps que a /contacte. Abans aquí hi havia un
+            embed de cerca, que Google resolia sempre a una sola fitxa: el
+            comentari deia "els quatre punts de venda" i n'ensenyava un. */}
         <StoresMap
           className="mb-16"
+          mid={MY_MAPS_ID}
           query="Cortinatges Esteba"
           stores={STORE_KEYS.map((key) => ({
             city: t(`stores.${key}.city` as Parameters<typeof t>[0]),
