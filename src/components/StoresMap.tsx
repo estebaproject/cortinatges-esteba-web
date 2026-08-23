@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { CONSENT_EVENT } from "@/components/CookieBanner";
 
 /**
  * Mapa amb tots els punts de venda, DARRERE DEL CONSENTIMENT DE COOKIES.
@@ -22,14 +23,31 @@ const CONSENT_KEY = "esteba-cookie-consent";
 
 type Store = { city: string; address: string };
 
+/**
+ * Identificador d'un mapa fet a Google My Maps.
+ *
+ * PER QUÈ AIXÒ I NO UNA CERCA: l'embed de cerca
+ * (`maps.google.com/maps?q=…&output=embed`) és una CERCA, i Google la resol
+ * sempre a UNA fitxa. Provat amb tres consultes diferents: sortia només
+ * Girona, per moltes botigues que hi hagi. Un mapa de My Maps porta els punts
+ * que hi hagi posat el client, i no depèn de què li sembli a Google.
+ *
+ * No cal clau d'API ni compte de facturació: el mapa viu al compte de Google
+ * del client i aquí només se n'incrusta l'identificador.
+ */
+export type MyMapsId = string;
+
 export default function StoresMap({
   stores,
   query,
+  mid,
   className = "",
 }: {
   stores: Store[];
-  /** Cerca que es passa a Google Maps (p. ex. "Cortinatges Esteba"). */
+  /** Cerca de Google Maps. Només s'usa si NO hi ha `mid`. */
   query: string;
+  /** Mapa de My Maps. Si hi és, mana ell: és l'únic que ensenya més d'un punt. */
+  mid?: MyMapsId;
   className?: string;
 }) {
   const [permes, setPermes] = useState(false);
@@ -43,10 +61,20 @@ export default function StoresMap({
       }
     };
     llegeix();
-    // El banner desa el consentiment sense recarregar la pàgina: escoltem el
-    // canvi perquè el mapa aparegui a l'instant i no calgui refrescar.
+    // DOS avisos, i fan falta tots dos:
+    //
+    // `CONSENT_EVENT` és el del banner d'aquesta mateixa pestanya. Abans aquí
+    // només hi havia `storage`, que per especificació NOMÉS arriba als altres
+    // documents: en acceptar les cookies el mapa no apareixia i calia
+    // recarregar a mà. El comentari que hi havia deia que funcionava.
+    //
+    // `storage` es queda per al cas de debò: acceptar en una altra pestanya.
+    window.addEventListener(CONSENT_EVENT, llegeix);
     window.addEventListener("storage", llegeix);
-    return () => window.removeEventListener("storage", llegeix);
+    return () => {
+      window.removeEventListener(CONSENT_EVENT, llegeix);
+      window.removeEventListener("storage", llegeix);
+    };
   }, []);
 
   if (permes) {
@@ -55,7 +83,11 @@ export default function StoresMap({
         className={`relative aspect-[16/9] overflow-hidden border border-linen bg-linen ${className}`}
       >
         <iframe
-          src={`https://maps.google.com/maps?q=${encodeURIComponent(query)}&z=9&output=embed`}
+          src={
+            mid
+              ? `https://www.google.com/maps/d/embed?mid=${encodeURIComponent(mid)}&ehbc=2E312F`
+              : `https://maps.google.com/maps?q=${encodeURIComponent(query)}&z=9&output=embed`
+          }
           className="absolute inset-0 h-full w-full"
           style={{ border: 0 }}
           loading="lazy"

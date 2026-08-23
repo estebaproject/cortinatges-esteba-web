@@ -138,22 +138,18 @@ export default async function ContactPage() {
               })}
             </ul>
 
-            {/* UN mapa per a les quatre botigues, no un per botiga.
-                Abans n'hi havia QUATRE, un dins de cada element de la llista:
-                quatre iframes de Google a la mateixa pàgina, i cada botiga
-                semblava un apartat solt en lloc de quatre punts d'una mateixa
-                casa.
-
-                LIMITACIÓ CONEGUDA, i no és nostra: aquest embed és una CERCA
-                (`?q=…&output=embed`), i Google la resol sempre a UNA fitxa —
-                la de Girona. Provat amb tres consultes diferents. Per a veure
-                els quatre punts alhora cal o bé un mapa de Google My Maps amb
-                els quatre pins (gratuït, però l'ha de crear el client al seu
-                compte i passar-nos l'identificador), o bé un mapa propi amb
-                tessel·les obertes. Mentrestant, cada botiga té el seu enllaç
-                a Google just a sobre, que hi porta directament. */}
+            {/* UN mapa amb els punts de venda, de Google My Maps.
+                Abans era un embed de CERCA i Google el resolia sempre a una
+                sola fitxa: ensenyava Girona i prou, per moltes botigues que hi
+                hagués. Provat amb tres consultes diferents, sempre igual.
+                Ara el mapa el fa el client al seu compte de Google i aquí
+                només se n'incrusta l'identificador: sense clau d'API, sense
+                compte de facturació i sense dependre de què li sembli a
+                Google. Si hi afegeix o hi treu punts, això no s'ha de tocar.
+                Segueix darrere del consentiment de cookies, com abans. */}
             <StoresMap
               className="mt-10"
+              mid="1ukTsFISg2UNqXmBvFaZ-ZiY038YDb3E"
               query="Cortinatges Esteba"
               stores={STORE_KEYS.map((key) => ({
                 city: tl(`stores.${key}.city` as Parameters<typeof tl>[0]),

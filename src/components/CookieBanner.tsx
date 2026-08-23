@@ -6,6 +6,16 @@ import { useTranslations, useLocale } from "next-intl";
 
 const STORAGE_KEY = "esteba-cookie-consent";
 
+/**
+ * Avís que la decisió de cookies ha canviat, PER A LA MATEIXA PESTANYA.
+ *
+ * L'esdeveniment `storage` del navegador NO serveix per a això: per
+ * especificació només arriba als ALTRES documents, mai al que ha escrit el
+ * valor. `StoresMap` l'escoltava i per això el mapa no apareixia mai en
+ * acceptar — calia recarregar la pàgina a mà, cosa que no fa ningú.
+ */
+export const CONSENT_EVENT = "esteba:consent";
+
 export default function CookieBanner() {
   const t = useTranslations("CookieBanner");
   const locale = useLocale();
@@ -23,6 +33,7 @@ export default function CookieBanner() {
   const decide = (value: "accepted" | "rejected") => {
     try {
       localStorage.setItem(STORAGE_KEY, value);
+      window.dispatchEvent(new CustomEvent(CONSENT_EVENT, { detail: value }));
     } catch {
       /* no-op */
     }
