@@ -40,7 +40,7 @@ export default function ReelsSection() {
     <section className="py-section bg-canvas-warm" aria-label={t("instagramHeading")}>
       <div className="max-w-layout mx-auto px-6 lg:px-12">
         <div className="text-center mb-10">
-          <h2 className="font-serif text-display-md text-ink mb-2">
+          <h2 className="font-serif text-display-md text-ink mb-2 uppercase">
             {t("instagramHeading")}
           </h2>
           <a

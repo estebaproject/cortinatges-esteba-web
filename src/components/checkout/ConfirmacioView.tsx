@@ -96,7 +96,7 @@ export default function ConfirmacioView() {
       {/* Resum de la comanda (si tenim snapshot) */}
       {lines.length > 0 && snapshot && (
         <section className="mb-10">
-          <h2 className="font-serif text-body-lg text-ink mb-4">
+          <h2 className="font-serif text-body-lg text-ink mb-4 uppercase">
             {t("confSummaryHeading")}
           </h2>
           <ul className="border-t border-linen divide-y divide-linen" role="list">

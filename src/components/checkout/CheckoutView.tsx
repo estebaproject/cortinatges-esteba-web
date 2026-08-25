@@ -241,7 +241,7 @@ export default function CheckoutView() {
       <div className="space-y-12">
         {/* Dades del client + enviament */}
         <section>
-          <h2 className="font-serif text-display-md text-ink mb-6">
+          <h2 className="font-serif text-display-md text-ink mb-6 uppercase">
             {t("customerHeading")}
           </h2>
           <div className="grid sm:grid-cols-2 gap-5">
@@ -383,7 +383,7 @@ export default function CheckoutView() {
 
         {/* Identitat del venedor (informació precontractual: arts. 97.1.b/c) */}
         <section className="border border-linen bg-canvas-warm p-6">
-          <h2 className="font-serif text-body-lg text-ink mb-3">
+          <h2 className="font-serif text-body-lg text-ink mb-3 uppercase">
             {t("sellerHeading")}
           </h2>
           <p className="font-sans text-body-sm text-ink-muted leading-relaxed">
@@ -402,7 +402,7 @@ export default function CheckoutView() {
 
         {/* Consentiments legals — checkboxes obligatoris NO premarcats */}
         <section>
-          <h2 className="font-serif text-display-md text-ink mb-6">
+          <h2 className="font-serif text-display-md text-ink mb-6 uppercase">
             {t("consentHeading")}
           </h2>
           <div className="space-y-4">
@@ -487,7 +487,7 @@ export default function CheckoutView() {
 
       {/* Columna dreta: resum de comanda + enviament + total + pagar */}
       <aside className="lg:sticky lg:top-28 border border-linen bg-canvas-warm p-6 sm:p-8">
-        <h2 className="font-serif text-display-md text-ink mb-6">
+        <h2 className="font-serif text-display-md text-ink mb-6 uppercase">
           {t("summaryHeading")}
         </h2>
 

@@ -86,7 +86,7 @@ export default async function ContactPage() {
                 const address = tl(`stores.${key}.address` as Parameters<typeof tl>[0]);
                 return (
                   <li key={key} className="py-6 first:pt-0">
-                    <h2 className="font-serif text-display-md text-ink mb-1">{city}</h2>
+                    <h2 className="font-serif text-display-md text-ink mb-1 uppercase">{city}</h2>
                     <p className="font-sans text-body-md text-ink-muted mb-1">{address}</p>
                     {/* Nota opcional (només la Matalasseria en té). */}
                     {tl.has(`stores.${key}.note` as Parameters<typeof tl>[0]) && (

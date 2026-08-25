@@ -195,7 +195,7 @@ export default function CartView() {
 
       {/* Resum */}
       <aside className="lg:sticky lg:top-28 border border-linen bg-canvas-warm p-6 sm:p-8">
-        <h2 className="font-serif text-display-md text-ink mb-6">
+        <h2 className="font-serif text-display-md text-ink mb-6 uppercase">
           {t("summary")}
         </h2>
         <div className="flex justify-between items-baseline border-t border-linen pt-5 mb-2">

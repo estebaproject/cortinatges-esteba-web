@@ -23,7 +23,7 @@ export default async function JobsPage() {
     <section className="pt-40 md:pt-48 pb-section bg-canvas">
       <div className="max-w-layout mx-auto px-6 lg:px-12">
         <header className="mb-12">
-          <h1 className="font-serif text-display-lg text-ink mb-5">{t("title")}</h1>
+          <h1 className="font-serif text-display-lg text-ink mb-5 uppercase">{t("title")}</h1>
           <p className="font-sans text-body-lg text-ink-muted max-w-prose-editorial">
             {t("intro")}
           </p>

@@ -27,7 +27,7 @@ export default async function ConfirmacioPage({ params }: Props) {
             <p className="font-sans text-eyebrow text-accent-deep uppercase mb-4">
               {t("eyebrow")}
             </p>
-            <h1 className="font-serif text-display-lg text-ink leading-snug">
+            <h1 className="font-serif text-display-lg text-ink leading-snug uppercase">
               {t("confPageTitle")}
             </h1>
           </header>

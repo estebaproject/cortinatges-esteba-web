@@ -28,7 +28,7 @@ export default async function SectionOfici() {
           <p className="font-sans text-body-sm text-sand tracking-widest uppercase mb-4">
             {t("eyebrow")}
           </p>
-          <h2 className="font-serif text-display-md text-canvas mb-8">
+          <h2 className="font-serif text-display-md text-canvas mb-8 uppercase">
             {t("headline")}
           </h2>
           {/* El text va al 80% de blanc, no al 100%: sobre blau, el blanc pur a

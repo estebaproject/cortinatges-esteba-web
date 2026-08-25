@@ -25,7 +25,7 @@ export default async function ServeisPage() {
         <p className="font-sans text-body-sm text-accent-deep tracking-widest uppercase mb-4">
           {t("eyebrow")}
         </p>
-        <h1 className="font-serif text-display-lg text-ink mb-5">{t("title")}</h1>
+        <h1 className="font-serif text-display-lg text-ink mb-5 uppercase">{t("title")}</h1>
         <p className="font-sans text-body-lg text-ink-muted max-w-prose-editorial">
           {t("intro")}
         </p>

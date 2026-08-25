@@ -5,6 +5,12 @@
 @layer base {
   html {
     font-family: var(--font-archivo), system-ui, sans-serif;
+    /* Tracking +10 de la guia de marca. El tracking es mesura en
+       mil·lèsimes d'em, o sigui que +10 són 0,01em. Va a l'arrel perquè
+       afecti tot el text i no calgui repetir-ho classe per classe; el que
+       ja porta un tracking propi el sobreescriu, que és el que ha de
+       passar. */
+    letter-spacing: 0.01em;
     background-color: theme("colors.canvas");
     color: theme("colors.ink");
     scroll-behavior: smooth;

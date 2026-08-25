@@ -90,7 +90,7 @@ export default async function StoresPage() {
                 key={key}
                 className="border border-linen p-8 flex flex-col bg-canvas-warm"
               >
-                <h2 className="font-serif text-display-md text-ink mb-4">
+                <h2 className="font-serif text-display-md text-ink mb-4 uppercase">
                   {t(`stores.${key}.city` as Parameters<typeof t>[0])}
                 </h2>
                 <p className="font-sans text-body-md text-ink-muted mb-2">

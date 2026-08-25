@@ -65,7 +65,7 @@ export default async function AboutPage() {
       {/* Valors */}
       <section className="pb-section">
         <div className="max-w-layout mx-auto px-6 lg:px-12">
-          <h2 className="font-serif text-display-md text-ink text-center mb-12">
+          <h2 className="font-serif text-display-md text-ink text-center mb-12 uppercase">
             {t("valuesTitle")}
           </h2>
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" role="list">

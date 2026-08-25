@@ -150,7 +150,7 @@ export default async function ProductPage({ params }: Props) {
               {t("breadcrumbCollections")}
             </Link>
           </nav>
-          <h1 className="font-serif text-display-lg text-canvas max-w-3xl mb-4">
+          <h1 className="font-serif text-display-lg text-canvas max-w-3xl mb-4 uppercase">
             {name}
           </h1>
           <p className="font-sans text-body-lg text-canvas/85 max-w-prose-editorial">
@@ -283,7 +283,7 @@ export default async function ProductPage({ params }: Props) {
       <section className="py-section bg-canvas-warm border-t border-linen">
         <div className="max-w-layout mx-auto px-6 lg:px-12">
           <div className="flex items-end justify-between mb-10">
-            <h2 className="font-serif text-display-md text-ink">
+            <h2 className="font-serif text-display-md text-ink uppercase">
               {t("otherCollections")}
             </h2>
             <Link

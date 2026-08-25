@@ -31,7 +31,7 @@ export default async function ArtisanBand() {
         <p className="font-sans text-eyebrow text-ink/70 tracking-widest uppercase mb-3">
           {to("eyebrow")}
         </p>
-        <h2 className="font-serif text-display-md text-ink mb-5">{to("headline")}</h2>
+        <h2 className="font-serif text-display-md text-ink mb-5 uppercase">{to("headline")}</h2>
         <p className="font-serif text-lg md:text-xl text-ink max-w-3xl mx-auto leading-snug mb-3">
           {t("artisan1")}
         </p>

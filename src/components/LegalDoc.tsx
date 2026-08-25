@@ -4,13 +4,13 @@ export default function LegalDocView({ doc }: { doc: LegalDoc }) {
   return (
     <section className="pt-40 md:pt-48 pb-section bg-canvas">
       <div className="max-w-prose-editorial mx-auto px-6 lg:px-12">
-        <h1 className="font-serif text-display-lg text-ink mb-10">{doc.title}</h1>
+        <h1 className="font-serif text-display-lg text-ink mb-10 uppercase">{doc.title}</h1>
         <div className="flex flex-col gap-5">
           {doc.blocks.map((block, i) =>
             block.type === "h" ? (
               <h2
                 key={i}
-                className="font-serif text-display-md text-ink mt-6 first:mt-0"
+                className="font-serif text-display-md text-ink mt-6 first:mt-0 uppercase"
               >
                 {block.text}
               </h2>
