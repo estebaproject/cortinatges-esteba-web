@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo_Narrow, Roboto, Fraunces, Hanken_Grotesk } from "next/font/google";
+import { Archivo, Fraunces, Hanken_Grotesk } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -11,18 +11,22 @@ import CookieBanner from "@/components/CookieBanner";
 import { CartProvider } from "@/components/cart/CartProvider";
 import "@/app/globals.css";
 
-const archivoNarrow = Archivo_Narrow({
+/**
+ * UNA sola família per a tot el web: Archivo. Ni Narrow, ni Condensed, ni Wide.
+ *
+ * Abans n'hi havia dues i cap era la bona: Archivo NARROW per als titulars i
+ * Roboto per al text. La Narrow no és la tipografia de la casa —és una versió
+ * estreta que no s'ha fet servir mai— i la Roboto no hi pinta res.
+ *
+ * L'Archivo és el substitut GRATUÏT de la corporativa. Fa de bon suplent
+ * perquè és una grotesca del mateix aire, i com que és variable porta tots els
+ * pesos en un sol fitxer: titulars i text es distingeixen pel pes i la mida,
+ * no per canviar de família.
+ */
+const archivo = Archivo({
   subsets: ["latin"],
-  variable: "--font-archivo-narrow",
+  variable: "--font-archivo",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
-});
-
-const roboto = Roboto({
-  subsets: ["latin"],
-  variable: "--font-roboto",
-  display: "swap",
-  weight: ["400", "500", "700"],
 });
 
 // Tipografies del tema Kave (clon de la botiga). Es carreguen sempre però
@@ -140,7 +144,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html
       lang={locale}
-      className={`${archivoNarrow.variable} ${roboto.variable} ${fraunces.variable} ${hankenGrotesk.variable}`}
+      className={`${archivo.variable} ${fraunces.variable} ${hankenGrotesk.variable}`}
     >
       <head>
         <script

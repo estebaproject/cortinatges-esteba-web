@@ -42,8 +42,15 @@ const config: Config = {
         "kave-tag": "#C2A468",      // accent (daurat beix clar)
       },
       fontFamily: {
-        serif: ["var(--font-archivo-narrow)", "Archivo Narrow", "sans-serif"],
-        sans: ["var(--font-roboto)", "Roboto", "system-ui", "sans-serif"],
+        // Els dos tokens apunten a la MATEIXA família, l'Archivo. Es conserven
+        // els noms `serif` i `sans` per no haver de tocar les centenars de
+        // classes `font-serif`/`font-sans` escampades pel projecte — però ja
+        // no distingeixen família, sinó intenció: `font-serif` és titular i
+        // `font-sans` és text corrent. La diferència la fan el pes i la mida.
+        // (El nom `serif` ja mentia abans: hi havia una Archivo Narrow, que
+        // de serif no en té res.)
+        serif: ["var(--font-archivo)", "Archivo", "system-ui", "sans-serif"],
+        sans: ["var(--font-archivo)", "Archivo", "system-ui", "sans-serif"],
         // Tipografies del tema Kave (carregades global, usades només a botiga).
         display: ["var(--font-fraunces)", "Georgia", "serif"],
         grotesque: ["var(--font-hanken)", "system-ui", "sans-serif"],
