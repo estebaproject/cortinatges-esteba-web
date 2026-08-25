@@ -17,10 +17,13 @@
  * no s'ha de tocar res. Es fa servir a /contacte i a /botigues, i per això
  * l'identificador és aquí i no repetit a les dues pàgines.
  *
- * ESTAT: ara mateix el mapa té TRES punts (Girona, Blanes i Palamós). Hi
- * falta la matalasseria del carrer Rutlla, 20. Comprovat llegint el KML del
- * mapa, no mirant-lo: no és que estigui solapada amb la de Girona, és que no
- * hi és.
+ * EL MAPA TÉ TRES PUNTS I ESTÀ BÉ AIXÍ: Girona, Blanes i Palamós. La
+ * matalasseria del carrer Rutlla, 20 NO hi surt, i és una decisió del client
+ * (26 d'agost del 2026), no un oblit — és a cent metres de la botiga de
+ * Girona i al mapa quedarien els dos pins encavalcats.
+ *
+ * Compte si algun dia algú compara: /contacte i /botigues sí que llisten les
+ * QUATRE botigues en text, amb adreça i telèfon. Només el mapa en té tres.
  */
 export const MY_MAPS_ID = "1ukTsFISg2UNqXmBvFaZ-ZiY038YDb3E";
 
