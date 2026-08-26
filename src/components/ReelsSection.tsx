@@ -55,6 +55,7 @@ export default function ReelsSection() {
 
         <div ref={containerRef}>
           <Slider
+            center
             ariaLabel={t("instagramHeading")}
             slideClassName="w-44 sm:w-52"
             items={REELS.map((n) => (

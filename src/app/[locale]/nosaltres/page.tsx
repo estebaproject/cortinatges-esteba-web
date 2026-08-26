@@ -35,8 +35,24 @@ export default async function AboutPage() {
           <h1 className="font-serif text-display-lg text-ink max-w-3xl mx-auto mb-6">
             {t("title")}
           </h1>
+          {/* Es parteix pels dos punts, que és on la frase fa la pausa:
+              la promesa a dalt i què vol dir a baix. Com al tancament, el
+              tall es calcula i no s'escriu al diccionari, perquè els quatre
+              idiomes tenen els mateixos dos punts. Si un no en tingués, es
+              pinta sencera. */}
           <p className="font-sans text-body-lg text-ink-muted max-w-prose-editorial mx-auto">
-            {t("lead")}
+            {(() => {
+              const l = t("lead");
+              const i = l.indexOf(": ");
+              if (i < 0) return l;
+              return (
+                <>
+                  {l.slice(0, i + 1)}
+                  <br />
+                  {l.slice(i + 2)}
+                </>
+              );
+            })()}
           </p>
         </div>
       </section>

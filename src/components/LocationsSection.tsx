@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getTranslations, getLocale } from "next-intl/server";
 import { publicPath } from "@/lib/site";
+import { urlGoogleMaps } from "@/lib/botigues";
 
 const TOWN_KEYS = ["girona", "blanes", "palamos"] as const;
 
@@ -23,9 +24,13 @@ export default async function LocationsSection() {
   const tv = await getTranslations("CtaVisita");
   const locale = await getLocale();
 
-  const towns = TOWN_KEYS.map((k) =>
-    t(`stores.${k}.city` as Parameters<typeof t>[0]),
-  ).join(" · ");
+  // Els pobles ja no són text: cada un porta a la seva fitxa de Google.
+  // Qui els llegeix està decidint si li ve de pas, i el següent que vol és
+  // veure on cau exactament.
+  const towns = TOWN_KEYS.map((k) => ({
+    key: k,
+    city: t(`stores.${k}.city` as Parameters<typeof t>[0]),
+  }));
 
   // ESPAIAT retallat. La secció feia `py-section` (96+96) i per dins una
   // cascada de marges de 4+5+6+10+8: cinc elements que sumaven 33 unitats de
@@ -46,16 +51,46 @@ export default async function LocationsSection() {
         <p className="font-sans text-body-sm text-accent-light tracking-widest uppercase mb-3">
           {tv("eyebrow")}
         </p>
+        {/* El titular es parteix després de la primera frase, que és on el
+            sentit fa una pausa. Es talla pel primer punt i no amb un salt
+            escrit al diccionari: així funciona igual als quatre idiomes, que
+            tots tenen la mateixa estructura de dues frases. Si algun dia un
+            text no en tingués, es pinta sencer i no es trenca res. */}
         <h2 className="font-serif text-display-lg text-canvas max-w-2xl mx-auto mb-4">
-          {tv("headline")}
+          {(() => {
+            const t0 = tv("headline");
+            const i = t0.indexOf(". ");
+            if (i < 0) return t0;
+            return (
+              <>
+                {t0.slice(0, i + 1)}
+                <br />
+                {t0.slice(i + 2)}
+              </>
+            );
+          })()}
         </h2>
-        <p className="font-sans text-body-lg text-canvas/70 max-w-prose-editorial mx-auto mb-5">
+        <p className="font-sans text-body-lg leading-snug text-canvas/70 max-w-prose-editorial mx-auto mb-5">
           {tv("body")}
         </p>
         {/* Els tres pobles: no és decoració, és la prova que hi ha botiga on
             anar. Va en serif i amb separadors per a llegir-se d'un cop, no com
             una llista. */}
-        <p className="font-serif text-display-md text-canvas/90 mb-8">{towns}</p>
+        <p className="font-serif text-display-md text-canvas/90 mb-8">
+          {towns.map((s, i) => (
+            <span key={s.key}>
+              {i > 0 && <span className="text-canvas/40"> · </span>}
+              <a
+                href={urlGoogleMaps(s.key)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-sand transition-colors"
+              >
+                {s.city}
+              </a>
+            </span>
+          ))}
+        </p>
 
         <div className="flex flex-col sm:flex-row justify-center gap-3">
             {/* Aquest botó DIU "Concerta una cita" i portava a /contacte, que és
@@ -66,13 +101,13 @@ export default async function LocationsSection() {
                 pressupost, que viu a la franja d'obertura. */}
           <Link
             href={publicPath("/concerta-cita", locale)}
-            className="inline-flex items-center justify-center px-10 py-4 bg-canvas text-ink font-sans text-body-md font-medium hover:bg-accent-light transition-colors"
+            className="inline-flex min-h-[44px] items-center justify-center px-10 py-4 bg-sand text-ink font-sans text-body-md font-medium hover:bg-sand-light transition-colors"
           >
             {tv("ctaPrimary")}
           </Link>
           <Link
             href={publicPath("/botigues", locale)}
-            className="inline-flex items-center justify-center px-10 py-4 border border-canvas/40 text-canvas font-sans text-body-md hover:border-canvas hover:bg-canvas/10 transition-colors"
+            className="inline-flex min-h-[44px] items-center justify-center px-10 py-4 border border-sand/60 text-sand font-sans text-body-md hover:bg-sand hover:text-ink transition-colors"
           >
             {tv("ctaSecondary")}
           </Link>

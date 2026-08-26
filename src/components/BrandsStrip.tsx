@@ -45,9 +45,9 @@ export default async function BrandsStrip() {
         </h2>
         <Slider
           ariaLabel={t("brandsHeading")}
-          slideClassName="w-28 sm:w-32"
+          slideClassName="w-36 sm:w-44"
           items={BRANDS.map((brand) => (
-            <div key={brand.file} className="relative h-11 w-full">
+            <div key={brand.file} className="relative h-14 w-full">
               <Image
                 src={`/images/brands/${brand.file}`}
                 alt={brand.name}

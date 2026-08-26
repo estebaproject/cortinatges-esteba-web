@@ -7,6 +7,8 @@ type SliderProps = {
   items: React.ReactNode[];
   /** Amplada de cada slide (classes Tailwind). Controla quants se'n veuen alhora. */
   slideClassName?: string;
+  /** Centra les diapositives quan hi caben (d'`md` en amunt). */
+  center?: boolean;
   ariaLabel?: string;
   className?: string;
 };
@@ -21,6 +23,7 @@ export default function Slider({
   slideClassName = "",
   ariaLabel,
   className = "",
+  center = false,
 }: SliderProps) {
   const trackRef = useRef<HTMLUListElement>(null);
   const [canPrev, setCanPrev] = useState(false);
@@ -74,7 +77,7 @@ export default function Slider({
         ref={trackRef}
         role="list"
         aria-label={ariaLabel}
-        className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className={`flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ${center ? "md:justify-center" : ""}`}
       >
         {items.map((item, i) => (
           <li key={i} className={`snap-start shrink-0 ${slideClassName}`}>

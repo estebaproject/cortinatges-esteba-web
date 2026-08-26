@@ -5,13 +5,12 @@ export default async function ArtisanBand() {
   // El titular d'ofici baixa aquí des de dalt de tot de la portada.
   const to = await getTranslations("SectionOfici");
 
-  // FONS ARENA, no blau. Anava en blau i el tancament de la portada també
-  // (`LocationsSection`, exactament el mateix #132C55): quedaven dos blocs
-  // blaus idèntics amb només la tira blanca de marques entremig, i aquella
-  // franja blanca prima entre dos blaus es llegia com un error de maquetació
-  // més que com un ritme. Amb l'arena, el final de la portada fa arena →
-  // blanc → blau: tres tons, i el blau es guarda per a la crida, que és
-  // l'única cosa d'allà baix que demana una acció.
+  // FONS BLAU amb text BEIGE. Va estar en arena una temporada per no repetir
+  // el blau del tancament; ara el peu passa a beige i el final fa blau (ofici)
+  // → blanc (marques) → blau (crida) → beige (peu), que ja no repeteix.
+  //
+  // Contrast mesurat: beige sobre blau, 7,34:1 (AAA). El secundari al 80%
+  // dona 5,21:1, que passa AA.
   //
   // Ara aquesta franja és TAMBÉ el bloc d'ofici: hi ha baixat l'eyebrow i el
   // titular "Tres generacions. Un sol ofici.", que abans encapçalaven els
@@ -26,16 +25,16 @@ export default async function ArtisanBand() {
   // 26px a 20: el missatge d'ofici hi és, però com a nota informativa i no com
   // a proclama a mitja pantalla.
   return (
-    <section className="py-14 md:py-20 bg-sand text-ink">
+    <section className="py-14 md:py-20 bg-ink text-sand">
       <div className="max-w-layout mx-auto px-6 lg:px-12 text-center">
-        <p className="font-sans text-eyebrow text-ink/70 tracking-widest uppercase mb-3">
+        <p className="font-sans text-eyebrow text-sand/80 tracking-widest uppercase mb-3">
           {to("eyebrow")}
         </p>
-        <h2 className="font-serif text-display-md text-ink mb-5 uppercase">{to("headline")}</h2>
-        <p className="font-serif text-lg md:text-xl text-ink max-w-3xl mx-auto leading-snug mb-3">
+        <h2 className="font-serif text-display-md text-sand mb-5 uppercase">{to("headline")}</h2>
+        <p className="font-serif text-lg md:text-xl text-sand max-w-3xl mx-auto leading-snug mb-3">
           {t("artisan1")}
         </p>
-        <p className="font-sans text-body-lg text-ink/70 max-w-prose-editorial mx-auto">
+        <p className="font-sans text-body-lg text-sand/80 max-w-prose-editorial mx-auto">
           {t("artisan2")}
         </p>
       </div>
