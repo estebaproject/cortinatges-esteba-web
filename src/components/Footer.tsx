@@ -51,7 +51,7 @@ export default async function Footer() {
 
   //
 
-  // I el logo torna a ser el de tinta: el blanc, sobre beige, no es veuria.
+  // I el logo va en tinta: el blanc, sobre beige, no es veuria.
 
   return (
     <footer className="bg-sand text-ink" aria-label="Peu de pàgina">
@@ -59,15 +59,19 @@ export default async function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-12">
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href={home} className="block mb-4" aria-label="Cortinatges Esteba — inici">
-              {/* La versió blanca del logo, per al fons blau del peu.
-                   S'ha tret el "Des de 1961" que hi havia a sota: el logo ja
-                   porta el 1961 dins, i dit dues vegades una sobre l'altra
-                   només fa soroll. */}
+              {/* L'apilat, no el d'una línia. Aquesta columna fa uns 200px a
+                   `lg`, i el logo d'una línia hi entraria a 19px d'alçada: es
+                   veuria, però no es llegiria.
+
+                   En tinta, no en blanc: el fons és beige. S'ha tret el
+                   "Des de 1961" que hi havia a sota, perquè el logo ja porta
+                   el 1961 dins i dit dues vegades una sobre l'altra només fa
+                   soroll. */}
               <Image
-                src="/images/logo-esteba.webp"
+                src="/images/logo-esteba-apilat.webp"
                 alt=""
-                width={560}
-                height={403}
+                width={519}
+                height={352}
                 className="h-16 w-auto"
               />
             </Link>

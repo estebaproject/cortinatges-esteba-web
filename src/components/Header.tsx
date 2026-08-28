@@ -108,33 +108,60 @@ export default function Header() {
             {/* Espai buit per centrar el logo — la navegació va a la fila inferior */}
             <div className="hidden md:block" aria-hidden="true" />
 
-            {/* Logo centrat dins caixa */}
+            {/* Logo */}
             <Link
               href={home}
               className="justify-self-start md:justify-self-center group"
               aria-label="Cortinatges Esteba — inici"
             >
-              {/* LOGO NOU, imatge en lloc de text.
-                  Abans era "Cortinatges Esteba" compost amb tipografia dins
-                  d'un requadre dibuixat amb CSS. Es partia en dues línies per
-                  sota de 640px, i mesurat no hi cabia de cap manera: en una
-                  sola línia demanava 254px i a 320 només n'hi ha 190.
-                  El logo de la casa ho resol sol, perquè és un bloc apilat i
-                  no una línia: a 320 es pinta a 89x64 i es llegeix bé.
+              {/* DOS logos, no un, i no és per caprici: és geometria.
+                  El logo d'una línia fa 876x84, o sigui 10,43:1. A 320px de
+                  pantalla, un cop descomptats el coixí lateral i el botó del
+                  menú, al logo li queden uns 145px d'ample — que en aquesta
+                  proporció són 14px d'alt. Les lletres quedarien a l'alçada
+                  d'una nota al peu. Per això per sota de `md` hi va l'apilat,
+                  que és 1,47:1 i a la mateixa amplada es llegeix bé.
 
-                  SENSE requadre de CSS: el logo ja porta el seu, el marc en
-                  ziga-zaga. Un dins de l'altre quedaria com un error.
+                  Les mides d'escriptori surten del punt més estret, que NO és
+                  el més ample: a `md` la reixa de tres columnes deixa 240px al
+                  centre i el botó de contacte comença al píxel 590. Amb h-9 el
+                  logo acaba al 547 — 42px de marge. Amb h-11 acabaria al 589 i
+                  es tocarien. D'aquí que creixi amb la pantalla i no abans.
+
+                  El logo sobreïx de la seva columna. És volgut: la columna de
+                  l'esquerra és un separador buit i la de la dreta té el
+                  contingut arrambat a la vora, així que l'espai que envaeix no
+                  és de ningú.
+
+                  `max-w-none` NO és decoració. El preflight de Tailwind posa
+                  `max-width: 100%` a tota `img`, i la columna del centre fa
+                  240px a `md`. Amb l'alçada fixada per `h-9` i l'amplada
+                  escanyada per la columna, el logo es pintava a 240x36 —
+                  proporció 6,67:1 quan la de debò és 10,43:1. O sigui aixafat
+                  un 36%, i el mateix a `lg` i `xl` en menys mesura. Cap
+                  `object-fit` ho hauria salvat: la caixa mateixa era falsa.
+
+                  SENSE requadre de CSS: el logo ja porta el seu, el retall de
+                  tela. Un dins de l'altre quedaria com un error.
 
                   L'`alt` va buit a posta — l'enllaç ja té `aria-label`, i si
                   totes dues coses parlen, un lector de pantalla ho diu dues
                   vegades seguides. */}
               <Image
-                src="/images/logo-esteba.webp"
+                src="/images/logo-esteba-apilat.webp"
                 alt=""
-                width={560}
-                height={403}
+                width={519}
+                height={352}
                 priority
-                className="h-14 w-auto md:h-16"
+                className="md:hidden h-14 w-auto"
+              />
+              <Image
+                src="/images/logo-esteba-linia.webp"
+                alt=""
+                width={876}
+                height={84}
+                priority
+                className="hidden md:block h-9 lg:h-10 xl:h-11 w-auto max-w-none"
               />
             </Link>
 

@@ -125,7 +125,12 @@ export default async function LocaleLayout({ children, params }: Props) {
     description:
       "Cortines, estors i tèxtil de la llar a mida des de 1961. Taller propi de confecció, presa de mides a domicili i instal·lació. Botigues a Girona, Blanes i Palamós.",
     url: SITE_URL,
-    logo: `${SITE_URL}${DEFAULT_OG_IMAGE}`,
+    // El logo de debò, no la targeta per a xarxes. Fins ara aquí hi anava
+    // DEFAULT_OG_IMAGE, que fa 1200x630: Google demana una imatge del LOGO i
+    // recomana proporció quadrada, i el que li estàvem donant era una targeta
+    // apaïsada amb la marca al mig i molt de blau al voltant. Ara hi va la
+    // marca sola sobre blanc, 600x600.
+    logo: `${SITE_URL}/images/logo-esteba-organitzacio.png`,
     sameAs: [
       "https://www.instagram.com/cortinatgesesteba/",
       "https://www.facebook.com/CortinatgesEsteba",
