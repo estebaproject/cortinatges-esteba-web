@@ -48,7 +48,10 @@ export default async function LocationsSection() {
   return (
     <section className="py-14 md:py-20 bg-accent-deep text-center" aria-label={tv("ariaLabel")}>
       <div className="max-w-layout mx-auto px-6 lg:px-12">
-        <p className="font-sans text-body-sm text-accent-light tracking-widest uppercase mb-3">
+        {/* En beige, igual que el bessó de `CtaVisita`. Amb `accent-light`
+            —el gris blavós #67768E— sobre el blau donava 2,66:1 i en calen
+            4,5. En beige, 5,29. */}
+        <p className="font-sans text-body-sm text-sand tracking-widest uppercase mb-3">
           {tv("eyebrow")}
         </p>
         {/* El titular es parteix després de la primera frase, que és on el
@@ -113,7 +116,7 @@ export default async function LocationsSection() {
           </Link>
         </div>
 
-        <p className="mt-6 font-sans text-body-sm text-canvas/50">{tv("disclaimer")}</p>
+        <p className="mt-6 font-sans text-body-sm text-canvas/60">{tv("disclaimer")}</p>
       </div>
     </section>
   );

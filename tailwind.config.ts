@@ -11,15 +11,41 @@ const config: Config = {
       colors: {
         canvas: "#FFFFFF",
         "canvas-warm": "#F6F4F0",
-        // Paleta real de cortinatgesesteba.com
-        ink: "#132C55",          // blau marí (capçalera, peu, titulars)
-        "ink-deep": "#1F2D52",
+        // Paleta de la marca, presa de Colors.pdf de la guia d'Esteba.
+        // Abans aquí hi havia els colors trets a ull del WordPress antic:
+        // ink era #132C55 i sand #CBBBA0. Cap dels dos era el de la marca —
+        // ΔE2000 de 7,77 al blau i 3,38 al beige. Per damunt de 5 ja no és
+        // un matís, són colors diferents.
+        ink: "#283649",          // BLAU · Pantone 2380 C
+        sand: "#d3c7ad",         // BEIGE · Pantone Putty
+        // La marca també té un TERRA (#724735, Pantone 7588 C) que aquí no
+        // es fa servir enlloc. No s'afegeix com a token fins que tingui feina.
+
+        // `accent-deep` ÉS l'ink, no un color a part: han d'anar sempre
+        // junts o queden dos blaus gairebé iguals però diferents. (De pas:
+        // com que valen el mateix, els `bg-accent-deep hover:bg-ink` que hi
+        // ha per aquí no fan res. Ve d'abans; no es toca en aquesta ronda.)
+        "accent-deep": "#283649",
+
+        // Els dos beiges de hover, desplaçats el mateix que el sand perquè
+        // el salt es mantingui: ΔE 8,5 cap al clar i 6,4 cap al fosc, contra
+        // els 8,6 i 6,5 d'abans. Si es deixessin quiets, el hover clar es
+        // quedava en 4,7 — la meitat de visible.
+        "sand-dark": "#c4b699",
+        "sand-light": "#e4dcc9",
+
+        // Enfosquiment per al hover dels botons blaus. Era #1F2D52, que
+        // contra l'ink vell donava ΔE 3,4 (gairebé invisible); contra el blau
+        // nou en donaria 13,3, i cap a un blau MÉS saturat: es llegiria com
+        // una errada de color, no com un estat. Ara és el blau de marca al
+        // 80% de lluminositat: ΔE 5,4, i segueix sent un enfosquiment.
+        "ink-deep": "#202B3A",
+
+        // Grisos blavosos. NO es toquen en aquesta ronda: són neutres i el
+        // canvi de paleta no els mou. Tenen problemes de contrast propis,
+        // anteriors a això i documentats a part.
         "ink-muted": "#67768E",  // gris blavós (text secundari)
         "ink-faint": "#9AA3B2",
-        sand: "#CBBBA0",         // bloc arena dels productes
-        "sand-dark": "#BCAA8C",
-        "sand-light": "#DCD0BC",
-        "accent-deep": "#132C55",
         "accent-light": "#67768E",
         "linen": "#E8E3DA",
         "linen-dark": "#D5CDBF",
