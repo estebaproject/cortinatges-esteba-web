@@ -122,24 +122,27 @@ export default function Header() {
                   d'una nota al peu. Per això per sota de `md` hi va l'apilat,
                   que és 1,47:1 i a la mateixa amplada es llegeix bé.
 
-                  Les mides d'escriptori surten del punt més estret, que NO és
-                  el més ample: a `md` la reixa de tres columnes deixa 240px al
-                  centre i el botó de contacte comença al píxel 590. Amb h-9 el
-                  logo acaba al 547 — 42px de marge. Amb h-11 acabaria al 589 i
-                  es tocarien. D'aquí que creixi amb la pantalla i no abans.
+                  A escriptori va a 28px i no creix. Es va provar a 44, 36 i
+                  28, i a 44 les lletres del logo eren MÉS ALTES que el titular
+                  de la pàgina, que com a màxim en fa 30: el logo cridava més
+                  que el missatge. A 28 torna a ser una marca i no un rètol, i
+                  lliga amb la fila de navegació de sota.
 
                   El logo sobreïx de la seva columna. És volgut: la columna de
                   l'esquerra és un separador buit i la de la dreta té el
                   contingut arrambat a la vora, així que l'espai que envaeix no
-                  és de ningú.
+                  és de ningú. El punt més estret és `md` a una pàgina interior,
+                  on el botó de contacte comença al píxel 590: el logo hi acaba
+                  al 506.
 
                   `max-w-none` NO és decoració. El preflight de Tailwind posa
                   `max-width: 100%` a tota `img`, i la columna del centre fa
-                  240px a `md`. Amb l'alçada fixada per `h-9` i l'amplada
-                  escanyada per la columna, el logo es pintava a 240x36 —
-                  proporció 6,67:1 quan la de debò és 10,43:1. O sigui aixafat
-                  un 36%, i el mateix a `lg` i `xl` en menys mesura. Cap
-                  `object-fit` ho hauria salvat: la caixa mateixa era falsa.
+                  240px a `md`, i el logo a 28px en demana 292. Amb l'alçada
+                  fixada i l'amplada escanyada per la columna es pintaria a
+                  240x28 — proporció 8,57:1 quan la de debò és 10,43:1, o sigui
+                  aixafat un 18%. Amb les mides grans que es van descartar
+                  arribava al 36%. Cap `object-fit` ho hauria salvat: la caixa
+                  mateixa era falsa.
 
                   SENSE requadre de CSS: el logo ja porta el seu, el retall de
                   tela. Un dins de l'altre quedaria com un error.
@@ -161,7 +164,7 @@ export default function Header() {
                 width={876}
                 height={84}
                 priority
-                className="hidden md:block h-9 lg:h-10 xl:h-11 w-auto max-w-none"
+                className="hidden md:block h-7 w-auto max-w-none"
               />
             </Link>
 
