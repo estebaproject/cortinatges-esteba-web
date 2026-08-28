@@ -36,8 +36,8 @@ export default async function Hero() {
       aria-label={t("ariaLabel")}
     >
       <div className="max-w-layout mx-auto px-6 lg:px-12">
-        <div className="md:flex md:items-end md:justify-between md:gap-10">
-          <div className="md:max-w-3xl">
+        <div className="flex flex-col items-center text-center">
+          <div className="max-w-3xl">
             {/* Sense subtítol. Deia "Prenem mides a casa teva i t'assessorem.
                 Producte a mida, fabricat i instal·lat per nosaltres." — que és
                 exactament el que expliquen, i millor, les quatre icones de just
@@ -45,24 +45,29 @@ export default async function Hero() {
                 Dir-ho en prosa i tot seguit en icones és dir-ho dues vegades, i
                 la primera empenyia la segona avall.
                 La frase no es perd: segueix sent la meta-descripció de la
-                portada, que és on treballa de debò. */}
-            <h1 className="font-serif text-display-md text-ink">
+                portada, que és on treballa de debò.
+
+                `text-balance` reparteix les paraules entre les dues línies en
+                lloc d'omplir la primera i deixar-ne una de curta a sota. Amb el
+                text centrat això es veu: sense equilibrar, el francès deixava
+                "chez vous." sol a la segona línia. On el navegador no ho
+                entengui, es parteix com sempre — no hi ha res a perdre. */}
+            <h1 className="font-serif text-display-md text-ink text-balance">
               {t("headline")}
             </h1>
           </div>
-          {/* En escriptori el botó va a la dreta, a la mateixa línia de base
-              que el text: així la franja es queda en una sola banda i no suma
-              alçada. Allà NO es toca res.
-              
-              En MÒBIL era `w-full`: 272x59 a 320px, o sigui 16.099px² contra
-              els 4.358 del logo — el botó pesava 3,7 vegades més que la marca,
-              i a 390 arribava a 4,6. Ara s'ajusta al seu contingut, amb el cos
-              de lletra i el coixí més petits, i conserva els 44px d'alçada
-              tocable via `min-h`: es pot prémer igual de bé, però ja no li
-              menja el protagonisme al logo. */}
+          {/* El botó ara va SOTA el titular i centrat, no a la dreta.
+              Això suma alçada a la franja — l'amplada de la fila la marcava el
+              botó, i ara la marca la línia de text — i és el preu acceptat per
+              tenir-ho tot en un eix.
+
+              Conserva els 44px d'alçada tocable via `min-h` i s'ajusta al seu
+              contingut: en mòbil era `w-full` i feia 272x59 a 320px, o sigui
+              16.099px² contra els 4.358 del logo. El botó pesava 3,7 vegades
+              més que la marca. */}
           <Link
             href={publicPath("/demana-pressupost", locale)}
-            className="mt-5 md:mt-0 w-auto md:w-auto shrink-0 inline-flex min-h-[44px] items-center justify-center px-5 py-3 md:px-8 md:py-4 bg-sand text-ink font-sans text-xs md:text-body-md font-medium tracking-widest uppercase hover:bg-sand-dark transition-colors"
+            className="mt-5 md:mt-7 inline-flex min-h-[44px] items-center justify-center px-5 py-3 md:px-8 md:py-4 bg-sand text-ink font-sans text-xs md:text-body-md font-medium tracking-widest uppercase hover:bg-sand-dark transition-colors"
           >
             {t("ctaPrimary")}
           </Link>
