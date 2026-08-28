@@ -139,7 +139,40 @@ export default async function ServicesGrid({ compact = false }: { compact?: bool
                       {ICON_SVG[key]}
                     </svg>
                   </span>
-                  <h3 className="font-serif text-lg text-ink tracking-wide uppercase group-hover:text-accent-deep transition-colors">
+                  {/* La mida de lletra ACOMPANYA la columna, i no és un caprici
+                      ni un `clamp` posat a ull. És l'única manera que hi càpiga.
+
+                      El problema: aquests noms són d'una sola paraula i no es
+                      poden partir. Mesurat als quatre idiomes, la més llarga és
+                      ASSESSORAMENT (13 lletres; ASESORAMIENTO en castellà en fa
+                      13 i INSTALLATION 12). A 18px amb `tracking-wide` ocupa
+                      169,8px, i la cel·la a 320px de pantalla només en fa 124.
+                      Sobreeixia i s'encavalcava amb la columna del costat a 320,
+                      360, 375 i 390 — o sigui a gairebé tots els mòbils reals.
+
+                      No hi era abans perquè la font era Archivo NARROW. En
+                      passar a l'Archivo normal, la mateixa paraula va créixer un
+                      20% llarg i va deixar de cabre. La regressió venia d'allà.
+
+                      La solució surt de creuar dues rectes:
+                        cel·la = (100vw - 48 de coixí - 24 de buit) / 2
+                               = 0,5vw - 36
+                        text   = 9,4385 x mida     (mesurat: 122,7px a 13px)
+                      Deixant 8px de marge de seguretat i aïllant la mida:
+                        mida   = (0,5vw - 44) / 9,4385 = 5,3vw - 4,66px
+
+                      Com que totes dues creixen linealment amb la pantalla, el
+                      marge queda CONSTANT a 7,9px de 320 a 428px. El sostre
+                      d'1,125rem és la mida de disseny de sempre, a la qual
+                      arriba als 428px i on es queda. El terra de 0,75rem és en
+                      `rem` a posta: si algú té la lletra del navegador més gran,
+                      mana el terra i el text creix amb ell.
+
+                      L'interliniat passa a ser proporcional: `text-lg` en
+                      portava un de fix de 28px, que amb una lletra de 12px
+                      hauria deixat les dues línies de PRESA DE MIDES separades
+                      com si fossin paràgrafs. */}
+                  <h3 className="font-serif text-[clamp(0.75rem,5.3vw_-_4.66px,1.125rem)] leading-snug text-ink tracking-wide uppercase group-hover:text-accent-deep transition-colors">
                     {t(`items.${key}.name` as Parameters<typeof t>[0])}
                   </h3>
                   {/* Línia curta sota cada servei. Es pinta NOMÉS si la clau
@@ -164,7 +197,18 @@ export default async function ServicesGrid({ compact = false }: { compact?: bool
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
-                <h3 className="font-serif text-lg text-ink tracking-wide uppercase mb-1.5">
+                {/* `lg:text-base xl:text-lg`: a `lg` la graella passa a CINC
+                    columnes i la cel·la cau a 166,4px a 1024. ASSESSORAMENT hi
+                    demana 169,8 i en sobreeixia 3,5; ASESORAMIENTO hi entrava
+                    per 2,2px, que és el mateix problema amb una altra cara —
+                    qualsevol diferència de renderitzat entre sistemes se'ls
+                    menja. A 16px baixen a 151 i 146, amb 15 i 20px de marge.
+                    A `xl` la cel·la ja fa 217,6 i el cos torna al de disseny.
+                    Aquí NO hi va la mida fluida de la portada: allà l'amplada
+                    de cel·la és una recta i es podia resoldre amb una fórmula;
+                    aquí la graella salta d'1 a 2 i a 5 columnes, i tres trams
+                    diferents no caben en una sola expressió lineal. */}
+                <h3 className="font-serif text-lg lg:text-base xl:text-lg text-ink tracking-wide uppercase mb-1.5">
                   {t(`items.${key}.name` as Parameters<typeof t>[0])}
                 </h3>
                 <p className="font-sans text-body-sm text-ink-muted leading-relaxed">
