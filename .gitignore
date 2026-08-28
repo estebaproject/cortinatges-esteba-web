@@ -44,3 +44,6 @@ DOCUMENTS/
 
 # informes de auditoría (contienen márgenes; mantener solo en local)
 auditoria-*.md
+
+# configuración personal del agente (no de equipo)
+.claude/settings.local.json
