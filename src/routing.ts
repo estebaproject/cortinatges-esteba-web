@@ -16,6 +16,45 @@ export const routing = defineRouting({
   locales: ["ca", "es", "en", "fr"],
   defaultLocale: "ca",
   localePrefix: "as-needed",
+
+  // LA URL MANA. Sense això, el middleware mira la cookie NEXT_LOCALE i, si no
+  // n'hi ha, l'Accept-Language del navegador, i REDIRIGEIX encara que la URL ja
+  // digui en quin idioma s'ha de servir la pàgina.
+  //
+  // Amb `as-needed` + `defaultLocale: "ca"`, el català no porta prefix: la seva
+  // URL canònica és la nua (`/serveis`, no `/ca/serveis`). Com que no hi ha
+  // prefix que la defensi, la detecció se l'emportava. Mesurat a producció, les
+  // 8 combinacions d'idioma × cookie de `/serveis`:
+  //
+  //     ca-ES sense cookie ....... 200  /serveis            ← l'ÚNICA que anava bé
+  //     ca-ES + NEXT_LOCALE=es ... 307  /es/servicios
+  //     es-ES qualsevol .......... 307  /es/servicios
+  //     en-US sense cookie ....... 307  /en/services
+  //     fr-FR sense cookie ....... 307  /fr/les-services
+  //
+  // 7 de 8 servien un idioma que ningú havia demanat. I `/serveis` no és una
+  // URL de conveniència: és la canònica, és al sitemap i és la que declara el
+  // `hreflang="ca"`. El castellà, l'anglès i el francès no ho patien mai, perquè
+  // el seu prefix explícit fa que la detecció no s'apliqui — o sigui que l'únic
+  // idioma desprotegit era el de la casa.
+  //
+  // La cookie és la part pitjor: la posa el nostre propi LocaleSwitcher amb
+  // `Max-Age=31536000`. Qui premés "ES" una vegada es quedava un ANY veient el
+  // web en castellà, encara que després li arribés un enllaç en català.
+  //
+  // EL QUE ES PERD: qui entri per l'arrel amb el navegador en castellà ara veu
+  // català i ha de prémer "ES". És el preu, i es paga content — el selector
+  // segueix funcionant igual perquè navega amb prefix explícit
+  // (`router.replace(pathname, { locale })`), no depèn d'això.
+  //
+  // ALTERNATIVA DESCARTADA: passar a `localePrefix: "always"`. Arregla el mateix
+  // però mou les 21 URLs catalanes, onze de les quals són slugs heretats del
+  // WordPress que es van conservar EXPRESSAMENT per no haver de redirigir res
+  // (v. el comentari de dalt). A més no tanca el cas de l'arrel nua, que és la
+  // URL més compartida de totes. Es pot fer més endavant si algun dia convé;
+  // això no hi tanca la porta.
+  localeDetection: false,
+
   pathnames: {
     "/": "/",
 
