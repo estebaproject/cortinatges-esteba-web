@@ -97,7 +97,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#132C55",
+  // HA D'ANAR SEMPRE IGUAL QUE `ink` de tailwind.config.ts. Aquest color no
+  // pinta res dins de la pàgina: pinta el CHROME del navegador en mòbil (la
+  // barra de Safari a iOS, la d'adreces a Android), i l'escriptori l'ignora.
+  // Com que la capçalera de la botiga és `bg-ink` i toca aquella barra, si els
+  // dos hex no coincideixen surten dos blaus enganxats — que és exactament el
+  // que va passar en canviar la paleta: `ink` va passar a #283649 i això es va
+  // quedar al #132C55 vell, ΔE 7,77 de costura.
+  themeColor: "#283649",
   width: "device-width",
   initialScale: 1,
 };

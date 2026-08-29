@@ -54,8 +54,8 @@ export default function ShopHeader() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 font-grotesque">
-      {/* Barra promo — navy de marca (#132C55), com la franja "Des de 1961"
-          del web original. Text clar a sobre. */}
+      {/* Barra promo — blau de marca (#283649, l'`ink` del tailwind.config),
+          com la franja "Des de 1961" del web original. Text clar a sobre. */}
       <div className="bg-ink text-canvas">
         <div className="max-w-layout mx-auto px-5 lg:px-10 flex items-center justify-between h-9 text-[0.72rem]">
           <Link
@@ -74,7 +74,13 @@ export default function ShopHeader() {
               {t("promoRight2")}
             </Link>
             <span aria-hidden className="hidden sm:inline text-canvas/30">|</span>
-            <LocaleSwitcher />
+            {/* `light` perquè el fons d'aquesta barra és `bg-ink`. Sense això
+                el selector es queda amb el to fosc per defecte i l'idioma
+                ACTIU es pinta `text-ink` sobre `bg-ink`: el mateix color
+                exacte, contrast 1:1, invisible. Mesurat a producció a 320,
+                360, 375, 390 i 414px — el "CA" no es veia a cap. És el mateix
+                arreglo que ja porta Header.tsx; aquí s'havia quedat fora. */}
+            <LocaleSwitcher tone="light" />
           </div>
         </div>
       </div>

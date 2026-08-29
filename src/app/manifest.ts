@@ -10,7 +10,9 @@ export default function manifest(): MetadataRoute.Manifest {
     start_url: "/",
     display: "standalone",
     background_color: "#FFFFFF",
-    theme_color: "#132C55",
+    // Mateix blau que `ink` i que el `themeColor` del layout: és la barra
+    // d'estat de l'app un cop instal·lada.
+    theme_color: "#283649",
     lang: "ca",
     icons: [
       { src: "/icon.svg", sizes: "any", type: "image/svg+xml" },
