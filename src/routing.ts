@@ -55,6 +55,37 @@ export const routing = defineRouting({
   // això no hi tanca la porta.
   localeDetection: false,
 
+  // VA LLIGAT AMB `localeDetection`. Les dues coses són la mateixa decisió
+  // partida en dues opcions: la cookie NEXT_LOCALE existeix per DONAR DE MENJAR
+  // a la detecció, i sense detecció no té cap consumidor.
+  //
+  // SI ALGUN DIA ES TORNA A POSAR `localeDetection: true`, S'HA DE TORNAR A
+  // POSAR LA COOKIE. Deixar-la a `false` amb la detecció activada no és neutre:
+  // la detecció perdria la memòria entre peticions i cauria sempre a
+  // l'`Accept-Language`, o sigui que l'idioma que l'usuari hagi triat a mà al
+  // selector deixaria de recordar-se. Es canvien LES DUES o cap.
+  //
+  // Per què sobra avui, verificat sobre next-intl 3.26.5 instal·lat:
+  //   · qui la LLEGIA — resolveLocale.js, prioritats 2 i 3 — ho fa dins de
+  //     `if (!locale && routing.localeDetection)`. Amb la detecció apagada no
+  //     s'hi entra mai. Fora de middleware/ i navigation/ no hi ha cap altra
+  //     referència a NEXT_LOCALE (ni a server/, ni a react-server/, ni a shared/).
+  //   · qui l'ESCRIVIA són dos, i només un se n'havia assabentat: el middleware
+  //     (middleware.js:155) ja no la posa perquè la seva condició sí que mira
+  //     `localeDetection`; però el router de client (createNavigation.js:60 →
+  //     syncLocaleCookie.js) NOMÉS mira que `localeCookie` sigui truthy. Com que
+  //     el LocaleSwitcher fa `router.replace(pathname, { locale })`, cada canvi
+  //     d'idioma seguia escrivint-la amb un any de vigència.
+  //
+  // Mesurat a producció abans d'aquest canvi: carregar la portada no escrivia
+  // res, prémer "ES" al selector deixava `NEXT_LOCALE=es` fins al 2027, i
+  // tornar a `/` amb aquella cookie posada ja servia català igualment. Estat
+  // mort: l'escrivia el client i no la llegia ningú.
+  //
+  // NOTA: això atura les cookies NOVES. Les que la gent ja té al navegador
+  // segueixen allà fins que caduquin, però són inertes.
+  localeCookie: false,
+
   pathnames: {
     "/": "/",
 
