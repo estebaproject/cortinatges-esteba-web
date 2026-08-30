@@ -6,18 +6,31 @@ import { PRODUCT_SLUGS } from "@/lib/products";
 // Rutes INTERNES (les claus de `pathnames`). Les URLs públiques es deriven amb
 // publicUrl(), que aplica els slugs traduïts de cada idioma. La botiga queda
 // fora del sitemap a propòsit: no es publica fins a la migració a Shopify.
-const STATIC_ROUTES = [
-  "/",
-  "/serveis",
-  "/botigues",
-  "/nosaltres",
-  "/contacte",
-  "/demana-pressupost",
-  "/vols-treballar-amb-nosaltres",
-  "/avis-legal",
-  "/privacitat",
-  "/cookies",
-] as const;
+//
+// ES DERIVEN DE `routing.pathnames`, NO S'ESCRIUEN A MÀ. Abans aquí hi havia
+// una llista literal de 10 rutes i `pathnames` en declarava 11: `/concerta-cita`
+// s'hi havia quedat fora. Eren QUATRE URLs vives —una per idioma—, enllaçades
+// des de la capçalera, el peu, /contacte i /botigues, que emetien canonical
+// autoreferencial i hreflang dels quatre idiomes i que Google no sabia que
+// existien. I precisament la de demanar cita, que és la que porta feina.
+//
+// Ningú se n'havia adonat perquè una llista escrita a mà no falla: només es
+// queda curta, en silenci. Derivant-la, afegir una ruta a `pathnames` ja la
+// posa al sitemap i el descuit deixa de ser possible.
+//
+// L'ÚNIC FILTRE són les fitxes de producte, que entren per l'altra banda amb
+// PRODUCT_SLUGS. Ha de ser així i no llistar totes les claus de `/colleccions/`:
+// `pathnames` en declara 14 però tres són DRAFT_PRODUCTS (tendals, pergoles,
+// tapisseria), que estan declarades per tipatge però NO publicades — a
+// producció donen 404 amb `noindex`. PRODUCT_SLUGS només conté les 11 vives, o
+// sigui que filtrant per prefix i deixant que els productes entrin per
+// PRODUCT_SLUGS, els esborranys queden fora sols.
+//
+// Comprovat que la resta de rutes de `pathnames` són totes públiques i
+// indexables: les 11 donen 200 amb canonical autoreferencial.
+const STATIC_ROUTES = Object.keys(routing.pathnames).filter(
+  (href) => !href.startsWith("/colleccions/"),
+) as Array<Parameters<typeof publicUrl>[0]>;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const hrefs = [
