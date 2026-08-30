@@ -13,7 +13,7 @@ import { useLocale, useTranslations } from "next-intl";
 import clsx from "clsx";
 import LocaleSwitcher from "@/components/LocaleSwitcher";
 import CartIndicator from "@/components/cart/CartIndicator";
-import { SHOW_MANTES } from "@/lib/site";
+import { SHOW_MANTES, publicPath } from "@/lib/site";
 import { HAS_ACTIVE_SALES } from "@/lib/shop-search";
 
 /** Secció de botiga activa, derivada del primer segment després del locale. */
@@ -87,10 +87,18 @@ export default function ShopHeader() {
               res l'hi obligués. Si algun dia es treu el `hidden sm:inline` dels
               enllaços del costat, sense això tornaria a patir. */}
           <div className="flex shrink-0 items-center gap-4">
-            <Link href={`${prefix}/nosaltres`} className="hidden sm:inline text-canvas/80 hover:text-canvas transition-colors">
+            {/* `publicPath()` i NO `${prefix}/nosaltres`. Aquestes dues rutes
+                estan a `routing.pathnames` amb el slug traduït a cada idioma,
+                o sigui que la clau interna NO és la URL pública: en castellà és
+                /es/nosotros i /es/tiendas, en anglès /en/about-us i /en/stores,
+                en francès /fr/a-propos i /fr/magasins. Construint-les amb la
+                clau, cada clic feia un 307 abans d'arribar.
+                Les de botiga d'aquí sota SÍ que van amb `prefix`, i és correcte:
+                aquelles no són a `pathnames` i no es tradueixen. */}
+            <Link href={publicPath("/nosaltres", locale)} className="hidden sm:inline text-canvas/80 hover:text-canvas transition-colors">
               {t("promoRight1")}
             </Link>
-            <Link href={`${prefix}/botigues`} className="hidden sm:inline text-canvas/80 hover:text-canvas transition-colors">
+            <Link href={publicPath("/botigues", locale)} className="hidden sm:inline text-canvas/80 hover:text-canvas transition-colors">
               {t("promoRight2")}
             </Link>
             <span aria-hidden className="hidden sm:inline text-canvas/30">|</span>
@@ -169,7 +177,9 @@ export default function ShopHeader() {
 
               {/* Compte */}
               <Link
-                href={`${prefix}/contacte`}
+                // Traduïda a `pathnames` igual que les dues de la barra promo:
+                // /es/contacto, /en/contact, /fr/contact.
+                href={publicPath("/contacte", locale)}
                 aria-label={t("accountLabel")}
                 className="hidden md:inline-flex p-1.5 text-kave-ink hover:text-kave-tag transition-colors"
               >
