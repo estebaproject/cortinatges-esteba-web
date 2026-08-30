@@ -58,15 +58,35 @@ export default function ShopHeader() {
           com la franja "Des de 1961" del web original. Text clar a sobre. */}
       <div className="bg-ink text-canvas">
         <div className="max-w-layout mx-auto px-5 lg:px-10 flex items-center justify-between h-9 text-[0.72rem]">
+          {/* `min-w-0` NO és decoració: sense això el `truncate` del span de
+              sota no s'activa mai. Un flex item té `min-width: auto`, o sigui
+              que es nega a baixar de la mida del seu contingut, i el text
+              empenyia la fila enfora en comptes de retallar-se. El `truncate`
+              ja hi era abans; el que faltava era deixar-lo encongir.
+
+              Amb això, a 320px la fila queda: 40px de coixí + el selector
+              (195,6px, intocable) + el que sobri per al text. Abans sumava
+              354,5px en 320 i en sobreeixien 14,5: el "FR" cap fora. */}
           <Link
             href={`${prefix || "/"}`}
-            className="inline-flex items-center gap-1.5 text-canvas/80 hover:text-canvas transition-colors"
+            className="inline-flex min-w-0 items-center gap-1.5 text-canvas/80 hover:text-canvas transition-colors"
             aria-label="Tornar a la web de Cortinatges Esteba"
           >
-            <span aria-hidden>←</span>
-            <span className="truncate">Cortinatges Esteba</span>
+            <span aria-hidden className="shrink-0">←</span>
+            {/* Per sota de `sm` només "Esteba": amb el nom sencer el text es
+                quedaria en 84px i es retallaria a mitja paraula
+                ("Cortinatg…"), que llegit sota una fletxa de tornada és
+                soroll. El nom complet segueix al `aria-label`, que és qui ho
+                ha de dir bé, i el logo el repeteix dos centímetres més avall. */}
+            <span className="truncate">
+              <span className="hidden sm:inline">Cortinatges&nbsp;</span>Esteba
+            </span>
           </Link>
-          <div className="flex items-center gap-4">
+          {/* `shrink-0` perquè el selector no es pugui comprimir MAI. Fins ara
+              aguantava per sort —era l'únic germà visible en mòbil— no perquè
+              res l'hi obligués. Si algun dia es treu el `hidden sm:inline` dels
+              enllaços del costat, sense això tornaria a patir. */}
+          <div className="flex shrink-0 items-center gap-4">
             <Link href={`${prefix}/nosaltres`} className="hidden sm:inline text-canvas/80 hover:text-canvas transition-colors">
               {t("promoRight1")}
             </Link>
