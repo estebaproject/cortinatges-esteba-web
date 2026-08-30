@@ -15,11 +15,23 @@ const localeLabels: Record<string, string> = {
  * `tone` diu sobre quin fons es pinta el selector.
  *
  * Cal perquè els colors estaven cablejats a tinta fosca (`text-ink`) i el
- * selector viu sobre la franja blava, que és EXACTAMENT el mateix color:
- * rgb(19,44,85) sobre rgb(19,44,85). Mesurat píxel a píxel, el retall de
- * l'idioma actiu tenia UN SOL color i rang 0 — o sigui que l'idioma en què
- * estàs navegant no es veia gens, ni a producció. Els altres tres es
- * quedaven a 2,34:1, també per sota del mínim AA de 4,5.
+ * selector viu sobre una franja pintada de `bg-ink`. Són EL MATEIX TOKEN, o
+ * sigui que l'idioma actiu es pintava del color exacte del seu fons: contrast
+ * 1:1, invisible. Mesurat píxel a píxel, aquell retall tenia UN SOL color i
+ * rang 0 — ni a producció es veia en quin idioma estaves navegant.
+ *
+ * La col·lisió és ESTRUCTURAL i per això aquí no hi ha cap hex: `text-ink`
+ * sobre `bg-ink` dona 1:1 sigui quin sigui el valor de l'`ink`. Abans hi deia
+ * «rgb(19,44,85) sobre rgb(19,44,85)» i el canvi de paleta va deixar aquell
+ * número desfasat, tot i que el problema que descriu no s'havia mogut gens.
+ * Citant el token en comptes del valor, això ja no pot tornar a caducar.
+ *
+ * Els altres tres idiomes també queien per sota del mínim AA de 4,5. La xifra
+ * que hi havia escrita aquí era 2,34:1; no s'ha pogut reproduir amb els
+ * tokens (`ink-muted` sobre l'`ink` d'aleshores dona 3,00:1 i sobre el d'ara
+ * 2,66:1), probablement perquè es va mesurar sobre píxels ja suavitzats. Es
+ * deixa dit i no es substitueix per una altra: canviar un número que no es
+ * pot reproduir per un de nou és com es va arribar fins aquí.
  */
 type Tone = "dark" | "light";
 

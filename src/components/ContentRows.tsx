@@ -14,8 +14,16 @@ import { publicPath } from "@/lib/site";
  * d'un bloc de color que arriba fins al caire contrari. La fila ocupa l'ample
  * sencer i es llegeix com UNA cosa, no com dues.
  *
- * ELS COLORS són els de la casa: `canvas-warm` i `sand`, alternats. El `sand`
- * (#CBBBA0) és exactament el to del bloc que feia servir el WordPress.
+ * ELS COLORS són els de la casa: `canvas-warm` i `sand`, alternats. El valor
+ * del `sand` viu al tailwind.config i NO es repeteix aquí a posta.
+ *
+ * Aquí hi deia que el `sand` (#CBBBA0) era «exactament el to del bloc que
+ * feia servir el WordPress». Ho era quan es va escriure, però cf2edfb el va
+ * moure A POSTA al de la guia de marca (Pantone Putty), que és a ΔE2000 3,38
+ * d'aquell. O sigui que la frase havia passat a dir el CONTRARI del que
+ * passa: avui el bloc ja no imita el WordPress, i això és la decisió, no un
+ * descuit. Per no tornar a caure-hi, aquí no hi torna cap hex: el que mana és
+ * el token.
  *
  * ELS COSTATS s'alternen (foto esquerra, dreta, esquerra). El WordPress les
  * posava TOTES a l'esquerra i només alternava el color; alternar també el
