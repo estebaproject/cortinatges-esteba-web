@@ -44,7 +44,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url,
       title: name,
       description: tagline,
-      images: [{ url: image, width: 1200, height: 630, alt: name }],
+      // SENSE `width` i `height` A POSTA. Aquí hi deia 1200x630, escrit a mà,
+      // i no era veritat a cap de les 11 fitxes: mesurades una a una fan
+      // 1400x940, 1400x880, 600x540, 900x600, 1400x1048, 1024x693, 795x645,
+      // 768x1024, 927x1192, 924x1177 i 702x731. Coincidències amb 1200x630:
+      // zero. QUATRE són verticals declarades com a apaisades.
+      //
+      // És el mateix error que src/lib/site.ts ja documenta haver arreglat per
+      // a la imatge per defecte —«les xarxes es creuen el que se'ls diu: la
+      // targeta sortia retallada o deformada»—, però aquella reparació només
+      // va tocar el DEFAULT_OG_IMAGE i va deixar el defecte viu aquí, que és
+      // on hi ha les úniques pàgines de producte que són al sitemap.
+      //
+      // NO S'HI POSA LA MIDA BONA, S'HI TREU LA MIDA. Aquests dos camps són
+      // una pista opcional; quan no hi són, WhatsApp, Facebook i Telegram es
+      // baixen la imatge i la mesuren ells, que és el que volem. Posar-hi el
+      // número real de cada foto tornaria a ser un valor escrit a mà que
+      // duplica una cosa que el fitxer ja defineix — exactament com hi hem
+      // arribat. I mesurar-lo en temps d'execució tampoc serveix: aquestes
+      // pàgines es regeneren per ISR al servidor, on el `public/` no és a disc.
+      images: [{ url: image, alt: name }],
     },
     twitter: {
       card: "summary_large_image",

@@ -60,7 +60,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url,
       title: `${moble.nom} — ${t("eyebrow")}`,
       description,
-      images: [{ url: image, width: 1200, height: 1200, alt: moble.nom }],
+      // SENSE `width` i `height` A POSTA, com a /catifes i /colleccions. Aquí
+      // hi deia 1200x1200 escrit a mà i cap dels 44 mobles fa aquesta mida; 20
+      // són verticals declarats com a quadrats. Els dos camps són una pista
+      // opcional: sense ells, les xarxes es baixen la imatge i la mesuren.
+      images: [{ url: image, alt: moble.nom }],
     },
     twitter: {
       card: "summary_large_image",

@@ -66,7 +66,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url,
       title: `${catifa.nom} — ${t("eyebrow")}`,
       description,
-      images: [{ url: ogImage, width: 1200, height: 1200, alt: catifa.nom }],
+      // SENSE `width` i `height` A POSTA. Aquí hi deia 1200x1200 escrit a mà i
+      // no era veritat a cap de les 83 catifes: adore, per exemple, serveix un
+      // 2.jpg de 231x335 —vertical— declarat com a quadrat de 1200. Mesurades
+      // totes les fotos de producte, cap arriba als 1200px i 63 són verticals.
+      //
+      // Aquí la mida no es pot ni derivar: `getCatifaImages` treu la ruta de
+      // Supabase quan el producte hi és publicat, o sigui que el fitxer no és
+      // predictible des del slug. Les xarxes se la baixen i la mesuren elles.
+      //
+      // Que la pàgina sigui `noindex` no salva res: SHOP_ROBOTS parla als
+      // cercadors, no als scrapers de WhatsApp, Facebook i Telegram, que
+      // llegeixen l'og igualment quan algú enganxa l'enllaç en un xat.
+      images: [{ url: ogImage, alt: catifa.nom }],
     },
     twitter: {
       card: "summary_large_image",

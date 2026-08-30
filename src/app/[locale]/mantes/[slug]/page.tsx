@@ -58,7 +58,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url,
       title: `${manta.nom} — ${t("eyebrow")}`,
       description,
-      images: [{ url: image, width: 1200, height: 1200, alt: manta.nom }],
+      // SENSE `width` i `height` A POSTA, com a /catifes i /colleccions. Aquí
+      // hi deia 1200x1200 escrit a mà i cap de les 8 fitxes fa aquesta mida; 3
+      // són verticals declarades com a quadrats. Els dos camps són una pista
+      // opcional: sense ells, les xarxes es baixen la imatge i la mesuren.
+      images: [{ url: image, alt: manta.nom }],
     },
     twitter: {
       card: "summary_large_image",
