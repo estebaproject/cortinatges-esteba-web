@@ -198,7 +198,19 @@ export function catifaImage(slug: string): string {
 // Actualitzar si s'afegeixen fotos noves al repo.
 // ---------------------------------------------------------------------------
 
-/** Slugs que tenen foto de producte (2.jpg). 72 de 76. */
+/**
+ * Slugs que tenen foto de producte (2.jpg). 75 de 82.
+ *
+ * Aquí hi deia "72 de 76" i les dues xifres eren velles: el Set en té 75 i el
+ * SEED té 82 catifes. El Set no s'havia quedat curt —comptat contra el disc,
+ * hi són totes les que toquen—, l'únic desfasat era el comentari.
+ *
+ * COM ES TORNA A COMPTAR, que això s'audita a mà i tornarà a caducar:
+ *   ls public/images/catifes/ * /2.jpg | wc -l     (sense espais)
+ * Dona 76, no 75, i la diferència NO és cap error: `glam-velvet` té carpeta
+ * amb fotos però no té entrada al SEED, o sigui que no és una catifa
+ * publicada. És l'única carpeta òrfena de les 83.
+ */
 export const CATIFA_HAS_PRODUCTO = new Set<string>([
   "adore",
   "almeria",
@@ -277,7 +289,14 @@ export const CATIFA_HAS_PRODUCTO = new Set<string>([
   "zen",
 ]);
 
-/** Slugs que tenen foto de detall (3.jpg). 53 de 76. */
+/**
+ * Slugs que tenen foto de detall (3.jpg). 74 de 82.
+ *
+ * Hi deia "53 de 76". El 53 no s'assembla ni de lluny al que hi ha: el Set en
+ * té 74. Devia quedar-se d'una època amb moltes menys fotos de detall.
+ * Igual que el de dalt: al disc hi ha 75 fitxers 3.jpg, i el que sobra és
+ * l'`glam-velvet` orfe, que no és al SEED.
+ */
 export const CATIFA_HAS_DETALL = new Set<string>([
   "adore",
   "almeria",
