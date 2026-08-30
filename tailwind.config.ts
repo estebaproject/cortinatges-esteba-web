@@ -1,5 +1,43 @@
 import type { Config } from "tailwindcss";
 
+/**
+ * El gris blavós del text secundari. Un de sol, no dos.
+ *
+ * Fins ara n'hi havia DOS nivells, `ink-muted` (#67768E) i `ink-faint`
+ * (#9AA3B2), i cap dels dos arribava a AA on més falta feia. Mesurat al DOM de
+ * 23 pàgines de producció, aquests dos tokens només cauen sobre TRES fons, els
+ * tres clars —blanc, `canvas-warm` i `sand`— i sobre cap fons fosc:
+ *
+ *     ink-faint sobre canvas-warm .... 2,32:1   ← els horaris de /botigues
+ *     ink-faint sobre blanc .......... 2,54:1   ← els horaris de /contacte
+ *     ink-muted sobre sand ........... 2,75:1
+ *     ink-muted sobre canvas-warm .... 4,19:1
+ *     ink-muted sobre blanc .......... 4,61:1   ← l'única que ja passava
+ *
+ * PER QUÈ ES COL·LAPSEN EN UN. Perquè `ink-faint` passés 4,5:1 sobre blanc
+ * havia d'arribar a #707782, que és pràcticament l'`ink-muted` d'aleshores
+ * (#67768E). Dos tokens que convergeixen al mateix valor no són dos nivells:
+ * AA sobre fons clar no deixa prou recorregut de lluminositat per a dos grisos
+ * que es distingeixin. En aquest web la jerarquia ja la fan la mida i les
+ * majúscules, no el to del gris.
+ *
+ * SI ALGÚ VOL RECUPERAR DOS NIVELLS, que sigui per MIDA o per PES, no per
+ * lluminositat. Per lluminositat ja s'ha provat i el resultat és aquest.
+ *
+ * EL SAND ÉS QUI MARCA EL MÍNIM. Aquest valor és el més clar que encara passa
+ * 4,5:1 sobre els tres fons, i sobre el `sand` (#d3c7ad) es queda en 4,51 —
+ * marge de 0,01. Sobre blanc dona 7,55 i sobre `canvas-warm` 6,87, o sigui que
+ * els altres dos van sobradíssims i el beige és l'únic que aprieta. SI ES
+ * TORNA A TOCAR EL `sand`, AQUEST VALOR S'HA DE RECALCULAR: no hi ha marge per
+ * absorbir cap desplaçament del beige.
+ *
+ * (De passada: `accent-light` tenia el MATEIX hex que l'`ink-muted` vell i ara
+ * divergeixen. No és un descuit. Aquell només pinta el fons de `::selection` a
+ * globals.css, amb text blanc a sobre, i no té res a veure amb el text
+ * secundari — que compartissin valor era casualitat.)
+ */
+const INK_MUTED = "#4a5566";
+
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -41,11 +79,17 @@ const config: Config = {
         // 80% de lluminositat: ΔE 5,4, i segueix sent un enfosquiment.
         "ink-deep": "#202B3A",
 
-        // Grisos blavosos. NO es toquen en aquesta ronda: són neutres i el
-        // canvi de paleta no els mou. Tenen problemes de contrast propis,
-        // anteriors a això i documentats a part.
-        "ink-muted": "#67768E",  // gris blavós (text secundari)
-        "ink-faint": "#9AA3B2",
+        // Gris blavós del text secundari. Els DOS nivells que hi havia s'han
+        // col·lapsat en un: el perquè, els números i què fer si es torna a
+        // tocar el `sand` són a la capçalera del fitxer, a INK_MUTED.
+        //
+        // `ink-faint` és un ÀLIES, no una còpia: apunta a la mateixa constant
+        // perquè no puguin divergir mai. Es manté el nom viu a posta, per no
+        // haver de tocar les 22 ocurrències repartides per 11 fitxers — i
+        // perquè el dia que es vulgui tornar a tenir un segon nivell, el ganxo
+        // ja hi és (però per mida o pes, no per to).
+        "ink-muted": INK_MUTED,
+        "ink-faint": INK_MUTED,
         "accent-light": "#67768E",
         "linen": "#E8E3DA",
         "linen-dark": "#D5CDBF",
