@@ -79,6 +79,29 @@ const SEED: CatifaSeed[] = [
   { slug: "fez", nom: "Fez", familia: "catalogo", pvpDesde: 167.95, nMedides: 5 },
   { slug: "gallery-chenille", nom: "Gallery Chenille", familia: "catalogo", pvpDesde: 281.95, nMedides: 4 },
   { slug: "garden-chenille", nom: "Garden Chenille", familia: "in_out", pvpDesde: 135.95, nMedides: 4 },
+  // NOMÉS LA REFERÈNCIA 2025. Aquesta és l'única catifa de tot el catàleg que
+  // té TRES taules de preu per al mateix model, una per grup de referència
+  // (P2.json és l'únic lloc on apareix la clau `variantes`):
+  //
+  //   ref 2025 ................ 160x230 1.068,95 · 200x290 1.683,95 · 240x340 2.368,95 · Ø200 1.392,95 · Ø240 2.005,95
+  //   ref 6029/6031/6080/6086 . 160x230 1.728,95 · 200x290 2.724,95 · 240x340 3.832,95
+  //   ref 0115/2037/3026/… .... 160x230 1.164,95 · 200x290 1.834,95 · 240x340 2.581,95
+  //
+  // El model actual només sap tenir UN preu per mida: `CatifaMida` té un sol
+  // `pvp` i `web_product_variants` una sola fila per clau de mida. No hi ha
+  // manera de dir "aquesta mida val X amb aquest color i Y amb aquest altre",
+  // i el selector de color ho dona per fet — el seu commit (c5b7b9c) diu
+  // "el preu depèn de la MIDA, no del color".
+  //
+  // Per això entra limitada a la ref 2025, que és coherent amb el que tenim:
+  // les 10 mostres de color de catifes-colors.ts són TOTES codis 2025/XXX. El
+  // selector no pot oferir cap color d'una altra referència, o sigui que cap
+  // combinació que l'usuari pugui triar surt d'aquesta taula.
+  //
+  // AFEGIR LES ALTRES DUES no és feina ajornada, és un canvi d'esquema: caldria
+  // preu per (referència × mida) i fotos de mostra dels altres dos grups, que
+  // el pipeline d'extracció no va generar.
+  { slug: "glam-velvet", nom: "Glam Velvet", familia: "catalogo", pvpDesde: 1068.95, nMedides: 5 },
   { slug: "gradient-chenille", nom: "Gradient Chenille", familia: "catalogo", pvpDesde: 281.95, nMedides: 4 },
   { slug: "gropius-chenille", nom: "Gropius Chenille", familia: "catalogo", pvpDesde: 286.95, nMedides: 6 },
   { slug: "heritage-chenille", nom: "Heritage Chenille", familia: "catalogo", pvpDesde: 635.95, nMedides: 5 },

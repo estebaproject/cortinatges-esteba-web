@@ -416,6 +416,26 @@ const CATIFES_DETALL: Record<string, CatifaDetall> = {
       { mida: "246x340", anchoCm: 246, altoCm: 340, pvp: 512.95 },
     ],
   },
+  // NOMÉS LA REFERÈNCIA 2025 — el perquè sencer és al costat de l'entrada del
+  // SEED, a src/lib/catifes.ts. En curt: el model del catàleg li dona TRES
+  // taules de preu segons el grup de referència, i aquí només hi cap un `pvp`
+  // per mida. Les 10 mostres de color que tenim són totes de la ref 2025, o
+  // sigui que cap tria de l'usuari surt d'aquesta taula.
+  //
+  // Els Ø porten asterisc al catàleg del proveïdor i només existeixen a la ref
+  // 2025 (a les altres dues hi ha guió). S'escriuen com a mides normals perquè
+  // és el que ja fan `monetti` i `moon-chenille`, que també en tenen.
+  "glam-velvet": {
+    perEncarrec: false,
+    termini: "Segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
+    mides: [
+      { mida: "160x230", anchoCm: 160, altoCm: 230, pvp: 1068.95 },
+      { mida: "200x290", anchoCm: 200, altoCm: 290, pvp: 1683.95 },
+      { mida: "240x340", anchoCm: 240, altoCm: 340, pvp: 2368.95 },
+      { mida: "Ø200", anchoCm: 200, altoCm: 200, pvp: 1392.95 },
+      { mida: "Ø240", anchoCm: 240, altoCm: 240, pvp: 2005.95 },
+    ],
+  },
   "gradient-chenille": {
     perEncarrec: false,
     termini: "Segons producte i condicions de venda. Et confirmem el termini exacte abans de tancar la comanda.",
