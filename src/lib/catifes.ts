@@ -222,17 +222,18 @@ export function catifaImage(slug: string): string {
 // ---------------------------------------------------------------------------
 
 /**
- * Slugs que tenen foto de producte (2.jpg). 75 de 82.
+ * Slugs que tenen foto de producte (2.jpg). 76 de 83.
  *
- * Aquí hi deia "72 de 76" i les dues xifres eren velles: el Set en té 75 i el
- * SEED té 82 catifes. El Set no s'havia quedat curt —comptat contra el disc,
- * hi són totes les que toquen—, l'únic desfasat era el comentari.
- *
- * COM ES TORNA A COMPTAR, que això s'audita a mà i tornarà a caducar:
+ * COM ES TORNA A COMPTAR, que això s'audita a mà i caduca sol:
  *   ls public/images/catifes/ * /2.jpg | wc -l     (sense espais)
- * Dona 76, no 75, i la diferència NO és cap error: `glam-velvet` té carpeta
- * amb fotos però no té entrada al SEED, o sigui que no és una catifa
- * publicada. És l'única carpeta òrfena de les 83.
+ * Ha de donar el mateix que la mida del Set. Si no quadra, o falta una entrada
+ * aquí o sobra una carpeta al disc.
+ *
+ * HISTÒRIC, perquè s'ha corregit dues vegades seguides i convé saber per què:
+ * hi deia "72 de 76" (xifres velles de quan hi havia moltes menys fotos), i
+ * després "75 de 82" amb una nota dient que `glam-velvet` tenia carpeta però no
+ * era al SEED i per això no comptava. Allò era cert AQUELL DIA. Ara la catifa
+ * ja hi és, o sigui que entra al Set i el disc i la llista tornen a quadrar.
  */
 export const CATIFA_HAS_PRODUCTO = new Set<string>([
   "adore",
@@ -266,6 +267,7 @@ export const CATIFA_HAS_PRODUCTO = new Set<string>([
   "fez",
   "gallery-chenille",
   "garden-chenille",
+  "glam-velvet",
   "gradient-chenille",
   "gropius-chenille",
   "heritage-chenille",
@@ -313,12 +315,10 @@ export const CATIFA_HAS_PRODUCTO = new Set<string>([
 ]);
 
 /**
- * Slugs que tenen foto de detall (3.jpg). 74 de 82.
+ * Slugs que tenen foto de detall (3.jpg). 75 de 83.
  *
- * Hi deia "53 de 76". El 53 no s'assembla ni de lluny al que hi ha: el Set en
- * té 74. Devia quedar-se d'una època amb moltes menys fotos de detall.
- * Igual que el de dalt: al disc hi ha 75 fitxers 3.jpg, i el que sobra és
- * l'`glam-velvet` orfe, que no és al SEED.
+ * Mateixa manera de comptar que el Set de dalt, amb `3.jpg`. Hi va arribar a
+ * dir "53 de 76", que no s'assemblava ni de lluny al que hi havia.
  */
 export const CATIFA_HAS_DETALL = new Set<string>([
   "adore",
@@ -352,6 +352,7 @@ export const CATIFA_HAS_DETALL = new Set<string>([
   "fez",
   "gallery-chenille",
   "garden-chenille",
+  "glam-velvet",
   "gradient-chenille",
   "gropius-chenille",
   "heritage-chenille",
