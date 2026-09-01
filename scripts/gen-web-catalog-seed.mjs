@@ -3,6 +3,41 @@
 // idempotent-ish cap al repo ERP. NO aplica res a la BD.
 //
 // Run: node --experimental-strip-types scripts/gen-web-catalog-seed.mjs
+//
+// ⚠️ AQUEST SEED NO S'HA EXECUTAT MAI. Qui el corri de debò serà el primer.
+//
+// Les 134 files que hi ha avui a web_products NO venen d'executar-lo: venen del
+// lot únic del 2026-07-02 (migració 383_web_catalog_seed, ja consolidada al
+// baseline de l'ERP). Des de llavors ningú l'ha tornat a passar.
+//
+// L'01/09/2026 calia afegir-hi Glam Velvet i retirar 8 `pvp_abans` placeholder,
+// i es va arribar al MATEIX estat final SENSE executar aquest fitxer: amb tres
+// sentències dirigides dins d'una transacció (desplaçar `orden`, inserir el
+// producte amb les seves variants i imatges, i posar `pvp_abans` a NULL).
+//
+// Es va fer així per dues raons, i totes dues segueixen sent certes:
+//   1. La sortida fa ~173 KB i no cap en una sola crida d'execute_sql; partir-la
+//      no és innocu perquè el fitxer comença fent `delete` de les QUATRE taules
+//      i entre trucada i trucada el catàleg quedaria buit a producció.
+//   2. Preservar el que hi ha és més conservador que sobreescriure'l: si la BD
+//      ha derivat dels fitxers TS en algun camp, el seed se l'emportaria sense
+//      avisar.
+//
+// SI EL CORRES, sàpigues què t'endús:
+//   · Fa `delete from` web_product_images / colors / variants / products. TOT,
+//     inclosos mantes i mobles. No és un upsert.
+//   · S'emporta qualsevol edició feta des del mòdul de Botiga web de l'ERP
+//     (branca `feat/botiga-web-module`, avui sense fusionar).
+//   · Reassigna `orden` per índex d'array: afegir una entrada al SEED desplaça
+//     totes les posteriors.
+//   · Després cal picar /api/revalidate, o els canvis triguen fins a una hora
+//     (les pàgines de catifes són ISR amb `revalidate = 3600`).
+//
+// COM COMPROVAR QUE LA SORTIDA QUADRA amb el que hi ha, abans d'aplicar-la:
+// comparar empremtes. Al setembre del 2026, l'md5 de `slug:variant_key:pvp` de
+// tota la BD donava `417865faf17da8fc` i el del seed generat donava el mateix.
+// Al costat SQL cal `collate "C"` a l'ORDER BY: sense això, `Ø067` s'ordena
+// diferent que a Python i les empremtes no quadren encara que les dades sí.
 
 import { writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
