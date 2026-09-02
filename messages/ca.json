@@ -35,7 +35,8 @@
   },
   "Hero": {
     "ariaLabel": "Secció principal",
-    "headline": "Tèxtil i protecció solar a mida, instal·lat a casa teva.",
+    "headline": "Decoració tèxtil i protecció solar a mida",
+    "subheadline": "Instal·lat a casa teva.",
     "ctaPrimary": "Demana pressupost",
     "ctaSecondary": "Contacta'ns"
   },

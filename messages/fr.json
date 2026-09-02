@@ -35,7 +35,8 @@
   },
   "Hero": {
     "ariaLabel": "Section principale",
-    "headline": "Textile et protection solaire sur mesure, installés chez vous.",
+    "headline": "Décoration textile et protection solaire sur mesure",
+    "subheadline": "Installés chez vous.",
     "ctaPrimary": "Prendre rendez-vous",
     "ctaSecondary": "Découvrir les collections"
   },

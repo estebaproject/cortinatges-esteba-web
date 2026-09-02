@@ -35,7 +35,8 @@
   },
   "Hero": {
     "ariaLabel": "Hero section",
-    "headline": "Made-to-measure textiles and sun protection, fitted in your home.",
+    "headline": "Soft furnishings and sun protection, made to measure",
+    "subheadline": "Fitted in your home.",
     "ctaPrimary": "Book a consultation",
     "ctaSecondary": "Explore our collections"
   },

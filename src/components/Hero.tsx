@@ -55,6 +55,18 @@ export default async function Hero() {
             <h1 className="font-serif text-display-md text-ink text-balance">
               {t("headline")}
             </h1>
+            {/* TORNA UN SUBTÍTOL, i el comentari de dalt explica per què n'hi
+                havia hagut un i es va treure. Aquest no és aquell: allò eren
+                dues frases de prosa que repetien el que diuen les quatre icones
+                de sota i les empenyien avall. Això és la cua del titular
+                d'abans —"instal·lat a casa teva"— separada perquè el titular
+                es quedi amb la proposta i el detall vagi a part.
+
+                Segueix el patró de subtítol de la casa (/serveis, /nosaltres i
+                les fitxes): `font-sans text-body-lg text-ink-muted`. */}
+            <p className="font-sans text-body-lg text-ink-muted mt-3 text-balance">
+              {t("subheadline")}
+            </p>
           </div>
           {/* El botó ara va SOTA el titular i centrat, no a la dreta.
               Això suma alçada a la franja — l'amplada de la fila la marcava el
