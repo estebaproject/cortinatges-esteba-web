@@ -338,7 +338,25 @@ export default async function ProductPage({ params }: Props) {
               {gallery.map((src, i) => (
                 <div
                   key={src}
-                  className="relative aspect-[4/5] overflow-hidden bg-linen"
+                  // 3:2 I NO 4:5. El marc vertical d'abans anava contra el
+                  // material que hi ha: de les 23 fotos de galeria de les
+                  // fitxes publicades, 12 són APAISADES, 5 quadrades i només 6
+                  // verticals. Amb `object-cover` en un marc 4:5, les
+                  // apaisades hi perdien entre el 49% i el 54% de l'ample:
+                  // `vertical/4.jpg` (ràtio 1,76) ensenyava una llenca del que
+                  // és una sala sencera.
+                  //
+                  // Amb 3:2 les 12 apaisades es recuperen gairebé senceres i
+                  // les 6 verticals passen a retallar-se, però menys del que es
+                  // retallaven les apaisades: cap baixa de 0,73, o sigui un 51%
+                  // com a pitjor cas, contra el 54% que patia la pitjor
+                  // apaisada. Es canvia el repartiment del dany a favor de la
+                  // majoria, no s'elimina.
+                  //
+                  // NOMÉS ES TOCA AQUESTA GALERIA. El 4:5 segueix a la graella
+                  // de la portada, als mobles i a les mantes, on el material SÍ
+                  // que és vertical de sèrie. El 3:2 ja s'usa a /nosaltres.
+                  className="relative aspect-[3/2] overflow-hidden bg-linen"
                 >
                   <Image
                     src={src}
