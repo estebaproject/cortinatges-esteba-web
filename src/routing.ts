@@ -220,6 +220,17 @@ export const routing = defineRouting({
       en: "/upholstery",
       fr: "/tapisserie",
     },
+    "/colleccions/moquetes": {
+      ca: "/moquetes",
+      es: "/moquetas",
+      // "fitted-carpets" i NO "carpets": a la botiga ja hi ha /catifes, que en
+      // anglès són "carpets" o "rugs". Una moqueta és revestiment continu
+      // enganxat al terra i una catifa és una peça solta: si totes dues
+      // s'anomenessin "carpet" competirien entre elles a la mateixa cerca i
+      // l'usuari no sabria on va. "Fitted carpet" és el terme britànic exacte.
+      en: "/fitted-carpets",
+      fr: "/moquettes",
+    },
 
     // PENDENT: "/colleccions/veneciana" (pàgina de categoria que presenta les
     // dues variants) i les seves 4 redireccions des del WordPress, a l'espera

@@ -52,6 +52,19 @@ export const DRAFT_PRODUCTS: Product[] = [
   // que en català és tot cadenes buides i en es/en/fr ni hi és.
   { slug: "pergoles", gallery: 1 },
   { slug: "tapisseria", gallery: 0 },
+  // MOQUETES ESTÀ AQUÍ PERQUÈ NO EN TENIM FOTOS, no perquè falti el text.
+  // La secció /moquetas/ de decoresteba té 29 imatges i CAP és de moqueta:
+  // comprovat pels noms de fitxer, no només pels `alt` — són 11 de tendals,
+  // 7 de correder, 3 de parasols, i la resta de tapisseria, persianes,
+  // mosquiteres i cortines. No hi ha ni un sol `tap_n.esteba_moquet*`.
+  // Mentre no es facin fotos noves, aquesta fitxa no es pot publicar: seria
+  // una pàgina de moquetes il·lustrada amb tendals.
+  //
+  // La ruta SÍ que existeix ja a routing.ts, amb els quatre slugs, perquè el
+  // dia que hi hagi material només calgui escriure el text i moure aquesta
+  // línia a PRODUCTS. Mentrestant /moquetas/ de decoresteba redirigeix a
+  // /es/catifes, que és el parent temàtic més proper.
+  { slug: "moquetes", gallery: 0 },
 ];
 
 export const PRODUCT_SLUGS = PRODUCTS.map((p) => p.slug);
