@@ -469,6 +469,152 @@
         "Elles sont fabriquées avec des matériaux de haute qualité et conçues pour s'adapter à tout type de fenêtre ou de porte, offrant une barrière efficace sans compromettre la ventilation ni l'entrée de lumière naturelle.",
         "Avec une installation simple et rapide, elles sont une option pratique pour garder votre maison protégée toute l'année."
       ]
+    },
+    "tendals": {
+      "name": "Stores bannes",
+      "tagline": "",
+      "intro": "",
+      "paragraphs": [
+        "",
+        ""
+      ],
+      "features": [
+        "",
+        "",
+        ""
+      ],
+      "notes": [
+        ""
+      ],
+      "specs": [
+        {
+          "title": "Tissus",
+          "items": [
+            "Toile acrylique",
+            "Screen",
+            "PVC et Soltis",
+            "Solscape"
+          ]
+        },
+        {
+          "title": "Modèles",
+          "items": [
+            "Bras invisibles",
+            "Store de balcon",
+            "Descente droite",
+            "Pergola en bois ou aluminium",
+            "Toiture coulissante",
+            "Coffre",
+            "Monobloc",
+            "Brise-soleil (lames d'aluminium orientables)",
+            "Couvertures de piscine",
+            "Stores enroulables et verticaux avec PVC transparent"
+          ]
+        },
+        {
+          "title": "Manœuvre",
+          "items": [
+            "Manuelle",
+            "Motorisée et automatisée (soleil et vent)",
+            "Guidage par câble ou par tige"
+          ]
+        },
+        {
+          "title": "Architecture textile",
+          "items": [
+            "Voiles structurées et tendues",
+            "Cloisons souples pour bâtiments industriels et gymnases"
+          ]
+        }
+      ]
+    },
+    "pergoles": {
+      "name": "Pergolas",
+      "tagline": "",
+      "intro": "",
+      "paragraphs": [
+        "",
+        ""
+      ],
+      "features": [
+        "",
+        "",
+        ""
+      ],
+      "notes": [
+        ""
+      ],
+      "specs": [
+        {
+          "title": "Tissus",
+          "items": [
+            "Toile acrylique",
+            "Screen",
+            "PVC et Soltis",
+            "Solscape"
+          ]
+        },
+        {
+          "title": "Manœuvre",
+          "items": [
+            "Manuelle",
+            "Motorisée et automatisée"
+          ]
+        }
+      ]
+    },
+    "tapisseria": {
+      "name": "Tapisserie",
+      "tagline": "",
+      "intro": "",
+      "paragraphs": [
+        "",
+        ""
+      ],
+      "features": [
+        "",
+        "",
+        ""
+      ],
+      "notes": [
+        ""
+      ],
+      "specs": [
+        {
+          "title": "Tissus",
+          "items": [
+            "Simili cuir",
+            "Cuir — pleine fleur (première couche, teintée)",
+            "Microfibre (Alcantara, Microvin, Courtissane…)",
+            "Imprimés (cretonnes, damassés et motifs modernes)",
+            "Chenille (acrylique et coton)",
+            "Velours (acrylique et coton)",
+            "Brocarts (soie et lin)",
+            "Unis (toiles, coton, lin, acryliques et soies)"
+          ]
+        },
+        {
+          "title": "Tissus marins",
+          "items": [
+            "Cuir",
+            "Simili cuir",
+            "Microfibre",
+            "Toile"
+          ]
+        },
+        {
+          "title": "Ce que nous restaurons",
+          "items": [
+            "Canapés",
+            "Fauteuils (Chesterfield ou bergère à oreilles)",
+            "Chaises",
+            "Têtes de lit",
+            "Mobilier de jardin",
+            "Murs tapissés",
+            "Aménagement nautique"
+          ]
+        }
+      ]
     }
   },
   "Catifes": {

@@ -469,6 +469,152 @@
         "Están fabricadas con materiales de alta calidad y diseñadas para adaptarse a cualquier tipo de ventana o puerta, proporcionando una barrera efectiva sin comprometer la ventilación ni la entrada de luz natural.",
         "Con una instalación fácil y rápida, son una opción práctica para mantener tu hogar protegido durante todo el año."
       ]
+    },
+    "tendals": {
+      "name": "Toldos",
+      "tagline": "",
+      "intro": "",
+      "paragraphs": [
+        "",
+        ""
+      ],
+      "features": [
+        "",
+        "",
+        ""
+      ],
+      "notes": [
+        ""
+      ],
+      "specs": [
+        {
+          "title": "Tejidos",
+          "items": [
+            "Lona acrílica",
+            "Screen",
+            "PVC y Soltis",
+            "Solscape"
+          ]
+        },
+        {
+          "title": "Modelos",
+          "items": [
+            "Brazos invisibles",
+            "Estor de balcón",
+            "Punto recto",
+            "Pérgola de madera o aluminio",
+            "Corredero",
+            "Cofre",
+            "Monobloc",
+            "Brisa solar (tejas de aluminio reclinables)",
+            "Cubiertas de piscina",
+            "Telones enrollables y verticales con PVC transparente"
+          ]
+        },
+        {
+          "title": "Sistemas",
+          "items": [
+            "Manual",
+            "Motorizado y automatizado (sol y viento)",
+            "Guiado por cable o por varilla"
+          ]
+        },
+        {
+          "title": "Arquitectura textil",
+          "items": [
+            "Velas estructuradas y tensadas",
+            "Telones separadores para naves industriales y polideportivos"
+          ]
+        }
+      ]
+    },
+    "pergoles": {
+      "name": "Pérgolas",
+      "tagline": "",
+      "intro": "",
+      "paragraphs": [
+        "",
+        ""
+      ],
+      "features": [
+        "",
+        "",
+        ""
+      ],
+      "notes": [
+        ""
+      ],
+      "specs": [
+        {
+          "title": "Tejidos",
+          "items": [
+            "Lona acrílica",
+            "Screen",
+            "PVC y Soltis",
+            "Solscape"
+          ]
+        },
+        {
+          "title": "Sistemas",
+          "items": [
+            "Manual",
+            "Motorizado y automatizado"
+          ]
+        }
+      ]
+    },
+    "tapisseria": {
+      "name": "Tapicería",
+      "tagline": "",
+      "intro": "",
+      "paragraphs": [
+        "",
+        ""
+      ],
+      "features": [
+        "",
+        "",
+        ""
+      ],
+      "notes": [
+        ""
+      ],
+      "specs": [
+        {
+          "title": "Tejidos",
+          "items": [
+            "Polipiel (imitación de la piel)",
+            "Piel — flor de 1ª (primera capa, teñida)",
+            "Microfibra (Alcantara, Microvin, Courtissane…)",
+            "Estampados (cretonas, adamascados y diseños modernos)",
+            "Chenilla (acrílica y algodón)",
+            "Terciopelo (acrílico y algodón)",
+            "Brocados (seda y lino)",
+            "Lisos (lonetas, algodón, lino, acrílicos y sedas)"
+          ]
+        },
+        {
+          "title": "Tejidos náuticos",
+          "items": [
+            "Piel",
+            "Polipiel",
+            "Microfibra",
+            "Loneta"
+          ]
+        },
+        {
+          "title": "Piezas que restauramos",
+          "items": [
+            "Sofás",
+            "Butacas (Chéster u orejero)",
+            "Sillas",
+            "Cabeceros de cama",
+            "Mobiliario de jardín",
+            "Paredes tapizadas",
+            "Náutica"
+          ]
+        }
+      ]
     }
   },
   "Catifes": {

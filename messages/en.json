@@ -469,6 +469,152 @@
         "They are made from high-quality materials and designed to fit any type of window or door, providing an effective barrier without compromising ventilation or the entry of natural light.",
         "Easy and quick to install, they are a practical choice for keeping your home protected all year round."
       ]
+    },
+    "tendals": {
+      "name": "Awnings",
+      "tagline": "",
+      "intro": "",
+      "paragraphs": [
+        "",
+        ""
+      ],
+      "features": [
+        "",
+        "",
+        ""
+      ],
+      "notes": [
+        ""
+      ],
+      "specs": [
+        {
+          "title": "Fabrics",
+          "items": [
+            "Acrylic canvas",
+            "Screen",
+            "PVC and Soltis",
+            "Solscape"
+          ]
+        },
+        {
+          "title": "Models",
+          "items": [
+            "Retractable folding arm",
+            "Balcony drop awning",
+            "Straight drop",
+            "Wood or aluminium pergola",
+            "Sliding roof",
+            "Cassette",
+            "Monobloc",
+            "Louvred roof (adjustable aluminium slats)",
+            "Pool covers",
+            "Roll-down and vertical screens with clear PVC"
+          ]
+        },
+        {
+          "title": "Operation",
+          "items": [
+            "Manual",
+            "Motorised and automated (sun and wind sensors)",
+            "Cable or rod guided"
+          ]
+        },
+        {
+          "title": "Textile structures",
+          "items": [
+            "Structured and tensioned sails",
+            "Dividing screens for industrial units and sports halls"
+          ]
+        }
+      ]
+    },
+    "pergoles": {
+      "name": "Pergolas",
+      "tagline": "",
+      "intro": "",
+      "paragraphs": [
+        "",
+        ""
+      ],
+      "features": [
+        "",
+        "",
+        ""
+      ],
+      "notes": [
+        ""
+      ],
+      "specs": [
+        {
+          "title": "Fabrics",
+          "items": [
+            "Acrylic canvas",
+            "Screen",
+            "PVC and Soltis",
+            "Solscape"
+          ]
+        },
+        {
+          "title": "Operation",
+          "items": [
+            "Manual",
+            "Motorised and automated"
+          ]
+        }
+      ]
+    },
+    "tapisseria": {
+      "name": "Upholstery",
+      "tagline": "",
+      "intro": "",
+      "paragraphs": [
+        "",
+        ""
+      ],
+      "features": [
+        "",
+        "",
+        ""
+      ],
+      "notes": [
+        ""
+      ],
+      "specs": [
+        {
+          "title": "Fabrics",
+          "items": [
+            "Faux leather",
+            "Leather — full grain (top layer, dyed)",
+            "Microfibre (Alcantara, Microvin, Courtissane…)",
+            "Prints (cretonne, damask and modern designs)",
+            "Chenille (acrylic and cotton)",
+            "Velvet (acrylic and cotton)",
+            "Brocade (silk and linen)",
+            "Plains (canvas, cotton, linen, acrylic and silk)"
+          ]
+        },
+        {
+          "title": "Marine fabrics",
+          "items": [
+            "Leather",
+            "Faux leather",
+            "Microfibre",
+            "Canvas"
+          ]
+        },
+        {
+          "title": "What we reupholster",
+          "items": [
+            "Sofas",
+            "Armchairs (Chesterfield or wingback)",
+            "Chairs",
+            "Headboards",
+            "Garden furniture",
+            "Upholstered walls",
+            "Marine interiors"
+          ]
+        }
+      ]
     }
   },
   "Catifes": {

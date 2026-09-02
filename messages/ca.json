@@ -471,7 +471,7 @@
       ]
     },
     "tendals": {
-      "name": "",
+      "name": "Tendals",
       "tagline": "",
       "intro": "",
       "paragraphs": [
@@ -485,10 +485,51 @@
       ],
       "notes": [
         ""
+      ],
+      "specs": [
+        {
+          "title": "Teixits",
+          "items": [
+            "Lona acrílica",
+            "Screen",
+            "PVC i Soltis",
+            "Solscape"
+          ]
+        },
+        {
+          "title": "Models",
+          "items": [
+            "Braços invisibles",
+            "Estor de balcó",
+            "Punt recte",
+            "Pèrgola de fusta o alumini",
+            "Corredor",
+            "Cofre",
+            "Monobloc",
+            "Brisa solar (teules d'alumini reclinables)",
+            "Cobertes de piscina",
+            "Telons enrotllables i verticals amb PVC transparent"
+          ]
+        },
+        {
+          "title": "Sistemes",
+          "items": [
+            "Manual",
+            "Motoritzat i automatitzat (sol i vent)",
+            "Guiat per cable o per vareta"
+          ]
+        },
+        {
+          "title": "Arquitectura tèxtil",
+          "items": [
+            "Veles estructurades i tensades",
+            "Telons separadors per a naus industrials i poliesportius"
+          ]
+        }
       ]
     },
     "pergoles": {
-      "name": "",
+      "name": "Pèrgoles",
       "tagline": "",
       "intro": "",
       "paragraphs": [
@@ -502,10 +543,28 @@
       ],
       "notes": [
         ""
+      ],
+      "specs": [
+        {
+          "title": "Teixits",
+          "items": [
+            "Lona acrílica",
+            "Screen",
+            "PVC i Soltis",
+            "Solscape"
+          ]
+        },
+        {
+          "title": "Sistemes",
+          "items": [
+            "Manual",
+            "Motoritzat i automatitzat"
+          ]
+        }
       ]
     },
     "tapisseria": {
-      "name": "",
+      "name": "Tapisseria",
       "tagline": "",
       "intro": "",
       "paragraphs": [
@@ -519,6 +578,42 @@
       ],
       "notes": [
         ""
+      ],
+      "specs": [
+        {
+          "title": "Teixits",
+          "items": [
+            "Polipell (imitació de la pell)",
+            "Pell — flor de 1a (primera capa, tenyida)",
+            "Microfibra (Alcantara, Microvin, Courtissane…)",
+            "Estampats (cretones, adamascats i dissenys moderns)",
+            "Xenilla (acrílica i cotó)",
+            "Vellut (acrílic i cotó)",
+            "Brocats (seda i lli)",
+            "Llisos (lonetes, cotó, lli, acrílics i sedes)"
+          ]
+        },
+        {
+          "title": "Teixits nàutics",
+          "items": [
+            "Pell",
+            "Polipell",
+            "Microfibra",
+            "Loneta"
+          ]
+        },
+        {
+          "title": "Peces que restaurem",
+          "items": [
+            "Sofàs",
+            "Butaques (Chester o orellut)",
+            "Cadires",
+            "Capçals de llit",
+            "Mobiliari de jardí",
+            "Parets entapissades",
+            "Nàutica"
+          ]
+        }
       ]
     }
   },
