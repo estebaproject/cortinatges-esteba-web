@@ -84,6 +84,21 @@ referència**, i el model només sap un preu per mida. Entra limitada a la
 referència 2025 amb els cinc preus derivats de la regla documentada, i s'ha
 afegit també a la base de dades.
 
+### Portada i marca (02/09)
+
+- **El titular es parteix en titular i subtítol.** "Decoració tèxtil i protecció
+  solar a mida" i "Instal·lat a casa teva." a part. L'anglès NO és una traducció
+  del català: "textile decoration" era literal i el terme del sector és **soft
+  furnishings**, que a més és el que la gent cerca. El castellà i el francès es
+  queden com estaven — "decoración textil" sí que és el terme del sector
+  espanyol, i "tissus d'ameublement" designaria el teixit, no el servei.
+- **Les dues frases del text de productes van a fila separada.** Era una sola
+  cadena i el salt queia per amplada: partia "Redecora casa / teva". Ara són
+  dues claus, cadascuna en un `inline-block`.
+- **Les icones s'inverteixen**: retall blau sobre tauler blanc, en comptes de
+  blanc sobre blau. Mateix contrast, 12,25:1, perquè són els dos mateixos
+  colors intercanviats. L'apple-icon segueix opaca de vora a vora.
+
 ---
 
 ## Els commits
@@ -103,6 +118,9 @@ afegit també a la base de dades.
 | `ee65f75` | els comptadors dels manifests de fotos deien qualsevol cosa |
 | `e2ec1f6` | Glam Velvet entra al catàleg, limitada a la referència 2025 |
 | `406c684` | Glam Velvet entra als manifests de fotos i ensenya les tres |
+| `3566717` | el titular de la portada es parteix en titular i subtítol |
+| `fc103e2` | les dues frases del text de productes van a fila separada |
+| `d765173` | les icones s'inverteixen — retall blau sobre tauler blanc |
 
 Tots desplegats i mesurats contra producció.
 
@@ -114,25 +132,28 @@ nota de `scripts/gen-web-catalog-seed.mjs`.
 
 ## Què queda pendent
 
-**A la branca local, sense commit.** El hero nou: el titular passa a
-"Decoració tèxtil i protecció solar a mida" amb "Instal·lat a casa teva." com a
-subtítol. El català és el que va dictar en Federico; **les traduccions de
-castellà, anglès i francès les vaig redactar jo i estan pendents que les revisi
-l'Oriol**. Toca `messages/*.json` i `src/components/Hero.tsx`.
-
 **Trobat i no arreglat, per ordre del que jo atacaria:**
 
 1. **La branca `feat/botiga-web-module` de l'ERP, parada des del 09/07.** Té
    hub, llistat i editor de productes web amb el guard de `botiga_web.access`,
    però mai s'ha fusionat a master. I encara fusionada no resol crear productes
    nous: no hi ha cap `useCreateWebProduct`, només edició.
-2. **L'orfe del titular a iOS < 17.5.** `text-balance` no hi arriba i l'última
-   paraula queda sola al mig, a `es`/`fr` a 320px i `en` de 320 a 375. El
-   català no ho pateix. Descartat conscientment; el fix seria un `@supports`.
-3. **El favicon a 16px.** La marca blanca fa 8 píxels i el retall de tela té 5
-   dents: no hi caben. Es veu net i contrasta, però el retall no s'hi distingeix.
-   No és un error, és una decisió de disseny pendent.
-4. **El botó de WhatsApp a 1,98:1.** Blanc sobre el verd de la marca aliena. Jo
+2. **La tipografia francesa pot deixar signes orfes.** El fitxer `fr.json` té
+   **38 cadenes** amb espai NORMAL abans de `!`, `?`, `:` o `»`, i aquell espai
+   és un punt de tall vàlid: el signe es pot quedar sol a la línia de sota. Es
+   va veure a `HomeGrid.tagline` a 768px i allà s'ha arreglat amb `U+00A0`
+   (mateixa amplada que l'espai normal amb la font Archivo, 11,89px). **Les
+   altres 37 no s'han tocat.**
+3. **L'orfe del titular a iOS < 17.5.** `text-balance` no hi arriba i l'última
+   paraula queda sola al mig. Mesurat amb el text ANTERIOR donava `es`/`fr` a
+   320px i `en` de 320 a 375; el copy ha canviat des de llavors i caldria
+   tornar-ho a mesurar. Descartat conscientment; el fix seria un `@supports`.
+4. **El favicon a 16px.** El retall fa 8 píxels d'ample i té 5 dents per vora:
+   calen 10 mostres per dibuixar-ne 5, o sigui que no hi caben. Es veu net i
+   contrasta 12,25:1, però el dentat no s'hi distingeix — a la pestanya és un
+   rectangle. No és un error, és una decisió de disseny pendent. (Segueix sent
+   cert amb les icones invertides: el que canvia és el color, no la mida.)
+5. **El botó de WhatsApp a 1,98:1.** Blanc sobre el verd de la marca aliena. Jo
    no el tocaria.
 
 ---
