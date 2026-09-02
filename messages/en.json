@@ -155,7 +155,8 @@
     ]
   },
   "HomeGrid": {
-    "tagline": "At Cortinatges Esteba you'll find much more than curtains! Redecorate your home with the latest trends.",
+    "tagline": "At Cortinatges Esteba you'll find much more than curtains!",
+    "taglineB": "Redecorate your home with the latest trends.",
     "serveis": "Services",
     "tendals": "Awnings",
     "pergoles": "Pergolas",

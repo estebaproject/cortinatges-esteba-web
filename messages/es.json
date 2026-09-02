@@ -155,7 +155,8 @@
     ]
   },
   "HomeGrid": {
-    "tagline": "¡En Cortinatges Esteba encontrarás mucho más que cortinas! Redecora tu casa con las tendencias más actuales.",
+    "tagline": "¡En Cortinatges Esteba encontrarás mucho más que cortinas!",
+    "taglineB": "Redecora tu casa con las tendencias más actuales.",
     "serveis": "Servicios",
     "tendals": "Toldos",
     "pergoles": "Pérgolas",

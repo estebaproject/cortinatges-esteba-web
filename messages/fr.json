@@ -155,7 +155,8 @@
     ]
   },
   "HomeGrid": {
-    "tagline": "Chez Cortinatges Esteba, vous trouverez bien plus que des rideaux ! Redécorez votre maison avec les tendances les plus actuelles.",
+    "tagline": "Chez Cortinatges Esteba, vous trouverez bien plus que des rideaux !",
+    "taglineB": "Redécorez votre maison avec les tendances les plus actuelles.",
     "serveis": "Services",
     "tendals": "Stores bannes",
     "pergoles": "Pergolas",
