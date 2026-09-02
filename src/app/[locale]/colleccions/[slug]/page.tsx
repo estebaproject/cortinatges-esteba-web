@@ -98,6 +98,29 @@ export default async function ProductPage({ params }: Props) {
   // bloc, tot cauria dins de `features` i es perdria la distinció entre
   // argument de venda i cosa a tenir present abans de decidir.
   const notesRaw = tp.has(key("notes")) ? (tp.raw(key("notes")) as string[]) : [];
+
+  // LLISTES AGRUPADES AMB TÍTOL. `features` és una llista PLANA sota un sol
+  // encapçalament, i hi ha fitxes on el gruix del catàleg ve classificat:
+  // teixits, models, sistemes de comandament… Aplanar-ho vol dir barrejar
+  // teixits amb motoritzacions en un reguitzell sense jerarquia.
+  //
+  // És OPCIONAL: les fitxes que no en tenen no canvien gens.
+  //
+  // Es filtra el que no tingui la forma esperada perquè, a diferència de
+  // `features`, això és una estructura NIADA: una entrada mal escrita al JSON
+  // de traduccions rebentaria el render de tota la pàgina en comptes de
+  // deixar-se un ítem.
+  type SpecGroup = { title: string; items: string[] };
+  const specsRaw: SpecGroup[] = (
+    tp.has(key("specs")) ? (tp.raw(key("specs")) as SpecGroup[]) : []
+  ).filter(
+    (g) =>
+      g &&
+      typeof g.title === "string" &&
+      g.title.trim() !== "" &&
+      Array.isArray(g.items) &&
+      g.items.length > 0,
+  );
   const images = productImages(product);
   const [hero, ...gallery] = images;
 
@@ -193,6 +216,39 @@ export default async function ProductPage({ params }: Props) {
                 {p}
               </p>
             ))}
+
+            {/* Va ABANS de `features` a posta. L'ordre de lectura queda: què
+                és (intro i paràgrafs) → què n'oferim (aquest catàleg) → per
+                què nosaltres (`features`) → què tenir en compte (`notes`).
+                A les fitxes que venen de decoresteba, aquest bloc ÉS el
+                contingut: allà `features` gairebé no en té.
+
+                Cada grup porta el seu `h2`, igual que `featuresHeading` i
+                `notesHeading`, però amb el títol venint de les DADES i no
+                d'una clau de traducció: els grups canvien de fitxa a fitxa
+                (Teixits, Models, Sistemes, Arquitectura tèxtil…) i posar-los
+                al namespace obligaria a declarar-los tots per a totes. */}
+            {specsRaw.length > 0 && (
+              <div className="mt-12 flex flex-col gap-10">
+                {specsRaw.map((grup, gi) => (
+                  <div key={gi}>
+                    <h2 className="font-sans text-eyebrow text-accent-deep uppercase mb-6">
+                      {grup.title}
+                    </h2>
+                    <ul className="flex flex-col gap-4" role="list">
+                      {grup.items.map((item, i) => (
+                        <li
+                          key={i}
+                          className="font-sans text-body-md text-ink-muted pl-5 border-l-2 border-linen-dark"
+                        >
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            )}
 
             {featuresRaw.length > 0 && (
               <div className="mt-12">
