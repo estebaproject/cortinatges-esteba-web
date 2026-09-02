@@ -45,7 +45,12 @@ export const PRODUCTS: Product[] = [
  */
 export const DRAFT_PRODUCTS: Product[] = [
   { slug: "tendals", gallery: 0 },
-  { slug: "pergoles", gallery: 0 },
+  // Ja té la foto de portada (pas 2 de la llista de dalt): 707x560, la de
+  // Bandalux. `gallery: 1` és el TOTAL incloent-hi la portada, o sigui que
+  // `productImages` retorna només `1.jpg` i no hi ha secció de galeria.
+  // SEGUEIX SENSE PUBLICAR: falta el pas 1, el text de `Products.pergoles`,
+  // que en català és tot cadenes buides i en es/en/fr ni hi és.
+  { slug: "pergoles", gallery: 1 },
   { slug: "tapisseria", gallery: 0 },
 ];
 
