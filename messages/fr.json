@@ -503,7 +503,7 @@
             "Store de balcon",
             "Descente droite",
             "Pergola en bois ou aluminium",
-            "Toiture coulissante",
+            "Store coulissant",
             "Coffre",
             "Monobloc",
             "Brise-soleil (lames d'aluminium orientables)",
@@ -530,19 +530,21 @@
     },
     "pergoles": {
       "name": "Pergolas",
-      "tagline": "",
-      "intro": "",
+      "tagline": "Une pièce de plus, en plein air. Conçue et posée sur mesure.",
+      "intro": "Nous concevons, mesurons et posons des pergolas en bois ou en aluminium, avec la toile qui convient à votre terrasse.",
       "paragraphs": [
-        "",
-        ""
+        "Nous choisissons la structure —bois ou aluminium— et la toile selon la lumière souhaitée et ce qu'elle doit supporter. La couverture peut être un store coulissant, qui glisse sur des rails pour s'ouvrir et se fermer.",
+        "Elle peut recevoir une motorisation et des capteurs de soleil et de vent, pour se replier seule quand le vent se lève. Une terrasse de deux mois par an devient une pièce de plus."
       ],
       "features": [
-        "",
-        "",
-        ""
+        "Structure en bois ou en aluminium",
+        "Étude et prise de mesures chez vous",
+        "Couverture en store coulissant, sur rails",
+        "Motorisation en option, avec capteurs de soleil et de vent",
+        "Montage et pose à votre domicile"
       ],
       "notes": [
-        ""
+        "Chaque pergola dépend de la configuration du lieu et des points d'ancrage possibles. Nous venons prendre les mesures avant tout devis."
       ],
       "specs": [
         {

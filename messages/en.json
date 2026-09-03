@@ -503,7 +503,7 @@
             "Balcony drop awning",
             "Straight drop",
             "Wood or aluminium pergola",
-            "Sliding roof",
+            "Sliding awning",
             "Cassette",
             "Monobloc",
             "Louvred roof (adjustable aluminium slats)",
@@ -530,19 +530,21 @@
     },
     "pergoles": {
       "name": "Pergolas",
-      "tagline": "",
-      "intro": "",
+      "tagline": "An extra room, outdoors. Designed and fitted to measure.",
+      "intro": "We design, measure and install timber or aluminium pergolas with the fabric roof that best suits your terrace.",
       "paragraphs": [
-        "",
-        ""
+        "We choose the structure —timber or aluminium— and the fabric to suit how much light you want and what it must withstand. The roof can be a sliding awning that runs on rails to open and close.",
+        "It can take motorisation and sun and wind sensors, so it folds away when the wind gets up. A terrace you use two months a year becomes another room of the house."
       ],
       "features": [
-        "",
-        "",
-        ""
+        "Timber or aluminium structure",
+        "Design and measuring at your property",
+        "Sliding awning roof, running on rails",
+        "Optional motorisation, with sun and wind sensors",
+        "Assembly and installation in your home"
       ],
       "notes": [
-        ""
+        "Every pergola depends on the space and on where it can be anchored. We come out and take measurements before quoting."
       ],
       "specs": [
         {

@@ -503,7 +503,7 @@
             "Estor de balcó",
             "Punt recte",
             "Pèrgola de fusta o alumini",
-            "Corredor",
+            "Corredér",
             "Cofre",
             "Monobloc",
             "Brisa solar (teules d'alumini reclinables)",
@@ -530,19 +530,21 @@
     },
     "pergoles": {
       "name": "Pèrgoles",
-      "tagline": "",
-      "intro": "",
+      "tagline": "Una estança més, a l'aire lliure. Projectada i muntada a mida.",
+      "intro": "Projectem, mesurem i instal·lem pèrgoles de fusta o d'alumini amb la coberta tèxtil que millor s'adapti a la teva terrassa.",
       "paragraphs": [
-        "",
-        ""
+        "Triem l'estructura —fusta o alumini— i el teixit segons quanta llum hi vols i què ha d'aguantar. La coberta pot ser un tendal corredér, que llisca sobre guies per obrir-se i tancar-se.",
+        "Pot portar motorització i sensors de sol i vent, perquè es plegui sola quan bufa. Converteix una terrassa de dos mesos l'any en una estança més de casa."
       ],
       "features": [
-        "",
-        "",
-        ""
+        "Estructura de fusta o d'alumini",
+        "Projecte i presa de mides al teu espai",
+        "Coberta de tendal corredér, que llisca sobre guies",
+        "Motorització opcional, amb sensors de sol i vent",
+        "Muntatge i instal·lació a casa teva"
       ],
       "notes": [
-        ""
+        "Cada pèrgola depèn de com és l'espai i d'on es pot ancorar. Abans de fer cap pressupost hi anem a prendre mides."
       ],
       "specs": [
         {
