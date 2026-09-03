@@ -22,6 +22,10 @@ export const PRODUCTS: Product[] = [
   { slug: "nit-i-dia", gallery: 3 },
   { slug: "mosquitera", gallery: 4, brands: ["EPID"] },
   { slug: "motoritzacio", gallery: 2, brands: ["Somfy"] },
+  // Primera fitxa consolidada de decoresteba.com. La portada surt d'una foto
+  // seva (correder_11), retallada per treure-hi la marca d'aigua de la casa
+  // vella: v. el comentari de DRAFT_PRODUCTS aquí sota.
+  { slug: "pergoles", gallery: 1 },
 ];
 
 /**
@@ -43,15 +47,29 @@ export const PRODUCTS: Product[] = [
  *   4. NOMÉS DESPRÉS, redirigir decoresteba.com. Mai les dues webs vives
  *      amb el mateix text.
  */
+/**
+ * LES PORTADES SURTEN DE FOTOS DE DECORESTEBA, RETALLADES.
+ *
+ * Les 89 fotos del WordPress vell porten la marca d'aigua «N.» (Tapisseria N.
+ * Esteba) CREMADA DINS DE LA IMATGE. Mesurat sobre les 18 de /pergolas/: viu
+ * sempre entre el 83% i el 100% de l'alçada, encara que la posició horitzontal
+ * varia. Hi ha una coincidència que ho resol: les fotos són 4:3 i la galeria de
+ * la fitxa és 3:2, o sigui que llençar el 20% inferior s'endú la marca i deixa
+ * la imatge a 1,62 —més ampla que 3:2— i encara sobra per retallar amplada.
+ * De 4160x3088 en surt un 3705x2470 net, el 71% de la superfície original.
+ *
+ * S'ha de MIRAR cada foto sencera abans de triar-la: el nom del fitxer no diu
+ * que hi surti un Burger King (parasols_04), una furgoneta amb el logo vell
+ * (correder_19) ni el rètol d'un altre negoci (correder_01, tendals_46, _49, _50).
+ *
+ *   pergoles    correder_11      pèrgola grisa, sense rètols ni mobiliari
+ *   tendals     tendals_09       tendal obert sobre la badia
+ *   tapisseria  tapisseria_01    cadira restaurada amb brocat; és vertical i
+ *                                el retall va a y=430 perquè hi càpiga sencera
+ */
 export const DRAFT_PRODUCTS: Product[] = [
-  { slug: "tendals", gallery: 0 },
-  // Ja té la foto de portada (pas 2 de la llista de dalt): 707x560, la de
-  // Bandalux. `gallery: 1` és el TOTAL incloent-hi la portada, o sigui que
-  // `productImages` retorna només `1.jpg` i no hi ha secció de galeria.
-  // SEGUEIX SENSE PUBLICAR: falta el pas 1, el text de `Products.pergoles`,
-  // que en català és tot cadenes buides i en es/en/fr ni hi és.
-  { slug: "pergoles", gallery: 1 },
-  { slug: "tapisseria", gallery: 0 },
+  { slug: "tendals", gallery: 1 },
+  { slug: "tapisseria", gallery: 1 },
   // MOQUETES ESTÀ AQUÍ PERQUÈ NO EN TENIM FOTOS, no perquè falti el text.
   // La secció /moquetas/ de decoresteba té 29 imatges i CAP és de moqueta:
   // comprovat pels noms de fitxer, no només pels `alt` — són 11 de tendals,

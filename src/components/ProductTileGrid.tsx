@@ -27,9 +27,12 @@ export default async function ProductTileGrid() {
     image: productHero(p.slug),
   }));
 
+  // Les fitxes que ENCARA no s'han publicat segueixen enviant al WordPress
+  // vell. A mesura que es publiquen, surten d'aquí i entren soles a
+  // `productTiles` via PRODUCTS: si es deixessin a totes dues llistes, el
+  // mosaic les ensenyaria DUES vegades.
   const extraTiles: Tile[] = [
     { key: "tendals", label: tg("tendals"), href: DECORESTEBA, external: true, image: "/images/tendals.jpg" },
-    { key: "pergoles", label: tg("pergoles"), href: DECORESTEBA, external: true, image: "/images/pergoles.jpg" },
     { key: "tapisseria", label: tg("tapisseria"), href: DECORESTEBA, external: true, image: "/images/tapisseria.jpg" },
   ];
 

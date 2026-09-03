@@ -37,12 +37,12 @@ const withNextIntl = createNextIntlPlugin("./src/i18n.ts");
 //  (`<html lang="es">`, slugs castellans). Qui hi arriba des de Google ve
 //  buscant en castellà; enviar-lo a l'arrel catalana el fa fer marxa enrere.
 //
-//  NO HI SÓN LES QUATRE QUE FALTEN, i tampoc és un oblit: /toldos/, /pergolas/
-//  i /tapicerias/ tenen el destí a DRAFT_PRODUCTS i FAN 404 ARA MATEIX, i
-//  /moquetas/ no té ni ruta. Redirigir-les a la portada com a solució temporal
-//  seria pitjor que no fer res: caldria refer el 301 en publicar-les i
-//  quedaria una cadena de redireccions. Es queden servint el WordPress fins
-//  que les fitxes es publiquin; llavors s'afegeixen aquí.
+//  LES QUE FALTEN LES RECULL LA XARXA DE SEGURETAT. /toldos/ i /tapicerias/
+//  encara no tenen regla pròpia perquè les seves fitxes viuen a DRAFT_PRODUCTS
+//  i farien 404. No es queden despenjades: la regla `/:path*` del final del
+//  bloc de decoresteba les porta a la portada castellana, que és molt millor
+//  que un 404 i no crea cap cadena de 301. Quan es publiquin, se'ls posa regla
+//  pròpia aquí i passen a la seva pàgina —com ja s'ha fet amb /pergolas.
 const DECORESTEBA_HOSTS = ["decoresteba.com", "www.decoresteba.com"];
 
 const DECORESTEBA_REDIRECTS: { source: string; destination: string }[] = [
@@ -88,6 +88,11 @@ const DECORESTEBA_REDIRECTS: { source: string; destination: string }[] = [
   //   /moquetas -> /es/moquetas   (la ruta ja existeix a routing.ts)
   { source: "/carpas", destination: "https://cortinatgesesteba.com/es#productes" },
   { source: "/moquetas", destination: "https://cortinatgesesteba.com/es#productes" },
+
+  // Fitxa ja publicada: la redirecció apunta a la pàgina equivalent. La resta
+  // de /toldos, /pergolas i /tapicerias les recull la xarxa de seguretat fins
+  // que les seves fitxes surtin de DRAFT_PRODUCTS.
+  { source: "/pergolas", destination: "https://cortinatgesesteba.com/es/pergolas" },
 
   // L'ÚNICA que va a la portada, i és deliberat: no venem paviment de fusta
   // ni res que s'hi acosti. Un 301 cap a una pàgina que no respon a la
