@@ -472,19 +472,21 @@
     },
     "tendals": {
       "name": "Tendals",
-      "tagline": "",
-      "intro": "",
+      "tagline": "Ombra quan la necessites, recollida quan no. Deu models per triar.",
+      "intro": "Projectem, mesurem i instal·lem tendals de deu models diferents, amb el teixit i el sistema que demani cada obertura.",
       "paragraphs": [
-        "",
-        ""
+        "Braços invisibles per a una terrassa, estor per a un balcó, cofre perquè quedi protegit tot l'hivern, o brisa solar amb teules d'alumini que es reclinen.",
+        "Manual o motoritzat, amb sensors que el pleguen sol quan bufa. També fem arquitectura tèxtil: veles tensades i telons separadors per a naus i poliesportius."
       ],
       "features": [
-        "",
-        "",
-        ""
+        "Deu models, del balcó a la nau industrial",
+        "Motorització amb sensors de sol i vent",
+        "Guiat per cable o per vareta",
+        "Cobertes de piscina",
+        "Projecte, presa de mides i instal·lació"
       ],
       "notes": [
-        ""
+        "Cada obertura demana un model i un teixit diferents. Hi anem a prendre mides abans de fer cap pressupost."
       ],
       "specs": [
         {
@@ -533,7 +535,7 @@
       "tagline": "Una estança més, a l'aire lliure. Projectada i muntada a mida.",
       "intro": "Projectem, mesurem i instal·lem pèrgoles de fusta o d'alumini amb la coberta tèxtil que millor s'adapti a la teva terrassa.",
       "paragraphs": [
-        "Triem l'estructura —fusta o alumini— i el teixit segons quanta llum hi vols i què ha d'aguantar. La coberta pot ser un tendal corredér, que llisca sobre guies per obrir-se i tancar-se.",
+        "Triem l'estructura —fusta o alumini— i el teixit segons la llum que hi vols. La coberta pot ser un tendal corredér, que llisca sobre guies per obrir-se i tancar-se.",
         "Pot portar motorització i sensors de sol i vent, perquè es plegui sola quan bufa. Converteix una terrassa de dos mesos l'any en una estança més de casa."
       ],
       "features": [
@@ -567,19 +569,21 @@
     },
     "tapisseria": {
       "name": "Tapisseria",
-      "tagline": "",
-      "intro": "",
+      "tagline": "El moble que ja tens, com nou. Més de 5.000 teixits per triar.",
+      "intro": "Entapissem de nou sofàs, butaques, cadires i capçals amb més de 5.000 referències de teixit, perquè no calgui llençar un moble que encara aguanta.",
       "paragraphs": [
-        "",
-        ""
+        "De la polipell al vellut, de la microfibra als brocats de seda i lli. Triem el teixit per l'ús que tindrà la peça i l'estil que busques.",
+        "Restaurem sofàs, butaques, cadires, capçals de llit i mobiliari de jardí. També fem tapisseria nàutica, amb teixits que aguanten el sol i la sal."
       ],
       "features": [
-        "",
-        "",
-        ""
+        "Més de 5.000 referències de teixit",
+        "Restaurem la peça que ja tens",
+        "Tapisseria nàutica amb teixits marins",
+        "Parets entapissades",
+        "Mobiliari de jardí"
       ],
       "notes": [
-        ""
+        "Cada peça es valora abans de pressupostar: l'estructura, l'escuma i el teixit que hi ha d'anar."
       ],
       "specs": [
         {

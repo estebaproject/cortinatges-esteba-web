@@ -472,19 +472,21 @@
     },
     "tendals": {
       "name": "Toldos",
-      "tagline": "",
-      "intro": "",
+      "tagline": "Sombra cuando la necesitas, recogida cuando no. Diez modelos para elegir.",
+      "intro": "Proyectamos, medimos e instalamos toldos de diez modelos distintos, con el tejido y el sistema que pida cada abertura.",
       "paragraphs": [
-        "",
-        ""
+        "Brazos invisibles para una terraza, estor para un balcón, cofre para que quede protegido todo el invierno, o brisa solar con tejas de aluminio reclinables.",
+        "Manual o motorizado, con sensores que lo pliegan solo cuando sopla. También hacemos arquitectura textil: velas tensadas y telones separadores para naves y polideportivos."
       ],
       "features": [
-        "",
-        "",
-        ""
+        "Diez modelos, del balcón a la nave industrial",
+        "Motorización con sensores de sol y viento",
+        "Guiado por cable o por varilla",
+        "Cubiertas de piscina",
+        "Proyecto, toma de medidas e instalación"
       ],
       "notes": [
-        ""
+        "Cada abertura pide un modelo y un tejido distintos. Vamos a tomar medidas antes de hacer ningún presupuesto."
       ],
       "specs": [
         {
@@ -533,7 +535,7 @@
       "tagline": "Una estancia más, al aire libre. Proyectada y montada a medida.",
       "intro": "Proyectamos, medimos e instalamos pérgolas de madera o aluminio con la cubierta textil que mejor se adapte a tu terraza.",
       "paragraphs": [
-        "Elegimos la estructura —madera o aluminio— y el tejido según cuánta luz quieras y qué tiene que aguantar. La cubierta puede ser un toldo corredero, que se desliza sobre guías para abrirse y cerrarse.",
+        "Elegimos la estructura —madera o aluminio— y el tejido según la luz que quieras. La cubierta puede ser un toldo corredero, que se desliza sobre guías para abrirse y cerrarse.",
         "Puede llevar motorización y sensores de sol y viento, para que se pliegue sola cuando sopla. Convierte una terraza de dos meses al año en una estancia más de casa."
       ],
       "features": [
@@ -567,19 +569,21 @@
     },
     "tapisseria": {
       "name": "Tapicería",
-      "tagline": "",
-      "intro": "",
+      "tagline": "El mueble que ya tienes, como nuevo. Más de 5.000 tejidos para elegir.",
+      "intro": "Tapizamos de nuevo sofás, butacas, sillas y cabeceros con más de 5.000 referencias de tejido, para no tener que tirar un mueble que aún aguanta.",
       "paragraphs": [
-        "",
-        ""
+        "De la polipiel al terciopelo, de la microfibra a los brocados de seda y lino. Elegimos el tejido por el uso que tendrá la pieza y el estilo que buscas.",
+        "Restauramos sofás, butacas, sillas, cabeceros de cama y mobiliario de jardín. También hacemos tapicería náutica, con tejidos que aguantan el sol y la sal."
       ],
       "features": [
-        "",
-        "",
-        ""
+        "Más de 5.000 referencias de tejido",
+        "Restauramos la pieza que ya tienes",
+        "Tapicería náutica con tejidos marinos",
+        "Paredes tapizadas",
+        "Mobiliario de jardín"
       ],
       "notes": [
-        ""
+        "Cada pieza se valora antes de presupuestar: la estructura, la espuma y el tejido que va a llevar."
       ],
       "specs": [
         {

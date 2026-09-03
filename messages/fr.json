@@ -472,19 +472,21 @@
     },
     "tendals": {
       "name": "Stores bannes",
-      "tagline": "",
-      "intro": "",
+      "tagline": "De l'ombre à la demande, rangée le reste du temps. Dix modèles.",
+      "intro": "Nous concevons, mesurons et posons des stores bannes en dix modèles, avec la toile et la manœuvre qu'exige chaque ouverture.",
       "paragraphs": [
-        "",
-        ""
+        "Bras invisibles pour une terrasse, store de balcon, coffre pour le protéger tout l'hiver, ou brise-soleil à lames d'aluminium orientables.",
+        "Manuel ou motorisé, avec des capteurs qui le replient quand le vent se lève. Nous réalisons aussi de l'architecture textile : voiles tendues et cloisons souples pour bâtiments industriels et gymnases."
       ],
       "features": [
-        "",
-        "",
-        ""
+        "Dix modèles, du balcon au bâtiment industriel",
+        "Motorisation avec capteurs de soleil et de vent",
+        "Guidage par câble ou par tige",
+        "Couvertures de piscine",
+        "Étude, prise de mesures et pose"
       ],
       "notes": [
-        ""
+        "Chaque ouverture demande un modèle et une toile différents. Nous venons prendre les mesures avant tout devis."
       ],
       "specs": [
         {
@@ -533,7 +535,7 @@
       "tagline": "Une pièce de plus, en plein air. Conçue et posée sur mesure.",
       "intro": "Nous concevons, mesurons et posons des pergolas en bois ou en aluminium, avec la toile qui convient à votre terrasse.",
       "paragraphs": [
-        "Nous choisissons la structure —bois ou aluminium— et la toile selon la lumière souhaitée et ce qu'elle doit supporter. La couverture peut être un store coulissant, qui glisse sur des rails pour s'ouvrir et se fermer.",
+        "Nous choisissons la structure —bois ou aluminium— et la toile selon la lumière souhaitée. La couverture peut être un store coulissant, qui glisse sur des rails pour s'ouvrir et se fermer.",
         "Elle peut recevoir une motorisation et des capteurs de soleil et de vent, pour se replier seule quand le vent se lève. Une terrasse de deux mois par an devient une pièce de plus."
       ],
       "features": [
@@ -567,19 +569,21 @@
     },
     "tapisseria": {
       "name": "Tapisserie",
-      "tagline": "",
-      "intro": "",
+      "tagline": "Le meuble que vous avez déjà, comme neuf. Plus de 5 000 tissus.",
+      "intro": "Nous regarnissons canapés, fauteuils, chaises et têtes de lit avec plus de 5 000 références de tissu, pour ne pas jeter un meuble qui tient encore.",
       "paragraphs": [
-        "",
-        ""
+        "Du simili cuir au velours, de la microfibre aux brocarts de soie et de lin. Nous choisissons le tissu selon l'usage de la pièce et le style recherché.",
+        "Nous restaurons canapés, fauteuils, chaises, têtes de lit et mobilier de jardin. Nous faisons aussi de la tapisserie nautique, avec des tissus qui résistent au soleil et au sel."
       ],
       "features": [
-        "",
-        "",
-        ""
+        "Plus de 5 000 références de tissu",
+        "Nous restaurons la pièce que vous avez déjà",
+        "Tapisserie nautique avec tissus marins",
+        "Murs tapissés",
+        "Mobilier de jardin"
       ],
       "notes": [
-        ""
+        "Chaque pièce est évaluée avant devis : la structure, la mousse et le tissu qui va la couvrir."
       ],
       "specs": [
         {
