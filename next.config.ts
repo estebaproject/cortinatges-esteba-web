@@ -68,14 +68,26 @@ const DECORESTEBA_REDIRECTS: { source: string; destination: string }[] = [
   { source: "/cortinas-estores", destination: "https://cortinatgesesteba.com/es#productes" },
   { source: "/persianas", destination: "https://cortinatgesesteba.com/es#productes" },
 
-  // Sense equivalent exacte, però amb el parent temàtic més proper.
-  // Carpes comparteix el catàleg de teixits amb tendals (lona acrílica,
-  // screen, PVC/Soltis, Solscape).
-  { source: "/carpas", destination: "https://cortinatgesesteba.com/es/toldos" },
-  // Moqueta és revestiment continu i catifa és peça, o sigui que no és el
-  // mateix producte; comparteixen intenció (tèxtil de terra) i és el més
-  // honest que tenim mentre no hi hagi fitxa pròpia.
-  { source: "/moquetas", destination: "https://cortinatgesesteba.com/es/catifes" },
+  // DESTINS PROVISIONALS. Tots dos apuntaven a una pàgina que NO servia, i es
+  // va colar perquè es van escriure mirant `routing.ts` en comptes de mesurar
+  // la URL desplegada. Que una ruta existeixi a `routing.ts` vol dir que està
+  // DECLARADA, no que es GENERI: si l'entrada viu a DRAFT_PRODUCTS, fa 404.
+  //
+  //   /carpas   -> /es/toldos    404. Tendals encara és esborrany.
+  //   /moquetas -> /es/catifes   200, però la pàgina porta
+  //                              <meta robots="noindex, nofollow"> i és
+  //                              Disallow al robots.txt mentre la botiga no
+  //                              es publiqui. Un 301 cap a una pàgina que
+  //                              Google no pot rastrejar ni indexar llença el
+  //                              senyal: pitjor que no redirigir.
+  //
+  // Mentrestant van a la graella de productes, que és viva, indexable i deixa
+  // triar l'usuari. QUAN ES PUBLIQUIN LES FITXES, tornen al parent temàtic:
+  //   /carpas   -> /es/toldos     (comparteix el catàleg de teixits: lona
+  //                                acrílica, screen, PVC/Soltis, Solscape)
+  //   /moquetas -> /es/moquetas   (la ruta ja existeix a routing.ts)
+  { source: "/carpas", destination: "https://cortinatgesesteba.com/es#productes" },
+  { source: "/moquetas", destination: "https://cortinatgesesteba.com/es#productes" },
 
   // L'ÚNICA que va a la portada, i és deliberat: no venem paviment de fusta
   // ni res que s'hi acosti. Un 301 cap a una pàgina que no respon a la
@@ -189,6 +201,42 @@ const nextConfig: NextConfig = {
           ];
         }),
       ),
+
+      // 0-bis) XARXA DE SEGURETAT de decoresteba. Va DESPRÉS de les regles
+      //    específiques de dalt —la primera coincidència guanya, i posada abans
+      //    se les empassaria totes— i ABANS de tot el que ve després.
+      //
+      //    SENSE AIXÒ, el dia que el DNS apunti a Vercel, qualsevol URL de
+      //    decoresteba.com que no estigui al mapa serviria el WEB NOU SENCER
+      //    sota el domini vell. No és un 404: és pitjor. Serien dues webs
+      //    idèntiques amb dos dominis, i la vella té deu anys d'antiguitat per
+      //    guanyar el duel de contingut duplicat contra la que volem posicionar.
+      //
+      //    Cobreix tres casos alhora:
+      //      · les 3 URLs del sitemap vell que encara no tenen regla
+      //        (/toldos, /pergolas, /tapicerias: donen 200 al WordPress i les
+      //        seves fitxes són esborrany), que aterren a la portada en comptes
+      //        de fer 404;
+      //      · tot el que hi ha indexat i no surt al sitemap — que no sabem
+      //        quant és, perquè l'inventari de Search Console encara no s'ha fet;
+      //      · /wp-content, /wp-admin, ?p=123 i la resta de rastre de WordPress.
+      //
+      //    `:path*` i no `:path+`: aquí SÍ que volem que l'arrel hi entri com a
+      //    xarxa, encara que a la pràctica no hi arribi mai perquè "/" ja té
+      //    regla pròpia a dalt. I no cal variant amb barra final: `:path*`
+      //    ja les agafa totes dues.
+      //
+      //    NO CAL cap `X-Robots-Tag: noindex` per al domini vell: amb aquesta
+      //    regla no se serveix mai cap HTML sota decoresteba.com, només 308.
+      //    Una capçalera noindex sobre una resposta que ja és una redirecció no
+      //    afegeix res.
+      ...DECORESTEBA_HOSTS.map((host) => ({
+        source: "/:path*",
+        destination: "https://cortinatgesesteba.com/es",
+        permanent: true,
+        has: [{ type: "host" as const, value: host }],
+      })),
+
       // 1) Regles específiques del WordPress, amb i sense barra final.
       //    Han d'anar PRIMER: la primera coincidència guanya.
       //    `permanent` per defecte true; les entrades que el declaren manen
