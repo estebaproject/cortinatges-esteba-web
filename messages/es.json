@@ -376,7 +376,6 @@
         {
           "title": "Tejidos",
           "items": [
-            "Polyscreen",
             "Screen",
             "Translúcido",
             "Opaco (blackout)"
@@ -387,7 +386,6 @@
           "items": [
             "Manual",
             "Motorizado y automatizado",
-            "Guiado por cable o por varilla",
             "Guías laterales para exterior"
           ]
         }
@@ -467,21 +465,6 @@
       ],
       "notes": [
         "En el sector también se las conoce como lamas verticales o girasoles."
-      ],
-      "specs": [
-        {
-          "title": "Tejidos",
-          "items": [
-            "Polyscreen"
-          ]
-        },
-        {
-          "title": "Sistemas",
-          "items": [
-            "Manual",
-            "Motorizado"
-          ]
-        }
       ]
     },
     "nit-i-dia": {
@@ -540,11 +523,12 @@
     },
     "tendals": {
       "name": "Toldos",
-      "tagline": "Sombra cuando la necesitas, recogida cuando no. Diez modelos para elegir.",
-      "intro": "Proyectamos, medimos e instalamos toldos de diez modelos distintos, con el tejido y el sistema que pida cada abertura.",
+      "tagline": "Sombra cuando la necesitas, recogida cuando no.",
+      "intro": "Proyectamos, medimos e instalamos toldos para cada tipo de abertura, con el tejido y el sistema que pida.",
       "paragraphs": [
-        "Brazos invisibles para una terraza, estor para un balcón, cofre para que quede protegido todo el invierno, o brisa solar con tejas de aluminio reclinables.",
-        "Manual o motorizado, con sensores que lo pliegan solo cuando sopla. También hacemos arquitectura textil: velas tensadas y telones separadores para naves y polideportivos."
+        "Un toldo de brazos para una terraza, un estor para un balcón, o uno de cofre que recoge la lona y la protege todo el invierno.",
+        "Manual o motorizado, con sensores que lo pliegan solo cuando sopla.",
+        "Con la misma lona hacemos también velas tensadas, telones separadores para naves y polideportivos, carpas —prefabricadas o a medida— y cubiertas de piscina."
       ],
       "features": [
         "Diez modelos, del balcón a la nave industrial",
@@ -562,8 +546,7 @@
           "items": [
             "Lona acrílica",
             "Screen",
-            "PVC y Soltis",
-            "Solscape",
+            "PVC",
             "Opaco",
             "Translúcido"
           ]
@@ -571,47 +554,17 @@
         {
           "title": "Modelos",
           "items": [
-            "Brazos invisibles",
-            "Brazos laterales pivotantes",
+            "De brazos, para terrazas y balcones",
             "Estor de balcón",
-            "Punto recto",
-            "Pérgola de madera o aluminio",
-            "Corredero",
-            "Cofre",
-            "Monobloc",
-            "Brisa solar (tejas de aluminio reclinables)",
-            "Cubiertas de piscina",
-            "Telones enrollables y verticales con PVC transparente"
+            "De cofre, que protege la lona al recogerse",
+            "Vertical con PVC transparente"
           ]
         },
         {
           "title": "Sistemas",
           "items": [
             "Manual",
-            "Motorizado y automatizado (sol y viento)",
-            "Guiado por cable o por varilla"
-          ]
-        },
-        {
-          "title": "Arquitectura textil",
-          "items": [
-            "Velas estructuradas y tensadas",
-            "Telones separadores para naves industriales y polideportivos"
-          ]
-        },
-        {
-          "title": "Carpas",
-          "items": [
-            "Prefabricadas y a medida",
-            "Estructura de hierro galvanizado o de aluminio"
-          ]
-        },
-        {
-          "title": "Cubiertas de piscina",
-          "items": [
-            "PVC antialgas",
-            "Malla, para las hojas",
-            "Térmica, para mantener la temperatura"
+            "Motorizado y automatizado (sol y viento)"
           ]
         }
       ]
@@ -651,8 +604,7 @@
           "items": [
             "Lona acrílica",
             "Screen",
-            "PVC y Soltis",
-            "Solscape"
+            "PVC"
           ]
         },
         {
@@ -689,23 +641,14 @@
         {
           "title": "Tejidos",
           "items": [
-            "Polipiel (imitación de la piel)",
-            "Piel — flor de 1ª (primera capa, teñida)",
-            "Microfibra (Alcantara, Microvin, Courtissane…)",
-            "Estampados (cretonas, adamascados y diseños modernos)",
-            "Chenilla (acrílica y algodón)",
-            "Terciopelo (acrílico y algodón)",
-            "Brocados (seda y lino)",
-            "Lisos (lonetas, algodón, lino, acrílicos y sedas)"
-          ]
-        },
-        {
-          "title": "Tejidos náuticos",
-          "items": [
-            "Piel",
             "Polipiel",
+            "Piel (primera capa, teñida)",
             "Microfibra",
-            "Loneta"
+            "Estampados",
+            "Chenilla",
+            "Terciopelo",
+            "Brocados de seda y lino",
+            "Lisos de algodón, lino y acrílico"
           ]
         },
         {

@@ -376,7 +376,6 @@
         {
           "title": "Teixits",
           "items": [
-            "Polyscreen",
             "Screen",
             "Translúcid",
             "Opac (blackout)"
@@ -387,7 +386,6 @@
           "items": [
             "Manual",
             "Motoritzat i automatitzat",
-            "Guiat per cable o per vareta",
             "Guies laterals per a l'exterior"
           ]
         }
@@ -467,21 +465,6 @@
       ],
       "notes": [
         "Al sector també se les coneix com a lames verticals o gira-sols."
-      ],
-      "specs": [
-        {
-          "title": "Teixits",
-          "items": [
-            "Polyscreen"
-          ]
-        },
-        {
-          "title": "Sistemes",
-          "items": [
-            "Manual",
-            "Motoritzat"
-          ]
-        }
       ]
     },
     "nit-i-dia": {
@@ -540,11 +523,12 @@
     },
     "tendals": {
       "name": "Tendals",
-      "tagline": "Ombra quan la necessites, recollida quan no. Deu models per triar.",
-      "intro": "Projectem, mesurem i instal·lem tendals de deu models diferents, amb el teixit i el sistema que demani cada obertura.",
+      "tagline": "Ombra quan la necessites, recollida quan no.",
+      "intro": "Projectem, mesurem i instal·lem tendals per a cada tipus d'obertura, amb el teixit i el sistema que demani.",
       "paragraphs": [
-        "Braços invisibles per a una terrassa, estor per a un balcó, cofre perquè quedi protegit tot l'hivern, o brisa solar amb teules d'alumini que es reclinen.",
-        "Manual o motoritzat, amb sensors que el pleguen sol quan bufa. També fem arquitectura tèxtil: veles tensades i telons separadors per a naus i poliesportius."
+        "Un tendal de braços per a una terrassa, un estor per a un balcó, o un de cofre que recull la lona i la protegeix tot l'hivern.",
+        "Manual o motoritzat, amb sensors que el pleguen sol quan bufa.",
+        "Amb la mateixa lona fem també veles tensades, telons separadors per a naus i poliesportius, carpes —prefabricades o a mida— i cobertes de piscina."
       ],
       "features": [
         "Deu models, del balcó a la nau industrial",
@@ -562,8 +546,7 @@
           "items": [
             "Lona acrílica",
             "Screen",
-            "PVC i Soltis",
-            "Solscape",
+            "PVC",
             "Opac",
             "Translúcid"
           ]
@@ -571,47 +554,17 @@
         {
           "title": "Models",
           "items": [
-            "Braços invisibles",
-            "Braços laterals pivotants",
+            "De braços, per a terrasses i balcons",
             "Estor de balcó",
-            "Punt recte",
-            "Pèrgola de fusta o alumini",
-            "Corredér",
-            "Cofre",
-            "Monobloc",
-            "Brisa solar (teules d'alumini reclinables)",
-            "Cobertes de piscina",
-            "Telons enrotllables i verticals amb PVC transparent"
+            "De cofre, que protegeix la lona quan es recull",
+            "Vertical amb PVC transparent"
           ]
         },
         {
           "title": "Sistemes",
           "items": [
             "Manual",
-            "Motoritzat i automatitzat (sol i vent)",
-            "Guiat per cable o per vareta"
-          ]
-        },
-        {
-          "title": "Arquitectura tèxtil",
-          "items": [
-            "Veles estructurades i tensades",
-            "Telons separadors per a naus industrials i poliesportius"
-          ]
-        },
-        {
-          "title": "Carpes",
-          "items": [
-            "Prefabricades i a mida",
-            "Estructura de ferro galvanitzat o d'alumini"
-          ]
-        },
-        {
-          "title": "Cobertes de piscina",
-          "items": [
-            "PVC antialgues",
-            "Malla, per a les fulles",
-            "Tèrmica, per mantenir la temperatura"
+            "Motoritzat i automatitzat (sol i vent)"
           ]
         }
       ]
@@ -651,8 +604,7 @@
           "items": [
             "Lona acrílica",
             "Screen",
-            "PVC i Soltis",
-            "Solscape"
+            "PVC"
           ]
         },
         {
@@ -689,23 +641,14 @@
         {
           "title": "Teixits",
           "items": [
-            "Polipell (imitació de la pell)",
-            "Pell — flor de 1a (primera capa, tenyida)",
-            "Microfibra (Alcantara, Microvin, Courtissane…)",
-            "Estampats (cretones, adamascats i dissenys moderns)",
-            "Xenilla (acrílica i cotó)",
-            "Vellut (acrílic i cotó)",
-            "Brocats (seda i lli)",
-            "Llisos (lonetes, cotó, lli, acrílics i sedes)"
-          ]
-        },
-        {
-          "title": "Teixits nàutics",
-          "items": [
-            "Pell",
             "Polipell",
+            "Pell (primera capa, tenyida)",
             "Microfibra",
-            "Loneta"
+            "Estampats",
+            "Xenilla",
+            "Vellut",
+            "Brocats de seda i lli",
+            "Llisos de cotó, lli i acrílic"
           ]
         },
         {

@@ -376,7 +376,6 @@
         {
           "title": "Fabrics",
           "items": [
-            "Polyscreen",
             "Screen",
             "Translucent",
             "Blackout"
@@ -387,7 +386,6 @@
           "items": [
             "Manual",
             "Motorised and automated",
-            "Cable or rod guided",
             "Side guide rails for outdoor use"
           ]
         }
@@ -467,21 +465,6 @@
       ],
       "notes": [
         "In the trade they are also called vertical louvres."
-      ],
-      "specs": [
-        {
-          "title": "Fabrics",
-          "items": [
-            "Polyscreen"
-          ]
-        },
-        {
-          "title": "Operation",
-          "items": [
-            "Manual",
-            "Motorised"
-          ]
-        }
       ]
     },
     "nit-i-dia": {
@@ -540,11 +523,12 @@
     },
     "tendals": {
       "name": "Awnings",
-      "tagline": "Shade when you want it, gone when you don't. Ten models.",
-      "intro": "We design, measure and install awnings in ten different models, with the fabric and the operation each opening calls for.",
+      "tagline": "Shade when you want it, gone when you don't.",
+      "intro": "We design, measure and install awnings for every kind of opening, with the fabric and the operation it calls for.",
       "paragraphs": [
-        "Folding arms for a terrace, a drop blind for a balcony, a cassette to keep it protected all winter, or a louvred roof with adjustable aluminium slats.",
-        "Manual or motorised, with sensors that fold it away when the wind gets up. We also build textile structures: tensioned sails and dividing screens for industrial units."
+        "A folding-arm awning for a terrace, a drop blind for a balcony, or a cassette one that rolls the fabric away and protects it all winter.",
+        "Manual or motorised, with sensors that fold it away when the wind gets up.",
+        "With the same canvas we also make tensioned sails, dividing screens for industrial units and sports halls, marquees — prefabricated or made to measure — and pool covers."
       ],
       "features": [
         "Ten models, from a balcony to an industrial unit",
@@ -562,8 +546,7 @@
           "items": [
             "Acrylic canvas",
             "Screen",
-            "PVC and Soltis",
-            "Solscape",
+            "PVC",
             "Blackout",
             "Translucent"
           ]
@@ -571,47 +554,17 @@
         {
           "title": "Models",
           "items": [
-            "Retractable folding arm",
-            "Pivoting side arms",
+            "Folding arm, for terraces and balconies",
             "Balcony drop awning",
-            "Straight drop",
-            "Wood or aluminium pergola",
-            "Sliding awning",
-            "Cassette",
-            "Monobloc",
-            "Louvred roof (adjustable aluminium slats)",
-            "Pool covers",
-            "Roll-down and vertical screens with clear PVC"
+            "Cassette, which protects the fabric when rolled up",
+            "Vertical, with clear PVC"
           ]
         },
         {
           "title": "Operation",
           "items": [
             "Manual",
-            "Motorised and automated (sun and wind sensors)",
-            "Cable or rod guided"
-          ]
-        },
-        {
-          "title": "Textile structures",
-          "items": [
-            "Structured and tensioned sails",
-            "Dividing screens for industrial units and sports halls"
-          ]
-        },
-        {
-          "title": "Marquees",
-          "items": [
-            "Prefabricated and made to measure",
-            "Galvanised steel or aluminium frame"
-          ]
-        },
-        {
-          "title": "Pool covers",
-          "items": [
-            "Anti-algae PVC",
-            "Mesh, for leaves",
-            "Thermal, to hold the temperature"
+            "Motorised and automated (sun and wind sensors)"
           ]
         }
       ]
@@ -651,8 +604,7 @@
           "items": [
             "Acrylic canvas",
             "Screen",
-            "PVC and Soltis",
-            "Solscape"
+            "PVC"
           ]
         },
         {
@@ -690,22 +642,13 @@
           "title": "Fabrics",
           "items": [
             "Faux leather",
-            "Leather — full grain (top layer, dyed)",
-            "Microfibre (Alcantara, Microvin, Courtissane…)",
-            "Prints (cretonne, damask and modern designs)",
-            "Chenille (acrylic and cotton)",
-            "Velvet (acrylic and cotton)",
-            "Brocade (silk and linen)",
-            "Plains (canvas, cotton, linen, acrylic and silk)"
-          ]
-        },
-        {
-          "title": "Marine fabrics",
-          "items": [
-            "Leather",
-            "Faux leather",
+            "Leather (top layer, dyed)",
             "Microfibre",
-            "Canvas"
+            "Prints",
+            "Chenille",
+            "Velvet",
+            "Silk and linen brocade",
+            "Plain cotton, linen and acrylic"
           ]
         },
         {
