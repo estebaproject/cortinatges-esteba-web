@@ -357,6 +357,24 @@
         "La goutte de tissu derrière le tube offre une meilleure isolation thermique, grâce au fait que le tissu est plus proche du verre.",
         "La chute du tissu devant le tube permet d’éviter les obstacles, tels que la poignée de la fenêtre.",
         "Le mécanisme haut de gamme avec réduction d’engrenage réduit la sensation de poids du rideau."
+      ],
+      "specs": [
+        {
+          "title": "Tissus",
+          "items": [
+            "Screen",
+            "Translucide",
+            "Occultant (blackout)"
+          ]
+        },
+        {
+          "title": "Manœuvre",
+          "items": [
+            "Manuelle",
+            "Motorisée et automatisée",
+            "Guidage par câble ou par tige"
+          ]
+        }
       ]
     },
     "panell-japones": {
@@ -426,6 +444,9 @@
       "features": [
         "Ils permettent un contrôle précis de la lumière et de l’intimité, grâce à leurs lames réglables.",
         "Ils peuvent être manuels ou motorisés."
+      ],
+      "notes": [
+        "Dans le métier, on les appelle aussi lames verticales."
       ]
     },
     "nit-i-dia": {
@@ -464,10 +485,22 @@
     "mosquitera": {
       "name": "Moustiquaires",
       "tagline": "Protection efficace et élégante, sans renoncer à la ventilation.",
-      "intro": "Les moustiquaires de la marque EPID offrent une solution efficace et élégante pour protéger votre maison des moustiques et autres insectes.",
+      "intro": "Les moustiquaires de la marque EPID protègent votre maison des moustiques et autres insectes, ainsi que des particules de poussière et du pollen.",
       "paragraphs": [
         "Elles sont fabriquées avec des matériaux de haute qualité et conçues pour s'adapter à tout type de fenêtre ou de porte, offrant une barrière efficace sans compromettre la ventilation ni l'entrée de lumière naturelle.",
-        "Avec une installation simple et rapide, elles sont une option pratique pour garder votre maison protégée toute l'année."
+        "D'une pose simple et rapide, elles protègent la maison toute l'année. La toile anti-pollen est particulièrement utile si quelqu'un souffre d'allergie saisonnière."
+      ],
+      "specs": [
+        {
+          "title": "Modèles",
+          "items": [
+            "Enroulable",
+            "Plissée",
+            "Fixe",
+            "Coulissante",
+            "Anti-pollen"
+          ]
+        }
       ]
     },
     "tendals": {
@@ -502,6 +535,7 @@
           "title": "Modèles",
           "items": [
             "Bras invisibles",
+            "Bras latéraux pivotants",
             "Store de balcon",
             "Descente droite",
             "Pergola en bois ou aluminium",
@@ -543,7 +577,8 @@
         "Étude et prise de mesures chez vous",
         "Couverture en store coulissant, sur rails",
         "Motorisation en option, avec capteurs de soleil et de vent",
-        "Montage et pose à votre domicile"
+        "Montage et pose à votre domicile",
+        "Pour terrasses, gloriettes ou pour relier deux bâtiments"
       ],
       "notes": [
         "Chaque pergola dépend de la configuration du lieu et des points d'ancrage possibles. Nous venons prendre les mesures avant tout devis."
@@ -618,6 +653,36 @@
             "Mobilier de jardin",
             "Murs tapissés",
             "Aménagement nautique"
+          ]
+        }
+      ]
+    },
+    "moquetes": {
+      "name": "Moquettes",
+      "tagline": "",
+      "intro": "",
+      "paragraphs": [
+        "",
+        ""
+      ],
+      "features": [
+        "",
+        "",
+        ""
+      ],
+      "notes": [
+        ""
+      ],
+      "specs": [
+        {
+          "title": "Fibres",
+          "items": [
+            "Polypropylène",
+            "Laine",
+            "Nylon",
+            "Fibres acryliques",
+            "Fibres végétales",
+            "Fibres de polyester"
           ]
         }
       ]

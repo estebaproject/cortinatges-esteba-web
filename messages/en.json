@@ -357,6 +357,24 @@
         "The drop of the fabric behind the tube offers better thermal insulation, thanks to the fact that the fabric is closer to the glass.",
         "The drop of the fabric in front of the tube allows to avoid obstacles, such as the handle of the window.",
         "The premium mechanism with gear reduction reduces the curtain’s weight sensation."
+      ],
+      "specs": [
+        {
+          "title": "Fabrics",
+          "items": [
+            "Screen",
+            "Translucent",
+            "Blackout"
+          ]
+        },
+        {
+          "title": "Operation",
+          "items": [
+            "Manual",
+            "Motorised and automated",
+            "Cable or rod guided"
+          ]
+        }
       ]
     },
     "panell-japones": {
@@ -426,6 +444,9 @@
       "features": [
         "They allow precise control of light and privacy, thanks to their adjustable slats.",
         "They can be manual or motorized."
+      ],
+      "notes": [
+        "In the trade they are also called vertical louvres."
       ]
     },
     "nit-i-dia": {
@@ -464,10 +485,22 @@
     "mosquitera": {
       "name": "Insect screens",
       "tagline": "Effective, elegant protection without giving up ventilation.",
-      "intro": "EPID insect screens offer an effective and elegant solution to protect your home from mosquitoes and other insects.",
+      "intro": "EPID insect screens protect your home from mosquitoes and other insects, and also from dust particles and pollen.",
       "paragraphs": [
         "They are made from high-quality materials and designed to fit any type of window or door, providing an effective barrier without compromising ventilation or the entry of natural light.",
-        "Easy and quick to install, they are a practical choice for keeping your home protected all year round."
+        "Quick and easy to fit, they are a practical way to keep your home protected all year round. The anti-pollen mesh is particularly useful if someone at home suffers from seasonal allergies."
+      ],
+      "specs": [
+        {
+          "title": "Models",
+          "items": [
+            "Roller",
+            "Pleated",
+            "Fixed",
+            "Sliding",
+            "Anti-pollen"
+          ]
+        }
       ]
     },
     "tendals": {
@@ -502,6 +535,7 @@
           "title": "Models",
           "items": [
             "Retractable folding arm",
+            "Pivoting side arms",
             "Balcony drop awning",
             "Straight drop",
             "Wood or aluminium pergola",
@@ -543,7 +577,8 @@
         "Design and measuring at your property",
         "Sliding awning roof, running on rails",
         "Optional motorisation, with sun and wind sensors",
-        "Assembly and installation in your home"
+        "Assembly and installation in your home",
+        "For terraces, garden pavilions, or to link two buildings"
       ],
       "notes": [
         "Every pergola depends on the space and on where it can be anchored. We come out and take measurements before quoting."
@@ -618,6 +653,36 @@
             "Garden furniture",
             "Upholstered walls",
             "Marine interiors"
+          ]
+        }
+      ]
+    },
+    "moquetes": {
+      "name": "Fitted carpets",
+      "tagline": "",
+      "intro": "",
+      "paragraphs": [
+        "",
+        ""
+      ],
+      "features": [
+        "",
+        "",
+        ""
+      ],
+      "notes": [
+        ""
+      ],
+      "specs": [
+        {
+          "title": "Fibres",
+          "items": [
+            "Polypropylene",
+            "Wool",
+            "Nylon",
+            "Acrylic fibres",
+            "Natural plant fibres",
+            "Polyester fibres"
           ]
         }
       ]

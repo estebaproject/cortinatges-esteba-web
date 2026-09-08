@@ -357,6 +357,24 @@
         "La caída del tejido por detrás del tubo ofrece mejor aislamiento térmico, gracias al hecho que el tejido queda más próximo al vidrio.",
         "La caída del tejido por ante el tubo permite salvar obstáculos, como la manecita de la ventana.",
         "El mecanismo prémium con desmultiplicador, reduce la sensación de peso de la cortina"
+      ],
+      "specs": [
+        {
+          "title": "Tejidos",
+          "items": [
+            "Screen",
+            "Translúcido",
+            "Opaco (blackout)"
+          ]
+        },
+        {
+          "title": "Sistemas",
+          "items": [
+            "Manual",
+            "Motorizado y automatizado",
+            "Guiado por cable o por varilla"
+          ]
+        }
       ]
     },
     "panell-japones": {
@@ -426,6 +444,9 @@
       "features": [
         "Permiten controlar con precisión la luz y privacidad, gracias a sus laminas orientables.",
         "Pueden ser con accionamiento manual o motorizado."
+      ],
+      "notes": [
+        "En el sector también se las conoce como lamas verticales o girasoles."
       ]
     },
     "nit-i-dia": {
@@ -464,10 +485,22 @@
     "mosquitera": {
       "name": "Mosquiteras",
       "tagline": "Protección efectiva y elegante, sin renunciar a la ventilación.",
-      "intro": "Las mosquiteras de la marca EPID ofrecen una solución efectiva y elegante para proteger tu hogar de los mosquitos y otros insectos.",
+      "intro": "Las mosquiteras de la marca EPID protegen tu hogar de los mosquitos y otros insectos, y también de las partículas de polvo y del polen.",
       "paragraphs": [
         "Están fabricadas con materiales de alta calidad y diseñadas para adaptarse a cualquier tipo de ventana o puerta, proporcionando una barrera efectiva sin comprometer la ventilación ni la entrada de luz natural.",
-        "Con una instalación fácil y rápida, son una opción práctica para mantener tu hogar protegido durante todo el año."
+        "Con una instalación fácil y rápida, son una opción práctica para mantener tu hogar protegido durante todo el año. La malla antipolen es especialmente útil si en casa hay alguien con alergia estacional."
+      ],
+      "specs": [
+        {
+          "title": "Modelos",
+          "items": [
+            "Enrollable",
+            "Plisada",
+            "Fija",
+            "Corredera",
+            "Antipolen"
+          ]
+        }
       ]
     },
     "tendals": {
@@ -502,6 +535,7 @@
           "title": "Modelos",
           "items": [
             "Brazos invisibles",
+            "Brazos laterales pivotantes",
             "Estor de balcón",
             "Punto recto",
             "Pérgola de madera o aluminio",
@@ -543,7 +577,8 @@
         "Proyecto y toma de medidas en tu espacio",
         "Cubierta de toldo corredero, que se desliza sobre guías",
         "Motorización opcional, con sensores de sol y viento",
-        "Montaje e instalación en tu casa"
+        "Montaje e instalación en tu casa",
+        "Para terrazas, cenadores o para enlazar dos edificios"
       ],
       "notes": [
         "Cada pérgola depende de cómo es el espacio y de dónde se puede anclar. Antes de hacer ningún presupuesto vamos a tomar medidas."
@@ -618,6 +653,36 @@
             "Mobiliario de jardín",
             "Paredes tapizadas",
             "Náutica"
+          ]
+        }
+      ]
+    },
+    "moquetes": {
+      "name": "Moquetas",
+      "tagline": "",
+      "intro": "",
+      "paragraphs": [
+        "",
+        ""
+      ],
+      "features": [
+        "",
+        "",
+        ""
+      ],
+      "notes": [
+        ""
+      ],
+      "specs": [
+        {
+          "title": "Fibras",
+          "items": [
+            "Polipropileno",
+            "Lana",
+            "Nylon",
+            "Fibras acrílicas",
+            "Fibras vegetales",
+            "Fibras de poliéster"
           ]
         }
       ]

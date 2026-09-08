@@ -357,6 +357,24 @@
         "La caiguda del teixit per darrere del tub ofereix millor aïllament tèrmic, gràcies al fet que el teixit queda més pròxim al vidre.",
         "La caiguda del teixit per davant del tub permet salvar obstacles, com la maneta de la finestra.",
         "El mecanisme prèmium amb desmultiplicador, redueix la sensació de pes de la cortina"
+      ],
+      "specs": [
+        {
+          "title": "Teixits",
+          "items": [
+            "Screen",
+            "Translúcid",
+            "Opac (blackout)"
+          ]
+        },
+        {
+          "title": "Sistemes",
+          "items": [
+            "Manual",
+            "Motoritzat i automatitzat",
+            "Guiat per cable o per vareta"
+          ]
+        }
       ]
     },
     "panell-japones": {
@@ -426,6 +444,9 @@
       "features": [
         "Permeten controlar amb precisió la llum i privadesa, gràcies a les seves lames orientables.",
         "Poden ser amb accionament manual o motoritzat."
+      ],
+      "notes": [
+        "Al sector també se les coneix com a lames verticals o gira-sols."
       ]
     },
     "nit-i-dia": {
@@ -464,10 +485,22 @@
     "mosquitera": {
       "name": "Mosquiteres",
       "tagline": "Protecció efectiva i elegant, sense renunciar a la ventilació.",
-      "intro": "Les mosquiteres de la marca EPID ofereixen una solució efectiva i elegant per protegir la teva llar dels mosquits i altres insectes.",
+      "intro": "Les mosquiteres de la marca EPID protegeixen la teva llar dels mosquits i altres insectes, i també de les partícules de pols i del pol·len.",
       "paragraphs": [
         "Estan fabricades amb materials d'alta qualitat i dissenyades per adaptar-se a qualsevol tipus de finestra o porta, proporcionant una barrera efectiva sense comprometre la ventilació ni l'entrada de llum natural.",
-        "Amb una instal·lació fàcil i ràpida, són una opció pràctica per mantenir la teva llar protegida durant tot l'any."
+        "Amb una instal·lació fàcil i ràpida, són una opció pràctica per mantenir la teva llar protegida durant tot l'any. La malla antipol·len és especialment útil si a casa hi ha algú amb al·lèrgia estacional."
+      ],
+      "specs": [
+        {
+          "title": "Models",
+          "items": [
+            "Enrotllable",
+            "Plissada",
+            "Fixa",
+            "Corredissa",
+            "Antipol·len"
+          ]
+        }
       ]
     },
     "tendals": {
@@ -502,6 +535,7 @@
           "title": "Models",
           "items": [
             "Braços invisibles",
+            "Braços laterals pivotants",
             "Estor de balcó",
             "Punt recte",
             "Pèrgola de fusta o alumini",
@@ -543,7 +577,8 @@
         "Projecte i presa de mides al teu espai",
         "Coberta de tendal corredér, que llisca sobre guies",
         "Motorització opcional, amb sensors de sol i vent",
-        "Muntatge i instal·lació a casa teva"
+        "Muntatge i instal·lació a casa teva",
+        "Per a terrasses, cenadors o per enllaçar dos edificis"
       ],
       "notes": [
         "Cada pèrgola depèn de com és l'espai i d'on es pot ancorar. Abans de fer cap pressupost hi anem a prendre mides."
@@ -618,6 +653,36 @@
             "Mobiliari de jardí",
             "Parets entapissades",
             "Nàutica"
+          ]
+        }
+      ]
+    },
+    "moquetes": {
+      "name": "Moquetes",
+      "tagline": "",
+      "intro": "",
+      "paragraphs": [
+        "",
+        ""
+      ],
+      "features": [
+        "",
+        "",
+        ""
+      ],
+      "notes": [
+        ""
+      ],
+      "specs": [
+        {
+          "title": "Fibres",
+          "items": [
+            "Polipropilè",
+            "Llana",
+            "Niló",
+            "Fibres acríliques",
+            "Fibres vegetals",
+            "Fibres de polièster"
           ]
         }
       ]
