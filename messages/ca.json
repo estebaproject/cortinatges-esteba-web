@@ -619,16 +619,17 @@
     "pergoles": {
       "name": "Pèrgoles",
       "tagline": "Una estança més, a l'aire lliure. Projectada i muntada a mida.",
-      "intro": "Projectem la pèrgola, confeccionem la coberta tèxtil al nostre taller i la muntem a casa teva: fusta o alumini, a la mida de la teva terrassa.",
+      "intro": "Projectem la pèrgola i la muntem a casa teva, amb estructura de fusta o d'alumini. La coberta pot ser tèxtil, que confeccionem al taller, o de lames d'alumini orientables.",
       "paragraphs": [
-        "Triem l'estructura —fusta o alumini— i el teixit segons la llum que hi vols. La coberta pot ser un tendal corredér, que llisca sobre guies per obrir-se i tancar-se.",
-        "Pot portar motorització i sensors de sol i vent, perquè es plegui sola quan bufa. Converteix una terrassa de dos mesos l'any en una estança més de casa."
+        "Si la coberta és tèxtil, triem el teixit segons la llum que hi vols, i pot ser un tendal corredér que llisca sobre guies per obrir-se i tancar-se.",
+        "Si és bioclimàtica, les lames giren per graduar el sol i es tanquen del tot quan plou. A l'estiu fan ombra i a l'hivern deixen passar el sol baix.",
+        "Totes dues poden portar motorització i sensors de sol i vent, que les tanquen soles quan bufa. Converteixen una terrassa de dos mesos l'any en una estança més de casa."
       ],
       "features": [
         "Estructura de fusta o d'alumini",
         "Projecte i presa de mides al teu espai",
         "Coberta tèxtil confeccionada al nostre taller",
-        "Coberta de tendal corredér, que llisca sobre guies",
+        "Coberta de lames d'alumini orientables",
         "Motorització opcional, amb sensors de sol i vent",
         "Muntatge i instal·lació a casa teva",
         "Per a terrasses, cenadors o per enllaçar dos edificis"
@@ -637,6 +638,14 @@
         "Cada pèrgola depèn de com és l'espai i d'on es pot ancorar. Abans de fer cap pressupost hi anem a prendre mides."
       ],
       "specs": [
+        {
+          "title": "Cobertes",
+          "items": [
+            "Tèxtil, confeccionada al nostre taller",
+            "Tendal corredér, que llisca sobre guies",
+            "Lames d'alumini orientables (bioclimàtica)"
+          ]
+        },
         {
           "title": "Teixits",
           "items": [

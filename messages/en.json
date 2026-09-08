@@ -619,16 +619,17 @@
     "pergoles": {
       "name": "Pergolas",
       "tagline": "An extra room, outdoors. Designed and fitted to measure.",
-      "intro": "We design the pergola, make the fabric roof in our own workshop and fit it at your home: timber or aluminium, to the size of your terrace.",
+      "intro": "We design the pergola and fit it at your home, with a timber or aluminium frame. The roof can be fabric, which we make in our workshop, or adjustable aluminium louvres.",
       "paragraphs": [
-        "We choose the structure —timber or aluminium— and the fabric to suit the light you want. The roof can be a sliding awning that runs on rails to open and close.",
-        "It can take motorisation and sun and wind sensors, so it folds away when the wind gets up. A terrace you use two months a year becomes another room of the house."
+        "If the roof is fabric, we choose the cloth for the light you want, and it can be a sliding awning that runs on rails to open and close.",
+        "If it is louvred, the slats turn to set how much sun comes through and close completely when it rains. In summer they give shade; in winter they let the low sun in.",
+        "Both can take motorisation and sun and wind sensors that close them on their own when the wind gets up. They turn a terrace you use two months a year into another room of the house."
       ],
       "features": [
-        "Timber or aluminium structure",
+        "Timber or aluminium frame",
         "Design and measuring at your property",
         "Fabric roof made in our own workshop",
-        "Sliding awning roof, running on rails",
+        "Adjustable aluminium louvred roof",
         "Optional motorisation, with sun and wind sensors",
         "Assembly and installation in your home",
         "For terraces, garden pavilions, or to link two buildings"
@@ -637,6 +638,14 @@
         "Every pergola depends on the space and on where it can be anchored. We come out and take measurements before quoting."
       ],
       "specs": [
+        {
+          "title": "Roofs",
+          "items": [
+            "Fabric, made in our own workshop",
+            "Sliding awning, running on rails",
+            "Adjustable aluminium louvres (bioclimatic)"
+          ]
+        },
         {
           "title": "Fabrics",
           "items": [
