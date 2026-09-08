@@ -32,8 +32,6 @@ export default async function ProductTileGrid() {
   // `productTiles` via PRODUCTS: si es deixessin a totes dues llistes, el
   // mosaic les ensenyaria DUES vegades.
   const extraTiles: Tile[] = [
-    { key: "tendals", label: tg("tendals"), href: DECORESTEBA, external: true, image: "/images/tendals.jpg" },
-    { key: "tapisseria", label: tg("tapisseria"), href: DECORESTEBA, external: true, image: "/images/tapisseria.jpg" },
   ];
 
   // Tots els blocs en ordre; el sell "60 anys" es col·loca al centre exacte

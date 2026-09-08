@@ -335,8 +335,8 @@
     },
     "estor-paquet": {
       "name": "Estor paquet",
-      "tagline": "Plecs naturals, aire confortable. El nostre producte estrella.",
-      "intro": "L'estor paquet —també conegut com a estor romà— és el producte estrella per vestir un espai: és la cortina perfecta per crear ambients acollidors d'aparença confortable.",
+      "tagline": "Plecs naturals, aire confortable, a la mida de l'estança.",
+      "intro": "L'estor paquet —també conegut com a estor romà— és un dels productes més demanats de la casa: la cortina perfecta per crear ambients acollidors d'aparença confortable.",
       "paragraphs": [
         "La seva forma permet que els plecs que realitza la cortina siguin molt més naturals i bonics, ja que recull la tela de manera lleugera i senzilla.",
         "Es plega de forma regular i uniforme estirant d'una cadena lateral, i deixa els plecs a la vista."
@@ -355,7 +355,7 @@
     "estor-enrotllable": {
       "name": "Estor enrotllable",
       "tagline": "Net, pràctic i versàtil. Screen o blackout, segons la llum que vulguis.",
-      "intro": "L'estor enrotllable, també anomenat screen, és la solució més pràctica i neta per controlar la llum sense renunciar a l'estètica de l'ambient.",
+      "intro": "L'estor enrotllable, també anomenat screen, és un dels productes més demanats de la casa i la solució més pràctica i neta per controlar la llum sense renunciar a l'estètica de l'ambient.",
       "paragraphs": [
         "És una cortina que s'enrotlla i es desenrotlla sobre un tub mitjançant un mecanisme. El teixit screen filtra la llum i protegeix de la calor mantenint la visió cap a l'exterior; el blackout enfosqueix completament l'estança quan ho necessites.",
         "L'estètica lineal i l'espai de recollida mínim l'adapten a pràcticament qualsevol finestra, a l'interior i a l'exterior: cuines, menjadors, terrasses. Disponible amb accionament manual o motoritzat."
@@ -375,6 +375,7 @@
         {
           "title": "Teixits",
           "items": [
+            "Polyscreen",
             "Screen",
             "Translúcid",
             "Opac (blackout)"
@@ -465,6 +466,21 @@
       ],
       "notes": [
         "Al sector també se les coneix com a lames verticals o gira-sols."
+      ],
+      "specs": [
+        {
+          "title": "Teixits",
+          "items": [
+            "Polyscreen"
+          ]
+        },
+        {
+          "title": "Sistemes",
+          "items": [
+            "Manual",
+            "Motoritzat"
+          ]
+        }
       ]
     },
     "nit-i-dia": {

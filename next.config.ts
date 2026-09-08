@@ -86,13 +86,17 @@ const DECORESTEBA_REDIRECTS: { source: string; destination: string }[] = [
   //   /carpas   -> /es/toldos     (comparteix el catàleg de teixits: lona
   //                                acrílica, screen, PVC/Soltis, Solscape)
   //   /moquetas -> /es/moquetas   (la ruta ja existeix a routing.ts)
-  { source: "/carpas", destination: "https://cortinatgesesteba.com/es#productes" },
+  // Carpes no tindrà fitxa pròpia: la seva informació (teixits, estructures,
+  // prefabricades i a mida) viu als specs de tendals, que és on s'envia.
+  { source: "/carpas", destination: "https://cortinatgesesteba.com/es/toldos" },
   { source: "/moquetas", destination: "https://cortinatgesesteba.com/es#productes" },
 
-  // Fitxa ja publicada: la redirecció apunta a la pàgina equivalent. La resta
-  // de /toldos, /pergolas i /tapicerias les recull la xarxa de seguretat fins
-  // que les seves fitxes surtin de DRAFT_PRODUCTS.
+  // Fitxes ja publicades: la redirecció apunta a la pàgina equivalent. Només
+  // /moquetas segueix caient a la xarxa de seguretat, perquè la seva fitxa no
+  // es pot publicar fins que hi hagi fotos pròpies.
   { source: "/pergolas", destination: "https://cortinatgesesteba.com/es/pergolas" },
+  { source: "/toldos", destination: "https://cortinatgesesteba.com/es/toldos" },
+  { source: "/tapicerias", destination: "https://cortinatgesesteba.com/es/tapiceria" },
 
   // L'ÚNICA que va a la portada, i és deliberat: no venem paviment de fusta
   // ni res que s'hi acosti. Un 301 cap a una pàgina que no respon a la

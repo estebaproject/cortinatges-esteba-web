@@ -335,8 +335,8 @@
     },
     "estor-paquet": {
       "name": "Estor paquete",
-      "tagline": "Pliegues naturales, aire confortable. Nuestro producto estrella.",
-      "intro": "El estor paquete —también conocido como estor romano— es el producto estrella para vestir un espacio: es la cortina perfecta para crear ambientes acogedores de apariencia confortable.",
+      "tagline": "Pliegues naturales, aire confortable, a la medida de la estancia.",
+      "intro": "El estor paquete —también conocido como estor romano— es uno de los productos más demandados de la casa: la cortina perfecta para crear ambientes acogedores de apariencia confortable.",
       "paragraphs": [
         "Su forma permite que los pliegues que hace la cortina sean mucho más naturales y bonitos, ya que recoge la tela de manera ligera y sencilla.",
         "Se pliega de forma regular y uniforme tirando de una cadena lateral, y deja los pliegues a la vista."
@@ -355,7 +355,7 @@
     "estor-enrotllable": {
       "name": "Estor enrollable",
       "tagline": "Limpio, práctico y versátil. Screen o blackout, según la luz que busques.",
-      "intro": "El estor enrollable, también llamado screen, es la solución más práctica y limpia para controlar la luz sin renunciar a la estética del ambiente.",
+      "intro": "El estor enrollable, también llamado screen, es uno de los productos más demandados de la casa y la solución más práctica y limpia para controlar la luz sin renunciar a la estética del ambiente.",
       "paragraphs": [
         "Es una cortina que se enrolla y se desenrolla sobre un tubo mediante un mecanismo. El tejido screen filtra la luz y protege del calor manteniendo la visión hacia el exterior; el blackout oscurece por completo la estancia cuando lo necesitas.",
         "Su estética lineal y su espacio de recogida mínimo la adaptan a prácticamente cualquier ventana, en interior y en exterior: cocinas, comedores, terrazas. Disponible con accionamiento manual o motorizado."
@@ -375,6 +375,7 @@
         {
           "title": "Tejidos",
           "items": [
+            "Polyscreen",
             "Screen",
             "Translúcido",
             "Opaco (blackout)"
@@ -465,6 +466,21 @@
       ],
       "notes": [
         "En el sector también se las conoce como lamas verticales o girasoles."
+      ],
+      "specs": [
+        {
+          "title": "Tejidos",
+          "items": [
+            "Polyscreen"
+          ]
+        },
+        {
+          "title": "Sistemas",
+          "items": [
+            "Manual",
+            "Motorizado"
+          ]
+        }
       ]
     },
     "nit-i-dia": {

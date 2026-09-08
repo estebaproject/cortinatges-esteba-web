@@ -335,8 +335,8 @@
     },
     "estor-paquet": {
       "name": "Store bateau",
-      "tagline": "Plis naturels, confort tout en douceur. Notre produit phare.",
-      "intro": "Le store bateau — aussi appelé store romain — est notre produit phare pour habiller un espace : le rideau idéal pour créer des ambiances chaleureuses et confortables.",
+      "tagline": "Des plis naturels, une atmosphère confortable, aux dimensions de la pièce.",
+      "intro": "Le store bateau — aussi appelé store romain — est l'un des produits les plus demandés de la maison : le rideau idéal pour créer des ambiances chaleureuses et confortables.",
       "paragraphs": [
         "Sa forme rend les plis bien plus naturels et harmonieux, car elle rassemble le tissu avec légèreté et simplicité.",
         "Il se replie de façon régulière et uniforme en tirant sur une chaînette latérale, et laisse les plis apparents."
@@ -355,7 +355,7 @@
     "estor-enrotllable": {
       "name": "Store enrouleur",
       "tagline": "Épuré, pratique et polyvalent. Écran ou occultant, selon la lumière souhaitée.",
-      "intro": "Le store enrouleur, aussi appelé screen, est la solution la plus pratique et la plus nette pour contrôler la lumière sans renoncer à l'esthétique de la pièce.",
+      "intro": "Le store enrouleur, aussi appelé screen, est l'un des produits les plus demandés de la maison et la solution la plus pratique et la plus nette pour contrôler la lumière sans renoncer à l'esthétique de la pièce.",
       "paragraphs": [
         "C'est un store qui s'enroule et se déroule autour d'un tube grâce à un mécanisme. La toile screen filtre la lumière et protège de la chaleur tout en conservant la vue vers l'extérieur ; l'occultant plonge la pièce dans le noir quand vous en avez besoin.",
         "Son esthétique linéaire et son encombrement minimal l'adaptent à presque toutes les fenêtres, à l'intérieur comme à l'extérieur : cuisines, salles à manger, terrasses. Disponible en manœuvre manuelle ou motorisée."
@@ -375,6 +375,7 @@
         {
           "title": "Tissus",
           "items": [
+            "Polyscreen",
             "Screen",
             "Translucide",
             "Occultant (blackout)"
@@ -465,6 +466,21 @@
       ],
       "notes": [
         "Dans le métier, on les appelle aussi lames verticales."
+      ],
+      "specs": [
+        {
+          "title": "Tissus",
+          "items": [
+            "Polyscreen"
+          ]
+        },
+        {
+          "title": "Manœuvre",
+          "items": [
+            "Manuelle",
+            "Motorisée"
+          ]
+        }
       ]
     },
     "nit-i-dia": {

@@ -335,8 +335,8 @@
     },
     "estor-paquet": {
       "name": "Roman blind",
-      "tagline": "Natural folds, effortless comfort. Our flagship product.",
-      "intro": "The package blind — also known as a Roman blind — is our signature product for dressing a space: the perfect curtain for creating warm, comfortable rooms.",
+      "tagline": "Natural folds, a comfortable feel, made to the size of the room.",
+      "intro": "The package blind — also known as a Roman blind — is one of the most sought-after products we make: the perfect curtain for creating warm, comfortable rooms.",
       "paragraphs": [
         "Its shape makes the folds far more natural and attractive, gathering the fabric lightly and simply.",
         "It folds evenly and regularly as you pull a side chain, leaving the pleats in view."
@@ -355,7 +355,7 @@
     "estor-enrotllable": {
       "name": "Roller blind",
       "tagline": "Clean, practical and versatile. Screen or blackout, depending on the light you want.",
-      "intro": "The roller blind, also called a screen, is the cleanest and most practical way to control light without giving up the look of the room.",
+      "intro": "The roller blind, also called a screen, is one of the most sought-after products we make and the cleanest, most practical way to control light without giving up the look of the room.",
       "paragraphs": [
         "It is a blind that rolls up and down around a tube by means of a mechanism. Screen fabric filters the light and keeps out the heat while preserving the view out; blackout darkens the room completely when you need it.",
         "Its linear look and minimal stack make it fit almost any window, indoors and out: kitchens, dining rooms, terraces. Available with manual or motorised operation."
@@ -375,6 +375,7 @@
         {
           "title": "Fabrics",
           "items": [
+            "Polyscreen",
             "Screen",
             "Translucent",
             "Blackout"
@@ -465,6 +466,21 @@
       ],
       "notes": [
         "In the trade they are also called vertical louvres."
+      ],
+      "specs": [
+        {
+          "title": "Fabrics",
+          "items": [
+            "Polyscreen"
+          ]
+        },
+        {
+          "title": "Operation",
+          "items": [
+            "Manual",
+            "Motorised"
+          ]
+        }
       ]
     },
     "nit-i-dia": {

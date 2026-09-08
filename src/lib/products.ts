@@ -1,6 +1,14 @@
-// Registre únic de productes (model híbrid): les 10 categories reals de la web
-// actual, amb les imatges curades. Els textos viuen a messages/{locale}.json
-// sota el namespace "Products" — aquí només l'estructura i els actius.
+// Registre únic de productes: les 14 fitxes publicades, amb les imatges
+// curades. Els textos viuen a messages/{locale}.json sota el namespace
+// "Products" — aquí només l'estructura i els actius.
+//
+// Les tres últimes (pèrgoles, tendals i tapisseria) venen de la consolidació de
+// decoresteba.com. Les seves portades són fotos d'aquell web retallades per
+// treure la marca d'aigua «N.» de la casa vella, que hi anava cremada dins de
+// la imatge entre el 83% i el 100% de l'alçada. Els originals sencers estan
+// guardats fora del repositori, a ~/Desktop/decoresteba-fotos-originals/ amb
+// el seu índex: EL SERVIDOR D'ORIGEN NO ÉS NOSTRE i el dia que l'apaguin
+// aquelles imatges desapareixeran d'internet sense avís.
 
 export type Product = {
   slug: string;
@@ -26,11 +34,12 @@ export const PRODUCTS: Product[] = [
   // seva (correder_11), retallada per treure-hi la marca d'aigua de la casa
   // vella: v. el comentari de DRAFT_PRODUCTS aquí sota.
   { slug: "pergoles", gallery: 1 },
+  { slug: "tendals", gallery: 1 },
+  { slug: "tapisseria", gallery: 1 },
 ];
 
 /**
- * Fitxes EN PREPARACIÓ — consolidació de decoresteba.com (la societat de
- * l'oncle, que passa a Cortinatges Esteba).
+ * Fitxa EN PREPARACIÓ — l'última de la consolidació de decoresteba.com.
  *
  * NO estan a `PRODUCTS` A PROPÒSIT. Tot el web consumeix `PRODUCTS` o
  * `PRODUCT_SLUGS`, de manera que mentre siguin aquí:
@@ -47,29 +56,7 @@ export const PRODUCTS: Product[] = [
  *   4. NOMÉS DESPRÉS, redirigir decoresteba.com. Mai les dues webs vives
  *      amb el mateix text.
  */
-/**
- * LES PORTADES SURTEN DE FOTOS DE DECORESTEBA, RETALLADES.
- *
- * Les 89 fotos del WordPress vell porten la marca d'aigua «N.» (Tapisseria N.
- * Esteba) CREMADA DINS DE LA IMATGE. Mesurat sobre les 18 de /pergolas/: viu
- * sempre entre el 83% i el 100% de l'alçada, encara que la posició horitzontal
- * varia. Hi ha una coincidència que ho resol: les fotos són 4:3 i la galeria de
- * la fitxa és 3:2, o sigui que llençar el 20% inferior s'endú la marca i deixa
- * la imatge a 1,62 —més ampla que 3:2— i encara sobra per retallar amplada.
- * De 4160x3088 en surt un 3705x2470 net, el 71% de la superfície original.
- *
- * S'ha de MIRAR cada foto sencera abans de triar-la: el nom del fitxer no diu
- * que hi surti un Burger King (parasols_04), una furgoneta amb el logo vell
- * (correder_19) ni el rètol d'un altre negoci (correder_01, tendals_46, _49, _50).
- *
- *   pergoles    correder_11      pèrgola grisa, sense rètols ni mobiliari
- *   tendals     tendals_09       tendal obert sobre la badia
- *   tapisseria  tapisseria_01    cadira restaurada amb brocat; és vertical i
- *                                el retall va a y=430 perquè hi càpiga sencera
- */
 export const DRAFT_PRODUCTS: Product[] = [
-  { slug: "tendals", gallery: 1 },
-  { slug: "tapisseria", gallery: 1 },
   // MOQUETES ESTÀ AQUÍ PERQUÈ NO EN TENIM FOTOS, no perquè falti el text.
   // La secció /moquetas/ de decoresteba té 29 imatges i CAP és de moqueta:
   // comprovat pels noms de fitxer, no només pels `alt` — són 11 de tendals,
@@ -78,10 +65,14 @@ export const DRAFT_PRODUCTS: Product[] = [
   // Mentre no es facin fotos noves, aquesta fitxa no es pot publicar: seria
   // una pàgina de moquetes il·lustrada amb tendals.
   //
-  // La ruta SÍ que existeix ja a routing.ts, amb els quatre slugs, perquè el
-  // dia que hi hagi material només calgui escriure el text i moure aquesta
-  // línia a PRODUCTS. Mentrestant /moquetas/ de decoresteba redirigeix a
-  // /es/catifes, que és el parent temàtic més proper.
+  // EL TEXT JA HI ÉS A MITGES: els specs porten les sis fibres que llistava el
+  // web vell (polipropilè, llana, niló, acríliques, vegetals i polièster). El
+  // que falta és la prosa i, sobretot, les fotos.
+  //
+  // La ruta ja existeix a routing.ts amb els quatre slugs. Mentrestant
+  // /moquetas/ de decoresteba va a la graella de productes de la portada: NO a
+  // /es/catifes, que és noindex i Disallow al robots mentre la botiga no es
+  // publiqui, i un 301 cap allà llençaria el senyal.
   { slug: "moquetes", gallery: 0 },
 ];
 
