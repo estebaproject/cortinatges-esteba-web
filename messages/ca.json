@@ -313,14 +313,14 @@
         "Hi ha una gran varietat de teixits per millorar el control de la llum, des de transparents fins a opacs, perquè cada estança tingui exactament la llum que necessita."
       ],
       "features": [
-        "Gran diversitat de texits per aconseguir un aspecte natural i un ambient acollidor.",
+        "Gran diversitat de teixits per aconseguir un aspecte natural i un ambient acollidor.",
         "Amb 10 tipus de confecció diferents a escollir.",
         "Oferim una gran selecció de barres i riells."
       ],
       "notes": [
         "Segons el tipus de confecció, una mateixa tela pot donar lloc a cortines de diferent aspecte.",
-        "Si esculls ona perfecta, aconseguiràs una cortina d’aspecte ordenat i modern.",
-        "Si esculls frungit, aquesta mateixa tela es convertirà en una cortina més clàssica i tradicional."
+        "Si esculls ona perfecta, aconseguiràs una cortina d'aspecte ordenat i modern.",
+        "Si esculls frunzit, aquesta mateixa tela es convertirà en una cortina més clàssica i tradicional."
       ],
       "specs": [
         {
@@ -348,7 +348,8 @@
       ],
       "notes": [
         "Instal·lació molt senzilla.",
-        "Aquest tipus de cortina s'instal·la tant en dormitoris com en cuines o menjadors, i és una solució molt bona per a habitacions amb pocs metres."
+        "Aquest tipus de cortina s'instal·la tant en dormitoris com en cuines o menjadors, i és una solució molt bona per a habitacions amb pocs metres.",
+        "Al taller també se'n diu estor romà, cortina austríaca o romana en cascada: són noms diferents del mateix producte."
       ]
     },
     "estor-enrotllable": {
@@ -545,7 +546,9 @@
             "Lona acrílica",
             "Screen",
             "PVC i Soltis",
-            "Solscape"
+            "Solscape",
+            "Opac",
+            "Translúcid"
           ]
         },
         {
@@ -577,6 +580,21 @@
           "items": [
             "Veles estructurades i tensades",
             "Telons separadors per a naus industrials i poliesportius"
+          ]
+        },
+        {
+          "title": "Carpes",
+          "items": [
+            "Prefabricades i a mida",
+            "Estructura de ferro galvanitzat o d'alumini"
+          ]
+        },
+        {
+          "title": "Cobertes de piscina",
+          "items": [
+            "PVC antialgues",
+            "Malla, per a les fulles",
+            "Tèrmica, per mantenir la temperatura"
           ]
         }
       ]
@@ -621,21 +639,24 @@
     },
     "tapisseria": {
       "name": "Tapisseria",
-      "tagline": "El moble que ja tens, com nou. Més de 5.000 teixits per triar.",
-      "intro": "Entapissem de nou sofàs, butaques, cadires i capçals amb més de 5.000 referències de teixit, perquè no calgui llençar un moble que encara aguanta.",
+      "tagline": "El moble que ja tens, com nou. Al nostre taller, amb més de 5.000 teixits.",
+      "intro": "Entapissem de nou sofàs, butaques, cadires i capçals al nostre taller, amb més de 5.000 referències de teixit, perquè no calgui llençar un moble que encara aguanta.",
       "paragraphs": [
-        "De la polipell al vellut, de la microfibra als brocats de seda i lli. Triem el teixit per l'ús que tindrà la peça i l'estil que busques.",
-        "Restaurem sofàs, butaques, cadires, capçals de llit i mobiliari de jardí. També fem tapisseria nàutica, amb teixits que aguanten el sol i la sal."
+        "És l'ofici amb què va començar la casa el 1961 i l'àrea que més creix avui. Ho fem tot aquí: desmuntem la peça, revisem l'estructura, canviem l'escuma si cal i la tornem a entapissar a mà.",
+        "De la polipell al vellut, de la microfibra als brocats de seda i lli. Triem el teixit per l'ús que tindrà la peça —una cadira de menjador no demana el mateix que una butaca de lectura— i per l'estil que busques.",
+        "També fem tapisseria nàutica: bancs, llitades i seients de coberta amb teixits i pells que aguanten el sol, la sal i la humitat sense encartonar-se."
       ],
       "features": [
         "Més de 5.000 referències de teixit",
-        "Restaurem la peça que ja tens",
-        "Tapisseria nàutica amb teixits marins",
-        "Parets entapissades",
+        "Taller propi: desmuntatge, estructura, escuma i entapissat",
+        "Restaurem la peça que ja tens en comptes de substituir-la",
+        "Tapisseria nàutica amb teixits i pells marins",
+        "Parets entapissades i capçals de llit a mida",
         "Mobiliari de jardí"
       ],
       "notes": [
-        "Cada peça es valora abans de pressupostar: l'estructura, l'escuma i el teixit que hi ha d'anar."
+        "Cada peça es valora abans de pressupostar: l'estructura, l'escuma i el teixit que hi ha d'anar.",
+        "Si el moble té valor sentimental o és una peça antiga, val la pena que la vegem: sovint s'aguanta millor del que sembla."
       ],
       "specs": [
         {

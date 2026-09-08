@@ -313,14 +313,14 @@
         "There is a wide variety of weaves to fine-tune light control, from sheer to opaque, so every room gets exactly the light it needs."
       ],
       "features": [
-        "Great diversity of fabrics to achieve a natural look and a cozy atmosphere.",
-        "With 10 different types of fabrics to choose from.",
-        "We offer a large selection of rods and rails."
+        "A wide range of fabrics for a natural look and a welcoming feel.",
+        "Ten different heading styles to choose from.",
+        "We offer a large selection of poles and tracks."
       ],
       "notes": [
         "Depending on the type of construction, the same fabric can produce curtains of different appearance.",
-        "If you choose perfect wave, you will get a curtain with a neat and modern look.",
-        "If you choose frungida, this same fabric will become a more classic and traditional curtain."
+        "If you choose a wave heading, you get a curtain with a neat, modern look.",
+        "If you choose a pencil pleat, the same fabric becomes a more classic, traditional curtain."
       ],
       "specs": [
         {
@@ -348,7 +348,8 @@
       ],
       "notes": [
         "Very simple to install.",
-        "It suits bedrooms, kitchens and dining rooms alike, and works particularly well in small rooms."
+        "It suits bedrooms, kitchens and dining rooms alike, and works particularly well in small rooms.",
+        "In the workshop it is also called a Roman blind, an Austrian blind or a cascade blind: different names for the same product."
       ]
     },
     "estor-enrotllable": {
@@ -545,7 +546,9 @@
             "Acrylic canvas",
             "Screen",
             "PVC and Soltis",
-            "Solscape"
+            "Solscape",
+            "Blackout",
+            "Translucent"
           ]
         },
         {
@@ -577,6 +580,21 @@
           "items": [
             "Structured and tensioned sails",
             "Dividing screens for industrial units and sports halls"
+          ]
+        },
+        {
+          "title": "Marquees",
+          "items": [
+            "Prefabricated and made to measure",
+            "Galvanised steel or aluminium frame"
+          ]
+        },
+        {
+          "title": "Pool covers",
+          "items": [
+            "Anti-algae PVC",
+            "Mesh, for leaves",
+            "Thermal, to hold the temperature"
           ]
         }
       ]
@@ -621,21 +639,24 @@
     },
     "tapisseria": {
       "name": "Upholstery",
-      "tagline": "The furniture you already own, as good as new. Over 5,000 fabrics.",
-      "intro": "We reupholster sofas, armchairs, chairs and headboards with over 5,000 fabric references, so a piece that still has life in it isn't thrown out.",
+      "tagline": "The furniture you already own, as good as new. In our workshop, with over 5,000 fabrics.",
+      "intro": "We reupholster sofas, armchairs, chairs and headboards in our own workshop, with over 5,000 fabric references, so a piece that still has life in it isn't thrown out.",
       "paragraphs": [
-        "From faux leather to velvet, from microfibre to silk and linen brocade. We choose the fabric for the wear the piece will take and the style you want.",
-        "We restore sofas, armchairs, chairs, headboards and garden furniture. We also do marine upholstery, with fabrics that stand up to sun and salt."
+        "It is the trade the firm began with in 1961, and the fastest-growing side of the business today. We do all of it here: strip the piece back, check the frame, replace the foam where needed and reupholster it by hand.",
+        "From faux leather to velvet, from microfibre to silk and linen brocade. We choose the fabric for the wear the piece will take — a dining chair doesn't ask the same as a reading armchair — and for the style you want.",
+        "We also do marine upholstery: benches, berths and deck seating in fabrics and leathers that stand up to sun, salt and damp without going stiff."
       ],
       "features": [
         "Over 5,000 fabric references",
-        "We restore the piece you already have",
-        "Marine upholstery with marine-grade fabrics",
-        "Upholstered walls",
+        "Our own workshop: stripping, frame, foam and upholstery",
+        "We restore the piece you have rather than replace it",
+        "Marine upholstery in marine-grade fabrics and leathers",
+        "Upholstered walls and made-to-measure headboards",
         "Garden furniture"
       ],
       "notes": [
-        "Every piece is assessed before quoting: the frame, the foam and the fabric it will take."
+        "Every piece is assessed before quoting: the frame, the foam and the fabric it will take.",
+        "If the piece has sentimental value or is an antique, it is worth us seeing it: they often hold up better than they look."
       ],
       "specs": [
         {

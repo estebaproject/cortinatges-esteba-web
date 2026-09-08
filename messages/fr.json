@@ -313,14 +313,14 @@
         "Il existe une grande variété de tissus pour mieux maîtriser la lumière, des plus transparents aux plus opaques, afin que chaque pièce bénéficie exactement de la lumière dont elle a besoin."
       ],
       "features": [
-        "Grande diversité de tissus pour obtenir un aspect naturel et une atmosphère chaleureuse.",
-        "Vous avez le choix entre 10 types de tissus différents.",
+        "Une grande diversité de tissus pour un aspect naturel et une atmosphère chaleureuse.",
+        "Dix types de confection différents au choix.",
         "Nous proposons un large choix de tringles et de rails."
       ],
       "notes": [
         "Selon le type de construction, le même tissu peut produire des rideaux d’aspect différent.",
-        "Si vous choisissez perfect wave, vous obtiendrez un rideau à l’aspect soigné et moderne.",
-        "Si vous choisissez la frungida, ce même tissu deviendra un rideau plus classique et traditionnel."
+        "Si vous choisissez une tête ondulée (wave), vous obtiendrez un rideau à l'aspect soigné et moderne.",
+        "Si vous choisissez une tête à fronces, ce même tissu deviendra un rideau plus classique et traditionnel."
       ],
       "specs": [
         {
@@ -348,7 +348,8 @@
       ],
       "notes": [
         "Pose très simple.",
-        "Il convient aussi bien aux chambres qu'aux cuisines ou aux salles à manger, et tout particulièrement aux petites pièces."
+        "Il convient aussi bien aux chambres qu'aux cuisines ou aux salles à manger, et tout particulièrement aux petites pièces.",
+        "À l'atelier on l'appelle aussi store romain, rideau autrichien ou store en cascade : ce sont des noms différents du même produit."
       ]
     },
     "estor-enrotllable": {
@@ -545,7 +546,9 @@
             "Toile acrylique",
             "Screen",
             "PVC et Soltis",
-            "Solscape"
+            "Solscape",
+            "Occultant",
+            "Translucide"
           ]
         },
         {
@@ -577,6 +580,21 @@
           "items": [
             "Voiles structurées et tendues",
             "Cloisons souples pour bâtiments industriels et gymnases"
+          ]
+        },
+        {
+          "title": "Chapiteaux",
+          "items": [
+            "Préfabriqués et sur mesure",
+            "Structure en acier galvanisé ou en aluminium"
+          ]
+        },
+        {
+          "title": "Couvertures de piscine",
+          "items": [
+            "PVC anti-algues",
+            "Filet, pour les feuilles",
+            "Thermique, pour garder la température"
           ]
         }
       ]
@@ -621,21 +639,24 @@
     },
     "tapisseria": {
       "name": "Tapisserie",
-      "tagline": "Le meuble que vous avez déjà, comme neuf. Plus de 5 000 tissus.",
-      "intro": "Nous regarnissons canapés, fauteuils, chaises et têtes de lit avec plus de 5 000 références de tissu, pour ne pas jeter un meuble qui tient encore.",
+      "tagline": "Le meuble que vous avez déjà, comme neuf. Dans notre atelier, avec plus de 5 000 tissus.",
+      "intro": "Nous regarnissons canapés, fauteuils, chaises et têtes de lit dans notre propre atelier, avec plus de 5 000 références de tissu, pour ne pas jeter un meuble qui tient encore.",
       "paragraphs": [
-        "Du simili cuir au velours, de la microfibre aux brocarts de soie et de lin. Nous choisissons le tissu selon l'usage de la pièce et le style recherché.",
-        "Nous restaurons canapés, fauteuils, chaises, têtes de lit et mobilier de jardin. Nous faisons aussi de la tapisserie nautique, avec des tissus qui résistent au soleil et au sel."
+        "C'est le métier avec lequel la maison a commencé en 1961, et le domaine qui croît le plus aujourd'hui. Nous faisons tout ici : nous démontons la pièce, vérifions la structure, changeons la mousse si nécessaire et la regarnissons à la main.",
+        "Du simili cuir au velours, de la microfibre aux brocarts de soie et de lin. Nous choisissons le tissu selon l'usage de la pièce — une chaise de salle à manger ne demande pas la même chose qu'un fauteuil de lecture — et selon le style recherché.",
+        "Nous faisons aussi de la tapisserie nautique : banquettes, couchettes et sièges de pont, avec des tissus et des cuirs qui résistent au soleil, au sel et à l'humidité sans se raidir."
       ],
       "features": [
         "Plus de 5 000 références de tissu",
-        "Nous restaurons la pièce que vous avez déjà",
-        "Tapisserie nautique avec tissus marins",
-        "Murs tapissés",
+        "Atelier intégré : démontage, structure, mousse et garnissage",
+        "Nous restaurons la pièce que vous avez au lieu de la remplacer",
+        "Tapisserie nautique en tissus et cuirs marins",
+        "Murs tapissés et têtes de lit sur mesure",
         "Mobilier de jardin"
       ],
       "notes": [
-        "Chaque pièce est évaluée avant devis : la structure, la mousse et le tissu qui va la couvrir."
+        "Chaque pièce est évaluée avant devis : la structure, la mousse et le tissu qui va la couvrir.",
+        "Si le meuble a une valeur sentimentale ou s'il s'agit d'une pièce ancienne, cela vaut la peine que nous le voyions : il tient souvent mieux qu'il n'y paraît."
       ],
       "specs": [
         {

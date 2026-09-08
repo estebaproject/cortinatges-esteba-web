@@ -315,12 +315,12 @@
       "features": [
         "Gran diversidad de tejidos para conseguir un aspecto natural y un ambiente acogedor.",
         "Con 10 tipos de confección diferentes a escoger.",
-        "Ofrecemos una gran selección de barras y riells."
+        "Ofrecemos una gran selección de barras y rieles."
       ],
       "notes": [
         "Según el tipo de confección, una misma tela puede dar lugar a cortinas de diferente aspecto.",
-        "Si escoges ola perfecta, conseguirás una cortina de aspecto ordenado y moderno.",
-        "Si escoges frungida, esta misma tela se convertirá en una cortina más clásica y tradicional."
+        "Si escoges onda perfecta, conseguirás una cortina de aspecto ordenado y moderno.",
+        "Si escoges fruncida, esta misma tela se convertirá en una cortina más clásica y tradicional."
       ],
       "specs": [
         {
@@ -348,7 +348,8 @@
       ],
       "notes": [
         "Instalación muy sencilla.",
-        "Este tipo de cortina se instala tanto en dormitorios como en cocinas o comedores, y es una solución muy buena para habitaciones con pocos metros."
+        "Este tipo de cortina se instala tanto en dormitorios como en cocinas o comedores, y es una solución muy buena para habitaciones con pocos metros.",
+        "En el taller también se le llama estor romano, cortina austriaca o romana en cascada: son nombres distintos del mismo producto."
       ]
     },
     "estor-enrotllable": {
@@ -545,7 +546,9 @@
             "Lona acrílica",
             "Screen",
             "PVC y Soltis",
-            "Solscape"
+            "Solscape",
+            "Opaco",
+            "Translúcido"
           ]
         },
         {
@@ -577,6 +580,21 @@
           "items": [
             "Velas estructuradas y tensadas",
             "Telones separadores para naves industriales y polideportivos"
+          ]
+        },
+        {
+          "title": "Carpas",
+          "items": [
+            "Prefabricadas y a medida",
+            "Estructura de hierro galvanizado o de aluminio"
+          ]
+        },
+        {
+          "title": "Cubiertas de piscina",
+          "items": [
+            "PVC antialgas",
+            "Malla, para las hojas",
+            "Térmica, para mantener la temperatura"
           ]
         }
       ]
@@ -621,21 +639,24 @@
     },
     "tapisseria": {
       "name": "Tapicería",
-      "tagline": "El mueble que ya tienes, como nuevo. Más de 5.000 tejidos para elegir.",
-      "intro": "Tapizamos de nuevo sofás, butacas, sillas y cabeceros con más de 5.000 referencias de tejido, para no tener que tirar un mueble que aún aguanta.",
+      "tagline": "El mueble que ya tienes, como nuevo. En nuestro taller, con más de 5.000 tejidos.",
+      "intro": "Tapizamos de nuevo sofás, butacas, sillas y cabeceros en nuestro taller, con más de 5.000 referencias de tejido, para no tener que tirar un mueble que aún aguanta.",
       "paragraphs": [
-        "De la polipiel al terciopelo, de la microfibra a los brocados de seda y lino. Elegimos el tejido por el uso que tendrá la pieza y el estilo que buscas.",
-        "Restauramos sofás, butacas, sillas, cabeceros de cama y mobiliario de jardín. También hacemos tapicería náutica, con tejidos que aguantan el sol y la sal."
+        "Es el oficio con el que empezó la casa en 1961 y el área que más crece hoy. Lo hacemos todo aquí: desmontamos la pieza, revisamos la estructura, cambiamos la espuma si hace falta y la volvemos a tapizar a mano.",
+        "De la polipiel al terciopelo, de la microfibra a los brocados de seda y lino. Elegimos el tejido por el uso que tendrá la pieza —una silla de comedor no pide lo mismo que una butaca de lectura— y por el estilo que buscas.",
+        "También hacemos tapicería náutica: bancadas, literas y asientos de cubierta con tejidos y pieles que aguantan el sol, la sal y la humedad sin acartonarse."
       ],
       "features": [
         "Más de 5.000 referencias de tejido",
-        "Restauramos la pieza que ya tienes",
-        "Tapicería náutica con tejidos marinos",
-        "Paredes tapizadas",
+        "Taller propio: desmontaje, estructura, espuma y tapizado",
+        "Restauramos la pieza que ya tienes en lugar de sustituirla",
+        "Tapicería náutica con tejidos y pieles marinos",
+        "Paredes tapizadas y cabeceros de cama a medida",
         "Mobiliario de jardín"
       ],
       "notes": [
-        "Cada pieza se valora antes de presupuestar: la estructura, la espuma y el tejido que va a llevar."
+        "Cada pieza se valora antes de presupuestar: la estructura, la espuma y el tejido que va a llevar.",
+        "Si el mueble tiene valor sentimental o es una pieza antigua, vale la pena que la veamos: a menudo aguanta mejor de lo que parece."
       ],
       "specs": [
         {
