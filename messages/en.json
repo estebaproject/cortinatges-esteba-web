@@ -321,14 +321,25 @@
         "Depending on the type of construction, the same fabric can produce curtains of different appearance.",
         "If you choose perfect wave, you will get a curtain with a neat and modern look.",
         "If you choose frungida, this same fabric will become a more classic and traditional curtain."
+      ],
+      "specs": [
+        {
+          "title": "Fabric types",
+          "items": [
+            "Heavy: let light through while giving privacy",
+            "Light and decorative: so daylight floods the house",
+            "Blackout: block the light completely"
+          ]
+        }
       ]
     },
     "estor-paquet": {
       "name": "Roman blind",
       "tagline": "Natural folds, effortless comfort. Our flagship product.",
-      "intro": "The Roman blind is the flagship product for dressing a space: it is the perfect curtain for creating welcoming rooms with a comfortable feel.",
+      "intro": "The package blind — also known as a Roman blind — is our signature product for dressing a space: the perfect curtain for creating warm, comfortable rooms.",
       "paragraphs": [
-        "Its construction lets the folds fall far more naturally and beautifully, gathering the fabric in a light, simple way."
+        "Its shape makes the folds far more natural and attractive, gathering the fabric lightly and simply.",
+        "It folds evenly and regularly as you pull a side chain, leaving the pleats in view."
       ],
       "features": [
         "Great diversity of fabrics to achieve a natural look and a cozy atmosphere.",
@@ -336,27 +347,28 @@
         "Extensive light control, depending on the fabric chosen."
       ],
       "notes": [
-        "Very simple installation.",
-        "This type of curtain can be installed in bedrooms, kitchens and dining rooms."
+        "Very simple to install.",
+        "It suits bedrooms, kitchens and dining rooms alike, and works particularly well in small rooms."
       ]
     },
     "estor-enrotllable": {
       "name": "Roller blind",
       "tagline": "Clean, practical and versatile. Screen or blackout, depending on the light you want.",
-      "intro": "The roller blind is the most practical and uncluttered way to control light without compromising the aesthetic of the room.",
+      "intro": "The roller blind, also called a screen, is the cleanest and most practical way to control light without giving up the look of the room.",
       "paragraphs": [
-        "Screen fabric filters the light and shields you from the heat while keeping the view outside; blackout darkens the room completely whenever you need it.",
-        "It takes up very little space when rolled up and fits almost any window. Available with manual or motorised operation."
+        "It is a blind that rolls up and down around a tube by means of a mechanism. Screen fabric filters the light and keeps out the heat while preserving the view out; blackout darkens the room completely when you need it.",
+        "Its linear look and minimal stack make it fit almost any window, indoors and out: kitchens, dining rooms, terraces. Available with manual or motorised operation."
       ],
       "features": [
-        "Roller blinds give a feeling of spaciousness and make the rooms where they are installed seem larger and brighter.",
+        "The linear look and the minimal stack give a sense of space and make rooms look larger and brighter.",
         "They have included trims that help to hide both the metal supports and the fixing snails, achieving a formidable aesthetic.",
         "Our supports allow both ceiling and wall installation."
       ],
       "notes": [
         "The drop of the fabric behind the tube offers better thermal insulation, thanks to the fact that the fabric is closer to the glass.",
         "The drop of the fabric in front of the tube allows to avoid obstacles, such as the handle of the window.",
-        "The premium mechanism with gear reduction reduces the curtain’s weight sensation."
+        "The premium mechanism with gear reduction reduces the curtain’s weight sensation.",
+        "It needs hardly any cleaning or maintenance."
       ],
       "specs": [
         {
@@ -372,7 +384,8 @@
           "items": [
             "Manual",
             "Motorised and automated",
-            "Cable or rod guided"
+            "Cable or rod guided",
+            "Side guide rails for outdoor use"
           ]
         }
       ]
@@ -380,17 +393,19 @@
     "panell-japones": {
       "name": "Japanese panel",
       "tagline": "The linear solution for large windows and sliding doors.",
-      "intro": "They are a superb solution for covering large windows and sliding doors that open onto the outside, since they glide horizontally along tracks and can be stacked completely clear of the opening.",
+      "intro": "These are independent fabric panels that slide from side to side along parallel tracks. A superb solution for large windows and sliding doors, since they can stack completely clear of the opening.",
       "paragraphs": [
+        "There are three types, according to how much light they let through: screen, translucent and blackout.",
         "The movement is smooth and clean, leaving easy access to the outside."
       ],
       "features": [
         "Screen: light and protection from the heat, with easy cleaning using a damp sponge.",
-        "Translucent: weaves that offer a soft, diffused light while preserving privacy.",
+        "Translucent: fabrics that give a soft, diffused light while providing privacy, by day and by night.",
         "Opaque: stand out for their darkness, offering privacy and thermal insulation.",
         "You will be able to regulate the natural light coming from the outside.",
         "The variety of designs and colors is very extensive.",
-        "The Japanese panel has a very simple maintenance."
+        "The Japanese panel has a very simple maintenance.",
+        "They also work as a room divider within a single space."
       ],
       "notes": [
         "There is also the option of choosing the Japanese panel with a handle at each end for easy access."
@@ -402,16 +417,18 @@
       "intro": "The aluminium venetian blind is a versatile classic offering very precise light control and excellent privacy.",
       "paragraphs": [
         "It comes in different slat widths: 25 mm, the most popular, or 50 mm, better suited to large windows.",
-        "Light, durable and easy to maintain — ideal for kitchens, bathrooms and workspaces."
+        "Light, durable and easy to maintain — ideal for kitchens, bathrooms and workspaces.",
+        "The venetian blind comes in two materials: aluminium, lighter and more resistant to damp, and wood, which brings warmth."
       ]
     },
     "veneciana-fusta": {
       "name": "Wooden venetian blind",
       "tagline": "The warmth of natural wood with lasting character.",
-      "intro": "The wooden venetian blind brings warmth and elegance to any room, with natural wood or faux-wood slats.",
+      "intro": "The wooden venetian blind brings warmth and elegance to any room, with natural wood or faux-bois slats, and offers very precise light control and excellent privacy.",
       "paragraphs": [
         "Wide slats and decorative tapes give it a warm, welcoming look, perfect for living rooms and bedrooms.",
-        "For those who want precise light control without giving up the warmth of natural materials."
+        "For those who want precise light control without giving up the warmth of natural materials.",
+        "The venetian blind comes in two materials: aluminium, lighter and more resistant to damp, and wood, which brings warmth."
       ]
     },
     "prisada": {

@@ -321,14 +321,25 @@
         "Según el tipo de confección, una misma tela puede dar lugar a cortinas de diferente aspecto.",
         "Si escoges ola perfecta, conseguirás una cortina de aspecto ordenado y moderno.",
         "Si escoges frungida, esta misma tela se convertirá en una cortina más clásica y tradicional."
+      ],
+      "specs": [
+        {
+          "title": "Tipos de tejido",
+          "items": [
+            "Espesos: dejan pasar la luz y dan privacidad",
+            "Ligeros y decorativos: para que la luz inunde la casa",
+            "Opacos: impiden por completo el paso de la luz"
+          ]
+        }
       ]
     },
     "estor-paquet": {
       "name": "Estor paquete",
       "tagline": "Pliegues naturales, aire confortable. Nuestro producto estrella.",
-      "intro": "El estor paquete es el producto estrella para vestir un espacio: es la cortina perfecta para crear ambientes acogedores de apariencia confortable.",
+      "intro": "El estor paquete —también conocido como estor romano— es el producto estrella para vestir un espacio: es la cortina perfecta para crear ambientes acogedores de apariencia confortable.",
       "paragraphs": [
-        "Su forma permite que los pliegues que realiza la cortina sean mucho más naturales y bonitos, ya que recoge la tela de manera ligera y sencilla."
+        "Su forma permite que los pliegues que hace la cortina sean mucho más naturales y bonitos, ya que recoge la tela de manera ligera y sencilla.",
+        "Se pliega de forma regular y uniforme tirando de una cadena lateral, y deja los pliegues a la vista."
       ],
       "features": [
         "Gran diversidad de tejidos para conseguir un aspecto natural y un ambiente acogedor.",
@@ -337,26 +348,27 @@
       ],
       "notes": [
         "Instalación muy sencilla.",
-        "Este tipo de cortina se instala tanto con dormitorios como cocinas o comedores."
+        "Este tipo de cortina se instala tanto en dormitorios como en cocinas o comedores, y es una solución muy buena para habitaciones con pocos metros."
       ]
     },
     "estor-enrotllable": {
       "name": "Estor enrollable",
       "tagline": "Limpio, práctico y versátil. Screen o blackout, según la luz que busques.",
-      "intro": "El estor enrollable es la solución más práctica y limpia para controlar la luz sin renunciar a la estética del ambiente.",
+      "intro": "El estor enrollable, también llamado screen, es la solución más práctica y limpia para controlar la luz sin renunciar a la estética del ambiente.",
       "paragraphs": [
-        "El tejido screen filtra la luz y protege del calor manteniendo la visión hacia el exterior; el blackout oscurece completamente la estancia cuando lo necesitas.",
-        "Ocupa muy poco espacio al recogerse y se adapta a prácticamente cualquier ventana. Disponible con accionamiento manual o motorizado."
+        "Es una cortina que se enrolla y se desenrolla sobre un tubo mediante un mecanismo. El tejido screen filtra la luz y protege del calor manteniendo la visión hacia el exterior; el blackout oscurece por completo la estancia cuando lo necesitas.",
+        "Su estética lineal y su espacio de recogida mínimo la adaptan a prácticamente cualquier ventana, en interior y en exterior: cocinas, comedores, terrazas. Disponible con accionamiento manual o motorizado."
       ],
       "features": [
-        "Los estores enrollables dan la sensación de amplitud y hacen que las habitaciones donde se instalan parezcan más grandes y luminosas.",
+        "La estética lineal y el espacio de recogida mínimo dan sensación de amplitud y hacen que las habitaciones parezcan más grandes y luminosas.",
         "Llevan embellecedores incluidos que ayudan a ocultar tanto los apoyos metálicos como los caracoles de fijación, consiguiendo una estética formidable.",
         "Nuestros apoyos permiten tanto la instalación a techo como pared."
       ],
       "notes": [
         "La caída del tejido por detrás del tubo ofrece mejor aislamiento térmico, gracias al hecho que el tejido queda más próximo al vidrio.",
         "La caída del tejido por ante el tubo permite salvar obstáculos, como la manecita de la ventana.",
-        "El mecanismo prémium con desmultiplicador, reduce la sensación de peso de la cortina"
+        "El mecanismo prémium con desmultiplicador, reduce la sensación de peso de la cortina",
+        "Apenas requiere limpieza ni mantenimiento."
       ],
       "specs": [
         {
@@ -372,7 +384,8 @@
           "items": [
             "Manual",
             "Motorizado y automatizado",
-            "Guiado por cable o por varilla"
+            "Guiado por cable o por varilla",
+            "Guías laterales para exterior"
           ]
         }
       ]
@@ -380,17 +393,19 @@
     "panell-japones": {
       "name": "Panel japonés",
       "tagline": "La solución lineal para grandes ventanales y puertas correderas.",
-      "intro": "Son una solución magnífica para cubrir grandes ventanales y puertas correderas que dan acceso al exterior, ya que se desplazan horizontalmente mediante unos raíles y pueden quedar recogidos completamente fuera de la apertura.",
+      "intro": "Son paneles textiles independientes que se deslizan de lado a lado sobre raíles en paralelo. Una solución magnífica para cubrir grandes ventanales y puertas correderas, porque pueden quedar recogidos completamente fuera de la apertura.",
       "paragraphs": [
+        "Hay tres tipos según el control de la luz: screen, translúcidos y opacos.",
         "El movimiento es suave y limpio, y deja un acceso fácil al exterior."
       ],
       "features": [
         "Screen: luz y protección frente al calor, con una limpieza fácil con una esponja húmeda.",
-        "Translúcidos: tejidos que ofrecen una luz suave y difuminada facilitando la privacidad.",
+        "Translúcidos: tejidos que ofrecen una luz suave y difuminada facilitando la privacidad, tanto de día como de noche.",
         "Opacos: destacan por la oscuridad, ofreciendo privacidad y aislamiento térmico.",
         "Podràs regular com convingui la llum natural que prové de l’exterior.",
         "La varietat de dissenys i colors és molt extensa.",
-        "El panell japonès té un manteniment molt senzill."
+        "El panell japonès té un manteniment molt senzill.",
+        "También hacen de separador de ambientes dentro de un mismo espacio."
       ],
       "notes": [
         "También hay la opción de escoger el panel japonés con un tirador a cada extremo para facilitar el acceso."
@@ -402,16 +417,18 @@
       "intro": "La veneciana de aluminio es un clásico versátil que ofrece un control muy preciso de la luz y una excelente privacidad.",
       "paragraphs": [
         "Se rige según el ancho de la lama: las de 25 mm, las más populares, o las de 50 mm, más apropiadas para ventanas de gran dimensión.",
-        "Ligera, resistente y fácil de mantener, ideal para cocinas, baños y espacios de trabajo."
+        "Ligera, resistente y fácil de mantener, ideal para cocinas, baños y espacios de trabajo.",
+        "La cortina veneciana existe en dos materiales: el aluminio, más ligero y resistente a la humedad, y la madera, que aporta calidez."
       ]
     },
     "veneciana-fusta": {
       "name": "Veneciana de madera",
       "tagline": "La calidez de la madera natural con un carácter propio y duradero.",
-      "intro": "La veneciana de madera aporta calidez y elegancia a cualquier estancia, con lamas de madera natural o faux-bois.",
+      "intro": "La veneciana de madera aporta calidez y elegancia a cualquier estancia, con lamas de madera natural o faux-bois, y ofrece un control muy preciso de la luz y una excelente privacidad.",
       "paragraphs": [
         "Las lamas anchas y las cintas decorativas le dan un aspecto cálido y acogedor, perfecto para salones y dormitorios.",
-        "Para quien busca un control preciso de la luz sin renunciar a la calidez de los materiales naturales."
+        "Para quien busca un control preciso de la luz sin renunciar a la calidez de los materiales naturales.",
+        "La cortina veneciana existe en dos materiales: el aluminio, más ligero y resistente a la humedad, y la madera, que aporta calidez."
       ]
     },
     "prisada": {

@@ -321,14 +321,25 @@
         "Segons el tipus de confecció, una mateixa tela pot donar lloc a cortines de diferent aspecte.",
         "Si esculls ona perfecta, aconseguiràs una cortina d’aspecte ordenat i modern.",
         "Si esculls frungit, aquesta mateixa tela es convertirà en una cortina més clàssica i tradicional."
+      ],
+      "specs": [
+        {
+          "title": "Tipus de teixit",
+          "items": [
+            "Espessos: deixen passar la llum i donen privadesa",
+            "Lleugers i decoratius: perquè la llum inundi la casa",
+            "Opacs: impedeixen per complet el pas de la llum"
+          ]
+        }
       ]
     },
     "estor-paquet": {
       "name": "Estor paquet",
       "tagline": "Plecs naturals, aire confortable. El nostre producte estrella.",
-      "intro": "L'estor paquet és el producte estrella per vestir un espai: és la cortina perfecta per crear ambients acollidors d'aparença confortable.",
+      "intro": "L'estor paquet —també conegut com a estor romà— és el producte estrella per vestir un espai: és la cortina perfecta per crear ambients acollidors d'aparença confortable.",
       "paragraphs": [
-        "La seva forma permet que els plecs que realitza la cortina siguin molt més naturals i bonics, ja que recull la tela de manera lleugera i senzilla."
+        "La seva forma permet que els plecs que realitza la cortina siguin molt més naturals i bonics, ja que recull la tela de manera lleugera i senzilla.",
+        "Es plega de forma regular i uniforme estirant d'una cadena lateral, i deixa els plecs a la vista."
       ],
       "features": [
         "Gran diversitat de teixits per aconseguir un aspecte natural i un ambient acollidor.",
@@ -337,26 +348,27 @@
       ],
       "notes": [
         "Instal·lació molt senzilla.",
-        "Aquest tipus de cortina s’instal·la tant amb dormitoris com cuines o menjadors."
+        "Aquest tipus de cortina s'instal·la tant en dormitoris com en cuines o menjadors, i és una solució molt bona per a habitacions amb pocs metres."
       ]
     },
     "estor-enrotllable": {
       "name": "Estor enrotllable",
       "tagline": "Net, pràctic i versàtil. Screen o blackout, segons la llum que vulguis.",
-      "intro": "L'estor enrotllable és la solució més pràctica i neta per controlar la llum sense renunciar a l'estètica de l'ambient.",
+      "intro": "L'estor enrotllable, també anomenat screen, és la solució més pràctica i neta per controlar la llum sense renunciar a l'estètica de l'ambient.",
       "paragraphs": [
-        "El teixit screen filtra la llum i protegeix de la calor mantenint la visió cap a l'exterior; el blackout enfosqueix completament l'estança quan ho necessites.",
-        "Ocupa molt poc espai en recollir-se i s'adapta a pràcticament qualsevol finestra. Disponible amb accionament manual o motoritzat."
+        "És una cortina que s'enrotlla i es desenrotlla sobre un tub mitjançant un mecanisme. El teixit screen filtra la llum i protegeix de la calor mantenint la visió cap a l'exterior; el blackout enfosqueix completament l'estança quan ho necessites.",
+        "L'estètica lineal i l'espai de recollida mínim l'adapten a pràcticament qualsevol finestra, a l'interior i a l'exterior: cuines, menjadors, terrasses. Disponible amb accionament manual o motoritzat."
       ],
       "features": [
-        "Els estors enrotllables donen la sensació d’amplitud i fan que les habitacions on s’instal·len semblin més grans i lluminoses.",
+        "L'estètica lineal i l'espai de recollida mínim donen sensació d'amplitud i fan que les habitacions semblin més grans i lluminoses.",
         "Porten embellidors inclosos que ajuden a ocultar tant els suports metàl·lics com els caragols de fixació, aconseguint una estètica formidable.",
         "Els nostres suports permeten tant la instal·lació a sostre com a paret."
       ],
       "notes": [
         "La caiguda del teixit per darrere del tub ofereix millor aïllament tèrmic, gràcies al fet que el teixit queda més pròxim al vidre.",
         "La caiguda del teixit per davant del tub permet salvar obstacles, com la maneta de la finestra.",
-        "El mecanisme prèmium amb desmultiplicador, redueix la sensació de pes de la cortina"
+        "El mecanisme prèmium amb desmultiplicador, redueix la sensació de pes de la cortina",
+        "Amb prou feines requereix neteja ni manteniment."
       ],
       "specs": [
         {
@@ -372,7 +384,8 @@
           "items": [
             "Manual",
             "Motoritzat i automatitzat",
-            "Guiat per cable o per vareta"
+            "Guiat per cable o per vareta",
+            "Guies laterals per a l'exterior"
           ]
         }
       ]
@@ -380,17 +393,19 @@
     "panell-japones": {
       "name": "Panell japonès",
       "tagline": "La solució lineal per a grans finestrals i portes corredisses.",
-      "intro": "Són una solució magnífica per cobrir grans finestrals i portes corredisses que donen accés a l'exterior, ja que es desplacen horitzontalment mitjançant uns riells i poden quedar recollits completament fora de l'obertura.",
+      "intro": "Són panells tèxtils independents que llisquen de banda a banda sobre raïls en paral·lel. Una solució magnífica per cobrir grans finestrals i portes corredisses, perquè poden quedar recollits completament fora de l'obertura.",
       "paragraphs": [
+        "N'hi ha de tres tipus segons el control de la llum: screen, translúcids i opacs.",
         "El moviment és suau i net, i deixa un accés fàcil a l'exterior."
       ],
       "features": [
         "Screen: llum i protecció davant la calor, amb una neteja fàcil amb una esponja humida.",
-        "Translúcids: teixits que ofereixen una llum suau i difuminada tot facilitant la privacitat.",
+        "Translúcids: teixits que ofereixen una llum suau i difuminada tot facilitant la privacitat, tant de dia com de nit.",
         "Opacs: destaquen per la foscor, oferint privacitat i aïllament tèrmic.",
         "Podràs regular com convingui la llum natural que prové de l’exterior.",
         "La varietat de dissenys i colors és molt extensa.",
-        "El panell japonès té un manteniment molt senzill."
+        "El panell japonès té un manteniment molt senzill.",
+        "També fan de separador d'ambients dins d'un mateix espai."
       ],
       "notes": [
         "També hi ha l’opció d’escollir el panel japonés amb un tirador a cada extrem per tal de facilitar l’accés."
@@ -402,16 +417,18 @@
       "intro": "La veneciana d'alumini és un clàssic versàtil que ofereix un control molt precís de la llum i una excel·lent privadesa.",
       "paragraphs": [
         "Es regeix segons l'amplada de la lama: les de 25 mm, les més populars, o les de 50 mm, més apropiades per a finestres de gran dimensió.",
-        "Lleugera, resistent i fàcil de mantenir, ideal per a cuines, banys i espais de treball."
+        "Lleugera, resistent i fàcil de mantenir, ideal per a cuines, banys i espais de treball.",
+        "La cortina veneciana existeix en dos materials: l'alumini, més lleuger i resistent a la humitat, i la fusta, que aporta calidesa."
       ]
     },
     "veneciana-fusta": {
       "name": "Veneciana de fusta",
       "tagline": "La calidesa de la fusta natural amb un caràcter propi i perdurable.",
-      "intro": "La veneciana de fusta aporta calidesa i elegància a qualsevol estança, amb lames de fusta natural o faux-bois.",
+      "intro": "La veneciana de fusta aporta calidesa i elegància a qualsevol estança, amb lames de fusta natural o faux-bois, i ofereix un control molt precís de la llum i una excel·lent privadesa.",
       "paragraphs": [
         "Les lames amples i les cintes decoratives li donen un aspecte càlid i acollidor, perfecte per a sales i dormitoris.",
-        "Per a qui busca un control precís de la llum sense renunciar a la calidesa dels materials naturals."
+        "Per a qui busca un control precís de la llum sense renunciar a la calidesa dels materials naturals.",
+        "La cortina veneciana existeix en dos materials: l'alumini, més lleuger i resistent a la humitat, i la fusta, que aporta calidesa."
       ]
     },
     "prisada": {

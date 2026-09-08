@@ -321,14 +321,25 @@
         "Selon le type de construction, le même tissu peut produire des rideaux d’aspect différent.",
         "Si vous choisissez perfect wave, vous obtiendrez un rideau à l’aspect soigné et moderne.",
         "Si vous choisissez la frungida, ce même tissu deviendra un rideau plus classique et traditionnel."
+      ],
+      "specs": [
+        {
+          "title": "Types de tissu",
+          "items": [
+            "Épais : laissent passer la lumière tout en préservant l'intimité",
+            "Légers et décoratifs : pour que la lumière inonde la maison",
+            "Occultants : empêchent complètement le passage de la lumière"
+          ]
+        }
       ]
     },
     "estor-paquet": {
       "name": "Store bateau",
       "tagline": "Plis naturels, confort tout en douceur. Notre produit phare.",
-      "intro": "Le store bateau est le produit phare pour habiller un espace : c'est le rideau idéal pour créer des ambiances accueillantes à l'allure confortable.",
+      "intro": "Le store bateau — aussi appelé store romain — est notre produit phare pour habiller un espace : le rideau idéal pour créer des ambiances chaleureuses et confortables.",
       "paragraphs": [
-        "Sa forme permet d'obtenir des plis bien plus naturels et élégants, car il recueille le tissu de manière légère et délicate."
+        "Sa forme rend les plis bien plus naturels et harmonieux, car elle rassemble le tissu avec légèreté et simplicité.",
+        "Il se replie de façon régulière et uniforme en tirant sur une chaînette latérale, et laisse les plis apparents."
       ],
       "features": [
         "Grande diversité de tissus pour obtenir un aspect naturel et une atmosphère chaleureuse.",
@@ -336,27 +347,28 @@
         "Contrôle étendu de la lumière, en fonction du tissu choisi."
       ],
       "notes": [
-        "Installation très simple.",
-        "Ce type de rideau peut être installé dans les chambres à coucher, les cuisines et les salles à manger."
+        "Pose très simple.",
+        "Il convient aussi bien aux chambres qu'aux cuisines ou aux salles à manger, et tout particulièrement aux petites pièces."
       ]
     },
     "estor-enrotllable": {
       "name": "Store enrouleur",
       "tagline": "Épuré, pratique et polyvalent. Écran ou occultant, selon la lumière souhaitée.",
-      "intro": "Le store enrouleur est la solution la plus pratique et la plus épurée pour maîtriser la lumière sans renoncer à l'esthétique de l'espace.",
+      "intro": "Le store enrouleur, aussi appelé screen, est la solution la plus pratique et la plus nette pour contrôler la lumière sans renoncer à l'esthétique de la pièce.",
       "paragraphs": [
-        "Le tissu écran filtre la lumière et protège de la chaleur tout en préservant la vue vers l'extérieur ; l'occultant plonge la pièce dans l'obscurité totale quand vous en avez besoin.",
-        "Il occupe très peu de place une fois enroulé et s'adapte à pratiquement toutes les fenêtres. Disponible en commande manuelle ou motorisée."
+        "C'est un store qui s'enroule et se déroule autour d'un tube grâce à un mécanisme. La toile screen filtre la lumière et protège de la chaleur tout en conservant la vue vers l'extérieur ; l'occultant plonge la pièce dans le noir quand vous en avez besoin.",
+        "Son esthétique linéaire et son encombrement minimal l'adaptent à presque toutes les fenêtres, à l'intérieur comme à l'extérieur : cuisines, salles à manger, terrasses. Disponible en manœuvre manuelle ou motorisée."
       ],
       "features": [
-        "Les stores à enroulement donnent une impression d’espace et font paraître les pièces où ils sont installés plus grandes et plus lumineuses.",
+        "L'esthétique linéaire et l'encombrement minimal donnent une sensation d'espace et font paraître les pièces plus grandes et plus lumineuses.",
         "Ils ont inclus des garnitures qui aident à dissimuler les supports métalliques et les escargots de fixation, ce qui leur confère une formidable esthétique.",
         "Nos supports permettent une installation aussi bien au plafond qu’au mur."
       ],
       "notes": [
         "La goutte de tissu derrière le tube offre une meilleure isolation thermique, grâce au fait que le tissu est plus proche du verre.",
         "La chute du tissu devant le tube permet d’éviter les obstacles, tels que la poignée de la fenêtre.",
-        "Le mécanisme haut de gamme avec réduction d’engrenage réduit la sensation de poids du rideau."
+        "Le mécanisme haut de gamme avec réduction d’engrenage réduit la sensation de poids du rideau.",
+        "Il ne demande presque aucun entretien ni nettoyage."
       ],
       "specs": [
         {
@@ -372,7 +384,8 @@
           "items": [
             "Manuelle",
             "Motorisée et automatisée",
-            "Guidage par câble ou par tige"
+            "Guidage par câble ou par tige",
+            "Coulisses latérales pour l'extérieur"
           ]
         }
       ]
@@ -380,17 +393,19 @@
     "panell-japones": {
       "name": "Panneau japonais",
       "tagline": "La solution linéaire pour les grandes baies vitrées et portes coulissantes.",
-      "intro": "C'est une solution magnifique pour couvrir les grandes baies vitrées et les portes coulissantes qui donnent accès à l'extérieur, car les panneaux se déplacent horizontalement sur des rails et peuvent se ranger entièrement hors de l'ouverture.",
+      "intro": "Ce sont des panneaux textiles indépendants qui glissent d'un côté à l'autre sur des rails parallèles. Une solution idéale pour les grandes baies vitrées et les portes coulissantes, car ils se rangent entièrement hors de l'ouverture.",
       "paragraphs": [
+        "Il en existe trois types selon le contrôle de la lumière : screen, translucides et occultants.",
         "Le mouvement est doux et net, et laisse un accès facile vers l'extérieur."
       ],
       "features": [
         "Écran : lumière et protection contre la chaleur, avec un nettoyage facile à l'aide d'une éponge humide.",
-        "Translucides : des tissus qui offrent une lumière douce et diffuse tout en préservant l'intimité.",
+        "Translucides : des tissus qui offrent une lumière douce et diffuse tout en préservant l'intimité, de jour comme de nuit.",
         "Opaques : ils se distinguent par leur obscurité, offrant intimité et isolation thermique.",
         "Vous pourrez réguler la lumière naturelle provenant de l’extérieur.",
         "La variété des motifs et des couleurs est très étendue.",
-        "Le panneau japonais a un entretien très simple."
+        "Le panneau japonais a un entretien très simple.",
+        "Ils servent aussi de séparateur d'espaces dans une même pièce."
       ],
       "notes": [
         "Il est également possible de choisir le panneau japonais avec une poignée à chaque extrémité pour un accès facile."
@@ -402,16 +417,18 @@
       "intro": "Le store vénitien en aluminium est un classique polyvalent qui offre un contrôle très précis de la lumière et une excellente intimité.",
       "paragraphs": [
         "Il existe en différentes largeurs de lame : 25 mm, les plus populaires, ou 50 mm, mieux adaptées aux grandes fenêtres.",
-        "Léger, résistant et facile d'entretien, idéal pour les cuisines, salles de bains et espaces de travail."
+        "Léger, résistant et facile d'entretien, idéal pour les cuisines, salles de bains et espaces de travail.",
+        "Le store vénitien existe en deux matériaux : l'aluminium, plus léger et résistant à l'humidité, et le bois, qui apporte de la chaleur."
       ]
     },
     "veneciana-fusta": {
       "name": "Store vénitien en bois",
       "tagline": "La chaleur du bois naturel avec un caractère propre et durable.",
-      "intro": "Le store vénitien en bois apporte chaleur et élégance à toute pièce, avec des lames en bois naturel ou faux-bois.",
+      "intro": "Le store vénitien en bois apporte chaleur et élégance à toute pièce, avec des lames en bois naturel ou faux-bois, et offre un contrôle très précis de la lumière et une excellente intimité.",
       "paragraphs": [
         "Les lames larges et les rubans décoratifs lui donnent un aspect chaleureux, parfait pour les salons et les chambres.",
-        "Pour ceux qui veulent un contrôle précis de la lumière sans renoncer à la chaleur des matériaux naturels."
+        "Pour ceux qui veulent un contrôle précis de la lumière sans renoncer à la chaleur des matériaux naturels.",
+        "Le store vénitien existe en deux matériaux : l'aluminium, plus léger et résistant à l'humidité, et le bois, qui apporte de la chaleur."
       ]
     },
     "prisada": {
