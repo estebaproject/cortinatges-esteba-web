@@ -537,9 +537,6 @@
         "Cubiertas de piscina",
         "Proyecto, toma de medidas e instalación"
       ],
-      "notes": [
-        "Cada abertura pide un modelo y un tejido distintos. Vamos a tomar medidas antes de hacer ningún presupuesto."
-      ],
       "specs": [
         {
           "title": "Tejidos",
@@ -572,30 +569,25 @@
     "pergoles": {
       "name": "Pérgolas",
       "tagline": "Una estancia más, al aire libre. Proyectada y montada a medida.",
-      "intro": "Proyectamos la pérgola y la montamos en tu casa, con estructura de madera o aluminio. La cubierta puede ser textil, que confeccionamos en el taller, o de lamas de aluminio orientables.",
+      "intro": "Proyectamos la pérgola y la montamos en tu casa, con estructura de madera o aluminio. La cubierta puede ser textil o de lamas de aluminio orientables.",
       "paragraphs": [
-        "Si la cubierta es textil, elegimos el tejido según la luz que quieras, y puede ser un toldo corredero que se desliza sobre guías para abrirse y cerrarse.",
-        "Si es bioclimática, las lamas giran para graduar el sol y se cierran del todo cuando llueve. En verano dan sombra y en invierno dejan pasar el sol bajo.",
-        "Ambas pueden llevar motorización y sensores de sol y viento, que las cierran solas cuando sopla. Convierten una terraza de dos meses al año en una estancia más de casa."
+        "Cuando la cubierta es de lamas, giran para graduar el sol y se cierran del todo cuando llueve. En verano dan sombra y en invierno dejan pasar el sol bajo.",
+        "Ambas pueden llevar motorización y sensores de sol y viento. Convierten una terraza de dos meses al año en una estancia más de casa."
       ],
       "features": [
         "Estructura de madera o aluminio",
         "Proyecto y toma de medidas en tu espacio",
-        "Cubierta textil confeccionada en nuestro taller",
         "Cubierta de lamas de aluminio orientables",
         "Motorización opcional, con sensores de sol y viento",
         "Montaje e instalación en tu casa",
         "Para terrazas, cenadores o para enlazar dos edificios"
       ],
-      "notes": [
-        "Cada pérgola depende de cómo es el espacio y de dónde se puede anclar. Antes de hacer ningún presupuesto vamos a tomar medidas."
-      ],
       "specs": [
         {
           "title": "Cubiertas",
           "items": [
-            "Textil, confeccionada en nuestro taller",
-            "Toldo corredero, que se desliza sobre guías",
+            "Textil",
+            "Toldo corredero",
             "Lamas de aluminio orientables (bioclimática)"
           ]
         },

@@ -200,21 +200,12 @@ export default async function ProductPage({ params }: Props) {
           <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-ink/25 to-transparent" />
         </div>
         <div className="relative z-10 max-w-layout mx-auto px-6 lg:px-12 w-full pb-12 md:pb-16">
-          <nav
-            className="flex items-center gap-2 font-sans text-body-sm text-canvas/70 mb-5"
-            aria-label="Breadcrumb"
-          >
-            <Link href={homePath} className="hover:text-canvas transition-colors">
-              {t("breadcrumbHome")}
-            </Link>
-            <span aria-hidden="true">/</span>
-            <Link
-              href={collectionsAnchor}
-              className="hover:text-canvas transition-colors"
-            >
-              {t("breadcrumbCollections")}
-            </Link>
-          </nav>
+          {/* LES MOLLES DE PA VISIBLES S'HAN TRET. Duplicaven la funció del bloc
+              "Altres col·leccions" del peu de la fitxa, que ja porta a la mateixa
+              graella. El BreadcrumbList de dades estructurades ES CONSERVA: la
+              jerarquia segueix existint i Google en fa servir el rastre als
+              resultats, que sí que és un resultat enriquit actiu (a diferència del
+              Product, que no ho és perquè no hi ha offers). */}
           <h1 className="font-serif text-display-lg text-canvas max-w-3xl mb-4 uppercase">
             {name}
           </h1>

@@ -537,9 +537,6 @@
         "Couvertures de piscine",
         "Étude, prise de mesures et pose"
       ],
-      "notes": [
-        "Chaque ouverture demande un modèle et une toile différents. Nous venons prendre les mesures avant tout devis."
-      ],
       "specs": [
         {
           "title": "Tissus",
@@ -572,30 +569,25 @@
     "pergoles": {
       "name": "Pergolas",
       "tagline": "Une pièce de plus, en plein air. Conçue et posée sur mesure.",
-      "intro": "Nous concevons la pergola et la posons chez vous, avec une structure en bois ou en aluminium. La couverture peut être en toile, que nous confectionnons à l'atelier, ou à lames d'aluminium orientables.",
+      "intro": "Nous concevons la pergola et la posons chez vous, avec une structure en bois ou en aluminium. La couverture peut être en toile ou à lames d'aluminium orientables.",
       "paragraphs": [
-        "Si la couverture est en toile, nous choisissons le tissu selon la lumière souhaitée, et ce peut être un store coulissant qui glisse sur des rails pour s'ouvrir et se fermer.",
-        "Si elle est bioclimatique, les lames pivotent pour doser le soleil et se ferment entièrement sous la pluie. En été elles font de l'ombre, en hiver elles laissent passer le soleil bas.",
-        "Toutes deux peuvent recevoir une motorisation et des capteurs de soleil et de vent, qui les ferment seules quand le vent se lève. Elles transforment une terrasse de deux mois par an en une pièce de plus."
+        "Quand la couverture est à lames, elles pivotent pour doser le soleil et se ferment entièrement sous la pluie. En été elles font de l'ombre, en hiver elles laissent passer le soleil bas.",
+        "Toutes deux peuvent recevoir une motorisation et des capteurs de soleil et de vent. Elles transforment une terrasse de deux mois par an en une pièce de plus."
       ],
       "features": [
         "Structure en bois ou en aluminium",
         "Étude et prise de mesures chez vous",
-        "Toile confectionnée dans notre atelier",
         "Couverture à lames d'aluminium orientables",
         "Motorisation en option, avec capteurs de soleil et de vent",
         "Montage et pose à votre domicile",
         "Pour terrasses, gloriettes ou pour relier deux bâtiments"
       ],
-      "notes": [
-        "Chaque pergola dépend de la configuration du lieu et des points d'ancrage possibles. Nous venons prendre les mesures avant tout devis."
-      ],
       "specs": [
         {
           "title": "Couvertures",
           "items": [
-            "Toile, confectionnée dans notre atelier",
-            "Store coulissant, sur rails",
+            "Toile",
+            "Store coulissant",
             "Lames d'aluminium orientables (bioclimatique)"
           ]
         },
