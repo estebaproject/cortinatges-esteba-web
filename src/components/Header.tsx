@@ -37,8 +37,21 @@ export default function Header() {
 
   const home = publicPath("/", locale);
 
+  // "Productes" s'ha tret d'aquí. Anava a `${home}#productes`, que NO és una
+  // pàgina: és una àncora a la graella de la portada. Des de la portada portava
+  // on ja eres, i la paraula suggeria una botiga en línia que aquest web no és.
+  //
+  // LES FITXES NO QUEDEN ORFES. Hi arriben per quatre camins més: la graella de
+  // la portada, les molles de pa de cada fitxa (Inici / Col·leccions), el bloc
+  // "Altres col·leccions" del seu peu, i /colleccions, que hi redirigeix. També
+  // són totes al sitemap.
+  //
+  // El que es perd és el clic únic per tornar a la graella des de /serveis,
+  // /botigues, /nosaltres i /contacte. Des d'una fitxa no, que ja té molles de
+  // pa. La clau `Navigation.collections` queda SENSE FER SERVIR: les molles de
+  // pa tenen la seva pròpia (`ProductPage.breadcrumbCollections`). Es conserva
+  // als quatre idiomes a posta, per si algun dia l'entrada torna al menú.
   const navLinks = [
-    { href: `${home}#productes`, label: t("collections"), external: false },
     { href: publicPath("/serveis", locale), label: t("services"), external: false },
     { href: publicPath("/botigues", locale), label: t("stores"), external: false },
     { href: publicPath("/nosaltres", locale), label: t("about"), external: false },
