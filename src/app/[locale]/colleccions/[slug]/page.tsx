@@ -137,11 +137,34 @@ export default async function ProductPage({ params }: Props) {
     name,
     description: `${intro} ${paragraphs.join(" ")}`.trim(),
     image: images.map((i) => `${SITE_URL}${i}`),
-    category: "Cortines i estors a mida",
+    // Traduïda: abans anava escrita en català i s'emetia IGUAL a les versions
+    // castellana, anglesa i francesa. Eren 14 fitxes x 4 idiomes = 56 pàgines
+    // declarant una categoria en un idioma que no era el de la pàgina.
+    category: t("schemaCategory"),
     brand: { "@type": "Brand", name: SITE_NAME },
-    ...(product.brands && product.brands.length > 0
-      ? { material: product.brands.join(", ") }
-      : {}),
+    // AQUÍ HI HAVIA `material: product.brands.join(", ")`, i era FALS.
+    //
+    // schema.org defineix `material` com «A material that something is made
+    // from, e.g. leather, wool, cotton, paper», i la guia de Merchant Center
+    // de Google diu literalment «Avoid using values that don't mention the
+    // material». Nosaltres hi posàvem els PROVEÏDORS: quatre fitxes declaraven
+    // que la cortina està feta de «Designers Guild» o l'estor de «Bandalux».
+    //
+    // Treure-ho no costa res, i està mesurat: Google només llegeix `material`
+    // a les merchant listings, que exigeixen `offers`; i cap fitxa d'aquesta
+    // secció emet offers, review ni aggregateRating, perquè són informatives i
+    // no es ven res des d'aquí. O sigui que el camp ja era inert.
+    //
+    // NO ES TORNA A POSAR amb `brand` ni amb `manufacturer`: seria pitjor.
+    // Ara dèiem malament DE QUÈ està feta la cortina; allò diria que la
+    // fabrica Bandalux, quan la confeccionem nosaltres. I aquells dos camps
+    // Google sí que els llegeix.
+    //
+    // LA LLISTA `brands` DE products.ts ES QUEDA: alimenta la franja visible
+    // «Treballem amb:» de la barra lateral. Si algú l'esborra "netejant",
+    // desapareix de 16 pàgines. I les cinc marques que no sortien enlloc del
+    // text (Bandalux, Vertisol, Designers Guild, Romo i Aldeco) ara són a la
+    // prosa de les seves fitxes, com ja hi eren Somfy i EPID.
   };
   const breadcrumbSchema = {
     "@context": "https://schema.org",
