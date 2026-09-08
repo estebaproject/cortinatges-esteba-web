@@ -215,8 +215,54 @@ export default async function ProductPage({ params }: Props) {
         </div>
       </section>
 
+      {/* Galeria — VA AQUÍ, just després de la portada i ABANS del text.
+          Abans anava entre el text i "Altres col·leccions", i la pàgina
+          obria amb quatre blocs de llistes. Amb la galeria a dalt, el
+          primer que veu qui arriba és el producte; el text ve després,
+          quan ja sap de què li parles. */}
+      {gallery.length > 0 && (
+        <section className="py-section bg-canvas" aria-label={t("galleryHeading")}>
+          <div className="max-w-layout mx-auto px-6 lg:px-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {gallery.map((src, i) => (
+                <div
+                  key={src}
+                  // 3:2 I NO 4:5. El marc vertical d'abans anava contra el
+                  // material que hi ha: de les 23 fotos de galeria de les
+                  // fitxes publicades, 12 són APAISADES, 5 quadrades i només 6
+                  // verticals. Amb `object-cover` en un marc 4:5, les
+                  // apaisades hi perdien entre el 49% i el 54% de l'ample:
+                  // `vertical/4.jpg` (ràtio 1,76) ensenyava una llenca del que
+                  // és una sala sencera.
+                  //
+                  // Amb 3:2 les 12 apaisades es recuperen gairebé senceres i
+                  // les 6 verticals passen a retallar-se, però menys del que es
+                  // retallaven les apaisades: cap baixa de 0,73, o sigui un 51%
+                  // com a pitjor cas, contra el 54% que patia la pitjor
+                  // apaisada. Es canvia el repartiment del dany a favor de la
+                  // majoria, no s'elimina.
+                  //
+                  // NOMÉS ES TOCA AQUESTA GALERIA. El 4:5 segueix a la graella
+                  // de la portada, als mobles i a les mantes, on el material SÍ
+                  // que és vertical de sèrie. El 3:2 ja s'usa a /nosaltres.
+                  className="relative aspect-[3/2] overflow-hidden bg-linen"
+                >
+                  <Image
+                    src={src}
+                    alt={`${name} — ${i + 2}`}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Descripció */}
-      <section className="py-section bg-canvas">
+      <section className="pb-section bg-canvas">
         <div className="max-w-layout mx-auto px-6 lg:px-12 grid lg:grid-cols-[2fr,1fr] gap-12 lg:gap-20">
           <div className="max-w-prose-editorial">
             <p className="font-serif text-display-md text-ink mb-8 leading-snug">
@@ -344,47 +390,6 @@ export default async function ProductPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Galeria */}
-      {gallery.length > 0 && (
-        <section className="pb-section bg-canvas" aria-label={t("galleryHeading")}>
-          <div className="max-w-layout mx-auto px-6 lg:px-12">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {gallery.map((src, i) => (
-                <div
-                  key={src}
-                  // 3:2 I NO 4:5. El marc vertical d'abans anava contra el
-                  // material que hi ha: de les 23 fotos de galeria de les
-                  // fitxes publicades, 12 són APAISADES, 5 quadrades i només 6
-                  // verticals. Amb `object-cover` en un marc 4:5, les
-                  // apaisades hi perdien entre el 49% i el 54% de l'ample:
-                  // `vertical/4.jpg` (ràtio 1,76) ensenyava una llenca del que
-                  // és una sala sencera.
-                  //
-                  // Amb 3:2 les 12 apaisades es recuperen gairebé senceres i
-                  // les 6 verticals passen a retallar-se, però menys del que es
-                  // retallaven les apaisades: cap baixa de 0,73, o sigui un 51%
-                  // com a pitjor cas, contra el 54% que patia la pitjor
-                  // apaisada. Es canvia el repartiment del dany a favor de la
-                  // majoria, no s'elimina.
-                  //
-                  // NOMÉS ES TOCA AQUESTA GALERIA. El 4:5 segueix a la graella
-                  // de la portada, als mobles i a les mantes, on el material SÍ
-                  // que és vertical de sèrie. El 3:2 ja s'usa a /nosaltres.
-                  className="relative aspect-[3/2] overflow-hidden bg-linen"
-                >
-                  <Image
-                    src={src}
-                    alt={`${name} — ${i + 2}`}
-                    fill
-                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* Altres colleccions */}
       <section className="py-section bg-canvas-warm border-t border-linen">

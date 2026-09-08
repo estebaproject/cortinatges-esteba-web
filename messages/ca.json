@@ -487,9 +487,9 @@
     "motoritzacio": {
       "name": "Motorització i domòtica",
       "tagline": "Qualsevol cortina, motoritzada. El confort sense gestos.",
-      "intro": "Motoritzar les teves cortines i estors et permet controlar la llum de tota la casa amb un sol gest, sense renunciar a l'elegància de cada peça.",
+      "intro": "Motoritzar les teves cortines i estors et permet controlar la llum de tota la casa amb un sol gest.",
       "paragraphs": [
-        "Treballem amb motors Somfy i sistemes oberts integrables amb la teva domòtica: acciona-les amb el comandament, amb la veu o des del teu smartphone, esticis on esticis.",
+        "Treballem amb motors Somfy integrables amb la teva domòtica: acciona-les amb el comandament, amb la veu o des del teu smartphone.",
         "Programa horaris perquè pugin i baixin soles, guanya privacitat i eficiència energètica. És el primer pas per convertir casa teva en una llar intel·ligent."
       ],
       "features": [

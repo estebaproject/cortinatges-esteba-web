@@ -487,9 +487,9 @@
     "motoritzacio": {
       "name": "Motorisation et domotique",
       "tagline": "N'importe quel rideau, motorisé. Le confort sans gestes.",
-      "intro": "Motoriser vos rideaux et stores vous permet de contrôler la lumière de toute la maison d'un seul geste, sans renoncer à l'élégance de chaque pièce.",
+      "intro": "Motoriser vos rideaux et stores vous permet de contrôler la lumière de toute la maison d'un seul geste.",
       "paragraphs": [
-        "Nous travaillons avec des moteurs Somfy et des systèmes ouverts intégrables à votre domotique : commandez-les avec la télécommande, la voix ou votre smartphone, où que vous soyez.",
+        "Nous travaillons avec des moteurs Somfy intégrables à votre domotique : commandez-les avec la télécommande, la voix ou votre smartphone.",
         "Programmez-les pour qu'ils montent et descendent seuls, gagnez en intimité et en efficacité énergétique. C'est le premier pas pour transformer votre maison en maison connectée."
       ],
       "features": [
