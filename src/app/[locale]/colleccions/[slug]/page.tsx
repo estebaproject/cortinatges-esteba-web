@@ -366,11 +366,27 @@ export default async function ProductPage({ params }: Props) {
                 <h2 className="font-sans text-eyebrow text-accent-deep uppercase mb-6">
                   {t("featuresHeading")}
                 </h2>
+                {/* AQUESTS ITEMS SON FRASES, NO ETIQUETES: es queden en llista i
+                    NO passen a la graella de dues columnes de les especificacions.
+
+                    Fora la barreta vertical de l'esquerra, que era l'adorn. Pero
+                    la barreta feia una feina de veritat: la meitat dels items
+                    ocupen dues linies a mobil ("Per a terrasses, cenadors o per
+                    enllacar dos edificis"), i sense cap marca la segona linia es
+                    llegeix igual que un item nou.
+
+                    Qui separa ara els items es NOMES l'aire, i per aixo l'aire ha
+                    de ser clarament mes gran DINS que ENTRE. Amb l'interlineat de
+                    body-md (1.7 = 27px) i gap-4 (16px) la proporcio era 43/27 =
+                    1,6: massa justa. Amb leading-snug (1.375 = 22px) puja a
+                    38/22 = 1,7 i, de propina, el bloc encongeix en lloc de
+                    creixer. 1,375 seria curt per a prosa seguida; per a frases
+                    soltes de dues linies com aquestes va be. */}
                 <ul className="flex flex-col gap-4" role="list">
                   {featuresRaw.map((f, i) => (
                     <li
                       key={i}
-                      className="font-sans text-body-md text-ink-muted pl-5 border-l-2 border-linen-dark"
+                      className="font-sans text-body-md leading-snug text-ink-muted"
                     >
                       {f}
                     </li>
