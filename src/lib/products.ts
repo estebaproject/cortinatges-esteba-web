@@ -33,8 +33,8 @@ export const PRODUCTS: Product[] = [
   // Primera fitxa consolidada de decoresteba.com. La portada surt d'una foto
   // seva (correder_11), retallada per treure-hi la marca d'aigua de la casa
   // vella: v. el comentari de DRAFT_PRODUCTS aquí sota.
-  { slug: "pergoles", gallery: 4 },
-  { slug: "tendals", gallery: 5 },
+  { slug: "pergoles", gallery: 5 },
+  { slug: "tendals", gallery: 4 },
   { slug: "tapisseria", gallery: 5 },
 ];
 

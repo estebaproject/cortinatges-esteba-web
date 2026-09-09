@@ -592,6 +592,14 @@
           ]
         },
         {
+          "title": "Pose",
+          "items": [
+            "Adossée : un côté fixé à la façade",
+            "Autoportante : quatre pieds propres, sans toucher aucun mur",
+            "Entre murs : encastrée, sans pieds apparents"
+          ]
+        },
+        {
           "title": "Tissus",
           "items": [
             "Toile acrylique",
