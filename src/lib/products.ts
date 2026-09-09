@@ -35,7 +35,7 @@ export const PRODUCTS: Product[] = [
   // vella: v. el comentari de DRAFT_PRODUCTS aquí sota.
   { slug: "pergoles", gallery: 4 },
   { slug: "tendals", gallery: 4 },
-  { slug: "tapisseria", gallery: 4 },
+  { slug: "tapisseria", gallery: 5 },
 ];
 
 /**
