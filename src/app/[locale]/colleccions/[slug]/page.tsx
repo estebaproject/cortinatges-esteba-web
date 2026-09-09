@@ -288,25 +288,76 @@ export default async function ProductPage({ params }: Props) {
                 d'una clau de traducció: els grups canvien de fitxa a fitxa
                 (Teixits, Models, Sistemes, Arquitectura tèxtil…) i posar-los
                 al namespace obligaria a declarar-los tots per a totes. */}
+            {/* GRAELLA DE DUES COLUMNES, no una llista per grup.
+                Abans cada ítem era un <li> amb una barreta vertical, apilats amb
+                molt d'aire: onze ítems ocupaven una pantalla sencera i "Manual"
+                tenia una línia pròpia amb adorn. Es llegia com un web de fa deu
+                anys, i el client ho va dir així.
+
+                LA FORMA LA MANA EL CONTINGUT, que ve en dues menes:
+                  · etiqueta curta   "PVC", "Manual"          -> seguides, amb punt volat
+                  · definició        "Adossada: un costat..."  -> línia pròpia, terme destacat
+
+                Es detecta pel ": " de l'ítem. Un grup amb definicions les posa
+                totes en línies; un grup d'etiquetes les posa totes seguides. No
+                es barreja dins del mateix grup, que quedaria desendreçat.
+
+                A mòbil la graella passa a una sola columna: 7,5rem d'etiqueta
+                més el contingut no hi caben a 320px. */}
             {specsRaw.length > 0 && (
-              <div className="mt-12 flex flex-col gap-10">
-                {specsRaw.map((grup, gi) => (
-                  <div key={gi}>
-                    <h2 className="font-sans text-eyebrow text-accent-deep uppercase mb-6">
-                      {grup.title}
-                    </h2>
-                    <ul className="flex flex-col gap-4" role="list">
-                      {grup.items.map((item, i) => (
-                        <li
-                          key={i}
-                          className="font-sans text-body-md text-ink-muted pl-5 border-l-2 border-linen-dark"
-                        >
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
+              <div className="mt-12">
+                {specsRaw.map((grup, gi) => {
+                  const teDefinicions = grup.items.some((i) => i.includes(": "));
+                  return (
+                    <div
+                      key={gi}
+                      className="grid grid-cols-1 sm:grid-cols-[7.5rem_1fr] gap-1 sm:gap-x-6 py-4 border-t border-linen last:border-b"
+                    >
+                      <h2 className="font-sans text-eyebrow text-ink-faint uppercase sm:pt-1">
+                        {grup.title}
+                      </h2>
+                      <ul
+                        className={
+                          teDefinicions
+                            ? "flex flex-col gap-1.5"
+                            : "flex flex-wrap items-baseline"
+                        }
+                        role="list"
+                      >
+                        {grup.items.map((item, i) => {
+                          const tall = item.indexOf(": ");
+                          if (teDefinicions && tall > 0) {
+                            return (
+                              <li key={i} className="font-sans text-body-md text-ink-muted">
+                                <span className="text-ink-deep font-medium">
+                                  {item.slice(0, tall)}
+                                </span>
+                                <span className="text-sand mx-2" aria-hidden="true">
+                                  &mdash;
+                                </span>
+                                {item.slice(tall + 2)}
+                              </li>
+                            );
+                          }
+                          // El separador va DAVANT i no darrere: si va darrere,
+                          // en trencar-se la línia queda un punt volat penjat al
+                          // final. Davant, el salt el deixa enganxat a l'ítem que
+                          // encapçala, que és on es llegeix bé.
+                          return (
+                            <li key={i} className="font-sans text-body-md text-ink-deep">
+                              {i > 0 && (
+                                <span className="text-sand mx-2.5" aria-hidden="true">
+                                  &middot;
+                                </span>
+                              )}
+                              {item}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  );
+                })}
               </div>
             )}
 
