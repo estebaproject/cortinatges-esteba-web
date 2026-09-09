@@ -1,7 +1,7 @@
 {
   "Metadata": {
     "title": "Cortinas a medida, estores y textil del hogar | Cortinatges Esteba",
-    "description": "Tomamos medidas en tu casa y te asesoramos. Producto a medida fabricado e instalado por nosotros. Tiendas en Girona, Blanes y Palamós."
+    "description": "Cortinas, estores y textil del hogar a medida, fabricados e instalados por nosotros. Presupuesto sin compromiso. Tiendas en Girona, Blanes y Palamós."
   },
   "Navigation": {
     "collections": "Productos",
@@ -116,14 +116,15 @@
     "ariaLabel": "Concertar una cita",
     "eyebrow": "El primer paso",
     "headline": "Pide tu visita. Te asesoramos en casa o en la tienda.",
-    "body": "Te esperamos en cualquiera de nuestras tiendas para hablar de tu proyecto. Y si lo prefieres, vamos a tu casa con el muestrario: un servicio de asesoramiento a domicilio con coste, para ver los tejidos en tu espacio y con tu luz.",
+    "body": "Te esperamos en cualquiera de nuestras tiendas para hablar de tu proyecto, y el presupuesto te lo hacemos sin compromiso y sin coste. Si prefieres que vayamos a tu casa, llevamos el muestrario entero y tomamos las medidas definitivas: esa visita tiene un precio, y te lo descontamos del presupuesto si nos encargas el trabajo.",
+    "metaDescription": "Hablamos de tu proyecto en la tienda o en tu casa. Presupuesto sin coste ni compromiso; la visita a domicilio con muestrario es de pago y se descuenta.",
     "ctaPrimary": "Concertar una cita",
     "ctaSecondary": "Encuentra la tienda más cercana",
     "disclaimer": "Sin compromiso ni presión de venta."
   },
   "Home": {
     "metaTitle": "Textil y protección solar a medida en Girona | Cortinatges Esteba",
-    "metaDescription": "Tomamos medidas en tu casa y te asesoramos. Producto a medida fabricado e instalado por nosotros. Tiendas en Girona, Blanes y Palamós."
+    "metaDescription": "Cortinas, estores y textil del hogar a medida, fabricados e instalados por nosotros. Presupuesto sin compromiso. Tiendas en Girona, Blanes y Palamós."
   },
   "About": {
     "metaTitle": "Nosotros — Taller propio desde 1961",
@@ -300,7 +301,7 @@
     "otherCollections": "Otras colecciones",
     "featuresHeading": "Características",
     "ctaBlockHeadline": "¿Te gusta lo que ves? Hablemos.",
-    "ctaBlockBody": "Te hacemos una visita, tomamos medidas y te asesoramos sin compromiso. Una conversación vale más que mil fotos.",
+    "ctaBlockBody": "El presupuesto es gratuito y sin compromiso. La visita a tu casa, con muestrario y toma de medidas, tiene un precio que te descontamos si nos encargas el trabajo.",
     "notesHeading": "A tener en cuenta",
     "schemaCategory": "Cortinas y estores a medida"
   },

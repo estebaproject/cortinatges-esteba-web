@@ -1,7 +1,7 @@
 {
   "Metadata": {
     "title": "Made-to-measure curtains and home textiles | Cortinatges Esteba",
-    "description": "We take measurements at your home and advise you. Made to measure, manufactured and installed by us. Shops in Girona, Blanes and Palamós."
+    "description": "Made-to-measure curtains, blinds and home textiles, made and fitted by us. Free quote, no obligation. Shops in Girona, Blanes and Palamós."
   },
   "Navigation": {
     "collections": "Products",
@@ -116,14 +116,15 @@
     "ariaLabel": "Book a consultation",
     "eyebrow": "The first step",
     "headline": "Book your visit. We advise you at home or in store.",
-    "body": "We'll welcome you at any of our stores to talk about your project. And if you prefer, we'll come to your home with the sample book — a home advisory service with a fee, to see the fabrics in your own space and light.",
+    "body": "We'll welcome you at any of our stores to talk about your project, and the quote is free and with no obligation. If you'd rather we came to you, we bring the whole sample book and take the final measurements: that visit has a price, and we deduct it from the quote if you go ahead with the work.",
+    "metaDescription": "Let's talk about your project, in store or at home. Free quote, no obligation; the home visit with sample book has a price we deduct from your order.",
     "ctaPrimary": "Book a consultation",
     "ctaSecondary": "Find your nearest store",
     "disclaimer": "No commitment, no sales pressure."
   },
   "Home": {
     "metaTitle": "Made-to-measure textiles and sun protection | Cortinatges Esteba",
-    "metaDescription": "We take measurements at your home and advise you. Made to measure, manufactured and installed by us. Shops in Girona, Blanes and Palamós."
+    "metaDescription": "Made-to-measure curtains, blinds and home textiles, made and fitted by us. Free quote, no obligation. Shops in Girona, Blanes and Palamós."
   },
   "About": {
     "metaTitle": "About us — Our own workshop since 1961",
@@ -300,7 +301,7 @@
     "otherCollections": "Other collections",
     "featuresHeading": "Features",
     "ctaBlockHeadline": "Like what you see? Let's talk.",
-    "ctaBlockBody": "We come to you, take measurements and advise you with no obligation. One conversation is worth more than a thousand photos.",
+    "ctaBlockBody": "The quote is free and with no obligation. The home visit, with the sample book and full measuring, has a price — which we deduct if you go ahead with the work.",
     "notesHeading": "To be taken into account",
     "schemaCategory": "Made-to-measure curtains and blinds"
   },

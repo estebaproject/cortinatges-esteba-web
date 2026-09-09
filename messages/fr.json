@@ -1,7 +1,7 @@
 {
   "Metadata": {
     "title": "Rideaux sur mesure et linge de maison | Cortinatges Esteba",
-    "description": "Nous prenons les mesures chez vous et nous vous conseillons. Produit sur mesure fabriqué et installé par nos soins. Boutiques à Gérone, Blanes et Palamós."
+    "description": "Rideaux, stores et textile de maison sur mesure, fabriqués et posés par nos soins. Devis sans engagement. Boutiques à Gérone, Blanes et Palamós."
   },
   "Navigation": {
     "collections": "Produits",
@@ -116,14 +116,15 @@
     "ariaLabel": "Prendre rendez-vous",
     "eyebrow": "La première étape",
     "headline": "Demandez votre visite. Nous vous conseillons à domicile ou en boutique.",
-    "body": "Nous vous accueillons dans l'une de nos boutiques pour parler de votre projet. Et si vous préférez, nous venons chez vous avec les échantillons : un service de conseil à domicile payant, pour voir les tissus dans votre espace et votre lumière.",
+    "body": "Nous vous accueillons dans l'une de nos boutiques pour parler de votre projet, et le devis est gratuit et sans engagement. Si vous préférez que nous venions chez vous, nous apportons tous nos échantillons et prenons les mesures définitives : cette visite est payante, et nous la déduisons du devis si vous nous confiez les travaux.",
+    "metaDescription": "Parlons de votre projet en boutique ou chez vous. Devis gratuit et sans engagement ; la visite à domicile avec échantillons est payante et déduite.",
     "ctaPrimary": "Prendre rendez-vous",
     "ctaSecondary": "Trouver la boutique la plus proche",
     "disclaimer": "Sans engagement ni pression commerciale."
   },
   "Home": {
     "metaTitle": "Textile et protection solaire sur mesure | Cortinatges Esteba",
-    "metaDescription": "Nous prenons les mesures chez vous et nous vous conseillons. Produit sur mesure fabriqué et installé par nos soins. Boutiques à Gérone, Blanes et Palamós."
+    "metaDescription": "Rideaux, stores et textile de maison sur mesure, fabriqués et posés par nos soins. Devis sans engagement. Boutiques à Gérone, Blanes et Palamós."
   },
   "About": {
     "metaTitle": "À propos — Notre atelier depuis 1961",
@@ -300,7 +301,7 @@
     "otherCollections": "Autres collections",
     "featuresHeading": "Caractéristiques",
     "ctaBlockHeadline": "Ce que vous voyez vous plaît ? Parlons-en.",
-    "ctaBlockBody": "Nous vous rendons visite, prenons les mesures et vous conseillons sans engagement. Une conversation vaut mieux que mille photos.",
+    "ctaBlockBody": "Le devis est gratuit et sans engagement. La visite à domicile, avec les échantillons et la prise de mesures, est payante — et nous la déduisons si vous nous confiez les travaux.",
     "notesHeading": "À prendre en compte",
     "schemaCategory": "Rideaux et stores sur mesure"
   },

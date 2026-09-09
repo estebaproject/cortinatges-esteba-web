@@ -16,11 +16,17 @@ const EMAIL = "info@cortinatgesesteba.com";
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "CtaVisita" });
+  // La descripció NO és `body`. `body` fa 316 caràcters i Google en mostra
+  // ~155: es tallava justament a "un servei d'assessorament...", o sigui que
+  // l'única frase del web que diu que la visita a domicili té un preu
+  // desapareixia precisament al lloc on el client la llegeix primer.
+  // `metaDescription` diu les dues coses —pressupost sense cost, visita amb
+  // preu que es descompta— dins del límit, i val igual per a l'OpenGraph.
   return {
     title: t("headline"),
-    description: t("body"),
+    description: t("metaDescription"),
     alternates: localizedAlternatesFor("/contacte", locale),
-    openGraph: openGraphFor("/contacte", locale, t("headline"), t("body")),
+    openGraph: openGraphFor("/contacte", locale, t("headline"), t("metaDescription")),
   };
 }
 
