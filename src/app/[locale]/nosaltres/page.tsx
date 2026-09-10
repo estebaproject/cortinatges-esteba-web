@@ -60,20 +60,44 @@ export default async function AboutPage() {
       {/* Imatge en banda + història */}
       <section className="pb-section">
         <div className="max-w-layout mx-auto px-6 lg:px-12">
-          <div className="relative aspect-[3/2] md:aspect-[21/9] overflow-hidden bg-linen mb-14">
-            <Image
-              src="/images/serveis/confeccio.jpg"
-              alt={t("title")}
-              fill
-              priority
-              sizes="(min-width: 1024px) 1200px, 100vw"
-              className="object-cover"
-            />
-          </div>
-          <div className="max-w-prose-editorial mx-auto space-y-5 font-sans text-body-lg text-ink-muted">
-            <p>{t("story1")}</p>
-            <p>{t("story2")}</p>
-            <p>{t("story3")}</p>
+          {/* La foto va A LA COLUMNA DEL TEXT, no a l'ample de la maqueta.
+              Abans era una banda de 1184×507 a sobre d'una columna de prosa de
+              660px: dues amplades diferents una damunt de l'altra, i l'ull ho
+              llegeix com dues maquetes enganxades. Compartint mesura, la foto
+              il·lustra la història en comptes de competir-hi.
+
+              I de passada es recupera la foto. L'original fa 1400×1050 (4/3);
+              retallat a 21/9 en quedaven 600px d'alçada dels 1050 —el 43% del
+              pla, llençat—, que és per què la costurera sortia escapçada. A
+              3/2 el retall baixa a l'11%.
+
+              LA FOTO I LA PROSA COMPARTEIXEN UN SOL CONTENIDOR, i això no és
+              per estalviar un div. `max-w-prose-editorial` són 68ch, i `ch`
+              es resol contra la mida de lletra DE L'ELEMENT: posat en dos
+              germans, el de la prosa el calcula amb `text-body-lg` i el de la
+              foto amb la mida base, i surten 660px contra 623px. Casi alineat
+              és pitjor que gens alineat —es veu el desnivell i sembla un
+              error. Amb un únic pare que porti la mida de lletra, els 68ch es
+              calculen una sola vegada i les dues vores cauen al mateix lloc.
+
+              `sizes` a 680px i no 1200: a 660px de render i pantalla retina
+              calen ~1320px i l'original en té 1400. Just, però hi cap. */}
+          <div className="max-w-prose-editorial mx-auto font-sans text-body-lg">
+            <div className="relative aspect-[3/2] overflow-hidden bg-linen mb-14">
+              <Image
+                src="/images/serveis/confeccio.jpg"
+                alt={t("title")}
+                fill
+                priority
+                sizes="(min-width: 768px) 680px, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="space-y-5 text-ink-muted">
+              <p>{t("story1")}</p>
+              <p>{t("story2")}</p>
+              <p>{t("story3")}</p>
+            </div>
           </div>
         </div>
       </section>
