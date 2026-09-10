@@ -16,6 +16,20 @@ export type Product = {
   gallery: number;
   /** Marques/teles associades, per a la fitxa. */
   brands?: string[];
+  /**
+   * Foto NOMÉS per al mosaic de la portada, quan l'1.jpg no s'hi aguanta.
+   *
+   * El mosaic i la fitxa demanen coses diferents de la mateixa foto. La fitxa
+   * obre amb una banda de 1280px d'ample: hi llueix el pla curt, el detall,
+   * la textura. El mosaic són rajoles de 4/5 retallades a ~340px d'amplada
+   * útil, i allà el pla curt no diu res — a aquella mida s'ha de RECONÈIXER
+   * el producte d'un cop d'ull o la rajola no fa la seva feina.
+   *
+   * Per defecte totes dues surten de l'1.jpg, que és el que volem: una sola
+   * foto ben triada serveix per als dos llocs i no hi ha res a mantenir.
+   * Aquest camp és l'excepció, no la norma.
+   */
+  tile?: string;
 };
 
 export const PRODUCTS: Product[] = [
@@ -33,7 +47,13 @@ export const PRODUCTS: Product[] = [
   // Primera fitxa consolidada de decoresteba.com. La portada surt d'una foto
   // seva (correder_11), retallada per treure-hi la marca d'aigua de la casa
   // vella: v. el comentari de DRAFT_PRODUCTS aquí sota.
-  { slug: "pergoles", gallery: 5 },
+  // La rajola de la portada NO és l'1.jpg. L'1.jpg és un contrapicat de sota
+  // la coberta: llistons blancs sobre cel, molt bonic obrint la fitxa a
+  // 1280px d'ample, però retallat a 4/5 i reduït a rajola es queda en unes
+  // ratlles blanques que no s'entén què són. `tile.jpg` ensenya la pèrgola
+  // sencera —estructura, cortines, terrassa— que és el que ha de reconèixer
+  // qui passa per la portada.
+  { slug: "pergoles", gallery: 5, tile: "/images/products/pergoles/tile.jpg" },
   { slug: "tendals", gallery: 4 },
   { slug: "tapisseria", gallery: 5 },
 ];
@@ -92,4 +112,9 @@ export function productImages(p: Product): string[] {
 
 export function productHero(slug: string): string {
   return `/images/products/${slug}/1.jpg`;
+}
+
+/** Foto per al mosaic de la portada: la del camp `tile` si n'hi ha, si no el hero. */
+export function productTile(slug: string): string {
+  return getProduct(slug)?.tile ?? productHero(slug);
 }

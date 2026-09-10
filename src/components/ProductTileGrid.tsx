@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getTranslations, getLocale } from "next-intl/server";
-import { PRODUCTS, productHero } from "@/lib/products";
+import { PRODUCTS, productTile } from "@/lib/products";
 import { publicPath, collectionHref } from "@/lib/site";
 
 const DECORESTEBA = "https://www.decoresteba.com";
@@ -24,7 +24,7 @@ export default async function ProductTileGrid() {
     key: p.slug,
     label: tp(`${p.slug}.name` as Parameters<typeof tp>[0]),
     href: publicPath(collectionHref(p.slug), locale),
-    image: productHero(p.slug),
+    image: productTile(p.slug),
   }));
 
   // Les fitxes que ENCARA no s'han publicat segueixen enviant al WordPress
