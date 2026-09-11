@@ -21,7 +21,7 @@
     "cookies": "Política de cookies",
     "legal": "Aviso legal",
     "services": "Servicios",
-    "budget": "Pide presupuesto",
+    "budget": "Pedir presupuesto",
     "jobs": "Trabaja con nosotros",
     "linksHeading": "Enlaces",
     "instagram": "Síguenos en Instagram · @cortinatgesesteba"
@@ -37,7 +37,7 @@
     "ariaLabel": "Sección principal",
     "headline": "Decoración textil y protección solar a medida",
     "subheadline": "Instalado en tu casa.",
-    "ctaPrimary": "Concertar una cita",
+    "ctaPrimary": "Pedir presupuesto",
     "ctaSecondary": "Descubre las colecciones"
   },
   "SectionOfici": {
@@ -119,7 +119,7 @@
     "body": "Te esperamos en cualquiera de nuestras tiendas para hablar de tu proyecto, y el presupuesto te lo hacemos sin compromiso y sin coste. Si prefieres que vayamos a tu casa, llevamos el muestrario entero y tomamos las medidas definitivas: esa visita tiene un precio, y te lo descontamos del presupuesto si nos encargas el trabajo.",
     "metaDescription": "Hablamos de tu proyecto en la tienda o en tu casa. Presupuesto sin coste ni compromiso; la visita a domicilio con muestrario es de pago y se descuenta.",
     "ctaPrimary": "Concertar una cita",
-    "ctaSecondary": "Encuentra la tienda más cercana",
+    "ctaSecondary": "La tienda más cercana",
     "disclaimer": "Sin compromiso ni presión de venta."
   },
   "Home": {
@@ -294,7 +294,7 @@
     "breadcrumbHome": "Inicio",
     "breadcrumbCollections": "Colecciones",
     "backToCollections": "Todas las colecciones",
-    "requestBudget": "Pide presupuesto",
+    "requestBudget": "Pedir presupuesto",
     "contactCta": "Concertar una cita",
     "brandsLabel": "Trabajamos con:",
     "galleryHeading": "Galería",

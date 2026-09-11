@@ -9,7 +9,7 @@
     "about": "Nosaltres",
     "services": "Serveis",
     "contact": "Contacte",
-    "cta": "Concerta una cita",
+    "cta": "Concertar una cita",
     "catifes": "Catifes",
     "mobles": "Mobles",
     "mantes": "Mantes"
@@ -21,7 +21,7 @@
     "cookies": "Política de cookies",
     "legal": "Avís legal",
     "services": "Serveis",
-    "budget": "Demana pressupost",
+    "budget": "Demanar pressupost",
     "jobs": "Treballa amb nosaltres",
     "linksHeading": "Enllaços",
     "instagram": "Segueix-nos a Instagram · @cortinatgesesteba"
@@ -37,7 +37,7 @@
     "ariaLabel": "Secció principal",
     "headline": "Decoració tèxtil i protecció solar a mida",
     "subheadline": "Instal·lat a casa teva.",
-    "ctaPrimary": "Demana pressupost",
+    "ctaPrimary": "Demanar pressupost",
     "ctaSecondary": "Contacta'ns"
   },
   "SectionOfici": {
@@ -113,13 +113,13 @@
     "escriuRessenya": "Escriu una ressenya"
   },
   "CtaVisita": {
-    "ariaLabel": "Concerta una cita",
+    "ariaLabel": "Concertar una cita",
     "eyebrow": "El primer pas",
     "headline": "Demana la teva visita. T'assessorem a casa o a la botiga.",
     "body": "T'esperem a qualsevol de les nostres botigues per parlar del teu projecte, i el pressupost te'l fem sense compromís i sense cost. Si prefereixes que anem a casa teva, hi portem el mostrari sencer i prenem les mides definitives: aquesta visita té un preu, i te'l descomptem del pressupost si ens encarregues la feina.",
     "metaDescription": "Parlem del teu projecte a la botiga o a casa teva. Pressupost sense cost ni compromís; la visita a domicili amb mostrari té un preu que et descomptem.",
-    "ctaPrimary": "Concerta una cita",
-    "ctaSecondary": "Troba la botiga més propera",
+    "ctaPrimary": "Concertar una cita",
+    "ctaSecondary": "La botiga més propera",
     "disclaimer": "Sense compromís ni pressió de venda."
   },
   "Home": {
@@ -294,8 +294,8 @@
     "breadcrumbHome": "Inici",
     "breadcrumbCollections": "Col·leccions",
     "backToCollections": "Totes les col·leccions",
-    "requestBudget": "Demana pressupost",
-    "contactCta": "Concerta una cita",
+    "requestBudget": "Demanar pressupost",
+    "contactCta": "Concertar una cita",
     "brandsLabel": "Treballem amb:",
     "galleryHeading": "Galeria",
     "otherCollections": "Altres col·leccions",
@@ -711,7 +711,7 @@
     "madeBy": "Fabricat per",
     "madeByBrand": "Cortinatges Esteba",
     "onDemand": "Per encàrrec",
-    "requestBudget": "Demana pressupost",
+    "requestBudget": "Demanar pressupost",
     "backToCatifes": "Totes les catifes",
     "family": "Família",
     "families": {
@@ -732,7 +732,7 @@
     "fromPrice": "des de",
     "madeBy": "Fabricat per",
     "madeByBrand": "Cortinatges Esteba",
-    "requestBudget": "Demana pressupost",
+    "requestBudget": "Demanar pressupost",
     "backToMobles": "Tots els mobles",
     "typeLabel": "Tipus",
     "specsTitle": "Especificacions",
@@ -861,7 +861,7 @@
     "fromPrice": "des de",
     "madeBy": "Fabricat per",
     "madeByBrand": "Cortinatges Esteba",
-    "requestBudget": "Demana pressupost",
+    "requestBudget": "Demanar pressupost",
     "backToMantes": "Totes les mantes",
     "ctaBlockHeadline": "Vols aquesta manta a casa?",
     "ctaBlockBody": "Demana pressupost sense compromís. T'assessorem amb les mides, els acabats i el lliurament.",
