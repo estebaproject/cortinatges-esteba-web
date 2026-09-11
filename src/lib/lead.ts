@@ -135,6 +135,13 @@ export const LIMITS = {
 /** Temps mínim entre que es pinta el formulari i s'envia. Sota d'això, és bot. */
 export const MIN_FILL_MS = 3000;
 
+/**
+ * Versió dels textos legals (privacitat) acceptats en enviar un formulari.
+ * Es registra al correu del lead com a prova del consentiment. Cal pujar-la
+ * quan canviïn les polítiques.
+ */
+export const LEGAL_TEXTS_VERSION = "2026-06-v1";
+
 /** Nom del camp esquer. Un humà no el veu; un bot l'omple. */
 export const HONEYPOT_FIELD = "empresa_web";
 

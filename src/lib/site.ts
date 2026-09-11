@@ -27,9 +27,6 @@ export const SITE_NAME = "Cortinatges Esteba";
 export const DEFAULT_OG_IMAGE = "/images/og-cortinatges-esteba.jpg";
 export const CONTACT_EMAIL = "info@cortinatgesesteba.com";
 
-// Feature flag: secció de mantes oculta de tota la UI (dades i rutes intactes).
-export const SHOW_MANTES = false;
-
 // Construeix el bloc `alternates` (canonical + hreflang languages) per a una
 // ruta donada, seguint l'esquema d'URLs del lloc: català sense prefix i la
 // resta d'idiomes amb prefix `/{locale}`. `locale` és l'idioma actual de la

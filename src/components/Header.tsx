@@ -6,9 +6,7 @@ import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 import { usePathname } from "@/navigation";
 import LocaleSwitcher from "./LocaleSwitcher";
-import CartIndicator from "./cart/CartIndicator";
 import { publicPath } from "@/lib/site";
-import { SHOP_PUBLISHED } from "@/lib/shop-visibility";
 
 export default function Header() {
   const t = useTranslations("Navigation");
@@ -183,26 +181,6 @@ export default function Header() {
 
             {/* Accions dreta */}
             <div className="flex items-center justify-end gap-3 md:gap-4">
-              {/* Accés a la botiga: amagat mentre no es publiqui (Shopify).
-                  Governat per la MATEIXA palanca que robots.txt i el noindex,
-                  a src/lib/shop-visibility.ts. Enllaçar-la mentre està en
-                  disallow seria incoherent per a Google i portaria l'usuari a
-                  un checkout que no cobra. */}
-              {SHOP_PUBLISHED && (
-                <>
-                  <CartIndicator />
-                  <Link
-                    href={`${locale === "ca" ? "" : `/${locale}`}/botiga`}
-                    className="hidden md:inline-flex items-center gap-2 px-6 py-2.5 bg-ink text-canvas font-sans text-xs font-semibold tracking-[0.2em] uppercase hover:bg-ink/90 transition-colors"
-                    aria-label="ESTEBA — botiga online"
-                  >
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12A1.125 1.125 0 0 1 19.748 21H4.252a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 6.75h12.974c.576 0 1.059.435 1.119 1.007Z" />
-                    </svg>
-                    ESTEBA
-                  </Link>
-                </>
-              )}
               {!esPortada && (
                 <Link
                   href={publicPath("/contacte", locale)}
@@ -301,18 +279,6 @@ export default function Header() {
             >
               {t("cta")}
             </Link>
-            {SHOP_PUBLISHED && (
-              <Link
-                href={`${locale === "ca" ? "" : `/${locale}`}/botiga`}
-                onClick={() => setMenuOpen(false)}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-ink text-canvas font-sans text-xs font-semibold tracking-[0.2em] uppercase"
-              >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12A1.125 1.125 0 0 1 19.748 21H4.252a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 6.75h12.974c.576 0 1.059.435 1.119 1.007Z" />
-                </svg>
-                ESTEBA
-              </Link>
-            )}
             {/* "Demana pressupost" com a acció principal del menú.
                 A la franja blava ja hi era, però la franja està amagada per
                 sota de `sm`: en mòbil, l'única acció que hi havia era

@@ -3,6 +3,7 @@ import { Resend } from "resend";
 import {
   HONEYPOT_FIELD,
   LEAD_TYPES,
+  LEGAL_TEXTS_VERSION,
   LIMITS,
   MIN_FILL_MS,
   PRODUCT_OPTIONS,
@@ -12,7 +13,6 @@ import {
   HORARI,
 } from "@/lib/lead";
 import { STORE_KEYS } from "@/lib/botigues";
-import { LEGAL_TEXTS_VERSION } from "@/lib/consent";
 import { SITE_URL } from "@/lib/site";
 
 /**

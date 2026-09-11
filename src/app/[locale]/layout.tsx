@@ -5,10 +5,9 @@ import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/routing";
 import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE } from "@/lib/site";
-import SiteHeader from "@/components/shop/SiteHeader";
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
-import { CartProvider } from "@/components/cart/CartProvider";
 import "@/app/globals.css";
 
 /**
@@ -172,12 +171,10 @@ export default async function LocaleLayout({ children, params }: Props) {
           Salta al contingut
         </a>
         <NextIntlClientProvider messages={messages}>
-          <CartProvider>
-            <SiteHeader />
-            <main id="main-content">{children}</main>
-            <Footer />
-            <CookieBanner />
-          </CartProvider>
+          <Header />
+          <main id="main-content">{children}</main>
+          <Footer />
+          <CookieBanner />
         </NextIntlClientProvider>
       </body>
     </html>
