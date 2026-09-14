@@ -14,6 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function PrivacitatPage() {
-  return <LegalDocView doc={PRIVACITAT} />;
+export default async function PrivacitatPage({ params }: Props) {
+  const { locale } = await params;
+  return <LegalDocView doc={PRIVACITAT} locale={locale} />;
 }

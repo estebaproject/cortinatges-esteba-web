@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getTranslations, getLocale } from "next-intl/server";
 import { publicPath } from "@/lib/site";
+import { ONLINE_NAME, ONLINE_PUBLISHED } from "@/online/config";
 
 export default async function Footer() {
   const t = await getTranslations("Footer");
@@ -168,6 +169,18 @@ export default async function Footer() {
                   {t("budget")}
                 </Link>
               </li>
+              {/* Entrada a la botiga. Mateix interruptor que la capçalera
+                  (src/online/config.ts). */}
+              {ONLINE_PUBLISHED && (
+                <li>
+                  <Link
+                    href={publicPath("/online", locale)}
+                    className="inline-flex min-h-[44px] items-center -my-2.5 font-sans text-body-sm text-ink/80 hover:text-ink transition-colors"
+                  >
+                    {ONLINE_NAME}
+                  </Link>
+                </li>
+              )}
               <li>
                 <Link
                   href={publicPath("/vols-treballar-amb-nosaltres", locale)}

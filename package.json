@@ -12,9 +12,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@protomaps/basemaps": "5.7.2",
     "clsx": "^2.1.1",
+    "maplibre-gl": "6.9.1",
     "next": "^15.3.0",
     "next-intl": "^3.26.0",
+    "pmtiles": "4.5.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "resend": "^6.19.0"

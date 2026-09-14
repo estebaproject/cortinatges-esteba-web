@@ -1,13 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Fraunces, Hanken_Grotesk } from "next/font/google";
+import { Archivo } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/routing";
 import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE } from "@/lib/site";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import CookieBanner from "@/components/CookieBanner";
 import "@/app/globals.css";
 
 /**
@@ -28,21 +25,6 @@ const archivo = Archivo({
   display: "swap",
 });
 
-// Tipografies del tema Kave (clon de la botiga). Es carreguen sempre però
-// només s'apliquen dins les rutes de tenda (classes font-display/font-grotesque).
-// Fraunces ≈ el serif editorial de Kave; Hanken Grotesk ≈ la seva grotesca.
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  variable: "--font-fraunces",
-  display: "swap",
-});
-
-const hankenGrotesk = Hanken_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-hanken",
-  display: "swap",
-  weight: ["400", "500", "600", "700"],
-});
 
 type Props = {
   children: React.ReactNode;
@@ -155,7 +137,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html
       lang={locale}
-      className={`${archivo.variable} ${fraunces.variable} ${hankenGrotesk.variable}`}
+      className={archivo.variable}
     >
       <head>
         <script
@@ -170,12 +152,11 @@ export default async function LocaleLayout({ children, params }: Props) {
         >
           Salta al contingut
         </a>
-        <NextIntlClientProvider messages={messages}>
-          <Header />
-          <main id="main-content">{children}</main>
-          <Footer />
-          <CookieBanner />
-        </NextIntlClientProvider>
+        {/* La capçalera, el <main> i el peu els posa cada SECCIÓ:
+            src/app/[locale]/(site)/layout.tsx per al web de serveis i
+            src/app/[locale]/online/layout.tsx per a la botiga. Aquí només hi
+            ha el que comparteixen: document, fonts i missatges. */}
+        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
       </body>
     </html>
   );

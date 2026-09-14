@@ -47,6 +47,26 @@
 }
 
 @layer utilities {
+  /* La franja de promeses de la botiga passa d'una en una amb una animació
+     CSS (src/online/components/PromiseStrip.tsx). Qui demani menys moviment
+     no n'ha de veure gens: es para el cicle i es queda fixa la PRIMERA
+     promesa, el llindar d'enviament, que és la que decideix si algú es queda.
+
+     Les altres no es pinten, però segueixen al DOM i un lector de pantalla
+     les llegeix igual. Va aquí i no al component perquè una consulta de
+     mitjans no es pot escriure amb estils en línia. */
+  @media (prefers-reduced-motion: reduce) {
+    .esteba-promesa {
+      animation: none !important;
+      opacity: 1;
+      transform: none;
+    }
+
+    .esteba-promesa:not(:first-child) {
+      display: none;
+    }
+  }
+
   .animate-fade-up {
     animation: fadeUp 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) both;
   }

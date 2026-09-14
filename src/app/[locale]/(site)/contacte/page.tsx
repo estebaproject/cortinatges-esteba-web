@@ -3,8 +3,7 @@ import { getTranslations, getLocale } from "next-intl/server";
 import Link from "next/link";
 import { whatsappUrl } from "@/lib/whatsapp";
 import CopyEmail from "@/components/CopyEmail";
-import StoresMap from "@/components/StoresMap";
-import { STORE_KEYS, urlGoogleMaps, urlEscriuRessenya, MY_MAPS_ID } from "@/lib/botigues";
+import { STORE_KEYS } from "@/lib/botigues";
 import { localizedAlternatesFor, openGraphFor, publicPath } from "@/lib/site";
 
 type Props = {
@@ -80,88 +79,51 @@ export default async function ContactPage() {
             </div>
           </div>
 
-          {/* Dreta: botigues */}
+          {/* Dreta: les botigues, EN VERSIÓ CURTA.
+              Fins al 14/09/2026 aquí hi havia la llista sencera —adreça, horari,
+              telèfon, enllaç a Google— i el mapa, exactament el mateix que a
+              /botigues. Dues pàgines explicant el mateix, i totes dues al menú.
+              Ara cada pàgina fa una feina: aquesta és "com parlar amb
+              nosaltres" i /botigues és "on som". Aquí es queda el que serveix
+              per contactar —la ciutat i el telèfon per trucar amb un toc— i
+              un enllaç cap a horaris, adreces i mapa. */}
           <div>
             <p className="font-sans text-body-sm text-ink-muted tracking-widest uppercase mb-6">
               {tl("eyebrow")}
             </p>
-            <ul className="flex flex-col divide-y divide-linen" role="list">
+            <ul className="flex flex-col divide-y divide-linen border-y border-linen" role="list">
               {STORE_KEYS.map((key) => {
                 const phone = tl(`stores.${key}.phone` as Parameters<typeof tl>[0]);
                 const city = tl(`stores.${key}.city` as Parameters<typeof tl>[0]);
-                const address = tl(`stores.${key}.address` as Parameters<typeof tl>[0]);
                 return (
-                  <li key={key} className="py-6 first:pt-0">
-                    <h2 className="font-serif text-display-md text-ink mb-1 uppercase">{city}</h2>
-                    <p className="font-sans text-body-md text-ink-muted mb-1">{address}</p>
-                    {/* Nota opcional (només la Matalasseria en té). */}
-                    {tl.has(`stores.${key}.note` as Parameters<typeof tl>[0]) && (
-                      <p className="font-sans text-body-sm text-ink-faint mb-1">
-                        {tl(`stores.${key}.note` as Parameters<typeof tl>[0])}
-                      </p>
-                    )}
-                    <p className="font-sans text-body-sm text-ink-faint mb-2">
-                      {tl(`stores.${key}.schedule` as Parameters<typeof tl>[0])}
-                    </p>
+                  <li key={key} className="grid grid-cols-[1fr_auto] items-baseline gap-x-6 py-5">
+                    <div>
+                      <h2 className="font-sans text-xs font-semibold tracking-[0.18em] uppercase text-ink">{city}</h2>
+                      {/* Nota opcional (només la Matalasseria en té): és la que
+                          distingeix els dos locals de Girona, que comparteixen
+                          telèfon. */}
+                      {tl.has(`stores.${key}.note` as Parameters<typeof tl>[0]) && (
+                        <p className="mt-1 font-sans text-body-sm text-ink-faint">
+                          {tl(`stores.${key}.note` as Parameters<typeof tl>[0])}
+                        </p>
+                      )}
+                    </div>
                     <a
-                      href={`tel:+34${phone.replace(/\s/g, "")}`}
-                      className="inline-flex min-h-[44px] items-center -my-2 font-sans text-body-md text-accent-deep font-medium hover:text-ink transition-colors"
+                      href={`tel:+34${phone.replace(/s/g, "")}`}
+                      className="inline-flex min-h-[44px] items-center -my-2 font-sans text-body-lg text-accent-deep font-medium hover:text-ink transition-colors"
                     >
                       {phone}
                     </a>
-                    {/* Enllaços a la fitxa de Google, un per botiga.
-                        NO fem servir l'API de ressenyes: exigeix compte de
-                        FACTURACIÓ encara que no en surtis del tram gratuït, i
-                        el camp `reviews` puja la crida al SKU més car. Per a
-                        quatre botigues locals no compensa. Un enllaç fa la
-                        mateixa feina, sense clau, sense cost i sense caducar.
-
-                        El botó d'ESCRIURE ressenya només surt quan tenim el
-                        Place ID d'aquella botiga: val més no ensenyar-lo que
-                        ensenyar-ne un que no porta enlloc. */}
-                    <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
-                      <a
-                        href={urlGoogleMaps(key)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex min-h-[44px] items-center -my-2.5 font-sans text-body-sm text-accent-deep hover:text-ink transition-colors underline underline-offset-4"
-                      >
-                        {tl("veureGoogle")}
-                      </a>
-                      {urlEscriuRessenya(key) && (
-                        <a
-                          href={urlEscriuRessenya(key)!}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex min-h-[44px] items-center -my-2.5 font-sans text-body-sm text-accent-deep hover:text-ink transition-colors underline underline-offset-4"
-                        >
-                          {tl("escriuRessenya")}
-                        </a>
-                      )}
-                    </div>
                   </li>
                 );
               })}
             </ul>
-
-            {/* UN mapa amb els punts de venda, de Google My Maps.
-                Abans era un embed de CERCA i Google el resolia sempre a una
-                sola fitxa: ensenyava Girona i prou, per moltes botigues que hi
-                hagués. Provat amb tres consultes diferents, sempre igual.
-                Ara el mapa el fa el client al seu compte de Google i aquí
-                només se n'incrusta l'identificador: sense clau d'API, sense
-                compte de facturació i sense dependre de què li sembli a
-                Google. Si hi afegeix o hi treu punts, això no s'ha de tocar.
-                Segueix darrere del consentiment de cookies, com abans. */}
-            <StoresMap
-              className="mt-10"
-              mid={MY_MAPS_ID}
-              query="Cortinatges Esteba"
-              stores={STORE_KEYS.map((key) => ({
-                city: tl(`stores.${key}.city` as Parameters<typeof tl>[0]),
-                address: tl(`stores.${key}.address` as Parameters<typeof tl>[0]),
-              }))}
-            />
+            <Link
+              href={publicPath("/botigues", locale)}
+              className="mt-6 inline-flex min-h-[44px] items-center font-sans text-body-md text-accent-deep hover:text-ink transition-colors underline underline-offset-4"
+            >
+              {tl("veureHorarisMapa")}
+            </Link>
           </div>
         </div>
       </div>

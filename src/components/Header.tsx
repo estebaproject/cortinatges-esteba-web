@@ -7,6 +7,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { usePathname } from "@/navigation";
 import LocaleSwitcher from "./LocaleSwitcher";
 import { publicPath } from "@/lib/site";
+import { ONLINE_NAME_SHORT, ONLINE_PUBLISHED } from "@/online/config";
 
 export default function Header() {
   const t = useTranslations("Navigation");
@@ -133,11 +134,27 @@ export default function Header() {
                   d'una nota al peu. Per això per sota de `md` hi va l'apilat,
                   que és 1,47:1 i a la mateixa amplada es llegeix bé.
 
-                  A escriptori va a 28px i no creix. Es va provar a 44, 36 i
-                  28, i a 44 les lletres del logo eren MÉS ALTES que el titular
-                  de la pàgina, que com a màxim en fa 30: el logo cridava més
-                  que el missatge. A 28 torna a ser una marca i no un rètol, i
-                  lliga amb la fila de navegació de sota.
+                  A escriptori va a 24px, i la comparació que mana és d'ALÇADA
+                  DE MAJÚSCULA, no de mida de caixa. Mesurat: l'Archivo té una
+                  majúscula de 0,70 em, o sigui que el titular estàndard de
+                  pàgina (39,9px) fa 28px de majúscula. El logotip va retallat
+                  al mil·límetre —no porta ni un píxel d'aire dins el fitxer—,
+                  així que la seva majúscula és el 94% de la caixa.
+
+                      caixa 28px → majúscula 26,3px → 94% del titular
+                      caixa 24px → majúscula 22,6px → 81% del titular
+                      caixa 20px → majúscula 18,8px → 67% del titular
+
+                  A 28 el logotip i el titular es llegien com dues veus de la
+                  mateixa alçada i es feien la competència; el titular és qui
+                  ha de manar a la pàgina. A 24 el logotip segueix sent l'element
+                  més gran de la capçalera i passa a acompanyar en lloc de
+                  cridar. Per sota de 22 comença a semblar una nota al peu.
+
+                  (Abans aquí hi deia que a 44 les lletres eren més altes que un
+                  titular "de 30 com a màxim". Comparava caixa amb mida de lletra,
+                  que no és el mateix: la mida de lletra inclou el que sobresurt
+                  per sota i l'aire de dalt, i la caixa del logotip no.)
 
                   El logo sobreïx de la seva columna. És volgut: la columna de
                   l'esquerra és un separador buit i la de la dreta té el
@@ -148,7 +165,7 @@ export default function Header() {
 
                   `max-w-none` NO és decoració. El preflight de Tailwind posa
                   `max-width: 100%` a tota `img`, i la columna del centre fa
-                  240px a `md`, i el logo a 28px en demana 292. Amb l'alçada
+                  240px a `md`, i el logo a 24px en demana 250. Amb l'alçada
                   fixada i l'amplada escanyada per la columna es pintaria a
                   240x28 — proporció 8,57:1 quan la de debò és 10,43:1, o sigui
                   aixafat un 18%. Amb les mides grans que es van descartar
@@ -167,7 +184,7 @@ export default function Header() {
                 width={519}
                 height={352}
                 priority
-                className="md:hidden h-14 w-auto"
+                className="md:hidden h-12 w-auto"
               />
               <Image
                 src="/images/logo-esteba-linia.webp"
@@ -175,12 +192,31 @@ export default function Header() {
                 width={876}
                 height={84}
                 priority
-                className="hidden md:block h-7 w-auto max-w-none"
+                className="hidden md:block h-6 w-auto max-w-none"
               />
             </Link>
 
             {/* Accions dreta */}
             <div className="flex items-center justify-end gap-3 md:gap-4">
+              {/* Entrada a la botiga. Governada pel MATEIX interruptor que el
+                  noindex, robots.txt i el sitemap (src/online/config.ts):
+                  enllaçar una secció que Google no pot rastrejar seria
+                  incoherent, i portar l'usuari a una botiga tancada, pitjor. */}
+              {ONLINE_PUBLISHED && (
+                <Link
+                  href={publicPath("/online", locale)}
+                  className="hidden md:inline-flex items-center gap-2 px-6 py-2.5 bg-ink text-canvas font-sans text-xs font-semibold tracking-[0.2em] uppercase hover:bg-ink/90 transition-colors"
+                >
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12A1.125 1.125 0 0 1 19.748 21H4.252a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 6.75h12.974c.576 0 1.059.435 1.119 1.007Z" />
+                  </svg>
+                  {/* "ONLINE", no "ESTEBA ONLINE": el logotip és a la
+                      mateixa fila, tres columnes a l'esquerra, i ja ho diu.
+                      Al peu, on no hi ha logotip a prop, s'hi queda el nom
+                      sencer. */}
+                  {ONLINE_NAME_SHORT}
+                </Link>
+              )}
               {!esPortada && (
                 <Link
                   href={publicPath("/contacte", locale)}
@@ -279,6 +315,17 @@ export default function Header() {
             >
               {t("cta")}
             </Link>
+            {/* Entrada a la botiga, l'última del bloc de navegació. Mateix
+                interruptor que el botó d'escriptori. */}
+            {ONLINE_PUBLISHED && (
+              <Link
+                href={publicPath("/online", locale)}
+                onClick={() => setMenuOpen(false)}
+                className="font-sans text-body-md text-ink tracking-wide uppercase"
+              >
+                {ONLINE_NAME_SHORT}
+              </Link>
+            )}
             {/* "Demana pressupost" com a acció principal del menú.
                 A la franja blava ja hi era, però la franja està amagada per
                 sota de `sm`: en mòbil, l'única acció que hi havia era

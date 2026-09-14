@@ -8,6 +8,7 @@ import ArtisanBand from "@/components/ArtisanBand";
 import BrandsStrip from "@/components/BrandsStrip";
 import ReelsSection from "@/components/ReelsSection";
 import LocationsSection from "@/components/LocationsSection";
+import OnlineBand from "@/online/components/OnlineBand";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -18,7 +19,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "Home" });
 
   return {
-    title: t("metaTitle"),
+    // ABSOLUT, no plantilla. `Home.metaTitle` ja porta "| Cortinatges Esteba"
+    // al final, i fins ara no passava per la plantilla del layout perquè la
+    // portada era del MATEIX segment que el layout (la plantilla només
+    // s'aplica als segments fills). Dins del grup de rutes `(site)` la portada
+    // passa a ser un fill, i sense això el sufix sortiria dues vegades.
+    title: { absolute: t("metaTitle") },
     description: t("metaDescription"),
   };
 }
@@ -77,6 +83,10 @@ export default async function HomePage() {
       </div>
 
       <ContentRows />
+
+      {/* L'entrada a la botiga, entre les col·leccions i la franja d'ofici.
+          No pinta res mentre la botiga està apagada (src/online/config.ts). */}
+      <OnlineBand />
 
       {/* La franja d'ofici, al final del recorregut i just abans de les marques:
           "ho fem nosaltres des de 1961" i tot seguit amb qui ho fem. */}

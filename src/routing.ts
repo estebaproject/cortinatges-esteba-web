@@ -89,6 +89,12 @@ export const routing = defineRouting({
   pathnames: {
     "/": "/",
 
+    // --- Botiga (Esteba Online) --------------------------------------------
+    // El segment arrel és INVARIABLE en els quatre idiomes: és un nom, no una
+    // paraula. Les famílies i les fitxes que hi pengin sí que es traduiran
+    // (/online/catifes, /es/online/alfombras…) quan entrin a la fase 2.
+    "/online": "/online",
+
     // --- Pàgines institucionals -------------------------------------------
     "/serveis": { ca: "/serveis", es: "/servicios", en: "/services", fr: "/les-services" },
     "/contacte": { ca: "/contacte", es: "/contacto", en: "/contact", fr: "/contact" },

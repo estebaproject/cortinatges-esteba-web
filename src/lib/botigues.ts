@@ -11,21 +11,20 @@
  */
 
 /**
- * Mapa de Google My Maps amb els punts de venda.
+ * LES BOTIGUES QUE SURTEN AL MAPA: Girona, Blanes i Palamós.
  *
- * Viu al compte de Google del client: si hi afegeix o hi treu botigues, aquí
- * no s'ha de tocar res. Es fa servir a /contacte i a /botigues, i per això
- * l'identificador és aquí i no repetit a les dues pàgines.
- *
- * EL MAPA TÉ TRES PUNTS I ESTÀ BÉ AIXÍ: Girona, Blanes i Palamós. La
- * matalasseria del carrer Rutlla, 20 NO hi surt, i és una decisió del client
- * (26 d'agost del 2026), no un oblit — és a cent metres de la botiga de
- * Girona i al mapa quedarien els dos pins encavalcats.
- *
- * Compte si algun dia algú compara: /contacte i /botigues sí que llisten les
+ * La matalasseria del carrer Rutlla, 20 NO hi surt, i és una decisió del client
+ * (26 d'agost del 2026), no un oblit: és a cent metres de la botiga de Girona i
+ * els dos pins quedarien encavalcats. /contacte i /botigues sí que llisten les
  * QUATRE botigues en text, amb adreça i telèfon. Només el mapa en té tres.
+ *
+ * Abans el mapa era un Google My Maps incrustat, amb l'identificador aquí. Es
+ * va treure el 14/09/2026: portava una franja negra amb el nom del compte que
+ * l'havia fet, botons de compartir i de pantalla completa que Google no deixa
+ * amagar, i carregava cookies de Google. Ara el mapa el dibuixa el web
+ * (src/components/StoresMap.tsx) i Google no es toca fins que algú clica un pin.
  */
-export const MY_MAPS_ID = "1ukTsFISg2UNqXmBvFaZ-ZiY038YDb3E";
+export const BOTIGUES_AL_MAPA = ["girona", "blanes", "palamos"] as const;
 
 export const STORE_KEYS = ["girona", "blanes", "palamos", "matalasseria"] as const;
 export type StoreKey = (typeof STORE_KEYS)[number];
@@ -52,6 +51,21 @@ export function urlGoogleMaps(key: StoreKey): string {
     return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(g.cerca)}&query_place_id=${g.placeId}`;
   }
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(g.cerca)}`;
+}
+
+/**
+ * Ruta fins a la botiga, a Google Maps. És el que obre cada pin del mapa.
+ *
+ * Esquema oficial d'URL de Google Maps (`/maps/dir/?api=1`): no demana clau
+ * d'API, i obre directament el mode d'indicacions amb la botiga com a destí.
+ * Al mòbil, si hi ha l'app de Google Maps instal·lada, s'obre allà. L'origen
+ * no es posa: Google fa servir la ubicació de qui ho mira, si l'ha donat.
+ */
+export function urlIndicacions(key: StoreKey): string {
+  const g = GOOGLE[key];
+  const desti = `destination=${encodeURIComponent(g.cerca)}`;
+  const lloc = g.placeId ? `&destination_place_id=${g.placeId}` : "";
+  return `https://www.google.com/maps/dir/?api=1&${desti}${lloc}`;
 }
 
 /**

@@ -43,6 +43,9 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    // Codi de la botiga (Esteba Online). Sense això, Tailwind no generaria
+    // les classes que només s'usen aquí.
+    "./src/online/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -95,21 +98,6 @@ const config: Config = {
         "linen-dark": "#D5CDBF",
         "stone-warm": "#BCAA8C",
 
-        // --- Tema "Kave" (només dins la botiga) -------------------------
-        // Clon de la paleta de Kave Home. Prefix kave- per no tocar mai la
-        // marca Esteba (ink/sand) de la resta del lloc. La pàgina de tenda
-        // és blanca; els "tiles" de foto van sobre gris càlid; els blocs
-        // editorials (Sobre el producte) sobre verd sàlvia.
-        "kave-bg": "#FFFFFF",       // fons de pàgina de la botiga
-        "kave-surface": "#EDEBE6",  // bloc de foto (card media) gris càlid
-        "kave-promo": "#E9E6DD",    // barra promo beige
-        "kave-sage": "#C7CBB4",     // bloc "Sobre el producte"
-        "kave-ink": "#1D1D1B",      // text i botons (gairebé negre)
-        "kave-muted": "#6E6E68",    // text secundari
-        "kave-faint": "#9A968C",    // text terciari / desactivat
-        "kave-line": "#E2DFD8",     // hairlines i vores
-        "kave-red": "#C8102E",      // preu rebaixat (vermell)
-        "kave-tag": "#C2A468",      // accent (daurat beix clar)
       },
       fontFamily: {
         // Els dos tokens apunten a la MATEIXA família, l'Archivo. Es conserven
@@ -121,10 +109,56 @@ const config: Config = {
         // de serif no en té res.)
         serif: ["var(--font-archivo)", "Archivo", "system-ui", "sans-serif"],
         sans: ["var(--font-archivo)", "Archivo", "system-ui", "sans-serif"],
-        // Tipografies del tema Kave (carregades global, usades només a botiga).
-        display: ["var(--font-fraunces)", "Georgia", "serif"],
-        grotesque: ["var(--font-hanken)", "system-ui", "sans-serif"],
       },
+      /**
+       * QUI FA SERVIR CADA MIDA. La llista no és decorativa: el web
+       * informatiu i la botiga han de fer servir la mateixa mida per a la
+       * mateixa feina, o el lloc es llegeix com dos webs.
+       *
+       *   display-lg (40px) ... TÍTOL DE PÀGINA. Un per pàgina, l'<h1>.
+       *   display-md (28px) ... TÍTOL DE SECCIÓ. Els <h2> que parteixen la
+       *                         pàgina en blocs.
+       *   body-lg (17px) ...... entradeta sota el títol.
+       *   body-md (16px) ...... text corrent.
+       *   body-sm (14px) ...... text secundari i nom de producte a la graella.
+       *   eyebrow (12px) ...... RÈTOL, no títol. El sobretítol de damunt d'un
+       *                         <h1> i les etiquetes dins d'un bloc
+       *                         ("Característiques", "Principals
+       *                         col·laboradors"). Mai per partir una pàgina.
+       *
+       * L'ERRADA QUE JA HI VA HAVER: la botiga feia servir l'`eyebrow` per als
+       * títols de secció, o sigui 12px, mentre el web informatiu els feia a
+       * 28. Dins la botiga, a més, quedaven MÉS PETITS que el nom dels
+       * productes que encapçalaven (14px): el rètol d'una secció era més petit
+       * que el que hi havia a dins. Vuit títols corregits el 12/09/2026.
+       *
+       * VERSALETES O CAIXA NORMAL, ALS TÍTOLS DE PÀGINA. Si un títol sembla
+       * massa gran, mira't primer això, que no la mida: a la mateixa mida,
+       * les versaletes pesen força més, perquè totes les lletres arriben a
+       * l'alçada de majúscula mentre que en caixa normal la majoria es queden
+       * a l'alçada de la x, que és tres quartes parts. La regla, que val per
+       * a l'<h1> (els <h2> de secció van SEMPRE en versaletes, a tot el
+       * lloc, i això no es discuteix aquí):
+       *
+       *   VERSALETES quan el títol és el NOM d'una cosa — un producte, un
+       *   tipus, un espai, una col·lecció, una acció ("Demana pressupost",
+       *   "Concerta una cita"), el cistell.
+       *
+       *   CAIXA NORMAL quan el títol és una FRASE que parla al lector —
+       *   "Els nostres serveis", "Vols treballar amb nosaltres?", "Vine a
+       *   veure'ns. Parlem del teu espai.", "Tres generacions fent cortines".
+       *
+       * Tres títols que eren frases anaven en versaletes i s'han passat a
+       * caixa normal el 12/09/2026: /serveis, /vols-treballar-amb-nosaltres i
+       * l'heroi de la botiga. Cap mida es va tocar —segueixen fent els
+       * mateixos 40px que tots— i tot i així van deixar de semblar que
+       * cridessin. A l'heroi encara s'hi guanya una altra cosa: sobre foto,
+       * en versaletes cada lletra arriba a l'alçada de majúscula i el bloc de
+       * text en tapava molta més.
+       *
+       * Amb aquests tres, ja no queda cap <h1> que sigui una frase escrit en
+       * versaletes.
+       */
       fontSize: {
         "display-xl": ["clamp(2.25rem, 3.5vw, 3.5rem)", { lineHeight: "1.12", letterSpacing: "-0.01em" }],
         "display-lg": ["clamp(1.875rem, 2.6vw, 2.75rem)", { lineHeight: "1.15", letterSpacing: "-0.01em" }],

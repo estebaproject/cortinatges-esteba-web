@@ -4,7 +4,7 @@ import { whatsappUrl } from "@/lib/whatsapp";
 import { SITE_URL, SITE_NAME, localizedAlternatesFor, openGraphFor } from "@/lib/site";
 import Link from "next/link";
 import StoresMap from "@/components/StoresMap";
-import { MY_MAPS_ID } from "@/lib/botigues";
+import { urlEscriuRessenya, urlGoogleMaps } from "@/lib/botigues";
 import { publicPath } from "@/lib/site";
 
 type Props = {
@@ -55,6 +55,14 @@ export default async function StoresPage() {
   const tn = await getTranslations("Navigation");
   const locale = await getLocale();
 
+  // L'HORARI, UNA SOLA VEGADA SI ÉS EL MATEIX. Les quatre botigues fan el
+  // mateix horari (comprovat als quatre idiomes el 14/09/2026) i sortia
+  // repetit a cada targeta. Es calcula, no es dona per fet: el dia que una
+  // botiga en canviï, `horariComu` passa a null i cada targeta torna a portar
+  // el seu, sense tocar res aquí.
+  const horaris = STORE_KEYS.map((key) => t(`stores.${key}.schedule` as Parameters<typeof t>[0]));
+  const horariComu = new Set(horaris).size === 1 ? horaris[0] : null;
+
   return (
     <section className="pt-40 md:pt-48 pb-section bg-canvas" aria-label={t("ariaLabel")}>
       <script
@@ -69,18 +77,18 @@ export default async function StoresPage() {
           <h1 className="font-serif text-display-lg text-ink">{t("headline")}</h1>
         </header>
 
-        {/* El mateix mapa de My Maps que a /contacte. Abans aquí hi havia un
-            embed de cerca, que Google resolia sempre a una sola fitxa: el
-            comentari deia "els quatre punts de venda" i n'ensenyava un. */}
-        <StoresMap
-          className="mb-16"
-          mid={MY_MAPS_ID}
-          query="Cortinatges Esteba"
-          stores={STORE_KEYS.map((key) => ({
-            city: t(`stores.${key}.city` as Parameters<typeof t>[0]),
-            address: t(`stores.${key}.address` as Parameters<typeof t>[0]),
-          }))}
-        />
+        {/* El mapa de les tres botigues, dibuixat pel web (el perquè, a
+            src/components/StoresMap.tsx). Cada pin obre la ruta a Google Maps. */}
+        <StoresMap className="mb-16" />
+
+        {horariComu && (
+          <p className="mb-8 font-sans text-body-md text-ink">
+            <span className="mr-3 font-sans text-xs font-semibold tracking-[0.18em] uppercase text-ink-muted">
+              {t("horariTotes")}
+            </span>
+            {horariComu}
+          </p>
+        )}
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" role="list">
           {STORE_KEYS.map((key) => {
@@ -101,9 +109,11 @@ export default async function StoresPage() {
                     {t(`stores.${key}.note` as Parameters<typeof t>[0])}
                   </p>
                 )}
-                <p className="font-sans text-body-sm text-ink-faint mb-6">
-                  {t(`stores.${key}.schedule` as Parameters<typeof t>[0])}
-                </p>
+                {!horariComu && (
+                  <p className="font-sans text-body-sm text-ink-faint mb-6">
+                    {t(`stores.${key}.schedule` as Parameters<typeof t>[0])}
+                  </p>
+                )}
                 <div className="mt-auto flex flex-col gap-3">
                   <a
                     href={`tel:+34${phone.replace(/\s/g, "")}`}
@@ -121,6 +131,30 @@ export default async function StoresPage() {
                   >
                     WhatsApp
                   </a>
+                  {/* La fitxa de Google de la botiga, que abans només era a
+                      /contacte. NO és l'API de ressenyes: demana compte de
+                      facturació i per a quatre botigues no compensa. El botó
+                      d'ESCRIURE'N una només surt quan tenim el Place ID. */}
+                  <div className="flex flex-wrap gap-x-5 gap-y-1">
+                    <a
+                      href={urlGoogleMaps(key)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex min-h-[44px] items-center font-sans text-body-sm text-accent-deep hover:text-ink transition-colors underline underline-offset-4"
+                    >
+                      {t("veureGoogle")}
+                    </a>
+                    {urlEscriuRessenya(key) && (
+                      <a
+                        href={urlEscriuRessenya(key)!}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex min-h-[44px] items-center font-sans text-body-sm text-accent-deep hover:text-ink transition-colors underline underline-offset-4"
+                      >
+                        {t("escriuRessenya")}
+                      </a>
+                    )}
+                  </div>
                 </div>
               </li>
             );
