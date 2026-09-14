@@ -1,6 +1,11 @@
 # No subir a Vercel material que no es del runtime del sitio
 DOCUMENTS/
 reference/
-*.mjs
+# Només els .mjs de l'ARREL (scripts de captura locals). Abans hi deia "*.mjs"
+# a seques, que també s'enduia public/mapa/maplibre-<versió>/*.mjs: el worker del
+# mapa no arribava a Vercel, donava 404 i el mapa interactiu no carregava mai en
+# producció (en local sí, perquè .vercelignore només s'aplica en pujar).
+/*.mjs
+scripts/
 1.1.png
 auditoria-*.md
