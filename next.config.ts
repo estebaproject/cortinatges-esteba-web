@@ -180,6 +180,16 @@ const WP_REDIRECTS: {
 ];
 
 const nextConfig: NextConfig = {
+  // METADADES AL <head>, PER A TOTHOM. Des de Next 15.2, el <title> i la meta
+  // descripció s'envien al final del document ("streaming metadata") per a
+  // qualsevol visitant que no sigui a la llista de bots "limitats", i Googlebot
+  // no hi és perquè executa JavaScript. Mesurat a producció el 15/09/2026: tant
+  // amb l'agent de Googlebot com amb el d'un mòbil, el <title> sortia al byte
+  // 35.705 i el </head> tancava al 3.237, o sigui dins el <body>. Google se'n
+  // surt, però Bing, les vistes prèvies de WhatsApp o LinkedIn i Lighthouse
+  // (que ho marcava com a "falta la meta descripció") no sempre. Les pàgines
+  // són estàtiques, així que esperar les metadades no costa res.
+  htmlLimitedBots: /.*/,
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 2678400,
