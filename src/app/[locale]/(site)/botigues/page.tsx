@@ -60,12 +60,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Locations" });
   return {
-    title: t("headline"),
+    // Títol curt amb les tres ciutats: el titular de la pàgina ("Vine a
+    // veure'ns. Parlem del teu espai.") passava de 60 caràcters en anglès i francès.
+    title: t("metaTitle"),
     // Abans la descripció era el sobretítol, "Les nostres botigues": 20
     // caràcters. Ara diu què hi ha, on i per a què (metaDescription).
     description: t("metaDescription"),
     alternates: localizedAlternatesFor("/botigues", locale),
-    openGraph: openGraphFor("/botigues", locale, t("headline"), t("metaDescription")),
+    openGraph: openGraphFor("/botigues", locale, t("metaTitle"), t("metaDescription")),
   };
 }
 
