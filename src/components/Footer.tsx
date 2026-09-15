@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getTranslations, getLocale } from "next-intl/server";
 import { publicPath } from "@/lib/site";
+import { STORE_KEYS } from "@/lib/botigues";
 import { ONLINE_NAME, ONLINE_PUBLISHED } from "@/online/config";
 
 export default async function Footer() {
@@ -9,28 +10,19 @@ export default async function Footer() {
   const locale = await getLocale();
   const home = publicPath("/", locale);
 
-  const stores = [
-    {
-      city: "Girona",
-      address: "C/ Rutlla, 11 · 17002",
-      phone: "972 20 34 23",
-    },
-    {
-      city: "Blanes",
-      address: "Rambla Joaquim Ruyra, 59 · 17300",
-      phone: "972 33 05 73",
-    },
-    {
-      city: "Palamós",
-      address: "C/ Miguel de Cervantes, 35",
-      phone: "972 31 62 19",
-    },
-    {
-      city: "Matalasseria",
-      address: "C/ Rutlla, 20 · Girona",
-      phone: "972 20 34 23",
-    },
-  ];
+  // LES BOTIGUES SURTEN DEL MATEIX LLOC QUE A /botigues I /contacte
+  // (Locations.stores, als quatre idiomes). Fins al 15/09/2026 aquí hi havia
+  // una còpia escrita a mà, i s'havia quedat coixa: a Girona i Blanes els
+  // faltava la ciutat, a Palamós el codi postal i la ciutat, i a la
+  // matalasseria el codi postal. El peu surt a totes les pàgines, i per a la
+  // cerca local l'adreça ha de ser la mateixa a tot arreu, i sencera.
+  const tl = await getTranslations("Locations");
+  const stores = STORE_KEYS.map((key) => ({
+    key,
+    city: tl(`stores.${key}.city` as Parameters<typeof tl>[0]),
+    address: tl(`stores.${key}.address` as Parameters<typeof tl>[0]),
+    phone: tl(`stores.${key}.phone` as Parameters<typeof tl>[0]),
+  }));
 
   // PEU INVERTIT: fons beige i lletra blava.
 
@@ -128,7 +120,7 @@ export default async function Footer() {
           </div>
 
           {stores.map((store) => (
-            <div key={store.city}>
+            <div key={store.key}>
               <h3 className="font-sans text-body-sm font-medium text-ink tracking-widest uppercase mb-4">
                 {store.city}
               </h3>
@@ -136,7 +128,7 @@ export default async function Footer() {
                 <p>{store.address}</p>
                 <p className="mt-2">
                   <a
-                    href={`tel:${store.phone.replace(/\s/g, "")}`}
+                    href={`tel:+34${store.phone.replace(/\s/g, "")}`}
                     className="inline-flex min-h-[44px] items-center -my-3 hover:text-ink transition-colors"
                   >
                     {store.phone}
