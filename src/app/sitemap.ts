@@ -38,6 +38,14 @@ const STATIC_ROUTES = Object.keys(routing.pathnames).filter(
   (href) => !href.startsWith("/colleccions/") && !href.startsWith("/online"),
 ) as Array<Parameters<typeof publicUrl>[0]>;
 
+/**
+ * LEGALS, NOMÉS EN CATALÀ. Des del 15/09/2026 les versions es/en/fr dels textos
+ * legals porten noindex (el text és en català amb un hreflang d'una altra
+ * llengua). Una URL al sitemap amb noindex és una contradicció que Search
+ * Console marca com a error, així que aquí també surten només en català.
+ */
+const NOMES_CATALA = new Set(["/avis-legal", "/privacitat", "/cookies"]);
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const hrefs = [
     ...STATIC_ROUTES,
@@ -50,14 +58,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const isHome = href === "/";
     const isProduct = typeof href === "string" && href.startsWith("/colleccions/");
 
+    const locales = NOMES_CATALA.has(href as string) ? [routing.defaultLocale] : routing.locales;
+
     // alternates hreflang: totes les versions d'idioma d'aquesta mateixa pàgina
     const languages: Record<string, string> = {};
-    for (const locale of routing.locales) {
+    for (const locale of locales) {
       languages[locale] = publicUrl(href, locale);
     }
     languages["x-default"] = publicUrl(href, routing.defaultLocale);
 
-    for (const locale of routing.locales) {
+    for (const locale of locales) {
       entries.push({
         url: publicUrl(href, locale),
         changeFrequency: isHome ? "weekly" : "monthly",
