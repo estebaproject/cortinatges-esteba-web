@@ -217,7 +217,7 @@ export default function StoresMapInteractiu({
     let cancellat = false;
     let mapa: import("maplibre-gl").Map | undefined;
 
-    (async () => {
+    const arrenca = async () => {
       // Sense WebGL no hi ha mapa interactiu possible: es queda el dibuixat.
       try {
         const c = document.createElement("canvas");
@@ -350,13 +350,57 @@ export default function StoresMapInteractiu({
         ajustaLimits();
         setLlest(true);
       });
-    })().catch((e) => {
-      // Si la llibreria o les dades fallen, es queda el dibuixat, que funciona.
-      if (process.env.NODE_ENV !== "production") console.error("[mapa botigues]", e);
-    });
+    };
+    const arrencaSegur = () => {
+      if (cancellat) return;
+      arrenca().catch((e) => {
+        // Si la llibreria o les dades fallen, es queda el dibuixat, que funciona.
+        if (process.env.NODE_ENV !== "production") console.error("[mapa botigues]", e);
+      });
+    };
+
+    // EL MAPA ARRENCA TARD, A POSTA. MapLibre pesa: en un mòbil, analitzar-lo i
+    // posar-lo en marxa són més de mig segon de feina seguida al fil principal.
+    // Si arrencava en muntar-se, aquesta feina queia just quan el navegador havia
+    // de pintar el títol, i Lighthouse mesurava el títol de /botigues a 4,1 s
+    // (3,4 s d'espera només per pintar) i un rendiment de 63. El títol no té res
+    // a veure amb el mapa; simplement no li deixava lloc.
+    //
+    // Ara s'espera tres coses, per ordre: que la pàgina hagi acabat de
+    // carregar, que el mapa sigui a prop de la pantalla i que el navegador
+    // estigui lliure. Mentrestant es veu el mapa dibuixat, amb els pins que ja
+    // funcionen, o sigui que ningú no espera res per trobar una botiga.
+    let observador: IntersectionObserver | undefined;
+    let idle: number | undefined;
+    let temporitzador: ReturnType<typeof setTimeout> | undefined;
+    const quanLliure = () => {
+      const ric = (window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number }).requestIdleCallback;
+      if (ric) idle = ric(arrencaSegur, { timeout: 2500 });
+      else temporitzador = setTimeout(arrencaSegur, 1200);
+    };
+    const despresDeCarregar = () => {
+      if (cancellat || !contenidor.current) return;
+      observador = new IntersectionObserver(
+        (entrades) => {
+          if (entrades.some((e) => e.isIntersecting)) {
+            observador?.disconnect();
+            quanLliure();
+          }
+        },
+        { rootMargin: "300px" },
+      );
+      observador.observe(contenidor.current);
+    };
+    if (document.readyState === "complete") despresDeCarregar();
+    else window.addEventListener("load", despresDeCarregar, { once: true });
 
     return () => {
       cancellat = true;
+      observador?.disconnect();
+      window.removeEventListener("load", despresDeCarregar);
+      const cic = (window as Window & { cancelIdleCallback?: (id: number) => void }).cancelIdleCallback;
+      if (idle !== undefined && cic) cic(idle);
+      if (temporitzador) clearTimeout(temporitzador);
       mapa?.remove();
     };
   }, [pins, lang, colorPin, textos]);
