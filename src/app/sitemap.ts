@@ -28,8 +28,14 @@ import { PRODUCT_SLUGS } from "@/lib/products";
 //
 // Comprovat que la resta de rutes de `pathnames` són totes públiques i
 // indexables: les 11 donen 200 amb canonical autoreferencial.
+// FORA TAMBÉ /online. La publicació del 15/09/2026 va portar a `pathnames` la
+// ruta de la botiga (la capçalera i el peu la necessiten per tipar l'enllaç),
+// però les pàgines de la botiga NO hi són: /online dona 404. Com que aquesta
+// llista es deriva de `pathnames`, el sitemap publicat en va sortir amb quatre
+// URLs trencades (una per idioma). Quan la botiga es publiqui, el seu sitemap
+// ja porta el seu propi filtre.
 const STATIC_ROUTES = Object.keys(routing.pathnames).filter(
-  (href) => !href.startsWith("/colleccions/"),
+  (href) => !href.startsWith("/colleccions/") && !href.startsWith("/online"),
 ) as Array<Parameters<typeof publicUrl>[0]>;
 
 export default function sitemap(): MetadataRoute.Sitemap {
