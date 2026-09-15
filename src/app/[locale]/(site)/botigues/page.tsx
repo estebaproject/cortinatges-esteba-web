@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { getTranslations, getLocale } from "next-intl/server";
 import { whatsappUrl } from "@/lib/whatsapp";
-import { SITE_URL, SITE_NAME, localizedAlternatesFor, openGraphFor } from "@/lib/site";
+import { SITE_URL, DEFAULT_OG_IMAGE, ORGANITZACIO_ID, localizedAlternatesFor, openGraphFor } from "@/lib/site";
 import Link from "next/link";
 import StoresMap from "@/components/StoresMap";
-import { urlEscriuRessenya, urlGoogleMaps } from "@/lib/botigues";
+import { urlEscriuRessenya, urlGoogleMaps, type StoreKey } from "@/lib/botigues";
 import { publicPath } from "@/lib/site";
 
 type Props = {
@@ -14,19 +14,35 @@ type Props = {
 const STORE_KEYS = ["girona", "blanes", "palamos", "matalasseria"] as const;
 
 // Dades reals per a l'schema LocalBusiness (SEO local / Google Maps).
-const STORES_DATA = [
-  { name: "Cortinatges Esteba Girona", street: "C/ Rutlla, 11", zip: "17002", city: "Girona", phone: "+34972203423" },
-  { name: "Cortinatges Esteba Blanes", street: "Rambla Joaquim Ruyra, 59", zip: "17300", city: "Blanes", phone: "+34972330573" },
-  { name: "Cortinatges Esteba Palamós", street: "C/ Miguel de Cervantes, 35", zip: "17230", city: "Palamós", phone: "+34972316219" },
-  { name: "Cortinatges Esteba Matalasseria", street: "C/ Rutlla, 20", zip: "17002", city: "Girona", phone: "+34972203423" },
+const STORES_DATA: { key: StoreKey; name: string; street: string; zip: string; city: string; phone: string }[] = [
+  { key: "girona", name: "Cortinatges Esteba Girona", street: "C/ Rutlla, 11", zip: "17002", city: "Girona", phone: "+34972203423" },
+  { key: "blanes", name: "Cortinatges Esteba Blanes", street: "Rambla Joaquim Ruyra, 59", zip: "17300", city: "Blanes", phone: "+34972330573" },
+  { key: "palamos", name: "Cortinatges Esteba Palamós", street: "C/ Miguel de Cervantes, 35", zip: "17230", city: "Palamós", phone: "+34972316219" },
+  { key: "matalasseria", name: "Cortinatges Esteba Matalasseria", street: "C/ Rutlla, 20", zip: "17002", city: "Girona", phone: "+34972203423" },
 ];
 
+/**
+ * Horari de les botigues en format schema.org. És el mateix per a totes
+ * (comprovat als quatre idiomes el 14/09/2026); si algun dia una en canvia,
+ * cal passar-lo a STORES_DATA per botiga.
+ */
+const HORARI_SCHEMA = [
+  { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "09:30", closes: "13:30" },
+  { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "16:30", closes: "20:00" },
+  { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "10:00", closes: "13:30" },
+];
+
+// Cada botiga amb el seu identificador, l'horari, el mapa i l'empresa de la
+// qual depèn. Abans hi havia nom, telèfon i adreça, i parentOrganization era
+// un text: Google no el podia lligar amb l'Organization de la resta del lloc.
 const storesSchema = STORES_DATA.map((s) => ({
   "@context": "https://schema.org",
   "@type": "HomeGoodsStore",
+  "@id": `${SITE_URL}/botigues#${s.key}`,
   name: s.name,
-  parentOrganization: SITE_NAME,
-  url: SITE_URL,
+  parentOrganization: { "@id": ORGANITZACIO_ID },
+  url: `${SITE_URL}/botigues`,
+  image: `${SITE_URL}${DEFAULT_OG_IMAGE}`,
   telephone: s.phone,
   address: {
     "@type": "PostalAddress",
@@ -36,6 +52,8 @@ const storesSchema = STORES_DATA.map((s) => ({
     addressRegion: "Girona",
     addressCountry: "ES",
   },
+  openingHoursSpecification: HORARI_SCHEMA,
+  hasMap: urlGoogleMaps(s.key),
 }));
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -43,9 +61,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "Locations" });
   return {
     title: t("headline"),
-    description: t("eyebrow"),
+    // Abans la descripció era el sobretítol, "Les nostres botigues": 20
+    // caràcters. Ara diu què hi ha, on i per a què (metaDescription).
+    description: t("metaDescription"),
     alternates: localizedAlternatesFor("/botigues", locale),
-    openGraph: openGraphFor("/botigues", locale, t("headline"), t("eyebrow")),
+    openGraph: openGraphFor("/botigues", locale, t("headline"), t("metaDescription")),
   };
 }
 

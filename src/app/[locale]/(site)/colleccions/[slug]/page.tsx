@@ -13,6 +13,7 @@ import { whatsappUrl } from "@/lib/whatsapp";
 import {
   SITE_URL,
   SITE_NAME,
+  ORGANITZACIO_ID,
   collectionHref,
   localizedAlternatesFor,
   publicPath,
@@ -33,17 +34,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const tp = await getTranslations({ locale, namespace: "Products" });
   const name = tp(`${slug}.name` as Parameters<typeof tp>[0]);
   const tagline = tp(`${slug}.tagline` as Parameters<typeof tp>[0]);
+  // TÍTOL I DESCRIPCIÓ PER A GOOGLE, NO EL NOM I L'ESLÒGAN. Fins al 15/09/2026
+  // el títol era el nom a seques ("Cortina tradicional") i la descripció,
+  // l'eslògan de la fitxa: entre 25 i 67 caràcters, sense dir ni "a mida" ni
+  // on som. Google mostra fins a uns 155, i qui busca "tendals a mida Girona"
+  // no trobava cap de les dues paraules que el fan clicar. Ara cada servei té
+  // un `seoTitle` amb la ciutat (màx. 60 amb la marca) i una `seoDescription`
+  // de 125-160 que diu què és, on i que el pressupost és gratuït.
+  const seoTitle = tp.has(`${slug}.seoTitle` as Parameters<typeof tp>[0]) ? tp(`${slug}.seoTitle` as Parameters<typeof tp>[0]) : name;
+  const seoDescription = tp.has(`${slug}.seoDescription` as Parameters<typeof tp>[0]) ? tp(`${slug}.seoDescription` as Parameters<typeof tp>[0]) : tagline;
   const url = publicUrl(collectionHref(slug), locale);
   const image = `/images/products/${slug}/1.jpg`;
   return {
-    title: name,
-    description: tagline,
+    title: seoTitle,
+    description: seoDescription,
     alternates: localizedAlternatesFor(collectionHref(slug), locale),
     openGraph: {
       type: "website",
       url,
       title: name,
-      description: tagline,
+      description: seoDescription,
       // SENSE `width` i `height` A POSTA. Aquí hi deia 1200x630, escrit a mà,
       // i no era veritat a cap de les 11 fitxes: mesurades una a una fan
       // 1400x940, 1400x880, 600x540, 900x600, 1400x1048, 1024x693, 795x645,
@@ -68,7 +78,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       title: name,
-      description: tagline,
+      description: seoDescription,
       images: [image],
     },
   };
@@ -131,40 +141,34 @@ export default async function ProductPage({ params }: Props) {
   const otherProducts = PRODUCTS.filter((p) => p.slug !== slug).slice(0, 4);
 
   const canonicalUrl = publicUrl(collectionHref(slug), locale);
+  // SERVICE, NO PRODUCT. Fins al 15/09/2026 aquí hi havia un Product sense
+  // offers, review ni aggregateRating. Google n'exigeix un dels tres per a
+  // qualsevol Product, i sense cap les 56 fitxes (14 serveis x 4 idiomes) eren
+  // elements no vàlids per als resultats enriquits. I tampoc no era veritat:
+  // aquí no es ven un objecte amb preu, s'ofereix un servei a mida
+  // —assessorament, presa de mides, confecció i instal·lació— en una zona
+  // concreta. Service diu exactament això, amb qui el presta i on.
   const productSchema = {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "Service",
     name,
+    serviceType: name,
     description: `${intro} ${paragraphs.join(" ")}`.trim(),
     image: images.map((i) => `${SITE_URL}${i}`),
-    // Traduïda: abans anava escrita en català i s'emetia IGUAL a les versions
-    // castellana, anglesa i francesa. Eren 14 fitxes x 4 idiomes = 56 pàgines
-    // declarant una categoria en un idioma que no era el de la pàgina.
+    url: canonicalUrl,
     category: t("schemaCategory"),
-    brand: { "@type": "Brand", name: SITE_NAME },
-    // AQUÍ HI HAVIA `material: product.brands.join(", ")`, i era FALS.
-    //
-    // schema.org defineix `material` com «A material that something is made
-    // from, e.g. leather, wool, cotton, paper», i la guia de Merchant Center
-    // de Google diu literalment «Avoid using values that don't mention the
-    // material». Nosaltres hi posàvem els PROVEÏDORS: quatre fitxes declaraven
-    // que la cortina està feta de «Designers Guild» o l'estor de «Bandalux».
-    //
-    // Treure-ho no costa res, i està mesurat: Google només llegeix `material`
-    // a les merchant listings, que exigeixen `offers`; i cap fitxa d'aquesta
-    // secció emet offers, review ni aggregateRating, perquè són informatives i
-    // no es ven res des d'aquí. O sigui que el camp ja era inert.
-    //
-    // NO ES TORNA A POSAR amb `brand` ni amb `manufacturer`: seria pitjor.
-    // Ara dèiem malament DE QUÈ està feta la cortina; allò diria que la
-    // fabrica Bandalux, quan la confeccionem nosaltres. I aquells dos camps
-    // Google sí que els llegeix.
-    //
-    // LA LLISTA `brands` DE products.ts ES QUEDA: alimenta la franja visible
-    // «Treballem amb:» de la barra lateral. Si algú l'esborra "netejant",
-    // desapareix de 16 pàgines. I les cinc marques que no sortien enlloc del
-    // text (Bandalux, Vertisol, Designers Guild, Romo i Aldeco) ara són a la
-    // prosa de les seves fitxes, com ja hi eren Somfy i EPID.
+    provider: { "@id": ORGANITZACIO_ID },
+    areaServed: [
+      { "@type": "City", name: "Girona" },
+      { "@type": "City", name: "Blanes" },
+      { "@type": "City", name: "Palamós" },
+      { "@type": "AdministrativeArea", name: "Província de Girona" },
+    ],
+    // AQUÍ HI HAVIA material: product.brands.join(", "), i era FALS: hi posàvem
+    // els PROVEÏDORS (una cortina "feta de Designers Guild"). Tampoc no es torna
+    // a posar amb brand ni manufacturer: diria que la fabrica Bandalux, quan la
+    // confeccionem nosaltres. LA LLISTA brands DE products.ts ES QUEDA:
+    // alimenta la franja visible «Treballem amb:».
   };
   const breadcrumbSchema = {
     "@context": "https://schema.org",

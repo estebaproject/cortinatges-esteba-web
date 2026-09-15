@@ -4,7 +4,8 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/routing";
-import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE } from "@/lib/site";
+import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE, ORGANITZACIO_ID } from "@/lib/site";
+import { ADRECA_SOCIAL, EMPRESA } from "@/lib/empresa";
 import "@/app/globals.css";
 
 /**
@@ -106,7 +107,26 @@ export default async function LocaleLayout({ children, params }: Props) {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
+    // Identificador únic: les botigues i els serveis hi apunten (vegeu
+    // ORGANITZACIO_ID a src/lib/site.ts).
+    "@id": ORGANITZACIO_ID,
     name: SITE_NAME,
+    // Les dades legals, les MATEIXES que l'avís legal: surten de
+    // src/lib/empresa.ts. Abans l'Organization no portava ni raó social, ni
+    // NIF, ni adreça, ni telèfon, ni correu: Google només en sabia el nom.
+    legalName: EMPRESA.denominacio ?? undefined,
+    taxID: EMPRESA.nif ?? undefined,
+    email: EMPRESA.correu ?? undefined,
+    telephone: "+34972203423",
+    address: { "@type": "PostalAddress", ...ADRECA_SOCIAL },
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+34972203423",
+      email: EMPRESA.correu ?? undefined,
+      contactType: "customer service",
+      availableLanguage: ["ca", "es", "en", "fr"],
+      areaServed: "ES",
+    },
     foundingDate: "1961",
     // Aquesta descripció la llegeix Google directament (dades estructurades):
     // ha de dir què es fa, no explicar un relat.

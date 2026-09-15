@@ -115,7 +115,8 @@
     "mapaGestosMac": "Fes servir ⌘ i la roda per fer zoom al mapa",
     "mapaGestosMobil": "Fes servir dos dits per moure el mapa",
     "horariTotes": "Totes les botigues",
-    "veureHorarisMapa": "Horaris i mapa de les botigues"
+    "veureHorarisMapa": "Horaris i mapa de les botigues",
+    "metaDescription": "Les nostres botigues de cortines i tèxtil de la llar a Girona, Blanes i Palamós: adreces, horaris, telèfon i mapa. Vine a veure'ns o demana cita."
   },
   "CtaVisita": {
     "ariaLabel": "Concertar una cita",
@@ -125,7 +126,8 @@
     "metaDescription": "Parlem del teu projecte a la botiga o a casa teva. Pressupost sense cost ni compromís; la visita a domicili amb mostrari té un preu que et descomptem.",
     "ctaPrimary": "Concertar una cita",
     "ctaSecondary": "La botiga més propera",
-    "disclaimer": "Sense compromís ni pressió de venda."
+    "disclaimer": "Sense compromís ni pressió de venda.",
+    "metaTitle": "Contacte i pressupost a Girona"
   },
   "Home": {
     "metaTitle": "Tèxtil i protecció solar a mida a Girona | Cortinatges Esteba",
@@ -186,7 +188,7 @@
     "showcaseHeading": "Inspiració per a casa teva"
   },
   "Serveis": {
-    "metaTitle": "Els nostres serveis — Assessorament, presa de mides, confecció i instal·lació",
+    "metaTitle": "Serveis de cortines a mida a Girona",
     "metaDescription": "Atenció personalitzada de principi a fi: assessorament, disseny interior, presa de mides, confecció artesanal i instal·lació pròpia a Girona, Blanes i Palamós.",
     "eyebrow": "Serveis",
     "title": "Els nostres serveis",
@@ -338,7 +340,9 @@
             "Opacs: impedeixen per complet el pas de la llum"
           ]
         }
-      ]
+      ],
+      "seoTitle": "Cortines a mida a Girona",
+      "seoDescription": "Cortines a mida amb teles editorials. Mides a casa, taller propi i instal·lació a Girona, Blanes i Palamós. Pressupost gratuït."
     },
     "estor-paquet": {
       "name": "Estor paquet",
@@ -357,7 +361,9 @@
         "Instal·lació molt senzilla.",
         "Aquest tipus de cortina s'instal·la tant en dormitoris com en cuines o menjadors, i és una solució molt bona per a habitacions amb pocs metres.",
         "Al taller també se'n diu estor romà. I si el que busques és una cortina austríaca o una romana en cascada, són confeccions properes que també fem."
-      ]
+      ],
+      "seoTitle": "Estors paquet a mida a Girona",
+      "seoDescription": "Estors paquet a mida, amb plecs naturals. Mides a casa, taller propi i instal·lació a Girona, Blanes i Palamós. Pressupost gratuït."
     },
     "estor-enrotllable": {
       "name": "Estor enrotllable",
@@ -395,7 +401,9 @@
             "Guies laterals per a l'exterior"
           ]
         }
-      ]
+      ],
+      "seoTitle": "Estors enrotllables a mida a Girona",
+      "seoDescription": "Estors enrotllables a mida: screen, translúcid o opac. Mides a casa, taller propi i instal·lació a Girona, Blanes i Palamós. Pressupost gratuït."
     },
     "panell-japones": {
       "name": "Panell japonès",
@@ -416,7 +424,9 @@
       ],
       "notes": [
         "També hi ha l’opció d’escollir el panel japonés amb un tirador a cada extrem per tal de facilitar l’accés."
-      ]
+      ],
+      "seoTitle": "Panells japonesos a mida a Girona",
+      "seoDescription": "Panells japonesos per a finestrals i portes corredisses. Mides a casa, taller propi i instal·lació a Girona, Blanes i Palamós. Pressupost gratuït."
     },
     "veneciana-alumini": {
       "name": "Veneciana d'alumini",
@@ -426,7 +436,9 @@
         "Es regeix segons l'amplada de la lama: les de 25 mm, les més populars, o les de 50 mm, més apropiades per a finestres de gran dimensió.",
         "Lleugera, resistent i fàcil de mantenir, ideal per a cuines, banys i espais de treball.",
         "La cortina veneciana existeix en dos materials: l'alumini, més lleuger i resistent a la humitat, i la fusta, que aporta calidesa."
-      ]
+      ],
+      "seoTitle": "Venecianes d'alumini a mida, Girona",
+      "seoDescription": "Venecianes d'alumini a mida per controlar la llum. Mides a casa, taller propi i instal·lació a Girona, Blanes i Palamós. Pressupost gratuït."
     },
     "veneciana-fusta": {
       "name": "Veneciana de fusta",
@@ -436,7 +448,9 @@
         "Les lames amples i les cintes decoratives li donen un aspecte càlid i acollidor, perfecte per a sales i dormitoris.",
         "Per a qui busca un control precís de la llum sense renunciar a la calidesa dels materials naturals.",
         "La cortina veneciana existeix en dos materials: l'alumini, més lleuger i resistent a la humitat, i la fusta, que aporta calidesa."
-      ]
+      ],
+      "seoTitle": "Venecianes de fusta a mida a Girona",
+      "seoDescription": "Venecianes de fusta natural a mida. Mides a casa, taller propi i instal·lació a Girona, Blanes i Palamós. Pressupost gratuït."
     },
     "prisada": {
       "name": "Cortina prisada",
@@ -455,7 +469,9 @@
       ],
       "notes": [
         "Fabricada a mesura i disponible amb diverses opcions de muntatge, la cortina prisada pot adaptar-se tant a les finestres grans com petites."
-      ]
+      ],
+      "seoTitle": "Cortines prisades a mida a Girona",
+      "seoDescription": "Cortines prisades a mida, per a la llum i la privadesa. Mides a casa, taller propi i instal·lació a Girona, Blanes i Palamós. Pressupost gratuït."
     },
     "vertical": {
       "name": "Cortina vertical",
@@ -471,7 +487,9 @@
       ],
       "notes": [
         "Al sector també se les coneix com a lames verticals o gira-sols."
-      ]
+      ],
+      "seoTitle": "Cortines verticals a mida a Girona",
+      "seoDescription": "Cortines verticals amb lames orientables. Mides a casa, taller propi i instal·lació a Girona, Blanes i Palamós. Pressupost gratuït."
     },
     "nit-i-dia": {
       "name": "Cortina nit i dia",
@@ -488,7 +506,9 @@
         "Totes les tonalitats permeten l’entrada de llum tènue a excepció del color negre, sent aquest més enfosquidor.",
         "Els estors nit i dia inclouen un calaix embellidor per tal de cobrir el mecanisme i crear un ambient més net.",
         "Aquest també poden ser amb estampats tèxtils a joc amb la mateixa cortina."
-      ]
+      ],
+      "seoTitle": "Cortines nit i dia a mida a Girona",
+      "seoDescription": "Cortines nit i dia: llum o ombra amb un sol gest. Mides a casa, taller propi i instal·lació a Girona, Blanes i Palamós. Pressupost gratuït."
     },
     "motoritzacio": {
       "name": "Motorització i domòtica",
@@ -504,7 +524,9 @@
         "Control des de l'smartphone",
         "Programacions horàries i escenes",
         "Integració amb domòtica (KNX, Somfy TaHoma)"
-      ]
+      ],
+      "seoTitle": "Motorització de cortines a Girona",
+      "seoDescription": "Motoritza cortines i estors i controla la llum de tota la casa. Mides a casa, taller propi i instal·lació a Girona, Blanes i Palamós. Pressupost gratuït."
     },
     "mosquitera": {
       "name": "Mosquiteres",
@@ -525,7 +547,9 @@
             "Antipol·len"
           ]
         }
-      ]
+      ],
+      "seoTitle": "Mosquiteres a mida a Girona",
+      "seoDescription": "Mosquiteres a mida: enrotllables, plissades, fixes o corredisses. Mides a casa, taller propi i instal·lació a Girona, Blanes i Palamós. Pressupost gratuït."
     },
     "tendals": {
       "name": "Tendals",
@@ -570,7 +594,9 @@
             "Motoritzat i automatitzat (sol i vent)"
           ]
         }
-      ]
+      ],
+      "seoTitle": "Tendals a mida a Girona i la costa",
+      "seoDescription": "Tendals a mida per a terrasses i balcons: de braços o de cofre. Mides a casa, taller propi i instal·lació a Girona, Blanes i Palamós. Pressupost gratuït."
     },
     "pergoles": {
       "name": "Pèrgoles",
@@ -620,7 +646,9 @@
             "Motoritzat i automatitzat"
           ]
         }
-      ]
+      ],
+      "seoTitle": "Pèrgoles a mida a Girona i la costa",
+      "seoDescription": "Pèrgoles a mida, de fusta o d'alumini, tèxtils o bioclimàtiques. Mides a casa, taller propi i instal·lació a Girona, Blanes i Palamós. Pressupost gratuït."
     },
     "tapisseria": {
       "name": "Tapisseria",
@@ -669,7 +697,9 @@
             "Nàutica"
           ]
         }
-      ]
+      ],
+      "seoTitle": "Tapisseria de mobles a Girona",
+      "seoDescription": "Entapissem sofàs, butaques, cadires i capçals al nostre taller. Mides a casa, taller propi i instal·lació a Girona, Blanes i Palamós. Pressupost gratuït."
     },
     "moquetes": {
       "name": "Moquetes",
@@ -700,7 +730,9 @@
             "Fibres de polièster"
           ]
         }
-      ]
+      ],
+      "seoTitle": "Moquetes a mida a Girona",
+      "seoDescription": "Moquetes a mida sense juntes, de llana, niló o fibres vegetals. Mides a casa, taller propi i instal·lació a Girona, Blanes i Palamós. Pressupost gratuït."
     }
   },
   "Whatsapp": {

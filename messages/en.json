@@ -115,7 +115,8 @@
     "mapaGestosMac": "Use ⌘ + scroll to zoom the map",
     "mapaGestosMobil": "Use two fingers to move the map",
     "horariTotes": "All our shops",
-    "veureHorarisMapa": "Opening hours and map of our shops"
+    "veureHorarisMapa": "Opening hours and map of our shops",
+    "metaDescription": "Our curtain and home textile shops in Girona, Blanes and Palamós: addresses, opening hours, phone numbers and map. Visit us or book an appointment."
   },
   "CtaVisita": {
     "ariaLabel": "Book a consultation",
@@ -125,7 +126,8 @@
     "metaDescription": "Let's talk about your project, in store or at home. Free quote, no obligation; the home visit with sample book has a price we deduct from your order.",
     "ctaPrimary": "Book a consultation",
     "ctaSecondary": "Find your nearest store",
-    "disclaimer": "No commitment, no sales pressure."
+    "disclaimer": "No commitment, no sales pressure.",
+    "metaTitle": "Contact us and get a quote in Girona"
   },
   "Home": {
     "metaTitle": "Made-to-measure textiles and sun protection | Cortinatges Esteba",
@@ -186,7 +188,7 @@
     "showcaseHeading": "Inspiration for your home"
   },
   "Serveis": {
-    "metaTitle": "Our services — Advice, measuring, making and installation",
+    "metaTitle": "Curtain and blind services in Girona",
     "metaDescription": "Personalised attention from start to finish: advice, interior design, measuring, handcrafted making and our own installation in Girona, Blanes and Palamós.",
     "eyebrow": "Services",
     "title": "Our services",
@@ -338,7 +340,9 @@
             "Blackout: block the light completely"
           ]
         }
-      ]
+      ],
+      "seoTitle": "Made-to-measure curtains in Girona",
+      "seoDescription": "Made-to-measure curtains in designer fabrics. Home measuring, our own workshop and fitting in Girona, Blanes and Palamós. No-obligation quote."
     },
     "estor-paquet": {
       "name": "Roman blind",
@@ -357,7 +361,9 @@
         "Very simple to install.",
         "It suits bedrooms, kitchens and dining rooms alike, and works particularly well in small rooms.",
         "In the workshop it is also called a Roman blind. And if what you are after is an Austrian blind or a cascade blind, those are closely related makes that we also do."
-      ]
+      ],
+      "seoTitle": "Made-to-measure Roman blinds, Girona",
+      "seoDescription": "Made-to-measure Roman blinds with soft folds. Home measuring, our own workshop and fitting in Girona, Blanes and Palamós. No-obligation quote."
     },
     "estor-enrotllable": {
       "name": "Roller blind",
@@ -395,7 +401,9 @@
             "Side guide rails for outdoor use"
           ]
         }
-      ]
+      ],
+      "seoTitle": "Made-to-measure roller blinds, Girona",
+      "seoDescription": "Made-to-measure roller blinds: screen, sheer or blackout. Home measuring, our own workshop and fitting in Girona, Blanes and Palamós. No-obligation quote."
     },
     "panell-japones": {
       "name": "Japanese panel",
@@ -416,7 +424,9 @@
       ],
       "notes": [
         "There is also the option of choosing the Japanese panel with a handle at each end for easy access."
-      ]
+      ],
+      "seoTitle": "Japanese panel blinds in Girona",
+      "seoDescription": "Japanese panel blinds for large windows and patio doors. Home measuring, our own workshop and fitting in Girona, Blanes and Palamós. No-obligation quote."
     },
     "veneciana-alumini": {
       "name": "Aluminium venetian blind",
@@ -426,7 +436,9 @@
         "It comes in different slat widths: 25 mm, the most popular, or 50 mm, better suited to large windows.",
         "Light, durable and easy to maintain — ideal for kitchens, bathrooms and workspaces.",
         "The venetian blind comes in two materials: aluminium, lighter and more resistant to damp, and wood, which brings warmth."
-      ]
+      ],
+      "seoTitle": "Aluminium venetian blinds in Girona",
+      "seoDescription": "Aluminium venetian blinds for precise light control. Home measuring, our own workshop and fitting in Girona, Blanes and Palamós. No-obligation quote."
     },
     "veneciana-fusta": {
       "name": "Wooden venetian blind",
@@ -436,7 +448,9 @@
         "Wide slats and decorative tapes give it a warm, welcoming look, perfect for living rooms and bedrooms.",
         "For those who want precise light control without giving up the warmth of natural materials.",
         "The venetian blind comes in two materials: aluminium, lighter and more resistant to damp, and wood, which brings warmth."
-      ]
+      ],
+      "seoTitle": "Wooden venetian blinds in Girona",
+      "seoDescription": "Made-to-measure natural wood venetian blinds. Home measuring, our own workshop and fitting in Girona, Blanes and Palamós. No-obligation quote."
     },
     "prisada": {
       "name": "Pleated blind",
@@ -455,7 +469,9 @@
       ],
       "notes": [
         "Custom-made and available with various mounting options, the pleated curtain can be adapted to fit both large and small windows."
-      ]
+      ],
+      "seoTitle": "Made-to-measure pleated blinds, Girona",
+      "seoDescription": "Made-to-measure pleated blinds for light and privacy. Home measuring, our own workshop and fitting in Girona, Blanes and Palamós. No-obligation quote."
     },
     "vertical": {
       "name": "Vertical blind",
@@ -471,7 +487,9 @@
       ],
       "notes": [
         "In the trade they are also called vertical louvres."
-      ]
+      ],
+      "seoTitle": "Vertical blinds made to measure, Girona",
+      "seoDescription": "Vertical blinds with adjustable slats. Home measuring, our own workshop and fitting in Girona, Blanes and Palamós. No-obligation quote."
     },
     "nit-i-dia": {
       "name": "Day and night blind",
@@ -488,7 +506,9 @@
         "All the shades allow the entrance of dim light except for black, which feels more diffuser.",
         "The night and day blinds include an embellishing drawer to cover the mechanism and create a cleaner environment.",
         "This can also be with textile prints to match the curtain itself."
-      ]
+      ],
+      "seoTitle": "Day and night blinds in Girona",
+      "seoDescription": "Day and night blinds: light or shade in one move. Home measuring, our own workshop and fitting in Girona, Blanes and Palamós. No-obligation quote."
     },
     "motoritzacio": {
       "name": "Motorisation and home automation",
@@ -504,7 +524,9 @@
         "Smartphone control",
         "Schedules and scenes",
         "Home automation integration (KNX, Somfy TaHoma)"
-      ]
+      ],
+      "seoTitle": "Motorised blinds and curtains, Girona",
+      "seoDescription": "Motorise your curtains and blinds and control the light. Home measuring, our own workshop and fitting in Girona, Blanes and Palamós. No-obligation quote."
     },
     "mosquitera": {
       "name": "Insect screens",
@@ -525,7 +547,9 @@
             "Anti-pollen"
           ]
         }
-      ]
+      ],
+      "seoTitle": "Made-to-measure insect screens, Girona",
+      "seoDescription": "Insect screens: roller, pleated, fixed or sliding. Home measuring, our own workshop and fitting in Girona, Blanes and Palamós. No-obligation quote."
     },
     "tendals": {
       "name": "Awnings",
@@ -570,7 +594,9 @@
             "Motorised and automated (sun and wind sensors)"
           ]
         }
-      ]
+      ],
+      "seoTitle": "Awnings made to measure in Girona",
+      "seoDescription": "Made-to-measure awnings for terraces and balconies. Home measuring, our own workshop and fitting in Girona, Blanes and Palamós. No-obligation quote."
     },
     "pergoles": {
       "name": "Pergolas",
@@ -620,7 +646,9 @@
             "Motorised and automated"
           ]
         }
-      ]
+      ],
+      "seoTitle": "Made-to-measure pergolas in Girona",
+      "seoDescription": "Timber or aluminium pergolas, fabric or bioclimatic. Home measuring, our own workshop and fitting in Girona, Blanes and Palamós. No-obligation quote."
     },
     "tapisseria": {
       "name": "Upholstery",
@@ -669,7 +697,9 @@
             "Marine interiors"
           ]
         }
-      ]
+      ],
+      "seoTitle": "Furniture upholstery in Girona",
+      "seoDescription": "We reupholster sofas, armchairs, chairs and headboards. Home measuring, our own workshop and fitting in Girona, Blanes and Palamós. No-obligation quote."
     },
     "moquetes": {
       "name": "Fitted carpets",
@@ -700,7 +730,9 @@
             "Polyester fibres"
           ]
         }
-      ]
+      ],
+      "seoTitle": "Fitted carpets in Girona",
+      "seoDescription": "Seamless fitted carpets in wool, nylon or natural fibres. Home measuring, our own workshop and fitting in Girona, Blanes and Palamós. No-obligation quote."
     }
   },
   "Whatsapp": {

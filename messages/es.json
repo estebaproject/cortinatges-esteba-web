@@ -115,7 +115,8 @@
     "mapaGestosMac": "Usa ⌘ y la rueda para hacer zoom en el mapa",
     "mapaGestosMobil": "Usa dos dedos para mover el mapa",
     "horariTotes": "Todas las tiendas",
-    "veureHorarisMapa": "Horarios y mapa de las tiendas"
+    "veureHorarisMapa": "Horarios y mapa de las tiendas",
+    "metaDescription": "Nuestras tiendas de cortinas y textil del hogar en Girona, Blanes y Palamós: direcciones, horarios, teléfono y mapa. Ven a vernos o pide cita."
   },
   "CtaVisita": {
     "ariaLabel": "Concertar una cita",
@@ -125,7 +126,8 @@
     "metaDescription": "Hablamos de tu proyecto en la tienda o en tu casa. Presupuesto sin coste ni compromiso; la visita a domicilio con muestrario es de pago y se descuenta.",
     "ctaPrimary": "Concertar una cita",
     "ctaSecondary": "La tienda más cercana",
-    "disclaimer": "Sin compromiso ni presión de venta."
+    "disclaimer": "Sin compromiso ni presión de venta.",
+    "metaTitle": "Contacto y presupuesto en Girona"
   },
   "Home": {
     "metaTitle": "Textil y protección solar a medida en Girona | Cortinatges Esteba",
@@ -186,7 +188,7 @@
     "showcaseHeading": "Inspiración para tu casa"
   },
   "Serveis": {
-    "metaTitle": "Nuestros servicios — Asesoramiento, toma de medidas, confección e instalación",
+    "metaTitle": "Servicios de cortinas a medida, Girona",
     "metaDescription": "Atención personalizada: asesoramiento, diseño interior, toma de medidas, confección artesanal e instalación propia en Girona, Blanes y Palamós.",
     "eyebrow": "Servicios",
     "title": "Nuestros servicios",
@@ -338,7 +340,9 @@
             "Opacos: impiden por completo el paso de la luz"
           ]
         }
-      ]
+      ],
+      "seoTitle": "Cortinas a medida en Girona",
+      "seoDescription": "Cortinas a medida con telas editoriales. Medición en casa, taller propio e instalación en Girona, Blanes y Palamós. Presupuesto gratis."
     },
     "estor-paquet": {
       "name": "Estor paquete",
@@ -357,7 +361,9 @@
         "Instalación muy sencilla.",
         "Este tipo de cortina se instala tanto en dormitorios como en cocinas o comedores, y es una solución muy buena para habitaciones con pocos metros.",
         "En el taller también se le llama estor romano. Y si lo que buscas es una cortina austriaca o una romana en cascada, son confecciones cercanas que también hacemos."
-      ]
+      ],
+      "seoTitle": "Estores paquete a medida en Girona",
+      "seoDescription": "Estores paquete a medida, con pliegues naturales. Medición en casa, taller propio e instalación en Girona, Blanes y Palamós. Presupuesto gratis."
     },
     "estor-enrotllable": {
       "name": "Estor enrollable",
@@ -395,7 +401,9 @@
             "Guías laterales para exterior"
           ]
         }
-      ]
+      ],
+      "seoTitle": "Estores enrollables a medida, Girona",
+      "seoDescription": "Estores enrollables a medida: screen, translúcido u opaco. Medición en casa, taller propio e instalación en Girona, Blanes y Palamós. Presupuesto gratis."
     },
     "panell-japones": {
       "name": "Panel japonés",
@@ -416,7 +424,9 @@
       ],
       "notes": [
         "También hay la opción de escoger el panel japonés con un tirador a cada extremo para facilitar el acceso."
-      ]
+      ],
+      "seoTitle": "Paneles japoneses a medida en Girona",
+      "seoDescription": "Paneles japoneses para ventanales y puertas correderas. Medición en casa, taller propio e instalación en Girona, Blanes y Palamós. Presupuesto gratis."
     },
     "veneciana-alumini": {
       "name": "Veneciana de aluminio",
@@ -426,7 +436,9 @@
         "Se rige según el ancho de la lama: las de 25 mm, las más populares, o las de 50 mm, más apropiadas para ventanas de gran dimensión.",
         "Ligera, resistente y fácil de mantener, ideal para cocinas, baños y espacios de trabajo.",
         "La cortina veneciana existe en dos materiales: el aluminio, más ligero y resistente a la humedad, y la madera, que aporta calidez."
-      ]
+      ],
+      "seoTitle": "Venecianas de aluminio a medida, Girona",
+      "seoDescription": "Venecianas de aluminio a medida para dosificar la luz. Medición en casa, taller propio e instalación en Girona, Blanes y Palamós. Presupuesto gratis."
     },
     "veneciana-fusta": {
       "name": "Veneciana de madera",
@@ -436,7 +448,9 @@
         "Las lamas anchas y las cintas decorativas le dan un aspecto cálido y acogedor, perfecto para salones y dormitorios.",
         "Para quien busca un control preciso de la luz sin renunciar a la calidez de los materiales naturales.",
         "La cortina veneciana existe en dos materiales: el aluminio, más ligero y resistente a la humedad, y la madera, que aporta calidez."
-      ]
+      ],
+      "seoTitle": "Venecianas de madera a medida, Girona",
+      "seoDescription": "Venecianas de madera natural a medida. Medición en casa, taller propio e instalación en Girona, Blanes y Palamós. Presupuesto gratis."
     },
     "prisada": {
       "name": "Cortina plisada",
@@ -455,7 +469,9 @@
       ],
       "notes": [
         "Fabricada a medida y disponible con varias opciones de montaje, la cortina plisada puede adaptarse tanto a las ventanas grandes como pequeñas."
-      ]
+      ],
+      "seoTitle": "Cortinas plisadas a medida en Girona",
+      "seoDescription": "Cortinas plisadas a medida, para la luz y la privacidad. Medición en casa, taller propio e instalación en Girona, Blanes y Palamós. Presupuesto gratis."
     },
     "vertical": {
       "name": "Cortina vertical",
@@ -471,7 +487,9 @@
       ],
       "notes": [
         "En el sector también se las conoce como lamas verticales o girasoles."
-      ]
+      ],
+      "seoTitle": "Cortinas verticales a medida, Girona",
+      "seoDescription": "Cortinas verticales con lamas orientables. Medición en casa, taller propio e instalación en Girona, Blanes y Palamós. Presupuesto gratis."
     },
     "nit-i-dia": {
       "name": "Cortina noche y día",
@@ -488,7 +506,9 @@
         "Todas las tonalidades permiten la entrada de luz tenue a excepción del color negro, siente este más enfosquidor.",
         "Los estores noche y día incluyen un cajón embellecedor para cubrir el mecanismo y crear un ambiente más limpio.",
         "Este también pueden ser con estampados textiles a juego con la misma cortina."
-      ]
+      ],
+      "seoTitle": "Cortinas noche y día a medida, Girona",
+      "seoDescription": "Cortinas noche y día: luz o sombra con un solo gesto. Medición en casa, taller propio e instalación en Girona, Blanes y Palamós. Presupuesto gratis."
     },
     "motoritzacio": {
       "name": "Motorización y domótica",
@@ -504,7 +524,9 @@
         "Control desde el smartphone",
         "Programaciones horarias y escenas",
         "Integración con domótica (KNX, Somfy TaHoma)"
-      ]
+      ],
+      "seoTitle": "Motorización de cortinas en Girona",
+      "seoDescription": "Motoriza cortinas y estores y controla la luz de toda la casa. Medición en casa, taller propio e instalación en Girona, Blanes y Palamós. Presupuesto gratis."
     },
     "mosquitera": {
       "name": "Mosquiteras",
@@ -525,7 +547,9 @@
             "Antipolen"
           ]
         }
-      ]
+      ],
+      "seoTitle": "Mosquiteras a medida en Girona",
+      "seoDescription": "Mosquiteras a medida: enrollables, plisadas, fijas o correderas. Medición en casa, taller propio e instalación en Girona, Blanes y Palamós. Presupuesto gratis."
     },
     "tendals": {
       "name": "Toldos",
@@ -570,7 +594,9 @@
             "Motorizado y automatizado (sol y viento)"
           ]
         }
-      ]
+      ],
+      "seoTitle": "Toldos a medida en Girona y la costa",
+      "seoDescription": "Toldos a medida para terrazas y balcones: de brazos o de cofre. Medición en casa, taller propio e instalación en Girona, Blanes y Palamós. Presupuesto gratis."
     },
     "pergoles": {
       "name": "Pérgolas",
@@ -620,7 +646,9 @@
             "Motorizado y automatizado"
           ]
         }
-      ]
+      ],
+      "seoTitle": "Pérgolas a medida en Girona y la costa",
+      "seoDescription": "Pérgolas de madera o aluminio, textiles o bioclimáticas. Medición en casa, taller propio e instalación en Girona, Blanes y Palamós. Presupuesto gratis."
     },
     "tapisseria": {
       "name": "Tapicería",
@@ -669,7 +697,9 @@
             "Náutica"
           ]
         }
-      ]
+      ],
+      "seoTitle": "Tapicería de muebles en Girona",
+      "seoDescription": "Tapizamos sofás, butacas, sillas y cabeceros en nuestro taller. Medición en casa, taller propio e instalación en Girona, Blanes y Palamós. Presupuesto gratis."
     },
     "moquetes": {
       "name": "Moquetas",
@@ -700,7 +730,9 @@
             "Fibras de poliéster"
           ]
         }
-      ]
+      ],
+      "seoTitle": "Moquetas a medida en Girona",
+      "seoDescription": "Moquetas a medida sin juntas, de lana, nailon o fibras vegetales. Medición en casa, taller propio e instalación en Girona, Blanes y Palamós. Presupuesto gratis."
     }
   },
   "Whatsapp": {

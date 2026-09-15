@@ -67,7 +67,7 @@ import { DADES_PENDENTS, dadesEmpresa } from "@/lib/empresa";
  * src/components/LegalMarkdown.tsx.
  */
 
-export type LegalDoc = { slug: string; title: string; text: string };
+export type LegalDoc = { slug: string; title: string; description: string; text: string };
 
 const AVIS_LEGAL_TEXT = `
 ## Qui és el titular d'aquest web
@@ -217,18 +217,21 @@ El responsable és {{denominacio}}, NIF {{nif}}. Per a qualsevol dubte, escriu a
 export const AVIS_LEGAL: LegalDoc = {
   slug: "avis-legal",
   title: "Avís legal",
+  description: "Avís legal de Cortinatges Esteba S.L.: dades del titular del web, propietat intel·lectual, exclusió de responsabilitat i condicions d'ús.",
   text: AVIS_LEGAL_TEXT,
 };
 
 export const PRIVACITAT: LegalDoc = {
   slug: "privacitat",
   title: "Política de protecció de dades",
+  description: "Com tracta Cortinatges Esteba les teves dades: què recollim, per a què, amb quina base legal, quant temps les guardem i quins drets tens.",
   text: PRIVACITAT_TEXT,
 };
 
 export const COOKIES: LegalDoc = {
   slug: "cookies",
   title: "Política de cookies",
+  description: "Aquest web no fa servir cookies de seguiment ni analítica. Què desa al navegador, per què no et demanem permís i com ho controles.",
   text: COOKIES_TEXT,
 };
 

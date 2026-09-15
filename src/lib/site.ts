@@ -13,6 +13,15 @@ export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://cortinatgesesteba.com"
 ).replace(/\/+$/, "");
 export const SITE_NAME = "Cortinatges Esteba";
+
+/**
+ * Identificador de l'empresa a les dades estructurades. L'Organization del
+ * layout el declara a TOTES les pàgines, i les botigues i els serveis hi
+ * apunten amb {"@id": ORGANITZACIO_ID} en lloc de repetir-ne el nom com a
+ * text. Així Google entén que és la mateixa entitat, i no quatre "Cortinatges
+ * Esteba" que casualment es diuen igual.
+ */
+export const ORGANITZACIO_ID = `${SITE_URL}/#organitzacio`;
 /**
  * Imatge que surt quan algú comparteix el web (WhatsApp, Facebook, X…).
  *

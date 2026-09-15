@@ -73,6 +73,18 @@ export const EMPRESA = {
   llindarEnviamentGratuit: "150" as Dada,
 } as const;
 
+/**
+ * El domicili social desglossat, per a les dades estructurades (schema.org
+ * PostalAddress). Ha de dir el mateix que EMPRESA.domicili.
+ */
+export const ADRECA_SOCIAL = {
+  streetAddress: "C/ Rutlla, 11",
+  postalCode: "17002",
+  addressLocality: "Girona",
+  addressRegion: "Girona",
+  addressCountry: "ES",
+} as const;
+
 /** Com s'escriu cada dada dins d'un text legal: `{{clau}}`. */
 export type ClauEmpresa = keyof typeof EMPRESA;
 

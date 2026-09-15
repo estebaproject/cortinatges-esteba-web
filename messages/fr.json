@@ -115,7 +115,8 @@
     "mapaGestosMac": "Utilisez ⌘ + molette pour zoomer sur la carte",
     "mapaGestosMobil": "Utilisez deux doigts pour déplacer la carte",
     "horariTotes": "Toutes nos boutiques",
-    "veureHorarisMapa": "Horaires et plan de nos boutiques"
+    "veureHorarisMapa": "Horaires et plan de nos boutiques",
+    "metaDescription": "Nos boutiques de rideaux et linge de maison à Gérone, Blanes et Palamós : adresses, horaires, téléphone et plan. Venez nous voir ou prenez rendez-vous."
   },
   "CtaVisita": {
     "ariaLabel": "Prendre rendez-vous",
@@ -125,7 +126,8 @@
     "metaDescription": "Parlons de votre projet en boutique ou chez vous. Devis gratuit et sans engagement ; la visite à domicile avec échantillons est payante et déduite.",
     "ctaPrimary": "Prendre rendez-vous",
     "ctaSecondary": "Trouver la boutique la plus proche",
-    "disclaimer": "Sans engagement ni pression commerciale."
+    "disclaimer": "Sans engagement ni pression commerciale.",
+    "metaTitle": "Contact et devis à Gérone"
   },
   "Home": {
     "metaTitle": "Textile et protection solaire sur mesure | Cortinatges Esteba",
@@ -186,7 +188,7 @@
     "showcaseHeading": "De l'inspiration pour votre maison"
   },
   "Serveis": {
-    "metaTitle": "Nos services — Conseil, prise de mesures, confection et installation",
+    "metaTitle": "Rideaux et stores sur mesure à Gérone",
     "metaDescription": "Accompagnement personnalisé : conseil, design d'intérieur, prise de mesures, confection artisanale et installation par nos soins à Gérone, Blanes et Palamós.",
     "eyebrow": "Services",
     "title": "Nos services",
@@ -338,7 +340,9 @@
             "Occultants : empêchent complètement le passage de la lumière"
           ]
         }
-      ]
+      ],
+      "seoTitle": "Rideaux sur mesure à Gérone",
+      "seoDescription": "Rideaux sur mesure en tissus d'éditeur. Mesures à domicile, atelier propre et pose à Gérone, Blanes et Palamós. Devis gratuit."
     },
     "estor-paquet": {
       "name": "Store bateau",
@@ -357,7 +361,9 @@
         "Pose très simple.",
         "Il convient aussi bien aux chambres qu'aux cuisines ou aux salles à manger, et tout particulièrement aux petites pièces.",
         "À l'atelier on l'appelle aussi store romain. Et si vous cherchez un rideau autrichien ou un store en cascade, ce sont des confections proches que nous réalisons également."
-      ]
+      ],
+      "seoTitle": "Stores bateau sur mesure à Gérone",
+      "seoDescription": "Stores bateau sur mesure aux plis naturels. Mesures à domicile, atelier propre et pose à Gérone, Blanes et Palamós. Devis gratuit."
     },
     "estor-enrotllable": {
       "name": "Store enrouleur",
@@ -395,7 +401,9 @@
             "Coulisses latérales pour l'extérieur"
           ]
         }
-      ]
+      ],
+      "seoTitle": "Stores enrouleurs sur mesure, Gérone",
+      "seoDescription": "Stores enrouleurs sur mesure : screen ou occultant. Mesures à domicile, atelier propre et pose à Gérone, Blanes et Palamós. Devis gratuit."
     },
     "panell-japones": {
       "name": "Panneau japonais",
@@ -416,7 +424,9 @@
       ],
       "notes": [
         "Il est également possible de choisir le panneau japonais avec une poignée à chaque extrémité pour un accès facile."
-      ]
+      ],
+      "seoTitle": "Panneaux japonais sur mesure, Gérone",
+      "seoDescription": "Panneaux japonais pour grandes baies vitrées. Mesures à domicile, atelier propre et pose à Gérone, Blanes et Palamós. Devis gratuit."
     },
     "veneciana-alumini": {
       "name": "Store vénitien en aluminium",
@@ -426,7 +436,9 @@
         "Il existe en différentes largeurs de lame : 25 mm, les plus populaires, ou 50 mm, mieux adaptées aux grandes fenêtres.",
         "Léger, résistant et facile d'entretien, idéal pour les cuisines, salles de bains et espaces de travail.",
         "Le store vénitien existe en deux matériaux : l'aluminium, plus léger et résistant à l'humidité, et le bois, qui apporte de la chaleur."
-      ]
+      ],
+      "seoTitle": "Stores vénitiens aluminium, Gérone",
+      "seoDescription": "Stores vénitiens en aluminium pour doser la lumière. Mesures à domicile, atelier propre et pose à Gérone, Blanes et Palamós. Devis gratuit."
     },
     "veneciana-fusta": {
       "name": "Store vénitien en bois",
@@ -436,7 +448,9 @@
         "Les lames larges et les rubans décoratifs lui donnent un aspect chaleureux, parfait pour les salons et les chambres.",
         "Pour ceux qui veulent un contrôle précis de la lumière sans renoncer à la chaleur des matériaux naturels.",
         "Le store vénitien existe en deux matériaux : l'aluminium, plus léger et résistant à l'humidité, et le bois, qui apporte de la chaleur."
-      ]
+      ],
+      "seoTitle": "Stores vénitiens en bois, Gérone",
+      "seoDescription": "Stores vénitiens en bois naturel sur mesure. Mesures à domicile, atelier propre et pose à Gérone, Blanes et Palamós. Devis gratuit."
     },
     "prisada": {
       "name": "Store plissé",
@@ -455,7 +469,9 @@
       ],
       "notes": [
         "Fabriqué sur mesure et disponible avec différentes options de montage, le rideau plissé peut s’adapter aux petites et grandes fenêtres."
-      ]
+      ],
+      "seoTitle": "Stores plissés sur mesure à Gérone",
+      "seoDescription": "Stores plissés sur mesure, pour la lumière et l'intimité. Mesures à domicile, atelier propre et pose à Gérone, Blanes et Palamós. Devis gratuit."
     },
     "vertical": {
       "name": "Store à bandes verticales",
@@ -471,7 +487,9 @@
       ],
       "notes": [
         "Dans le métier, on les appelle aussi lames verticales."
-      ]
+      ],
+      "seoTitle": "Stores à bandes verticales, Gérone",
+      "seoDescription": "Stores à bandes verticales orientables. Mesures à domicile, atelier propre et pose à Gérone, Blanes et Palamós. Devis gratuit."
     },
     "nit-i-dia": {
       "name": "Store jour-nuit",
@@ -488,7 +506,9 @@
         "Tous les stores permettent l’entrée d’une lumière tamisée, à l’exception du noir, qui semble plus diffus.",
         "Les stores de jour et de nuit comprennent un tiroir d’embellissement pour couvrir le mécanisme et créer un environnement plus propre.",
         "Il peut également s’agir d’imprimés textiles assortis au rideau lui-même."
-      ]
+      ],
+      "seoTitle": "Stores jour-nuit sur mesure, Gérone",
+      "seoDescription": "Stores jour-nuit : lumière ou ombre d'un seul geste. Mesures à domicile, atelier propre et pose à Gérone, Blanes et Palamós. Devis gratuit."
     },
     "motoritzacio": {
       "name": "Motorisation et domotique",
@@ -504,7 +524,9 @@
         "Contrôle depuis le smartphone",
         "Programmations horaires et scènes",
         "Intégration domotique (KNX, Somfy TaHoma)"
-      ]
+      ],
+      "seoTitle": "Motorisation de stores à Gérone",
+      "seoDescription": "Motorisez rideaux et stores et pilotez la lumière. Mesures à domicile, atelier propre et pose à Gérone, Blanes et Palamós. Devis gratuit."
     },
     "mosquitera": {
       "name": "Moustiquaires",
@@ -525,7 +547,9 @@
             "Anti-pollen"
           ]
         }
-      ]
+      ],
+      "seoTitle": "Moustiquaires sur mesure à Gérone",
+      "seoDescription": "Moustiquaires : enroulables, plissées, fixes ou coulissantes. Mesures à domicile, atelier propre et pose à Gérone, Blanes et Palamós. Devis gratuit."
     },
     "tendals": {
       "name": "Stores bannes",
@@ -570,7 +594,9 @@
             "Motorisée et automatisée (soleil et vent)"
           ]
         }
-      ]
+      ],
+      "seoTitle": "Stores bannes sur mesure à Gérone",
+      "seoDescription": "Stores bannes sur mesure pour terrasses et balcons. Mesures à domicile, atelier propre et pose à Gérone, Blanes et Palamós. Devis gratuit."
     },
     "pergoles": {
       "name": "Pergolas",
@@ -620,7 +646,9 @@
             "Motorisée et automatisée"
           ]
         }
-      ]
+      ],
+      "seoTitle": "Pergolas sur mesure à Gérone",
+      "seoDescription": "Pergolas en bois ou aluminium, toile ou bioclimatiques. Mesures à domicile, atelier propre et pose à Gérone, Blanes et Palamós. Devis gratuit."
     },
     "tapisseria": {
       "name": "Tapisserie",
@@ -669,7 +697,9 @@
             "Aménagement nautique"
           ]
         }
-      ]
+      ],
+      "seoTitle": "Tapisserie d'ameublement à Gérone",
+      "seoDescription": "Nous retapissons canapés, fauteuils, chaises et têtes de lit. Mesures à domicile, atelier propre et pose à Gérone, Blanes et Palamós. Devis gratuit."
     },
     "moquetes": {
       "name": "Moquettes",
@@ -700,7 +730,9 @@
             "Fibres de polyester"
           ]
         }
-      ]
+      ],
+      "seoTitle": "Moquettes sur mesure à Gérone",
+      "seoDescription": "Moquettes sur mesure sans joints, en laine, nylon ou fibres naturelles. Mesures à domicile, atelier propre et pose à Gérone, Blanes et Palamós. Devis gratuit."
     }
   },
   "Whatsapp": {

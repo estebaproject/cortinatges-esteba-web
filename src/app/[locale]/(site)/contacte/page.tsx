@@ -22,7 +22,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // `metaDescription` diu les dues coses —pressupost sense cost, visita amb
   // preu que es descompta— dins del límit, i val igual per a l'OpenGraph.
   return {
-    title: t("headline"),
+    // El titular de la pàgina ("Demana la teva visita. T'assessorem a casa o a
+    // la botiga.") feia 78 caràcters amb la marca i Google el tallava. Per a la
+    // pestanya i els resultats, un títol curt amb la ciutat (metaTitle).
+    title: t("metaTitle"),
     description: t("metaDescription"),
     alternates: localizedAlternatesFor("/contacte", locale),
     openGraph: openGraphFor("/contacte", locale, t("headline"), t("metaDescription")),
